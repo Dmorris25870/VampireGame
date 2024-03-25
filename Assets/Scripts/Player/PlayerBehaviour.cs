@@ -61,7 +61,10 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
      
-
+    private void OnAbility1()
+    {        
+        EventManager.OnQAbility?.Invoke();
+    }
 
 
 }
