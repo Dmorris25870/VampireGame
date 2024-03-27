@@ -61,9 +61,11 @@ public class InventoryScriptLITE : MonoBehaviour {
 		if (Input.GetKeyDown(inventoryKey)) {
 			inventory = !inventory;
 			if (inventory) {
+				Cursor.lockState = CursorLockMode.None;
 				inventoryPanel.anchorMax = new Vector2 (1, 1);
 				inventoryPanel.anchorMin = new Vector2 (0, 0);
 			} else {
+				Cursor.lockState = CursorLockMode.Locked;
 				inventoryPanel.anchorMax = new Vector2 (1, 0);
 				inventoryPanel.anchorMin = new Vector2 (0, -1);
 			}
@@ -90,7 +92,7 @@ public class InventoryScriptLITE : MonoBehaviour {
 					StartCoroutine ("NotEnough");
 				}
 				//}
-				//hit.transform.SendMessage ("Interacted", transform, SendMessageOptions.DontRequireReceiver);
+				Debug.Log("hit.transform.SendMessage (Interacted, transform, SendMessageOptions.DontRequireReceiver)");
 				//hit.transform.SendMessage ("Execute", SendMessageOptions.DontRequireReceiver);
 			}
 			if (Input.GetKey (useKey)) {
