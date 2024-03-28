@@ -225,3 +225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControl: {fileID: 9069167775652624543}
   agent: {fileID: 7960306549112465506}
+  m_ignorePlayerLayer:
+    serializedVersion: 2
+    m_Bits: 55

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemBehaviour : MonoBehaviour
 {
     [SerializeField] public ItemBase itemBase;
-   public void SpawnItem()
+    public void SpawnItem()
     {
 
     }

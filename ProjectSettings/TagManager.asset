@@ -8,11 +8,14 @@ TagManager:
   - Bite
   - SkillSlot
   - AbilityToAbsorb
+  - InventoryItem
+  - ItemPanel
+  - InventoryGrid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
