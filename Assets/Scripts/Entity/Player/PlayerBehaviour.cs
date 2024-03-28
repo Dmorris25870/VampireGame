@@ -12,13 +12,17 @@ namespace VartaAbyss.Entity.Player
 	{
 		[SerializeField] PlayerInput playerControl;
 		[SerializeField] NavMeshAgent agent;
+		[SerializeField] private Action.ActionTypes m_currentAction;
 		[SerializeField] private LayerMask m_ignorePlayerLayer;
 
 		[SerializedDictionary("Action Name", "Action")]
 		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listofActions = new SerializedDictionary<Action.ActionTypes, Action>();
+
 		private bool isMoving;
 		private bool skillsMenuIsOpen;
 		private GameObject skillToAbsorb;
+
+		public Action.ActionTypes CurrentAction { get { return m_currentAction; } }
 		
 		void Start()
 		{
@@ -70,7 +74,7 @@ namespace VartaAbyss.Entity.Player
 			{
 				if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 				{
-					m_listofActions[Action.ActionTypes.Attack].PerformAttack(this, hit.collider.GetComponent<Actor>());
+					m_listofActions[CurrentAction].PerformAction(this, hit.collider.GetComponent<Actor>());
 				}
 				else
 				{

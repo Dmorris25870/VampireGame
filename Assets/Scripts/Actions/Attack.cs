@@ -23,7 +23,7 @@ namespace VartaAbyss.Actions
 			return damage.DamageAmount;
 		}
 
-		public override void PerformAttack(Actor self, Actor target)
+		public override void PerformAction(Actor self, Actor target)
 		{
 			m_isCurrentlyAttacking = true;
 			//target.Health -= GetDamageAmount(self.CurrentSelectedWeapon.DamageAmount);

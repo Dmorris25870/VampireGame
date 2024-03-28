@@ -19,8 +19,8 @@ namespace VartaAbyss.Actions
 		}
 
 		public virtual void PerformAction(){ }
-		public virtual void PerformAttack(Actor target) { }
-		public virtual void PerformAttack(Actor self, Actor target) { }
+		public virtual void PerformAction(Actor target) { }
+		public virtual void PerformAction(Actor self, Actor target) { }
 		public virtual void AddToQueue(){ }
 	}
 }
