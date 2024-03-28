@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using VartaAbyss.Items;
 using VartaAbyss.Entity;
 using UnityEngine;
-using VartaAbyss.Entity.Enemy;
 
 namespace VartaAbyss.Actions
 {

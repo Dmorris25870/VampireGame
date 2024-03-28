@@ -52,7 +52,7 @@ namespace VartaAbyss.Entity.Player
 				skillToAbsorb = null;
 			}
 		}
-		// Update is called once per frame
+
 		void FixedUpdate()
 		{
 			if ( isMoving )
