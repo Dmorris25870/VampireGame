@@ -1,32 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using VartaAbyss.Items;
+using VartaAbyss.Entity;
 using UnityEngine;
+using VartaAbyss.Entity.Enemy;
 
 namespace VartaAbyss.Actions
 {
-	public class Attack : MonoBehaviour
+	public class Attack : Action
 	{
-		//private EnemyBase m_target;
-		//private bool m_isCurrentlyAttacking;
-		//private Weapon m_currentSelectedWeapon;
+		private Actor m_target;
+		private bool m_isCurrentlyAttacking;
 
-		//public EnemyBase Target { get { return m_target; } }
-		//public Weapon CurrentSelectedWeapon { get { return m_currentSelectedWeapon; } }
+		public Actor Target { get { return m_target; } }
 
-		//private DamageType GetDamageType(Weapon attackType)
-		//{
-		//	return CurrentSelectedWeapon;
-		//}
+		private DamageType GetDamageType(Weapon weaponToCheck)
+		{
+			return weaponToCheck.DamageType;
+		}
 
-		//private void Attack(EnemyBase target)
-		//{
-		//	m_isCurrentlyAttacking = true;
-		//	target.health -= GetDamageType(VartaAbyss.Player.CurrentWeapon);
-		//}
+		private int GetDamageAmount(Weapon damage)
+		{
+			return damage.DamageAmount;
+		}
 
-		//private void AddToQueue()
-		//{
-			
-		//}
+		public override void PerformAttack(Actor self, Actor target)
+		{
+			m_isCurrentlyAttacking = true;
+			//target.Health -= GetDamageAmount(self.CurrentSelectedWeapon.DamageAmount);
+			m_isCurrentlyAttacking = false;
+		}
+
+		public override void AddToQueue()
+		{
+			base.AddToQueue();
+		}
 	}
 }
