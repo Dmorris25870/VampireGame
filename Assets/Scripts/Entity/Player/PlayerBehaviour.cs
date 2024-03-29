@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using AYellowpaper.SerializedCollections;
+using VartaAbyss.Items;
 
 namespace VartaAbyss.Entity.Player
 {
@@ -16,14 +17,14 @@ namespace VartaAbyss.Entity.Player
 		[SerializeField] private LayerMask m_ignorePlayerLayer;
 
 		[SerializedDictionary("Action Name", "Action")]
-		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listofActions = new SerializedDictionary<Action.ActionTypes, Action>();
+		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
 
 		private bool isMoving;
 		private bool skillsMenuIsOpen;
 		private GameObject skillToAbsorb;
 
 		public Action.ActionTypes CurrentAction { get { return m_currentAction; } }
-		
+
 		void Start()
 		{
 			skillsMenuIsOpen = false;
@@ -74,7 +75,9 @@ namespace VartaAbyss.Entity.Player
 			{
 				if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 				{
-					m_listofActions[CurrentAction].PerformAction(this, hit.collider.GetComponent<Actor>());
+					//TO DO: Check distance between self and target, move closer if far away, attack if close.
+
+					m_listOfActions[CurrentAction].PerformAction(this, hit.collider.GetComponent<Actor>());
 				}
 				else
 				{

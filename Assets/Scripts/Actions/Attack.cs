@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using VartaAbyss.Items;
 using VartaAbyss.Entity;
-using UnityEngine;
 
 namespace VartaAbyss.Actions
 {
 	public class Attack : Action
 	{
-		private Actor m_target;
-		private bool m_isCurrentlyAttacking;
-
-		public Actor Target { get { return m_target; } }
-
 		private DamageType GetDamageType(Weapon weaponToCheck)
 		{
 			return weaponToCheck.DamageType;
@@ -25,9 +17,7 @@ namespace VartaAbyss.Actions
 
 		public override void PerformAction(Actor self, Actor target)
 		{
-			m_isCurrentlyAttacking = true;
-			//target.Health -= GetDamageAmount(self.CurrentSelectedWeapon.DamageAmount);
-			m_isCurrentlyAttacking = false;
+			target.Health -= GetDamageAmount(self.CurrentWeapon);
 		}
 
 		public override void AddToQueue()
