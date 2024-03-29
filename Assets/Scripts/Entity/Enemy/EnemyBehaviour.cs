@@ -9,6 +9,8 @@ namespace VartaAbyss.Entity.Enemy
 		private List<ItemBase> items = new List<ItemBase>();
 		[SerializeField] EnemyBase enemyBase;
 		[SerializeField] GameObject itemObject;
+		[SerializeField] GameObject goldObject;
+		[SerializeField] float baseGold;
 		private void DropItems()
 		{
 			for ( int i = 0; i < enemyBase.lootTable.items.Length; i++ )
@@ -25,10 +27,14 @@ namespace VartaAbyss.Entity.Enemy
 			Debug.Log(items.Count);
 			for ( int i = 0; i < enemyBase.itemDrops; i++ )
 			{
-				GameObject instantiateditem = Instantiate(itemObject);
-				instantiateditem.GetComponent<ItemBehaviour>().itemBase = items[Random.Range(0, items.Count)];
-				instantiateditem.GetComponent<ItemBehaviour>().SpawnItem();
+				GameObject instantiatedItem = Instantiate(itemObject);
+				instantiatedItem.GetComponent<ItemBehaviour>().itemBase = items[Random.Range(0, items.Count)];
+				instantiatedItem.GetComponent<ItemBehaviour>().SpawnItem();
 			}
+			
+			GameObject instantiatedGold = Instantiate(goldObject);
+			instantiatedGold.GetComponent<GoldBase>().goldValue = baseGold * Random.Range(0.8f,1.2f);
+			instantiatedGold.GetComponent<GoldBase>().goldText.text = baseGold + " Gold";
 		}
 
 		private void Die()

@@ -118,6 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22b57797dbef5f45a6218dce7be833f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBase: {fileID: 0}
+  m_health: 0
+  m_minimumMoveSpeed: 0
+  m_maximumMoveSpeed: 0
+  enemyBase: {fileID: 11400000, guid: 8dc03fd2f2704ec4aa791f98b0a7e531, type: 2}
   itemObject: {fileID: 1817987898508904036, guid: 1580cca5917b82f49a40c37054c39724,
     type: 3}
+  goldObject: {fileID: 8901110106627355321, guid: 1d23e18a9473c7f47a66860cf0d2fb64,
+    type: 3}
+  baseGold: 10

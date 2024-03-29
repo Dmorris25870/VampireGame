@@ -12,7 +12,6 @@ namespace VartaAbyss.Items
 			Blunt,
 			Piercing,
 			Slashing,
-			Arcane,
 			Blood
 		}
 

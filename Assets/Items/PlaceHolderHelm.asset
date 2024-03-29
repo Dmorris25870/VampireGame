@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89bbdff711f6463488f7e1a4d6d5dde1, type: 3}
-  m_Name: PlaceHolder
+  m_Name: PlaceHolderHelm
   m_EditorClassIdentifier: 
   itemName: Test Helmet
-  itemImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemImage: {fileID: 21300000, guid: 758c839fdd1acfb44af136dac8d3299c, type: 3}
   itemText: Test
   itemValue: 1
   itemRarity: 0
-  itemSize: 4
+  itemHeight: 2
+  itemWidth: 2
   itemLevel: 1
-  itemWeight: 100
+  itemWeight: 45
   itemType: 2
   slot: 0
   armour: 10
+  healthRestore: 0
+  bloodRestore: 0

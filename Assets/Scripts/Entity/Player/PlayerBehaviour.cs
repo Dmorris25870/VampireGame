@@ -19,6 +19,9 @@ namespace VartaAbyss.Entity.Player
 		[SerializedDictionary("Action Name", "Action")]
 		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
 
+		public int blood;
+		public int maxBlood;
+
 		private bool isMoving;
 		private bool skillsMenuIsOpen;
 		private GameObject skillToAbsorb;
