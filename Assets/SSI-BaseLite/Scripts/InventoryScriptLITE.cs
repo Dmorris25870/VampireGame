@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.InputSystem;
 
 public class InventoryScriptLITE : MonoBehaviour {
 
+	[SerializeField] PlayerInput playerControl;
+
+	RaycastHit hit;
+
 	//this manages all of the inventory based interactions (ie equipping guns and picking up items)
-	public KeyCode inventoryKey = KeyCode.Tab;
-	public KeyCode useKey = KeyCode.E;
+	//public KeyCode inventoryKey = KeyCode.Tab;
+	//public KeyCode useKey = KeyCode.E;
 
 	public float rayLength = 2;
 	private Transform lookingAt;
@@ -33,7 +38,82 @@ public class InventoryScriptLITE : MonoBehaviour {
 
 	public GameObject itemPrompt;
 
-	void Start(){
+    private void OnEnable()
+    {
+		playerControl.actions.FindAction("Primary").Enable();
+		playerControl.actions.FindAction("Primary").performed += OnClick;
+		playerControl.actions.FindAction("Inventory").performed += ToggleInventory;
+	}
+	
+    private void OnDisable()
+    {
+		playerControl.actions.FindAction("Primary").Disable();
+		playerControl.actions.FindAction("Primary").performed -= OnClick;
+		playerControl.actions.FindAction("Inventory").performed -= ToggleInventory;
+	}
+
+	public void OnClick(InputAction.CallbackContext context)
+    {
+		
+			doesFit = false;
+		if(hit.transform != null)
+        {
+			itemScriptLITE temp = hit.transform.GetComponent<itemScriptLITE>();
+			if (bag.freeSpaces >= temp.width * temp.height)
+			{
+				bag.SendMessage("GiveItem", temp);
+			}
+			if (doesFit == false)
+			{
+				StartCoroutine("NotEnough");
+			}
+
+			{
+				timer += Time.deltaTime;
+				if (timer >= 0.4)
+				{
+					timer = 0;
+					hit.transform.SendMessage("Interacted", transform, SendMessageOptions.DontRequireReceiver);
+					hit.transform.SendMessage("Hold", transform, SendMessageOptions.DontRequireReceiver);
+				}
+			}
+
+			{
+				timer = 0;
+			}
+
+			Debug.Log("hit.transform.SendMessage (Interacted, transform, SendMessageOptions.DontRequireReceiver)");
+		}
+
+
+		//foreach (InventoryGridScript i in bags) {
+
+		//}
+		
+			//hit.transform.SendMessage ("Execute", SendMessageOptions.DontRequireReceiver);
+		}
+
+	void ToggleInventory(InputAction.CallbackContext context)
+    {
+		
+		
+			inventory = !inventory;
+			if (inventory)
+			{
+				Cursor.lockState = CursorLockMode.None;
+				inventoryPanel.anchorMax = new Vector2(1, 1);
+				inventoryPanel.anchorMin = new Vector2(0, 0);
+			}
+			else
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+				inventoryPanel.anchorMax = new Vector2(1, 0);
+				inventoryPanel.anchorMin = new Vector2(0, -1);
+			}
+		
+	}
+
+		void Start(){
 		scaleMultiplier = uiScale / 0.5f;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -55,21 +135,10 @@ public class InventoryScriptLITE : MonoBehaviour {
 	}
 
 	void Update(){
-		RaycastHit hit;
+		
 		Vector3 fwd = transform.TransformDirection (Vector3.forward);
 
-		if (Input.GetKeyDown(inventoryKey)) {
-			inventory = !inventory;
-			if (inventory) {
-				Cursor.lockState = CursorLockMode.None;
-				inventoryPanel.anchorMax = new Vector2 (1, 1);
-				inventoryPanel.anchorMin = new Vector2 (0, 0);
-			} else {
-				Cursor.lockState = CursorLockMode.Locked;
-				inventoryPanel.anchorMax = new Vector2 (1, 0);
-				inventoryPanel.anchorMin = new Vector2 (0, -1);
-			}
-		}
+		
 
 		if (Physics.Raycast (transform.position, fwd, out hit, rayLength, layerMask)) {
 			itemPrompt.SetActive (true);
@@ -81,31 +150,8 @@ public class InventoryScriptLITE : MonoBehaviour {
 				hit.transform.SendMessage ("LookAt", SendMessageOptions.DontRequireReceiver);
 				lookingAt = hit.transform;
 			}
-			if (Input.GetKeyUp (useKey)) {
-				doesFit = false;
-				itemScriptLITE temp = hit.transform.GetComponent<itemScriptLITE> ();
-				//foreach (InventoryGridScript i in bags) {
-				if (bag.freeSpaces >= temp.width * temp.height) {
-					bag.SendMessage ("GiveItem", temp);
-				} 
-				if (doesFit == false) {
-					StartCoroutine ("NotEnough");
-				}
-				//}
-				Debug.Log("hit.transform.SendMessage (Interacted, transform, SendMessageOptions.DontRequireReceiver)");
-				//hit.transform.SendMessage ("Execute", SendMessageOptions.DontRequireReceiver);
-			}
-			if (Input.GetKey (useKey)) {
-				timer += Time.deltaTime;
-				if (timer >= 0.4) {
-					timer = 0;
-					hit.transform.SendMessage ("Interacted", transform, SendMessageOptions.DontRequireReceiver);
-					hit.transform.SendMessage ("Hold", transform, SendMessageOptions.DontRequireReceiver);
-				}
-			}
-			if (!Input.GetKey (useKey)) {
-				timer = 0;
-			}
+			
+			
 		} else if (lookingAt != null) {
 			itemPrompt.SetActive (false);
 			itemPrompt.GetComponent<Text> ().text = "E to Take Item";

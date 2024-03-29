@@ -11,7 +11,7 @@ public class InventoryMenuScriptLITE : MonoBehaviour {
 	public KeyCode inventoryKey;
 
 	void Start (){
-		inventoryKey = GetComponent<InventoryScriptLITE> ().inventoryKey;
+		//inventoryKey = GetComponent<InventoryScriptLITE> ().inventoryKey;
 		if (playerObj == null) {
 			playerObj = transform.parent.parent; //this is assuming the Inventory object is in the MainCamera object
 		}

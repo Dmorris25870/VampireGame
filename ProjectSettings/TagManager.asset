@@ -4,15 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - InventoryGrid
-  - ItemPanel
+  - Claw
+  - Bite
+  - SkillSlot
+  - AbilityToAbsorb
   - InventoryItem
-  - Magazine
+  - ItemPanel
+  - InventoryGrid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Item
