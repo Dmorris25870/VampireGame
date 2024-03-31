@@ -31,23 +31,6 @@ public class ItemBase : ScriptableObject
     [SerializeField] public float itemWeight;
     [SerializeField] ItemType itemType;
 
-    private enum EquipmentType
-    {
-        Head,
-        Shoulders,
-        Arms,
-        Chest,
-        Hands,
-        Legs,
-        Feet,
-        Finger,
-        Neck
-    }
-
-    [Header("Equipment Info")]
-    [SerializeField] EquipmentType slot;
-    [SerializeField] int armour;
-
     [Header("Consumable Info")]
     [SerializeField] int healthRestore;
     [SerializeField] int bloodRestore;

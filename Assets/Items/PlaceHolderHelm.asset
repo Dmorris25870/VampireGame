@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bbdff711f6463488f7e1a4d6d5dde1, type: 3}
+  m_Script: {fileID: 11500000, guid: d5be04bdde87d7845981690c3a8be49b, type: 3}
   m_Name: PlaceHolderHelm
   m_EditorClassIdentifier: 
-  itemName: Test Helmet
+  itemName: Placeholder
   itemImage: {fileID: 21300000, guid: 758c839fdd1acfb44af136dac8d3299c, type: 3}
-  itemText: Test
+  itemText: test
   itemValue: 1
   itemRarity: 0
   itemHeight: 2
   itemWidth: 2
   itemLevel: 1
-  itemWeight: 45
+  itemWeight: 39
   itemType: 2
-  slot: 0
-  armour: 10
   healthRestore: 0
   bloodRestore: 0
+  slot: 0
+  armour: 10
