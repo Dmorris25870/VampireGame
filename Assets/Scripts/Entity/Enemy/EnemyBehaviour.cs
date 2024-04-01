@@ -37,7 +37,7 @@ namespace VartaAbyss.Entity.Enemy
 			instantiatedGold.GetComponent<GoldBase>().goldText.text = baseGold + " Gold";
 		}
 
-		private void Die()
+		public override void Die()
 		{
 			DropItems();
 		}

@@ -5,7 +5,7 @@ using VartaAbyss.Items;
 
 namespace VartaAbyss.Abilities
 {
-	public class Ability : MonoBehaviour
+	public abstract class Ability : MonoBehaviour
 	{
 		private DamageType m_damageType;
 		[SerializeField] private int m_damageAmount;
