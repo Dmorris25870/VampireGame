@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class inventoryPanelLITE : MonoBehaviour {
+public class InventoryPanelLITE : MonoBehaviour {
 
 	public Sprite itemTexture;
 	public bool isEquiped = false;

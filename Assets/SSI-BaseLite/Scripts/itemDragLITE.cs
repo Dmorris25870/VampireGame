@@ -109,7 +109,7 @@ public class itemDragLITE : MonoBehaviour
 
 	public void CheckIfEquipable(){
 		panel.GetComponent<RectTransform> ().localScale = new Vector2 (1, 1);
-		panel.GetComponent<inventoryPanelLITE> ().SelectItem (this);
+		panel.GetComponent<InventoryPanelLITE> ().SelectItem (this);
 		dropButton.SendMessage ("ItemToDrop", transform.GetComponent<itemDragLITE> ());
 		if (obj.equipable) {
 			equipButton.SetActive (true);
