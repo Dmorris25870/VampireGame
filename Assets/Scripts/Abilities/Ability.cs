@@ -9,8 +9,10 @@ namespace VartaAbyss.Abilities
 	{
 		private DamageType m_damageType;
 		[SerializeField] private int m_damageAmount;
+		[SerializeField] private float m_coolDownTimeInSeconds;
 
 		public DamageType DamageType { get { return m_damageType; } }
 		public int DamageAmount { get { return m_damageAmount; } }
+		public float CoolDownTimeInSeconds { get { return m_coolDownTimeInSeconds; } }
 	}
 }

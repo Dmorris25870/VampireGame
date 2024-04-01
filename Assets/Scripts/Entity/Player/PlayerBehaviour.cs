@@ -1,37 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using VartaAbyss.Actions;
+using VartaAbyss.Items;
+using VartaAbyss.Utility;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using AYellowpaper.SerializedCollections;
-using VartaAbyss.Items;
+using static VartaAbyss.Actions.Action;
 
 namespace VartaAbyss.Entity.Player
 {
 	public class PlayerBehaviour : Actor
 	{
-		[SerializeField] PlayerInput playerControl;
-		[SerializeField] NavMeshAgent agent;
-		[SerializeField] private Action.ActionTypes m_currentAction;
-		[SerializeField] private LayerMask m_ignorePlayerLayer;
-
-		[SerializedDictionary("Action Name", "Action")]
-		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
+		[SerializeField] private PlayerInput playerControl;	
 
 		public int blood;
 		public int maxBlood;
 
-		private bool isMoving;
 		private bool skillsMenuIsOpen;
 		private GameObject skillToAbsorb;
 
-		public Action.ActionTypes CurrentAction { get { return m_currentAction; } }
-
-		void Start()
+		private void Start()
 		{
 			skillsMenuIsOpen = false;
 			skillToAbsorb = null;
+			CurrentTimer = 0;
+			Agent = GetComponent<NavMeshAgent>();
 		}
 
 		private void OnEnable()
@@ -61,44 +56,107 @@ namespace VartaAbyss.Entity.Player
 			}
 		}
 
-		void FixedUpdate()
+		private void FixedUpdate()
 		{
-			if ( isMoving )
+			switch ( CurrentAction )
 			{
-				MovePlayer();
+				case ActionTypes.Unset:
+				{
+
+				}
+				break;
+
+				case ActionTypes.Idle:
+				{
+					return;
+				}
+
+				case ActionTypes.Move:
+				{
+					if(IsMoving)
+					{
+						MovePlayer();
+					}
+				}
+				break;
+
+				case ActionTypes.UseItem:
+				{
+
+				}
+				break;
+
+				case ActionTypes.Interact:
+				{
+
+				}
+				break;
+
+				case ActionTypes.CastAbility:
+				{
+					if (CurrentTimer <= 0)
+					{
+						CastAbility();
+						CurrentTimer = CoolDownTimer;
+					}
+					else
+					{
+						CurrentTimer -= Time.deltaTime;
+					}
+					
+				}
+				break;
+
+				case ActionTypes.Cancel:
+				{
+
+				}
+				break;
+
+				default:
+				{
+
+				}
+				break;
 			}
 		}
 
-		void MovePlayer()
+		private void MovePlayer()
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			RaycastHit hit;
-			if ( Physics.Raycast(ray, out hit, m_ignorePlayerLayer) )
-			{
-				if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
-				{
-					//TO DO: Check distance between self and target, move closer if far away, attack if close.
-
-					m_listOfActions[CurrentAction].PerformAction(this, hit.collider.GetComponent<Actor>());
-				}
-				else
-				{
-					agent.SetDestination(hit.point);
-				}
-
-			}
+			ListOfActions[ActionTypes.Move].PerformAction(this);
 		}
 
-		void OnPrimaryInput(InputAction.CallbackContext context)
+		private void CastAbility()
+		{
+			ListOfActions[ActionTypes.CastAbility].PerformAction(this, Target);
+		}
+
+		private void OnPrimaryInput(InputAction.CallbackContext context)
 		{
 			if ( context.performed || context.started )
 			{
-				isMoving = true;
-			}
-			if ( context.canceled )
-			{
-				isMoving = false;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				RaycastHit hit;
+				if ( Physics.Raycast(ray, out hit, IgnorePlayerLayer) )
+				{
+					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
+					{
+						//TO DO: Check distance between player and enemy
+						//If distance is too far, move towards enemy and use ability
+
+						IsMoving = false;
+						Target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						CoolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
+						CurrentAction = ActionTypes.CastAbility;
+					}
+					else
+					{
+						IsMoving = true;
+						ClickPoint = hit.point;
+						CurrentAction = ActionTypes.Move;
+					}
+				}
 			}
 		}
 
