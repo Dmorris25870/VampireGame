@@ -3050,7 +3050,7 @@ PrefabInstance:
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: m_listOfActions._serializedList.Array.data[0].Key
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
