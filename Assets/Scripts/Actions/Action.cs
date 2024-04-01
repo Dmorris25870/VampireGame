@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VartaAbyss.Abilities;
 using VartaAbyss.Entity;
+using VartaAbyss.Items;
 
 namespace VartaAbyss.Actions
 {
@@ -10,14 +12,17 @@ namespace VartaAbyss.Actions
 		public enum ActionTypes
 		{
 			Unset,
+			Idle,
 			Move,
-			Attack,
 			UseItem,
 			Interact,
 			CastAbility,
 			Cancel
 		}
 
+		public virtual DamageType GetDamageType(Ability abilityToCheck){ return abilityToCheck.DamageType; }
+		public virtual int GetDamageAmount(Ability damageAmount){ return damageAmount.DamageAmount; }
+		public virtual float GetCoolDownTimeInSeconds(Ability coolDownTimeInSeconds){ return coolDownTimeInSeconds.CoolDownTimeInSeconds; }
 		public virtual void PerformAction(){ }
 		public virtual void PerformAction(Actor target) { }
 		public virtual void PerformAction(Actor self, Actor target) { }
