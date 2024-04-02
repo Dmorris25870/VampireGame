@@ -27,6 +27,7 @@ namespace VartraAbyss.Actions
 		public virtual void PerformAction(Actor target) { }
 		public virtual void PerformAction(Actor self, Actor target) { }
 		public virtual void PerformAction(Actor self, Actor target, float radius){ }
+		public virtual void PerformAction(Actor self, ItemBase itemToUse){ }
 		public virtual void AddToQueue(){ }
 	}
 }

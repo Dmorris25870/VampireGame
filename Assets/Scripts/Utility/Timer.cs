@@ -20,9 +20,9 @@ namespace VartraAbyss.Utility
 
 		private void FixedUpdate()
 		{
-			if(CurrentTime <= 0)
+            if(CurrentTime <= 0)
             {
-                //DO THING
+                return;
             }
             else
             {

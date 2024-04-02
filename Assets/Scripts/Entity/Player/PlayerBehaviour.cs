@@ -132,9 +132,24 @@ namespace VartraAbyss.Entity.Player
 			ListOfActions[ActionTypes.CastAbility].PerformAction(this, Target);
 		}
 
+		private void UseItem()
+		{
+			ListOfActions[ActionTypes.UseItem].PerformAction(this, CurrentItem);
+		}
+
+		private void Interact()
+		{
+			ListOfActions[ActionTypes.Interact].PerformAction(this, Target);
+		}
+
+		private void Cancel()
+		{
+			ListOfActions[ActionTypes.Cancel].PerformAction();
+		}
+
 		private bool CheckDistanceBetweenActors(GameObject actor1, GameObject actor2)
 		{
-			return Utility.Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > AbilityDistance;
+			return Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > AbilityDistance;
 		}
 
 		private void OnPrimaryInput(InputAction.CallbackContext context)

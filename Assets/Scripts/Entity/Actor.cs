@@ -19,6 +19,7 @@ namespace VartraAbyss.Entity
 		[SerializeField] protected LayerMask m_ignorePlayerLayer;
 		[SerializeField] protected Action.ActionTypes m_currentAction;
 		[SerializeField] protected Ability m_currentAbility;
+		[SerializeField] protected ItemBase m_currentItem;
 		[SerializeField] protected float m_abilityDistance = 5.0f;
 		protected float m_currentTimer;
 		protected bool m_isMoving;
@@ -38,6 +39,7 @@ namespace VartraAbyss.Entity
 		public float CurrentTimer { get { return m_currentTimer; } set { m_currentTimer = value; } }
 		public float CoolDownTimer { get { return m_coolDownTimer; } set { m_coolDownTimer = value; } }
 		public Ability CurrentAbility { get { return m_currentAbility; } }
+		public ItemBase CurrentItem { get { return m_currentItem; } }
 		public NavMeshAgent Agent { get { return m_agent; } set { m_agent = value; } }
 		public LayerMask IgnorePlayerLayer { get { return m_ignorePlayerLayer; } }
 		public Vector3 ClickPoint { get { return m_clickPoint; } set { m_clickPoint = value; } }
