@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartaAbyss.Abilities;
-using VartaAbyss.Entity;
-using VartaAbyss.Items;
+using VartraAbyss.Abilities;
+using VartraAbyss.Entity;
+using VartraAbyss.Items;
 
-namespace VartaAbyss.Actions
+namespace VartraAbyss.Actions
 {
 	public abstract class Action : MonoBehaviour
 	{

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartaAbyss.Items;
+using VartraAbyss.Items;
 
-namespace VartaAbyss.Abilities
+namespace VartraAbyss.Abilities
 {
 	public abstract class Ability : MonoBehaviour
 	{

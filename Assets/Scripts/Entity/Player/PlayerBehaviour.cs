@@ -1,39 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
-using VartaAbyss.Actions;
-using VartaAbyss.Items;
-using VartaAbyss.Utility;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using AYellowpaper.SerializedCollections;
-using static VartaAbyss.Actions.Action;
+using VartraAbyss.Utility;
+using static VartraAbyss.Actions.Action;
 
-namespace VartaAbyss.Entity.Player
+namespace VartraAbyss.Entity.Player
 {
 	public class PlayerBehaviour : Actor
 	{
-		[SerializeField] private PlayerInput playerControl;	
+		[SerializeField] private PlayerInput m_playerControl;
 
-		public int blood;
-		public int maxBlood;
+		[SerializeField] private int m_blood;
+		[SerializeField] private int m_maximumBlood;
 
-		private bool skillsMenuIsOpen;
-		private GameObject skillToAbsorb;
+		private bool m_isSkillsMenuOpen;
+		private GameObject m_skillToAbsorb;
+		private Utility.Timer m_abilityTimer;
 
 		private void Start()
 		{
-			skillsMenuIsOpen = false;
-			skillToAbsorb = null;
-			CurrentTimer = 0;
-			Agent = GetComponent<NavMeshAgent>();
+			m_isSkillsMenuOpen = false;
+			m_skillToAbsorb = null;
+			m_agent = GetComponent<NavMeshAgent>();
 		}
 
 		private void OnEnable()
 		{
-			playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
-			playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
-			playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -42,7 +40,7 @@ namespace VartaAbyss.Entity.Player
 			{
 				Debug.Log("Can Absorb Ability");
 				EventManager.OnCanAbsorbAbility?.Invoke();
-				skillToAbsorb = other.gameObject;
+				m_skillToAbsorb = other.gameObject;
 			}
 		}
 
@@ -52,7 +50,7 @@ namespace VartaAbyss.Entity.Player
 			{
 				Debug.Log("Cannot Absorb Ability");
 				EventManager.OnCannotAbsorbAbility?.Invoke();
-				skillToAbsorb = null;
+				m_skillToAbsorb = null;
 			}
 		}
 
@@ -62,9 +60,8 @@ namespace VartaAbyss.Entity.Player
 			{
 				case ActionTypes.Unset:
 				{
-
+					throw new System.Exception($"The {m_currentAction} on {gameObject.name} has not been set correctly. Please check the {ListOfActions} and ensure there are no errors.");
 				}
-				break;
 
 				case ActionTypes.Idle:
 				{
@@ -77,47 +74,51 @@ namespace VartaAbyss.Entity.Player
 					{
 						MovePlayer();
 					}
+
+					//else if(IsMoving && IsNotWithinRangeAndAttacking)
+					//{
+					//	m_currentAction = ActionTypes.CastAbility;
+					//}
 				}
 				break;
 
 				case ActionTypes.UseItem:
 				{
-
+					throw new System.Exception($"The {ActionTypes.UseItem} on {gameObject.name} has not been implemented yet.");
 				}
-				break;
 
 				case ActionTypes.Interact:
 				{
-
+					throw new System.Exception($"The {ActionTypes.Interact} on {gameObject.name} has not been implemented yet.");
 				}
-				break;
 
 				case ActionTypes.CastAbility:
 				{
-					if (CurrentTimer <= 0)
+					if(m_abilityTimer == null)
+					{
+						m_abilityTimer = gameObject.AddComponent<Utility.Timer>();
+						m_abilityTimer.SetTimer(CoolDownTimer);
+					}
+
+					if (m_abilityTimer.CurrentTime <= 0)
 					{
 						CastAbility();
-						CurrentTimer = CoolDownTimer;
-					}
-					else
-					{
-						CurrentTimer -= Time.deltaTime;
-					}
-					
+						m_abilityTimer.ResetTimer();
+						m_currentAction = ActionTypes.Idle;
+					}					
 				}
 				break;
 
 				case ActionTypes.Cancel:
 				{
-
+					m_currentAction = ActionTypes.Idle;
 				}
 				break;
 
 				default:
 				{
-
+					return;
 				}
-				break;
 			}
 		}
 
@@ -131,6 +132,11 @@ namespace VartaAbyss.Entity.Player
 			ListOfActions[ActionTypes.CastAbility].PerformAction(this, Target);
 		}
 
+		private bool CheckDistanceBetweenActors(GameObject actor1, GameObject actor2)
+		{
+			return Utility.Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > AbilityDistance;
+		}
+
 		private void OnPrimaryInput(InputAction.CallbackContext context)
 		{
 			if ( context.performed || context.started )
@@ -142,19 +148,29 @@ namespace VartaAbyss.Entity.Player
 				{
 					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
+						//if(CheckDistanceBetweenActors(gameObject, hit.collider.gameObject))
+						//{
+						//	m_isMoving = true;
+						//	m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						//	m_coolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
+						//	m_clickPoint = hit.point;
+						//	m_isNotWithinRangeAndAttacking = true;
+						//	m_currentAction = ActionTypes.Move;
+						//}
+
 						//TO DO: Check distance between player and enemy
 						//If distance is too far, move towards enemy and use ability
 
-						IsMoving = false;
-						Target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
-						CoolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
-						CurrentAction = ActionTypes.CastAbility;
+						m_isMoving = false;
+						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						m_coolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
+						m_currentAction = ActionTypes.CastAbility;
 					}
 					else
 					{
-						IsMoving = true;
-						ClickPoint = hit.point;
-						CurrentAction = ActionTypes.Move;
+						m_isMoving = true;
+						m_clickPoint = hit.point;
+						m_currentAction = ActionTypes.Move;
 					}
 				}
 			}
@@ -173,21 +189,21 @@ namespace VartaAbyss.Entity.Player
 		private void OnSkills()
 		{
 			Debug.Log("Skills Menu");
-			if ( !skillsMenuIsOpen )
+			if ( !m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenu?.Invoke();
-				skillsMenuIsOpen = true;
+				m_isSkillsMenuOpen = true;
 			}
-			else if ( skillsMenuIsOpen )
+			else if ( m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenuClose?.Invoke();
-				skillsMenuIsOpen = false;
+				m_isSkillsMenuOpen = false;
 			}
 		}
 
 		private void OnAbsorbAbility()
 		{
-			Destroy(skillToAbsorb);
+			Destroy(m_skillToAbsorb);
 			EventManager.OnCannotAbsorbAbility?.Invoke();
 		}
 

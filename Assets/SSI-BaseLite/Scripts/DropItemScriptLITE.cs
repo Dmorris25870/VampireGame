@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VartaAbyss.Inventory
+namespace VartraAbyss.Inventory
 {
 	public class DropItemScriptLITE : MonoBehaviour
 	{

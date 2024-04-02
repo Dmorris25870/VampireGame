@@ -1,36 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartaAbyss.Items;
-using VartaAbyss.Actions;
-using VartaAbyss.Abilities;
+using VartraAbyss.Items;
+using VartraAbyss.Actions;
+using VartraAbyss.Abilities;
 using UnityEngine.AI;
 using AYellowpaper.SerializedCollections;
 
-namespace VartaAbyss.Entity
+namespace VartraAbyss.Entity
 {
 	public abstract class Actor : MonoBehaviour
 	{
-		[SerializeField] private int m_health;
-		[SerializeField] private float m_minimumMoveSpeed;
-		[SerializeField] private float m_maximumMoveSpeed;
-		[SerializeField] private float m_coolDownTimer;
-		[SerializeField] private Action.ActionTypes m_currentAction;
-		[SerializeField] private Ability m_currentAbility;
-		[SerializeField] private NavMeshAgent m_agent;
-		[SerializeField] private LayerMask m_ignorePlayerLayer;
-		private float m_currentTimer;
-		private bool m_isMoving;
-		private Vector3 m_clickPoint;
-		private Actor m_target;
+		[SerializeField] protected int m_health;
+		[SerializeField] protected float m_moveSpeed;
+		[SerializeField] protected float m_maximumMoveSpeed;
+		[SerializeField] protected float m_coolDownTimer;
+		[SerializeField] protected NavMeshAgent m_agent;
+		[SerializeField] protected LayerMask m_ignorePlayerLayer;
+		[SerializeField] protected Action.ActionTypes m_currentAction;
+		[SerializeField] protected Ability m_currentAbility;
+		[SerializeField] protected float m_abilityDistance = 5.0f;
+		protected float m_currentTimer;
+		protected bool m_isMoving;
+		protected bool m_isNotWithinRangeAndAttacking;
+		protected Vector3 m_clickPoint;
+		protected Actor m_target;
 
 		[SerializedDictionary("Action Name", "Action")]
 		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
 
 		public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
+		public bool IsNotWithinRangeAndAttacking { get { return m_isNotWithinRangeAndAttacking; } set { m_isNotWithinRangeAndAttacking = value; } }
 		public int Health { get { return m_health; } set { m_health = value; } }
-		public float MinimumMoveSpeed { get { return m_minimumMoveSpeed; } set { m_minimumMoveSpeed = value; } }
+		public float MoveSpeed { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
 		public float MaximumMoveSpeed { get { return m_maximumMoveSpeed; } set { m_maximumMoveSpeed = value; } }
+		public float AbilityDistance { get { return m_abilityDistance; } }
 		public float CurrentTimer { get { return m_currentTimer; } set { m_currentTimer = value; } }
 		public float CoolDownTimer { get { return m_coolDownTimer; } set { m_coolDownTimer = value; } }
 		public Ability CurrentAbility { get { return m_currentAbility; } }

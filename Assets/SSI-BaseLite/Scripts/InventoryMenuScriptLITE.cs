@@ -4,7 +4,7 @@ using UnityEngine;
 
 //the only purpose of this script is to lock/unlock the mouse cursor and disable player movement if you're using the RigidbodyFPSController (such as in the sample scene)
 
-namespace VartaAbyss.Inventory
+namespace VartraAbyss.Inventory
 {
 	public class InventoryMenuScriptLITE : MonoBehaviour
 	{

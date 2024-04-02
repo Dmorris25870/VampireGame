@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace VartaAbyss.Inventory
+namespace VartraAbyss.Inventory
 {
 	public class InventoryGridScriptLITE : MonoBehaviour
 	{

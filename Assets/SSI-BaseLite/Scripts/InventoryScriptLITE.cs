@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 
-namespace VartaAbyss.Inventory
+namespace VartraAbyss.Inventory
 {
 	public class InventoryScriptLITE : MonoBehaviour
 	{

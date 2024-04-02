@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartaAbyss.Entity;
+using VartraAbyss.Entity;
 
 
-namespace VartaAbyss.Actions
+namespace VartraAbyss.Actions
 {
     public class Move : Action
     {	
@@ -22,6 +22,12 @@ namespace VartaAbyss.Actions
 						self.CurrentAction = ActionTypes.Idle;
 					}
 				}
+				//else if(self.Agent.remainingDistance <= self.AbilityDistance)
+				//{
+				//	self.IsMoving = false;
+				//	self.IsNotWithinRangeAndAttacking = false;
+				//	self.CurrentAction = ActionTypes.CastAbility;
+				//}
 			}
 		}
 	}

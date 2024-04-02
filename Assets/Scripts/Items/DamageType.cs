@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VartaAbyss.Items
+namespace VartraAbyss.Items
 {
 	[CreateAssetMenu(fileName = "NewDamageType", menuName = "ScriptableObjects/Item/DamageType")]
 	public class DamageType : ItemBase

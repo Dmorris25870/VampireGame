@@ -1,10 +1,10 @@
-using VartaAbyss.Items;
-using VartaAbyss.Entity;
+using VartraAbyss.Items;
+using VartraAbyss.Entity;
 using UnityEditor.Playables;
-using VartaAbyss.Abilities;
+using VartraAbyss.Abilities;
 using UnityEngine;
 
-namespace VartaAbyss.Actions
+namespace VartraAbyss.Actions
 {
 	public class CastAbility : Action
 	{

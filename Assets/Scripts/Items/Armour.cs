@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VartaAbyss.Items
+namespace VartraAbyss.Items
 {
 	[CreateAssetMenu(fileName = "NewArmour", menuName = "ScriptableObjects/Item/Armour")]
 	public class Armour : ItemBase

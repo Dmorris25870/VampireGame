@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace VartaAbyss.Inventory
+namespace VartraAbyss.Inventory
 {
 	public class ItemDragLITE : MonoBehaviour
 	{
