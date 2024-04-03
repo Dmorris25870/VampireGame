@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using VartraAbyss.Actions;
 using VartraAbyss.Utility;
 using static VartraAbyss.Actions.Action;
 
@@ -13,7 +12,7 @@ namespace VartraAbyss.Entity.Player
 	public class PlayerBehaviour : Actor
 	{
 		[SerializeField] private PlayerInput m_playerControl;
-		[SerializeField] private ActionQueue m_actionQueue;
+		private ActionQueue m_actionQueue;
 
 		[SerializeField] private int m_blood;
 		[SerializeField] private int m_maximumBlood;
@@ -151,7 +150,7 @@ namespace VartraAbyss.Entity.Player
 
 		private bool CheckDistanceBetweenActors(GameObject actor1, GameObject actor2)
 		{
-			return Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > AbilityDistance;
+			return Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > CurrentAbility.AbilityDistance;
 		}
 
 		private void OnPrimaryInput(InputAction.CallbackContext context)
@@ -170,7 +169,7 @@ namespace VartraAbyss.Entity.Player
 						if (CheckDistanceBetweenActors(gameObject, hit.collider.gameObject))
 						{
 							Debug.Log($"Distance between self and target is: {Utilities.GetDistanceBetweenTwoActors(gameObject, hit.collider.gameObject)}");
-							Debug.Log($"Ability distance is: {AbilityDistance}");
+							Debug.Log($"Ability distance is: {CurrentAbility.AbilityDistance}");
 							m_isMoving = true;
 							m_isAttacking = true;
 							m_clickPoint = hit.point;

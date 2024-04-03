@@ -28,7 +28,7 @@ namespace VartraAbyss.Actions
 						self.CurrentAction = ActionTypes.Idle;
 					}
 				}
-				else if (self.IsAttacking && self.Agent.remainingDistance <= self.AbilityDistance)
+				else if (self.IsAttacking && self.Agent.remainingDistance <= self.CurrentAbility.AbilityDistance)
 				{
 					self.IsMoving = false;
 					self.Agent.ResetPath();

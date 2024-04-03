@@ -19,7 +19,6 @@ namespace VartraAbyss.Entity
 		[SerializeField] protected Action.ActionTypes m_currentAction;
 		[SerializeField] protected Ability m_currentAbility;
 		[SerializeField] protected ItemBase m_currentItem;
-		[SerializeField] protected float m_abilityDistance = 5.0f;
 		protected float m_currentTimer;
 		protected bool m_isMoving;
 		protected bool m_isAttacking;
@@ -34,7 +33,6 @@ namespace VartraAbyss.Entity
 		public int Health { get { return m_health; } set { m_health = value; } }
 		public float MoveSpeed { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
 		public float MaximumMoveSpeed { get { return m_maximumMoveSpeed; } set { m_maximumMoveSpeed = value; } }
-		public float AbilityDistance { get { return m_abilityDistance; } }
 		public float CurrentTimer { get { return m_currentTimer; } set { m_currentTimer = value; } }
 		public Ability CurrentAbility { get { return m_currentAbility; } }
 		public ItemBase CurrentItem { get { return m_currentItem; } }
