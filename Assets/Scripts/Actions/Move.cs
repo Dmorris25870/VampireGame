@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VartraAbyss.Entity;
+using VartraAbyss.Utility;
 
 
 namespace VartraAbyss.Actions
 {
     public class Move : Action
     {	
+		public Move()
+		{
+			m_actionType = ActionTypes.Move;
+		}
+
 		public override void PerformAction(Actor self)
 		{
 			self.Agent.SetDestination(self.ClickPoint);
@@ -22,13 +28,19 @@ namespace VartraAbyss.Actions
 						self.CurrentAction = ActionTypes.Idle;
 					}
 				}
-				//else if(self.Agent.remainingDistance <= self.AbilityDistance)
-				//{
-				//	self.IsMoving = false;
-				//	self.IsNotWithinRangeAndAttacking = false;
-				//	self.CurrentAction = ActionTypes.CastAbility;
-				//}
+				else if (self.IsAttacking && self.Agent.remainingDistance <= self.AbilityDistance)
+				{
+					self.IsMoving = false;
+					self.Agent.ResetPath();
+					self.CurrentAction = ActionTypes.CastAbility;
+					self.IsAttacking = false;
+				}
 			}
+		}
+
+		public override void AddToQueue()
+		{
+			
 		}
 	}
 }

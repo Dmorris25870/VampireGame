@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using VartraAbyss.Actions;
 using VartraAbyss.Utility;
 using static VartraAbyss.Actions.Action;
 
@@ -12,6 +13,7 @@ namespace VartraAbyss.Entity.Player
 	public class PlayerBehaviour : Actor
 	{
 		[SerializeField] private PlayerInput m_playerControl;
+		[SerializeField] private ActionQueue m_actionQueue;
 
 		[SerializeField] private int m_blood;
 		[SerializeField] private int m_maximumBlood;
@@ -60,7 +62,7 @@ namespace VartraAbyss.Entity.Player
 			{
 				case ActionTypes.Unset:
 				{
-					throw new System.Exception($"The {m_currentAction} on {gameObject.name} has not been set correctly. Please check the {ListOfActions} and ensure there are no errors.");
+					throw new System.Exception($"The Current Action on {gameObject.name} has not been set correctly. Please check the List of Actions and ensure there are no errors.");
 				}
 
 				case ActionTypes.Idle:
@@ -70,15 +72,10 @@ namespace VartraAbyss.Entity.Player
 
 				case ActionTypes.Move:
 				{
-					if(IsMoving)
+					if ( IsMoving )
 					{
 						MovePlayer();
 					}
-
-					//else if(IsMoving && IsNotWithinRangeAndAttacking)
-					//{
-					//	m_currentAction = ActionTypes.CastAbility;
-					//}
 				}
 				break;
 
@@ -94,18 +91,18 @@ namespace VartraAbyss.Entity.Player
 
 				case ActionTypes.CastAbility:
 				{
-					if(m_abilityTimer == null)
+					if ( m_abilityTimer == null )
 					{
 						m_abilityTimer = gameObject.AddComponent<Utility.Timer>();
-						m_abilityTimer.SetTimer(CoolDownTimer);
+						m_abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
 					}
 
-					if (m_abilityTimer.CurrentTime <= 0)
+					if ( m_abilityTimer.CurrentTime <= 0 )
 					{
 						CastAbility();
 						m_abilityTimer.ResetTimer();
 						m_currentAction = ActionTypes.Idle;
-					}					
+					}
 				}
 				break;
 
@@ -142,6 +139,11 @@ namespace VartraAbyss.Entity.Player
 			ListOfActions[ActionTypes.Interact].PerformAction(this, Target);
 		}
 
+		private void Idle()
+		{
+			ListOfActions[ActionTypes.Idle].PerformAction();
+		}
+
 		private void Cancel()
 		{
 			ListOfActions[ActionTypes.Cancel].PerformAction();
@@ -163,23 +165,22 @@ namespace VartraAbyss.Entity.Player
 				{
 					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
-						//if(CheckDistanceBetweenActors(gameObject, hit.collider.gameObject))
-						//{
-						//	m_isMoving = true;
-						//	m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
-						//	m_coolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
-						//	m_clickPoint = hit.point;
-						//	m_isNotWithinRangeAndAttacking = true;
-						//	m_currentAction = ActionTypes.Move;
-						//}
-
-						//TO DO: Check distance between player and enemy
-						//If distance is too far, move towards enemy and use ability
-
-						m_isMoving = false;
 						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
-						m_coolDownTimer = ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility);
-						m_currentAction = ActionTypes.CastAbility;
+
+						if (CheckDistanceBetweenActors(gameObject, hit.collider.gameObject))
+						{
+							Debug.Log($"Distance between self and target is: {Utilities.GetDistanceBetweenTwoActors(gameObject, hit.collider.gameObject)}");
+							Debug.Log($"Ability distance is: {AbilityDistance}");
+							m_isMoving = true;
+							m_isAttacking = true;
+							m_clickPoint = hit.point;
+							m_currentAction = ActionTypes.Move;
+						}
+						else
+						{
+							m_isMoving = false;
+							m_currentAction = ActionTypes.CastAbility;
+						}	
 					}
 					else
 					{

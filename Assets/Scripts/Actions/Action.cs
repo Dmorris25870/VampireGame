@@ -20,6 +20,10 @@ namespace VartraAbyss.Actions
 			Cancel
 		}
 
+		protected ActionTypes m_actionType;
+
+		public ActionTypes ActionType { get { return m_actionType; } }
+
 		public virtual DamageType GetDamageType(Ability abilityToCheck){ return abilityToCheck.DamageType; }
 		public virtual int GetDamageAmount(Ability damageAmount){ return damageAmount.DamageAmount; }
 		public virtual float GetCoolDownTimeInSeconds(Ability coolDownTimeInSeconds){ return coolDownTimeInSeconds.CoolDownTimeInSeconds; }

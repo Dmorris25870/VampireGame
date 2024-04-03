@@ -12,5 +12,10 @@ namespace VartraAbyss.Utility
             float distance = Vector3.Distance(actor1.transform.position, actor2.transform.position);
             return distance;
         }
+
+        public static float GetDifferenceInRange(GameObject self)
+        {
+            return 0;
+        }
     }
 }
