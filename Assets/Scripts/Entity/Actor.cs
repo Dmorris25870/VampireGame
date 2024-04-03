@@ -11,22 +11,42 @@ namespace VartraAbyss.Entity
 {
 	public abstract class Actor : MonoBehaviour
 	{
+		[Header("Actor Stats")]
 		[SerializeField] protected int m_health;
+		[SerializeField] protected int m_blood;
+		[SerializeField] protected int m_maximumBlood;
 		[SerializeField] protected float m_moveSpeed;
 		[SerializeField] protected float m_maximumMoveSpeed;
+
+		[Space(2)]
+
+		[Header("Actor Actions")]
+		[SerializeField] protected Action.ActionTypes m_currentAction;
+		[SerializedDictionary("Action Name", "Action")]
+		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
+
+		[Space(2)]
+
+		[Header("Actor Abilities")]
+		[SerializeField] protected Ability m_currentAbility;
+		[SerializedDictionary("Ability Name", "Ability")]
+		[SerializeField] SerializedDictionary<Ability.AbilityTypes, Ability> m_listOfAbilities = new SerializedDictionary<Ability.AbilityTypes, Ability>();
+
+		[Space(2)]
+
+		[Header("Actor Items")]
+		[SerializeField] protected ItemBase m_currentItem;
+
+		[Space(2)]
+
+		[Header("Actor Components")]
 		[SerializeField] protected NavMeshAgent m_agent;
 		[SerializeField] protected LayerMask m_ignorePlayerLayer;
-		[SerializeField] protected Action.ActionTypes m_currentAction;
-		[SerializeField] protected Ability m_currentAbility;
-		[SerializeField] protected ItemBase m_currentItem;
 		protected float m_currentTimer;
 		protected bool m_isMoving;
 		protected bool m_isAttacking;
 		protected Vector3 m_clickPoint;
 		protected Actor m_target;
-
-		[SerializedDictionary("Action Name", "Action")]
-		[SerializeField] SerializedDictionary<Action.ActionTypes, Action> m_listOfActions = new SerializedDictionary<Action.ActionTypes, Action>();
 
 		public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
 		public bool IsAttacking { get { return m_isAttacking; } set { m_isAttacking = value; } }

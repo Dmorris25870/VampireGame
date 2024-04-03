@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -13,13 +12,9 @@ namespace VartraAbyss.Entity.Player
 	{
 		[SerializeField] private PlayerInput m_playerControl;
 		private ActionQueue m_actionQueue;
-
-		[SerializeField] private int m_blood;
-		[SerializeField] private int m_maximumBlood;
-
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
-		private Utility.Timer m_abilityTimer;
+		private Timer m_abilityTimer;
 
 		private void Start()
 		{
@@ -92,7 +87,7 @@ namespace VartraAbyss.Entity.Player
 				{
 					if ( m_abilityTimer == null )
 					{
-						m_abilityTimer = gameObject.AddComponent<Utility.Timer>();
+						m_abilityTimer = gameObject.AddComponent<Timer>();
 						m_abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
 					}
 
@@ -162,6 +157,8 @@ namespace VartraAbyss.Entity.Player
 				RaycastHit hit;
 				if ( Physics.Raycast(ray, out hit, IgnorePlayerLayer) )
 				{
+					m_clickPoint = hit.point;
+
 					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
 						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
@@ -172,7 +169,6 @@ namespace VartraAbyss.Entity.Player
 							Debug.Log($"Ability distance is: {CurrentAbility.AbilityDistance}");
 							m_isMoving = true;
 							m_isAttacking = true;
-							m_clickPoint = hit.point;
 							m_currentAction = ActionTypes.Move;
 						}
 						else
@@ -184,7 +180,6 @@ namespace VartraAbyss.Entity.Player
 					else
 					{
 						m_isMoving = true;
-						m_clickPoint = hit.point;
 						m_currentAction = ActionTypes.Move;
 					}
 				}

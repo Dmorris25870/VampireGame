@@ -1927,6 +1927,27 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1383910062492115015, guid: 67f5bb4c33582c444a828568284ed116,
         type: 3}
+      propertyPath: m_actorStat
+      value: 
+      objectReference: {fileID: 4653730010790743364, guid: a9f9ff39ba13b4b4b9c2660b221ae8ec,
+        type: 3}
+    - target: {fileID: 1383910062492115015, guid: 67f5bb4c33582c444a828568284ed116,
+        type: 3}
+      propertyPath: m_enemyBase
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383910062492115015, guid: 67f5bb4c33582c444a828568284ed116,
+        type: 3}
+      propertyPath: m_currentAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383910062492115015, guid: 67f5bb4c33582c444a828568284ed116,
+        type: 3}
+      propertyPath: m_currentAbility
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383910062492115015, guid: 67f5bb4c33582c444a828568284ed116,
+        type: 3}
       propertyPath: m_ignorePlayerLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
@@ -2941,6 +2962,18 @@ NavMeshAgent:
     type: 3}
   m_PrefabInstance: {fileID: 1127971120}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013683371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9069167775652624543, guid: b0b09979a3d1690408679951dd007030,
+    type: 3}
+  m_PrefabInstance: {fileID: 1127971120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1072972476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,9 +3066,26 @@ PrefabInstance:
       objectReference: {fileID: 1013683369}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+      propertyPath: m_actorStat
+      value: 
+      objectReference: {fileID: 4653730010790743364, guid: a9f9ff39ba13b4b4b9c2660b221ae8ec,
+        type: 3}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_actionQueue
+      value: 
+      objectReference: {fileID: 4418489236844747538, guid: 0d01e654bcf1f9e4d860bf2c1d68aa84,
+        type: 3}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
       propertyPath: m_currentAction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_playerControl
+      value: 
+      objectReference: {fileID: 1013683371}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: m_currentAbility
@@ -3045,7 +3095,12 @@ PrefabInstance:
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: m_listOfActions._serializedList.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_listOfAbilities._serializedList.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
@@ -3059,6 +3114,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+      propertyPath: m_listOfActions._serializedList.Array.data[2].Key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_listOfAbilities._serializedList.Array.data[0].Key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
       propertyPath: m_listOfActions._serializedList.Array.data[0].Value
       value: 
       objectReference: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
@@ -3068,6 +3133,18 @@ PrefabInstance:
       propertyPath: m_listOfActions._serializedList.Array.data[1].Value
       value: 
       objectReference: {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602,
+        type: 3}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_listOfActions._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
+        type: 3}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_listOfAbilities._serializedList.Array.data[0].Value
+      value: 
+      objectReference: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
         type: 3}
     - target: {fileID: 2820367666736670474, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
