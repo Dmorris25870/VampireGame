@@ -22,10 +22,9 @@ namespace VartraAbyss.Entity.Enemy
 					{
 						m_itemsList.Add(m_enemyBase.lootTable.items[i]);
 					}
-					else Debug.Log("this dude has no items chief");
 				}
 			}
-			Debug.Log(m_itemsList.Count);
+
 			for ( int i = 0; i < m_enemyBase.itemDrops; i++ )
 			{
 				GameObject instantiatedItem = Instantiate(m_itemObject);
@@ -41,11 +40,6 @@ namespace VartraAbyss.Entity.Enemy
 		public override void Die()
 		{
 			DropItems();
-		}
-
-		public void OnEnable()
-		{
-			//Die(); //MOVE THIS, DO NOT FORGET, MOVE THIS FUCKER
 		}
 	}
 }

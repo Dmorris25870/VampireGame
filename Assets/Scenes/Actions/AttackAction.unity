@@ -3119,6 +3119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+      propertyPath: m_listOfActions._serializedList.Array.data[3].Key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
       propertyPath: m_listOfAbilities._serializedList.Array.data[0].Key
       value: 1
       objectReference: {fileID: 0}
@@ -3137,6 +3142,12 @@ PrefabInstance:
     - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: m_listOfActions._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
+        type: 3}
+    - target: {fileID: 2274489827652287071, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_listOfActions._serializedList.Array.data[3].Value
       value: 
       objectReference: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
         type: 3}

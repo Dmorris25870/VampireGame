@@ -7,11 +7,8 @@ using UnityEngine.UI;
 public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private RectTransform draggingObject;
-
     private bool canSet;
-
     private Image draggingObjectImage;
-
     private GameObject activeSkillSlot;
 
     private void Awake()
@@ -29,7 +26,6 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if(canSet)
         {
-            Debug.Log("change image");
             activeSkillSlot.GetComponent<Image>().sprite = draggingObjectImage.sprite;
             activeSkillSlot.GetComponentInChildren<Image>().sprite = draggingObjectImage.sprite;
             gameObject.transform.localPosition = gameObject.transform.parent.localPosition;
@@ -45,7 +41,6 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision");
         if (collision.CompareTag("SkillSlot"))
         {
             canSet = true;
@@ -55,14 +50,9 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("collision");
         if (collision.CompareTag("SkillSlot"))
         {
             canSet = false;
         }
     }
-
-
-
-
 }

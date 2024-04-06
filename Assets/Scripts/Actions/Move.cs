@@ -7,6 +7,9 @@ using VartraAbyss.Utility;
 
 namespace VartraAbyss.Actions
 {
+	/// <summary>
+	/// Move Action that handles the movement of an Actor.
+	/// </summary>
     public class Move : Action
     {	
 		public Move()
@@ -14,6 +17,12 @@ namespace VartraAbyss.Actions
 			m_actionType = ActionTypes.Move;
 		}
 
+		/// <summary>
+		/// Performs the Move Action, passing in an Actor, setting the destination to the point where the user clicked.
+		/// Once the Actor has reached the destination, it stops moving and switches the the Idle Action.
+		/// If the Actor was attacking and reaches within the Ability/Attack distance, then it will stop moving, reset the path and Cast the Ability / Attack.
+		/// </summary>
+		/// <param name="self"></param>
 		public override void PerformAction(Actor self)
 		{
 			self.Agent.SetDestination(self.ClickPoint);

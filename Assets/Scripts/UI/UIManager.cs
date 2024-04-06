@@ -5,7 +5,6 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject SkillsMenuObject;
-
     public GameObject AbsorbAbiltyText;
     
     void Start()
@@ -29,7 +28,6 @@ public class UIManager : MonoBehaviour
         EventManager.OnCanAbsorbAbility -= CanAbsorbAbilty;
         EventManager.OnCannotAbsorbAbility -= CannotAbsorbAbilty;
     }
-
 
     private void OpenSkillsMenu()
     {

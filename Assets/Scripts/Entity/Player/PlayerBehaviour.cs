@@ -34,7 +34,6 @@ namespace VartraAbyss.Entity.Player
 		{
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
-				Debug.Log("Can Absorb Ability");
 				EventManager.OnCanAbsorbAbility?.Invoke();
 				m_skillToAbsorb = other.gameObject;
 			}
@@ -44,7 +43,6 @@ namespace VartraAbyss.Entity.Player
 		{
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
-				Debug.Log("Cannot Absorb Ability");
 				EventManager.OnCannotAbsorbAbility?.Invoke();
 				m_skillToAbsorb = null;
 			}
@@ -143,7 +141,7 @@ namespace VartraAbyss.Entity.Player
 			ListOfActions[ActionTypes.Cancel].PerformAction();
 		}
 
-		private bool CheckDistanceBetweenActors(GameObject actor1, GameObject actor2)
+		private bool IsWithinAbilityRange(GameObject actor1, GameObject actor2)
 		{
 			return Utilities.GetDistanceBetweenTwoActors(actor1, actor2) > CurrentAbility.AbilityDistance;
 		}
@@ -163,10 +161,8 @@ namespace VartraAbyss.Entity.Player
 					{
 						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
 
-						if (CheckDistanceBetweenActors(gameObject, hit.collider.gameObject))
+						if (IsWithinAbilityRange(gameObject, hit.collider.gameObject))
 						{
-							Debug.Log($"Distance between self and target is: {Utilities.GetDistanceBetweenTwoActors(gameObject, hit.collider.gameObject)}");
-							Debug.Log($"Ability distance is: {CurrentAbility.AbilityDistance}");
 							m_isMoving = true;
 							m_isAttacking = true;
 							m_currentAction = ActionTypes.Move;
@@ -198,7 +194,6 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnSkills()
 		{
-			Debug.Log("Skills Menu");
 			if ( !m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenu?.Invoke();
@@ -216,6 +211,5 @@ namespace VartraAbyss.Entity.Player
 			Destroy(m_skillToAbsorb);
 			EventManager.OnCannotAbsorbAbility?.Invoke();
 		}
-
 	}
 }

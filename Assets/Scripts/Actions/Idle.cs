@@ -11,6 +11,10 @@ namespace VartraAbyss.Actions
 		{
 			m_actionType = ActionTypes.Idle;
 		}
+
+		/// <summary>
+		/// Performs the Idle Action, it does nothing.
+		/// </summary>
 		public override void PerformAction()
 		{
 			return;
