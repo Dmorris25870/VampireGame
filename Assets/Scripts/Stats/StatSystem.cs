@@ -39,7 +39,7 @@ namespace VartraAbyss.Stats
 			Logger();
 		}
 
-		public void CalculateDancingStats()
+		public void CalculateStats()
 		{
 			//rhythm = (int)( (float)strength * (float)strengthMultiplier );
 			//style = (int)( (float)agility * (float)agilityMultiplier );
@@ -59,7 +59,7 @@ namespace VartraAbyss.Stats
 			//int tempIntelligence = PointsPool;
 			//intelligence += tempIntelligence;
 
-			CalculateDancingStats();
+			CalculateStats();
 		}
 
 		private void Logger()

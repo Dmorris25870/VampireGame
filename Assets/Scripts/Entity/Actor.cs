@@ -13,6 +13,7 @@ namespace VartraAbyss.Entity
 	{
 		[Header("Actor Stats")]
 		[SerializeField] protected int m_health;
+		[SerializeField] protected int m_maximumHealth;
 		[SerializeField] protected int m_blood;
 		[SerializeField] protected int m_maximumBlood;
 		[SerializeField] protected float m_moveSpeed;
@@ -51,6 +52,9 @@ namespace VartraAbyss.Entity
 		public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
 		public bool IsAttacking { get { return m_isAttacking; } set { m_isAttacking = value; } }
 		public int Health { get { return m_health; } set { m_health = value; } }
+		public int MaximumHealth { get { return m_maximumHealth; } set { m_maximumHealth = value; } }
+		public int Blood { get { return m_blood; } set { m_blood = value; } }
+		public int MaximumBlood { get { return m_maximumBlood; } set { m_maximumBlood = value; } }
 		public float MoveSpeed { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
 		public float MaximumMoveSpeed { get { return m_maximumMoveSpeed; } set { m_maximumMoveSpeed = value; } }
 		public float CurrentTimer { get { return m_currentTimer; } set { m_currentTimer = value; } }

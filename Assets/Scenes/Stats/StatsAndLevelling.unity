@@ -533,8 +533,6 @@ MonoBehaviour:
   m_initialStatPointPool: 29
   m_currentStatPointPool: 29
   m_statPointPoolOnLevelUp: 7
-  myStatsPool: 0
-  myPointsPool: 0
 --- !u!4 &768862712
 Transform:
   m_ObjectHideFlags: 0
@@ -566,7 +564,6 @@ MonoBehaviour:
   m_currentXp: 0
   m_currentXPThreshold: 20
   m_xpThresholdMultiplier: 1.5
-  uiManager: {fileID: 71803538}
 --- !u!1 &819973614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1260,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 768862711}
         m_TargetAssemblyTypeName: VartraAbyss.Stats.StatSystem, Assembly-CSharp
-        m_MethodName: GenerateStats
+        m_MethodName: AssignStats
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
