@@ -10,7 +10,7 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private string m_speakerName;
 		[SerializeField] private Image m_speakerPortrait;
 
-		[TextArea(10,20)]
+		[TextArea(5,10)]
 		[SerializeField] private string m_dialogue;
 	}
 }
