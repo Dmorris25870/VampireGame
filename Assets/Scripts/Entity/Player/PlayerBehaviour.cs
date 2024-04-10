@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,14 @@ namespace VartraAbyss.Entity.Player
 {
 	public class PlayerBehaviour : Actor
 	{
+		[TabGroup("Actor" , "Components" , SdfIconType.ExclamationTriangle , TextColor = "red")]
+		[Required]
 		[SerializeField] private PlayerInput m_playerControl;
+
+		[TabGroup("Actor" , "Items" , SdfIconType.Grid , TextColor = "cyan")]
+		[TableMatrix(HorizontalTitle = "Inventory" , SquareCells = true)]
+		public ItemBehaviour[,] Inventory;
+
 		private ActionQueue m_actionQueue;
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
@@ -21,6 +30,22 @@ namespace VartraAbyss.Entity.Player
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
 			m_agent = GetComponent<NavMeshAgent>();
+		}
+
+		[OnInspectorInit]
+		private void CreateData()
+		{
+			Inventory = new ItemBehaviour[8 , 4]
+			{
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+				{ null, null, null, null },
+			};
 		}
 
 		private void OnEnable()
