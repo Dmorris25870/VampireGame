@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using VartraAbyss.Utility;
+using VartraAbyss.Stats;
 using static VartraAbyss.Actions.Action;
 
 namespace VartraAbyss.Entity.Player

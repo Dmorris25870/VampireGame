@@ -30,7 +30,7 @@ namespace VartraAbyss.Actions
 
 		public override void PerformAction(Actor self, Actor target)
 		{
-			target.Health -= GetDamageAmount(self.CurrentAbility);
+			target.Stat.Health -= GetDamageAmount(self.CurrentAbility);
 		}
 
 		public override void AddToQueue()

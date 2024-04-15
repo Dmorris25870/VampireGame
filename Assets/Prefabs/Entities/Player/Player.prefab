@@ -231,6 +231,8 @@ MonoBehaviour:
     - {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a, type: 3}
     - {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3, type: 3}
     - {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1, type: 3}
+    - {fileID: 7906130979902146748, guid: 84bd2339fce68804f955d1dce866a2b1, type: 3}
+    - {fileID: 5118584081110486178, guid: 5825a6699d0bf6d4287363c6b4a64d0d, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -300,11 +302,11 @@ MonoBehaviour:
       Data: 
     - Name: m_listOfAbilities
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[VartraAbyss.Abilities.Ability+AbilityTypes,
+      Data: 2|System.Collections.Generic.Dictionary`2[[VartraAbyss.Abilities.Ability+AbilityNames,
         Assembly-CSharp],[VartraAbyss.Abilities.Ability, Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[VartraAbyss.Abilities.Ability+AbilityTypes,
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[VartraAbyss.Abilities.Ability+AbilityNames,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -317,7 +319,31 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 
@@ -326,7 +352,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -447,12 +473,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  m_health: 100
-  m_maximumHealth: 10
-  m_blood: 10
-  m_maximumBlood: 10
-  m_moveSpeed: 1
-  m_maximumMoveSpeed: 10
+  m_stat:
+    m_health: 0
+    m_maximumHealth: 0
+    m_blood: 0
+    m_maximumBlood: 0
+    m_moveSpeed: 0
+    m_maximumMoveSpeed: 0
   m_currentAction: 1
   m_currentAbility: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
     type: 3}

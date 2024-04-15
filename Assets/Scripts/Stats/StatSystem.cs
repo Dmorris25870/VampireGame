@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VartraAbyss.Entity;
 
 namespace VartraAbyss.Stats
 {
@@ -21,6 +22,11 @@ namespace VartraAbyss.Stats
 		[SerializeField] private int m_currentStatPointPool;
 		[SerializeField] private int m_statPointPoolOnLevelUp;
 
+		public int Vitality { get { return m_vitality; } }
+		public int Mind { get { return m_mind; } }
+		public int Strength { get { return m_strength; } }
+		public int Dexterity { get { return m_dexterity; } }
+
 		public void AssignStats()
 		{
 			m_currentStatPointPool = m_initialStatPointPool;
@@ -39,11 +45,10 @@ namespace VartraAbyss.Stats
 			Logger();
 		}
 
-		public void CalculateStats()
+		public void CalculateStats(Actor self)
 		{
-			//rhythm = (int)( (float)strength * (float)strengthMultiplier );
-			//style = (int)( (float)agility * (float)agilityMultiplier );
-			//luck = (int)( (float)intelligence * (float)intelligenceMultiplier );
+			self.Stat.Health = (int)( (float)m_vitality * (float)m_vitalityMultiplier );
+			self.Stat.Blood = (int)( (float)m_mind * (float)m_mindMultiplier );
 		}
 
 		public void DistributePhysicalStatsOnLevelUp(int PointsPool)
@@ -59,7 +64,7 @@ namespace VartraAbyss.Stats
 			//int tempIntelligence = PointsPool;
 			//intelligence += tempIntelligence;
 
-			CalculateStats();
+			//CalculateStats();
 		}
 
 		private void Logger()

@@ -7,12 +7,12 @@ namespace VartraAbyss.Abilities
 {
 	public abstract class Ability : MonoBehaviour
 	{
-		public enum AbilityTypes
+		public enum AbilityNames
 		{
 			Unset,
-			BloodProjectile,
-			BloodBomb,
-			BloodBoil
+			Claw,
+			Bite,
+			BloodProjectile
 		}
 
 		[SerializeField] protected DamageType m_damageType;
