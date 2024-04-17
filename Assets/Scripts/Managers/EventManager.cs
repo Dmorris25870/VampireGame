@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using VartraAbyss.Entity;
+using VartraAbyss.Inventory;
 
 public static class EventManager 
 {
@@ -13,6 +14,22 @@ public static class EventManager
 	public static AbilityEvent OnActivatedSlot4Ability;
 	public static AbilityEvent OnActivatedSlot5Ability;
 	public static AbilityEvent OnActivatedSlot6Ability;
+
+    public delegate void ItemDragEvent(ItemDragLITE itemToDrag);
+	public static ItemDragEvent OnItemGiving;
+	public static ItemDragEvent OnItemDropping;
+	public static ItemDragEvent OnItemDrag;
+    public static ItemDragEvent OnItemTransferTo;
+    public static ItemDragEvent OnItemTransferFrom;
+    public static ItemDragEvent OnSortingSlots;
+
+	public delegate void ItemScriptEvent(ItemScriptLITE item);
+	public static ItemScriptEvent OnItemEquip;
+    public static ItemScriptEvent OnGiveItem;
+
+    public delegate void InventoryItemEvent();
+    public static InventoryItemEvent OnInventoryItemFits;
+    public static InventoryItemEvent OnReturnItemToOriginalPosition;
 
 	public delegate void QAbilityEvent();
     public static QAbilityEvent OnQAbility;

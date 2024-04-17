@@ -35,6 +35,18 @@ namespace VartraAbyss.Inventory
 
 		public GameObject itemPrompt;
 
+		private void OnEnable()
+		{
+			EventManager.OnItemEquip += Equip;
+			EventManager.OnInventoryItemFits += DoesFit;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnItemEquip -= Equip;
+			EventManager.OnInventoryItemFits -= DoesFit;
+		}
+
 		private void Start()
 		{
 			scaleMultiplier = uiScale / 0.5f;
@@ -88,10 +100,9 @@ namespace VartraAbyss.Inventory
 				{
 					if ( lookingAt != null )
 					{
-						lookingAt.SendMessage("LookAway", SendMessageOptions.DontRequireReceiver);
 						lookingAt = null;
 					}
-					hit.transform.SendMessage("LookAt", SendMessageOptions.DontRequireReceiver);
+
 					lookingAt = hit.transform;
 				}
 				if ( Input.GetKeyUp(useKey) )
@@ -100,7 +111,7 @@ namespace VartraAbyss.Inventory
 					ItemScriptLITE temp = hit.transform.GetComponent<ItemScriptLITE>();
 					if ( bag.freeSpaces >= temp.width * temp.height )
 					{
-						bag.SendMessage("GiveItem", temp);
+						EventManager.OnGiveItem?.Invoke(temp);
 					}
 					if ( doesFit == false )
 					{
@@ -113,8 +124,6 @@ namespace VartraAbyss.Inventory
 					if ( timer >= 0.4 )
 					{
 						timer = 0;
-						hit.transform.SendMessage("Interacted", transform, SendMessageOptions.DontRequireReceiver);
-						hit.transform.SendMessage("Hold", transform, SendMessageOptions.DontRequireReceiver);
 					}
 				}
 				if ( !Input.GetKey(useKey) )
@@ -128,7 +137,6 @@ namespace VartraAbyss.Inventory
 				itemPrompt.GetComponent<Text>().text = "E to Take Item";
 				itemPrompt.GetComponent<Text>().color = Color.white;
 				StopCoroutine("NotEnough");
-				lookingAt.SendMessage("LookAway", SendMessageOptions.DontRequireReceiver);
 				lookingAt = null;
 			}
 		}
@@ -152,7 +160,7 @@ namespace VartraAbyss.Inventory
 			ItemScriptLITE temp = item;
 			if ( bag.freeSpaces >= temp.width * temp.height )
 			{
-				bag.SendMessage("GiveItem", temp);
+				EventManager.OnGiveItem?.Invoke(temp);
 			}
 			else
 			{
@@ -166,7 +174,7 @@ namespace VartraAbyss.Inventory
 			ItemScriptLITE temp = item;
 			if ( bag.freeSpaces >= temp.width * temp.height )
 			{
-				bag.SendMessage("GiveItem", temp);
+				EventManager.OnGiveItem?.Invoke(temp);
 			}
 			if ( doesFit == false )
 			{

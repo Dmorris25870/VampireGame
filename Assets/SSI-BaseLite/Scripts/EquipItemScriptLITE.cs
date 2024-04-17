@@ -8,6 +8,17 @@ namespace VartraAbyss.Inventory
 	{
 		public ItemDragLITE item;
 
+		private void OnEnable()
+		{
+
+			EventManager.OnItemGiving += ItemToEquip;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnItemGiving -= ItemToEquip;
+		}
+
 		public void ItemToEquip(ItemDragLITE item2)
 		{
 			item = item2;
@@ -15,7 +26,7 @@ namespace VartraAbyss.Inventory
 
 		public void Equip()
 		{
-			GameObject.FindGameObjectWithTag("MainCamera").SendMessage("Equip", item.obj.GetComponent<ItemScriptLITE>());
+			EventManager.OnItemEquip?.Invoke(item.obj.GetComponent<ItemScriptLITE>());
 			transform.parent.GetComponent<RectTransform>().localScale = new Vector2(0, 0);
 		}
 	}

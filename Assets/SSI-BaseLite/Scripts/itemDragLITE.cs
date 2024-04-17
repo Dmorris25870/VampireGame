@@ -17,6 +17,16 @@ namespace VartraAbyss.Inventory
 		public GameObject equipButton;
 		public GameObject dropButton;
 
+		private void OnEnable()
+		{
+			EventManager.OnReturnItemToOriginalPosition += ReturnToNormal;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnReturnItemToOriginalPosition -= ReturnToNormal;
+		}
+
 		private void Awake()
 		{
 			rect = GetComponent<RectTransform>();
@@ -67,25 +77,29 @@ namespace VartraAbyss.Inventory
 			{
 				if ( oldParent != transform.parent )
 				{
-					oldParent.SendMessage("RemoveItem", this);
+					EventManager.OnItemDrag?.Invoke(this);
 				}
 				else
 				{
-					transform.parent.SendMessage("RemoveItem", this);
+					EventManager.OnItemDrag?.Invoke(this);
 				}
 				panel.GetComponent<RectTransform>().localScale = new Vector2(0, 0); //hides the panel without making it inactive so that future itemDrags don't crash
 			}
-			if ( GetComponent<TriggerCheckerLITE>().triggered == false && Mathf.Round(rect.anchoredPosition.x / 50) * 50 <= ( 50 * transform.parent.GetComponent<InventoryGridScriptLITE>().width - 1 ) - ( 50 * ( transform.localScale.x - 1 ) ) && Mathf.Round(rect.anchoredPosition.x / 50) * 50 >= 0 && Mathf.Round(rect.anchoredPosition.y / 50) * 50 <= 0 && Mathf.Round(rect.anchoredPosition.y / 50) * 50 >= -( 50 * transform.parent.GetComponent<InventoryGridScriptLITE>().height - 1 ) + ( 50 * ( transform.localScale.y - 1 ) ) )
+			if ( GetComponent<TriggerCheckerLITE>().triggered == false &&
+				Mathf.Round(rect.anchoredPosition.x / 50) * 50 <= ( 50 * transform.parent.GetComponent<InventoryGridScriptLITE>().width - 1 ) - ( 50 * ( transform.localScale.x - 1 ) ) &&
+				Mathf.Round(rect.anchoredPosition.x / 50) * 50 >= 0 && 
+				Mathf.Round(rect.anchoredPosition.y / 50) * 50 <= 0 &&
+				Mathf.Round(rect.anchoredPosition.y / 50) * 50 >= -( 50 * transform.parent.GetComponent<InventoryGridScriptLITE>().height - 1 ) + ( 50 * ( transform.localScale.y - 1 ) ) )
 			{
 				rect.anchoredPosition = new Vector2(Mathf.Round(GetComponent<RectTransform>().anchoredPosition.x / 50) * 50, Mathf.Round(GetComponent<RectTransform>().anchoredPosition.y / 50) * 50);
 				if ( oldParent != transform.parent )
 				{
-					oldParent.SendMessage("TransferItemAway", this);
-					transform.parent.SendMessage("TransferItemTo", this);
+					EventManager.OnItemTransferFrom?.Invoke(this);
+					EventManager.OnItemTransferTo?.Invoke(this);
 				}
 				else
 				{
-					transform.parent.SendMessage("SortSlots", this);
+					EventManager.OnSortingSlots?.Invoke(this);
 					originalPos = rect.anchoredPosition;
 					originalRot = rect.transform.Find("image").localEulerAngles;
 				}
@@ -102,11 +116,11 @@ namespace VartraAbyss.Inventory
 			{
 				if ( oldParent != transform.parent )
 				{
-					oldParent.SendMessage("RemoveItem", this);
+					EventManager.OnItemDrag?.Invoke(this);
 				}
 				else
 				{
-					transform.parent.SendMessage("RemoveItem", this);
+					EventManager.OnItemDrag?.Invoke(this);
 				}
 				panel.GetComponent<RectTransform>().localScale = new Vector2(0, 0);
 			}
@@ -115,7 +129,7 @@ namespace VartraAbyss.Inventory
 
 		private void Drop()
 		{
-			transform.parent.SendMessage("RemoveItem", this);
+			EventManager.OnItemDrag?.Invoke(this);
 		}
 
 		public void ReturnToNormal()
@@ -131,11 +145,11 @@ namespace VartraAbyss.Inventory
 		{
 			panel.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
 			panel.GetComponent<InventoryPanelLITE>().SelectItem(this);
-			dropButton.SendMessage("ItemToDrop", transform.GetComponent<ItemDragLITE>());
+			EventManager.OnItemDropping?.Invoke(transform.GetComponent<ItemDragLITE>());
 			if ( obj.equipable )
 			{
 				equipButton.SetActive(true);
-				equipButton.SendMessage("ItemToEquip", transform.GetComponent<ItemDragLITE>());
+				EventManager.OnItemGiving?.Invoke(transform.GetComponent<ItemDragLITE>());
 			}
 			else
 			{

@@ -27,6 +27,25 @@ namespace VartraAbyss.Inventory
 		public bool[] slots;
 		public List<ItemDragLITE> items;
 
+		private void OnEnable()
+		{
+			
+			EventManager.OnItemDrag += RemoveItem;
+			EventManager.OnGiveItem += GiveItem;
+			EventManager.OnItemTransferTo += TransferItemTo;
+			EventManager.OnItemTransferFrom += TransferItemAway;
+			EventManager.OnSortingSlots += SortSlots;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnItemDrag -= RemoveItem;
+			EventManager.OnGiveItem -= GiveItem;
+			EventManager.OnItemTransferTo -= TransferItemTo;
+			EventManager.OnItemTransferFrom -= TransferItemAway;
+			EventManager.OnSortingSlots -= SortSlots;
+		}
+
 		private void Start()
 		{
 			slots = new bool[width * height];
@@ -97,12 +116,12 @@ namespace VartraAbyss.Inventory
 
 			if ( fits == true )
 			{
-				player.SendMessage("DoesFit");
+				EventManager.OnInventoryItemFits?.Invoke();
 				items.Add(itemClone.GetComponent<ItemDragLITE>());
-
 				itemClone.anchoredPosition = new Vector2(topleftslot % width * 50, -Mathf.Floor(topleftslot / width) * 50);
 				itemClone.GetComponent<ItemDragLITE>().originalPos = itemClone.anchoredPosition;
 				itemClone.GetComponent<ItemDragLITE>().originalScale = itemClone.localScale;
+
 				for ( int y = 0; y < item.height; y++ )
 				{
 					for ( int x = 0; x < item.width; x++ )
@@ -110,6 +129,7 @@ namespace VartraAbyss.Inventory
 						slots[topleftslot + x + ( y * width )] = true;
 					}
 				}
+
 				item.transform.SetParent(transform);
 				item.gameObject.SetActive(false);
 				freeSpaces -= (int)( item.width * item.height );
@@ -148,7 +168,7 @@ namespace VartraAbyss.Inventory
 						if ( slots[(int)slotPosWidth2 + i + ( j * width ) + (int)( slotPosHeight2 * width )] == true )
 						{
 							fits = false;
-							pos.SendMessage("ReturnToNormal");
+							EventManager.OnReturnItemToOriginalPosition?.Invoke();
 							break;
 						}
 
@@ -167,7 +187,7 @@ namespace VartraAbyss.Inventory
 			}
 			else
 			{
-				pos.SendMessage("ReturnToNormal");
+				EventManager.OnReturnItemToOriginalPosition?.Invoke();
 			}
 		}
 
@@ -218,7 +238,7 @@ namespace VartraAbyss.Inventory
 			}
 			else
 			{
-				pos.GetComponent<ItemDragLITE>().ReturnToNormal();
+				EventManager.OnReturnItemToOriginalPosition?.Invoke();
 			}
 		}
 
@@ -259,7 +279,7 @@ namespace VartraAbyss.Inventory
 			{
 				if ( item.obj.equipable )
 				{
-					GameObject.FindGameObjectWithTag("MainCamera").SendMessage("RemoveItem", item.GetComponent<ItemDragLITE>());
+					EventManager.OnItemDrag?.Invoke(item.GetComponent<ItemDragLITE>());
 				}
 
 				item.obj.gameObject.SetActive(true);

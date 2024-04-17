@@ -9,6 +9,17 @@ namespace VartraAbyss.Inventory
 		public InventoryGridScriptLITE grid;
 		public ItemDragLITE item;
 
+		private void OnEnable()
+		{
+
+			EventManager.OnItemDropping += ItemToDrop;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnItemDropping -= ItemToDrop;
+		}
+
 		public void ItemToDrop(ItemDragLITE item2)
 		{
 			item = item2;
@@ -18,8 +29,7 @@ namespace VartraAbyss.Inventory
 		public void Drop()
 		{
 			item.originalPos = item.rect.anchoredPosition;
-			GameObject.FindGameObjectWithTag("MainCamera").SendMessage("RemoveItem", item.GetComponent<ItemDragLITE>()); //in case you're making equipable items
-			grid.SendMessage("RemoveItem", item);
+			EventManager.OnItemDrag?.Invoke(item);
 			transform.parent.GetComponent<RectTransform>().localScale = new Vector2(0, 0);
 		}
 	}
