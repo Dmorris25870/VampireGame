@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonManager : MonoBehaviour
+public class SingletonManager<T> : MonoBehaviour where T : SingletonManager<T>
 {
-    private SingletonManager m_instance;
-
-    public SingletonManager Instance { get; private set; }
+    public static SingletonManager<T> Instance;
 
 	private void Awake()
 	{

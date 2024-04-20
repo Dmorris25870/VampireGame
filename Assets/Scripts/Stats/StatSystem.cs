@@ -31,16 +31,16 @@ namespace VartraAbyss.Stats
 		{
 			m_currentStatPointPool = m_initialStatPointPool;
 
-			m_vitality = Random.Range(0 , m_currentStatPointPool);
+			m_vitality = Random.Range(5 , m_currentStatPointPool / 2);
 			m_currentStatPointPool -= m_vitality;
 
-			m_mind = Random.Range(0 , m_currentStatPointPool);
+			m_mind = Random.Range(5 , m_currentStatPointPool / 2);
 			m_currentStatPointPool -= m_mind;
 
-			m_strength = Random.Range(0 , m_currentStatPointPool);
+			m_strength = Random.Range(5 , m_currentStatPointPool / 2);
 			m_currentStatPointPool -= m_strength;
 
-			m_dexterity = Random.Range(0 , m_currentStatPointPool);
+			m_dexterity = m_currentStatPointPool;
 			m_currentStatPointPool -= m_dexterity;
 			Logger();
 		}

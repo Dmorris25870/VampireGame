@@ -16,6 +16,16 @@ namespace VartraAbyss.Stats
 		public int CurrentXPThreshold { get { return m_currentXPThreshold; } }
 		public float XPThresholdMultiplier { get { return m_xpThresholdMultiplier; } }
 
+		private void OnEnable()
+		{
+			EventManager.OnGainXPEvent += AddXP;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnGainXPEvent -= AddXP;
+		}
+
 		public void AddXP(int xpGained)
 		{
 			m_currentXp += xpGained;
@@ -35,7 +45,6 @@ namespace VartraAbyss.Stats
 			m_currentXp -= m_currentXPThreshold;
 			tempCurrentThreshold = (int)( (float)m_currentXPThreshold * (float)m_xpThresholdMultiplier );
 			m_currentXPThreshold = tempCurrentThreshold;
-			//uiManager.ShowLevelUI();
 
 			if( m_currentXp >= m_currentXPThreshold )
 			{
