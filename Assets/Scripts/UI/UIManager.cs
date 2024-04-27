@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject SkillsMenuObject;
-    public GameObject AbsorbAbiltyText;
-    
-    void Start()
-    {
-        SkillsMenuObject.SetActive(false);
-        AbsorbAbiltyText.SetActive(false);
+    public GameObject skillsMenuObject;
+    public GameObject absorbAbiltyText;
+
+	private void Start()
+	{
+        skillsMenuObject.SetActive(false);
+        absorbAbiltyText.SetActive(false);
     }
 
     private void OnEnable()
@@ -31,23 +31,23 @@ public class UIManager : MonoBehaviour
 
     private void OpenSkillsMenu()
     {
-        SkillsMenuObject.SetActive(true);
+        skillsMenuObject.SetActive(true);
         //Time.timeScale = 0f;
     }
 
     private void CloseSkillsMenu()
     {
-        SkillsMenuObject.SetActive(false);
+        skillsMenuObject.SetActive(false);
         //Time.timeScale = 1f;
     }
 
     private void CanAbsorbAbilty()
     {
-        AbsorbAbiltyText.SetActive(true);
+        absorbAbiltyText.SetActive(true);
     }
 
     private void CannotAbsorbAbilty()
     {
-        AbsorbAbiltyText.SetActive(false);
+        absorbAbiltyText.SetActive(false);
     }
 }

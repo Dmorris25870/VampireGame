@@ -6,7 +6,7 @@ namespace VartraAbyss.Entity.Enemy
 {
 	public class EnemyBehaviour : Actor
 	{
-		[SerializeField] private List<ItemBase> m_itemsList = new List<ItemBase>();
+		[SerializeField] private List<ItemBase> m_itemsList = new();
 		[SerializeField] private EnemyBase m_enemyBase;
 		[SerializeField] private GameObject m_itemObject;
 		[SerializeField] private GameObject m_goldObject;

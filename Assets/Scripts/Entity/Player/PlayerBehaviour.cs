@@ -19,7 +19,7 @@ namespace VartraAbyss.Entity.Player
 
 		[TabGroup("Actor" , "Items" , SdfIconType.Grid , TextColor = "cyan")]
 		[TableMatrix(HorizontalTitle = "Inventory" , SquareCells = true)]
-		public ItemBehaviour[,] Inventory;
+		public ItemBehaviour[,] inventory;
 
 		private ActionQueue m_actionQueue;
 		private bool m_isSkillsMenuOpen;
@@ -30,13 +30,13 @@ namespace VartraAbyss.Entity.Player
 		{
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
-			m_agent = GetComponent<NavMeshAgent>();
+			agent = GetComponent<NavMeshAgent>();
 		}
 
 		[OnInspectorInit]
 		private void CreateData()
 		{
-			Inventory = new ItemBehaviour[8 , 4]
+			inventory = new ItemBehaviour[8 , 4]
 			{
 				{ null, null, null, null },
 				{ null, null, null, null },
@@ -119,14 +119,14 @@ namespace VartraAbyss.Entity.Player
 					{
 						CastAbility();
 						m_abilityTimer.ResetTimer();
-						m_currentAction = ActionTypes.Idle;
+						currentAction = ActionTypes.Idle;
 					}
 				}
 				break;
 
 				case ActionTypes.Cancel:
 				{
-					m_currentAction = ActionTypes.Idle;
+					currentAction = ActionTypes.Idle;
 				}
 				break;
 
@@ -178,31 +178,30 @@ namespace VartraAbyss.Entity.Player
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-				RaycastHit hit;
-				if ( Physics.Raycast(ray, out hit, IgnorePlayerLayer) )
+				if( Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer) )
 				{
-					m_clickPoint = hit.point;
+					clickPoint = hit.point;
 
-					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
+					if( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
-						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
 
-						if (IsWithinAbilityRange(gameObject, hit.collider.gameObject))
+						if( IsWithinAbilityRange(gameObject , hit.collider.gameObject) )
 						{
-							m_isMoving = true;
-							m_isAttacking = true;
-							m_currentAction = ActionTypes.Move;
+							isMoving = true;
+							isAttacking = true;
+							currentAction = ActionTypes.Move;
 						}
 						else
 						{
-							m_isMoving = false;
-							m_currentAction = ActionTypes.CastAbility;
-						}	
+							isMoving = false;
+							currentAction = ActionTypes.CastAbility;
+						}
 					}
 					else
 					{
-						m_isMoving = true;
-						m_currentAction = ActionTypes.Move;
+						isMoving = true;
+						currentAction = ActionTypes.Move;
 					}
 				}
 			}

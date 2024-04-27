@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartraAbyss.Abilities;
 
-namespace MyNamespace
+namespace VartraAbyss.Abilities
 {
 	public class Claw : Ability
 	{

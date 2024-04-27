@@ -9,21 +9,21 @@ namespace VartraAbyss.Stats
 	public class Stat
 	{
 		[ProgressBar(0 , 100 , ColorGetter = "GetHealthBarColor")]
-		[SerializeField] protected int m_health;
-		[SerializeField] protected int m_maximumHealth;
+		[SerializeField] protected int health;
+		[SerializeField] protected int maximumHealth;
 		[ProgressBar(0 , 10 , 0.7f , 0 , 0.7f , Segmented = true)]
-		[SerializeField] protected int m_blood;
-		[SerializeField] protected int m_maximumBlood;
+		[SerializeField] protected int blood;
+		[SerializeField] protected int maximumBlood;
 		[Range(1 , 10)]
-		[SerializeField] protected float m_moveSpeed;
-		[SerializeField] protected float m_maximumMoveSpeed;
+		[SerializeField] protected float moveSpeed;
+		[SerializeField] protected float maximumMoveSpeed;
 
-		public int Health { get { return m_health; } set { m_health = value; } }
-		public int MaximumHealth { get { return m_maximumHealth; } set { m_maximumHealth = value; } }
-		public int Blood { get { return m_blood; } set { m_blood = value; } }
-		public int MaximumBlood { get { return m_maximumBlood; } set { m_maximumBlood = value; } }
-		public float MoveSpeed { get { return m_moveSpeed; } set { m_moveSpeed = value; } }
-		public float MaximumMoveSpeed { get { return m_maximumMoveSpeed; } set { m_maximumMoveSpeed = value; } }
+		public int Health { get => health; set { health = value; } }
+		public int MaximumHealth { get => maximumHealth; set { maximumHealth = value; } }
+		public int Blood { get => blood; set { blood = value; } }
+		public int MaximumBlood { get => maximumBlood; set { maximumBlood = value; } }
+		public float MoveSpeed { get => moveSpeed; set { moveSpeed = value; } }
+		public float MaximumMoveSpeed { get => maximumMoveSpeed; set { maximumMoveSpeed = value; } }
 
 		private Color GetHealthBarColor(float value)
 		{

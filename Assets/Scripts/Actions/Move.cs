@@ -4,7 +4,6 @@ using UnityEngine;
 using VartraAbyss.Entity;
 using VartraAbyss.Utility;
 
-
 namespace VartraAbyss.Actions
 {
 	/// <summary>

@@ -11,10 +11,10 @@ namespace VartraAbyss.Stats
 		[SerializeField] private int m_currentXPThreshold;
 		[SerializeField] private float m_xpThresholdMultiplier;
 
-		public int CurrentLevel { get { return m_currentLevel; } }
-		public int CurrentXP { get { return m_currentXp; } }
-		public int CurrentXPThreshold { get { return m_currentXPThreshold; } }
-		public float XPThresholdMultiplier { get { return m_xpThresholdMultiplier; } }
+		public int CurrentLevel => m_currentLevel;
+		public int CurrentXP => m_currentXp;
+		public int CurrentXPThreshold => m_currentXPThreshold;
+		public float XPThresholdMultiplier => m_xpThresholdMultiplier;
 
 		private void OnEnable()
 		{

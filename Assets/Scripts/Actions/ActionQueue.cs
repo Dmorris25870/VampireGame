@@ -9,7 +9,7 @@ namespace VartraAbyss.Utility
 	{
 		private Queue<Action> m_currentActionQueue = new Queue<Action>();
 
-		public Queue<Action> CurrentActionQueue { get { return m_currentActionQueue; } }
+		public Queue<Action> CurrentActionQueue => m_currentActionQueue;
 
 		private void FixedUpdate()
 		{

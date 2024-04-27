@@ -22,10 +22,10 @@ namespace VartraAbyss.Stats
 		[SerializeField] private int m_currentStatPointPool;
 		[SerializeField] private int m_statPointPoolOnLevelUp;
 
-		public int Vitality { get { return m_vitality; } }
-		public int Mind { get { return m_mind; } }
-		public int Strength { get { return m_strength; } }
-		public int Dexterity { get { return m_dexterity; } }
+		public int Vitality => m_vitality;
+		public int Mind => m_mind;
+		public int Strength => m_strength;
+		public int Dexterity => m_dexterity;
 
 		public void AssignStats()
 		{

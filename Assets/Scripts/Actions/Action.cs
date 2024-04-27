@@ -25,7 +25,7 @@ namespace VartraAbyss.Actions
 
 		protected ActionTypes m_actionType;
 
-		public ActionTypes ActionType { get { return m_actionType; } }
+		public ActionTypes ActionType => m_actionType;
 
 		/// <summary>
 		/// Returns the Damage Type of an Ability.

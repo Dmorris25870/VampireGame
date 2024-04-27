@@ -21,10 +21,10 @@ namespace VartraAbyss.Abilities
 		[SerializeField] protected float m_coolDownTimeInSeconds;
 		[SerializeField] protected float m_abilityDistance;
 
-		public DamageType DamageType { get { return m_damageType; } }
-		public int DamageAmount { get { return m_damageAmount; } }
-		public int BloodCostAmount { get { return m_bloodCostAmount; } }
-		public float CoolDownTimeInSeconds { get { return m_coolDownTimeInSeconds; } }
-		public float AbilityDistance { get { return m_abilityDistance; } }
+		public DamageType DamageType => m_damageType;
+		public int DamageAmount => m_damageAmount;
+		public int BloodCostAmount => m_bloodCostAmount;
+		public float CoolDownTimeInSeconds => m_coolDownTimeInSeconds;
+		public float AbilityDistance => m_abilityDistance;
 	}
 }
