@@ -1,12 +1,9 @@
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor.Examples;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using VartraAbyss.Utility;
-using VartraAbyss.Stats;
+using VartraAbyss.Managers;
 using static VartraAbyss.Actions.Action;
 
 namespace VartraAbyss.Entity.Player
@@ -31,6 +28,12 @@ namespace VartraAbyss.Entity.Player
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
 			agent = GetComponent<NavMeshAgent>();
+			EventManager.OnLevelUpEvent?.Invoke(this);
+		}
+
+		protected override Actor StoreActor()
+		{
+			return this;
 		}
 
 		[OnInspectorInit]
@@ -54,6 +57,15 @@ namespace VartraAbyss.Entity.Player
 			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
 			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
+			Global.OnGetPlayerEvent += StoreActor;
+		}
+
+		private void OnDisable()
+		{
+			m_playerControl.actions.FindAction("Primary").started -= OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInput;
+			Global.OnGetPlayerEvent -= StoreActor;
 		}
 
 		private void OnTriggerEnter(Collider other)

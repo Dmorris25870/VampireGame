@@ -12,10 +12,10 @@ namespace VartraAbyss.Utility
         [SerializeField] private float m_currentTime;
 		[SerializeField] private float m_targetTime;
 
-        public float CurrentTime { get { return m_currentTime; } }
-        public float TargetTime { get { return m_targetTime; } }
+		public float CurrentTime => m_currentTime;
+		public float TargetTime => m_targetTime;
 
-        public Timer(float targetTime)
+		public Timer(float targetTime)
         {
             m_targetTime = targetTime;
             m_currentTime = TargetTime;

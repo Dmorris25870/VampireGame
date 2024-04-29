@@ -20,18 +20,18 @@ public class ItemBase : ScriptableObject
     }
 
     [Header("Item Info")]
-    [SerializeField] string itemName;
-    [SerializeField] Sprite itemImage;
-    [SerializeField] string itemText;
-    [SerializeField] int itemValue;
-    [SerializeField] Rarity itemRarity;
-    [SerializeField] int itemHeight;
-    [SerializeField] int itemWidth;
-    [SerializeField] int itemLevel;
+    [SerializeField] private string m_itemName;
+    [SerializeField] private Sprite m_itemImage;
+    [SerializeField] private string m_itemText;
+    [SerializeField] private int m_itemValue;
+    [SerializeField] private Rarity m_itemRarity;
+    [SerializeField] private int m_itemHeight;
+    [SerializeField] private int m_itemWidth;
+    [SerializeField] private int m_itemLevel;
     [SerializeField] public float itemWeight;
-    [SerializeField] ItemType itemType;
+    [SerializeField] private ItemType m_itemType;
 
     [Header("Consumable Info")]
-    [SerializeField] int healthRestore;
-    [SerializeField] int bloodRestore;
+    [SerializeField] private int m_healthRestore;
+    [SerializeField] private int m_bloodRestore;
 }

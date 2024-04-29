@@ -12,19 +12,25 @@ namespace VartraAbyss.Abilities
 			Unset,
 			Claw,
 			Bite,
-			BloodProjectile
+			BloodProjectile,
+			BloodShield,
+			BloodWhip
 		}
 
-		[SerializeField] protected DamageType m_damageType;
-		[SerializeField] protected int m_damageAmount;
-		[SerializeField] protected int m_bloodCostAmount;
-		[SerializeField] protected float m_coolDownTimeInSeconds;
-		[SerializeField] protected float m_abilityDistance;
+		[SerializeField] protected DamageType damageType;
+		[SerializeField] protected int damageAmount;
+		[SerializeField] protected int bloodCostAmount;
+		[SerializeField] protected float coolDownTimeInSeconds;
+		[SerializeField] protected float abilityDistance;
+		[SerializeField] protected AudioClip soundEffect;
+		[SerializeField] protected ParticleSystem visualEffect;
 
-		public DamageType DamageType => m_damageType;
-		public int DamageAmount => m_damageAmount;
-		public int BloodCostAmount => m_bloodCostAmount;
-		public float CoolDownTimeInSeconds => m_coolDownTimeInSeconds;
-		public float AbilityDistance => m_abilityDistance;
+		public DamageType DamageType => damageType;
+		public int DamageAmount => damageAmount;
+		public int BloodCostAmount => bloodCostAmount;
+		public float CoolDownTimeInSeconds => coolDownTimeInSeconds;
+		public float AbilityDistance => abilityDistance;
+		public AudioClip SoundEffect => soundEffect;
+		public ParticleSystem VisualEffect => visualEffect;
 	}
 }

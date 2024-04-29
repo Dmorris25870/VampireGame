@@ -49,19 +49,20 @@ namespace VartraAbyss.Entity
 		protected Vector3 clickPoint;
 		protected Actor target;
 
-		public bool IsMoving { get => isMoving; set { isMoving = value; } }
-		public bool IsAttacking { get => isAttacking; set { isAttacking = value; } }
+		public bool IsMoving { get => isMoving; set => isMoving = value; }
+		public bool IsAttacking { get => isAttacking; set => isAttacking = value; }
 		public Stat Stat => stat;
 
 		public Ability CurrentAbility => currentAbility;
 		public ItemBase CurrentItem => currentItem;
-		public NavMeshAgent Agent { get => agent; set { agent = value; } }
+		public NavMeshAgent Agent { get => agent; set => agent = value; }
 		public LayerMask IgnorePlayerLayer => ignorePlayerLayer;
-		public Vector3 ClickPoint { get => clickPoint; set { clickPoint = value; } }
-		public Action.ActionTypes CurrentAction { get => currentAction; set { currentAction = value; } }
-		public Dictionary<Action.ActionTypes, Action> ListOfActions { get => listOfActions; set { listOfActions = value; } }
-		public Actor Target { get => target; set { target = value; } }
+		public Vector3 ClickPoint { get => clickPoint; set => clickPoint = value; }
+		public Action.ActionTypes CurrentAction { get => currentAction; set => currentAction = value; }
+		public Dictionary<Action.ActionTypes, Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
+		public Actor Target { get => target; set => target = value; }
 
+		protected virtual Actor StoreActor(){ return this; }
 		public virtual void SpawnActor(){ }
 		public virtual void SpawnActor(Actor actorToSpawn){ }
 		public virtual void SpawnActor(Actor actorToSpawn, Vector3 spawnLocation){ }

@@ -13,7 +13,7 @@ namespace VartraAbyss.Actions
     {	
 		public Move()
 		{
-			m_actionType = ActionTypes.Move;
+			actionType = ActionTypes.Move;
 		}
 
 		/// <summary>

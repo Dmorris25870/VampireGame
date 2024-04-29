@@ -7,6 +7,16 @@ using VartraAbyss.Inventory;
 
 public class EventManager : SingletonManager<EventManager>
 {
+	#region Game State Events
+	public delegate void GameStateEvent();
+	public static GameStateEvent OnGameStarted;
+	public static GameStateEvent OnGamePaused;
+	public static GameStateEvent OnGameUnpaused;
+	public static GameStateEvent OnGameDataSaved;
+	public static GameStateEvent OnGameDataLoaded;
+	public static GameStateEvent OnGameQuit;
+	#endregion
+
 	#region Ability Events
 	public delegate void AbilityEvent(Actor self);
     public static AbilityEvent OnActivatedSlot1Ability;
@@ -44,10 +54,12 @@ public class EventManager : SingletonManager<EventManager>
 	#endregion
 
 	#region Levelling Events
+	public delegate void ExperienceEvent(int xpAmount);
+	public static ExperienceEvent OnGainXPEvent;
 
-	public delegate void LevellingEvent(int xpAmount);
-	public static LevellingEvent OnGainXPEvent;
-
+	public delegate void LevellingEvent(Actor self);
+	public static LevellingEvent OnLevelUpEvent;
+	public static LevellingEvent OnRefreshStatsEvent;
 	#endregion
 
 	public delegate void SkillsMenuEvent();

@@ -10,7 +10,7 @@ namespace VartraAbyss.Actions
 	{
 		public CastAbility()
 		{
-			m_actionType = ActionTypes.CastAbility;
+			actionType = ActionTypes.CastAbility;
 		}
 
 		public override DamageType GetDamageType(Ability abilityToCheck)

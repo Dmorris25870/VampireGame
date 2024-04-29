@@ -226,19 +226,13 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602, type: 3}
-    - {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a, type: 3}
-    - {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3, type: 3}
-    - {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1, type: 3}
-    - {fileID: 7906130979902146748, guid: 84bd2339fce68804f955d1dce866a2b1, type: 3}
-    - {fileID: 5118584081110486178, guid: 5825a6699d0bf6d4287363c6b4a64d0d, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: m_listOfActions
+    - Name: listOfActions
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[VartraAbyss.Actions.Action+ActionTypes,
         Assembly-CSharp],[VartraAbyss.Actions.Action, Assembly-CSharp]], mscorlib
@@ -257,50 +251,14 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 5
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: m_listOfAbilities
+    - Name: listOfAbilities
       Entry: 7
       Data: 2|System.Collections.Generic.Dictionary`2[[VartraAbyss.Abilities.Ability+AbilityNames,
         Assembly-CSharp],[VartraAbyss.Abilities.Ability, Assembly-CSharp]], mscorlib
@@ -319,50 +277,14 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: Inventory
+    - Name: inventory
       Entry: 7
       Data: 4|ItemBehaviour[,], Assembly-CSharp
     - Name: 
@@ -473,19 +395,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  m_stat:
-    m_health: 0
+  stat:
+    m_health: 82
     m_maximumHealth: 0
-    m_blood: 0
+    m_blood: 6
     m_maximumBlood: 0
-    m_moveSpeed: 0
+    m_moveSpeed: 3.57
     m_maximumMoveSpeed: 0
-  m_currentAction: 1
-  m_currentAbility: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
-    type: 3}
-  m_currentItem: {fileID: 11400000, guid: db8121e12d361894fb55e020d1868a42, type: 2}
-  m_agent: {fileID: 7960306549112465506}
-  m_ignorePlayerLayer:
+  currentAction: 0
+  currentAbility: {fileID: 0}
+  currentItem: {fileID: 0}
+  agent: {fileID: 0}
+  ignorePlayerLayer:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 0
   m_playerControl: {fileID: 9069167775652624543}

@@ -21,7 +21,7 @@ namespace VartraAbyss.Items
 		}
 
 		[Header("Equipment Info")]
-		[SerializeField] EquipmentType slot;
-		[SerializeField] int armour;
+		[SerializeField] private EquipmentType m_slot;
+		[SerializeField] private int m_armour;
 	}
 }

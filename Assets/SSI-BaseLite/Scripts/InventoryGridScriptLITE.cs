@@ -15,7 +15,7 @@ namespace VartraAbyss.Inventory
 		[Tooltip("The inventory item prefab used when new items are added")]
 		public RectTransform invObjPref;
 
-		private Image grid;
+		private Image m_grid;
 
 		[System.Serializable]
 		public class Item
@@ -50,12 +50,12 @@ namespace VartraAbyss.Inventory
 		{
 			slots = new bool[width * height];
 			freeSpaces = width * height;
-			grid = transform.Find("gridimage").GetComponent<Image>();
-			grid.rectTransform.sizeDelta = new Vector2(50 * width, 50 * height);
-			grid.rectTransform.anchoredPosition = new Vector2(25 * width, 0);
+			m_grid = transform.Find("gridimage").GetComponent<Image>();
+			m_grid.rectTransform.sizeDelta = new Vector2(50 * width, 50 * height);
+			m_grid.rectTransform.anchoredPosition = new Vector2(25 * width, 0);
 			GetComponent<RectTransform>().sizeDelta = new Vector2(50 * width, 50 * height);
-			GetComponent<BoxCollider>().size = new Vector3(grid.rectTransform.sizeDelta.x, grid.rectTransform.sizeDelta.y, 0.05f);
-			GetComponent<BoxCollider>().center = new Vector2(grid.rectTransform.sizeDelta.x / 2, -( grid.rectTransform.sizeDelta.y / 2 ));
+			GetComponent<BoxCollider>().size = new Vector3(m_grid.rectTransform.sizeDelta.x, m_grid.rectTransform.sizeDelta.y, 0.05f);
+			GetComponent<BoxCollider>().center = new Vector2(m_grid.rectTransform.sizeDelta.x / 2, -( m_grid.rectTransform.sizeDelta.y / 2 ));
 		}
 
 		private void GiveItem(ItemScriptLITE item)

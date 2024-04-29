@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VartraAbyss.Managers;
 
 namespace VartraAbyss.Stats
 {
@@ -39,17 +40,16 @@ namespace VartraAbyss.Stats
 
 		private void LevelUp()
 		{
-			int tempCurrentThreshold;
-
 			m_currentLevel++;
 			m_currentXp -= m_currentXPThreshold;
-			tempCurrentThreshold = (int)( (float)m_currentXPThreshold * (float)m_xpThresholdMultiplier );
-			m_currentXPThreshold = tempCurrentThreshold;
+			m_currentXPThreshold = (int)( m_currentXPThreshold * m_xpThresholdMultiplier );
 
 			if( m_currentXp >= m_currentXPThreshold )
 			{
 				LevelUp();
 			}
+
+			EventManager.OnRefreshStatsEvent?.Invoke(Global.OnGetPlayerEvent?.Invoke());
 		}
 	}
 }

@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using VartraAbyss.Entity;
+using VartraAbyss.Managers;
 
 namespace VartraAbyss.Stats
 {
 	public class StatSystem : MonoBehaviour
 	{
+		[SerializeField] private StatScriptableObject m_playerStats;
 		[SerializeField] private int m_vitality;
+		[SerializeField] private int m_baseVitality;
 		[SerializeField] private int m_mind;
+		[SerializeField] private int m_baseMind;
 		[SerializeField] private int m_strength;
+		[SerializeField] private int m_baseStrength;
 		[SerializeField] private int m_dexterity;
+		[SerializeField] private int m_baseDexterity;
 
 		[SerializeField] private float m_vitalityMultiplier;
 		[SerializeField] private float m_mindMultiplier;
@@ -22,12 +28,28 @@ namespace VartraAbyss.Stats
 		[SerializeField] private int m_currentStatPointPool;
 		[SerializeField] private int m_statPointPoolOnLevelUp;
 
-		public int Vitality => m_vitality;
-		public int Mind => m_mind;
-		public int Strength => m_strength;
-		public int Dexterity => m_dexterity;
+		public int Vitality => m_playerStats.vitality;
+		public int BaseVitality => m_baseVitality;
+		public int Mind => m_playerStats.mind;
+		public int BaseMind => m_baseMind;
+		public int Strength => m_playerStats.strength;
+		public int BaseStrength => m_baseStrength;
+		public int Dexterity => m_playerStats.dexterity;
+		public int BaseDexterity => m_baseDexterity;
 
-		public void AssignStats()
+		private void OnEnable()
+		{
+			EventManager.OnLevelUpEvent += CalculateStats;
+			EventManager.OnRefreshStatsEvent += CalculateStats;
+		}
+
+		private void OnDisable()
+		{
+			EventManager.OnLevelUpEvent -= CalculateStats;
+			EventManager.OnRefreshStatsEvent -= CalculateStats;
+		}
+
+		public void AssignRandomStats()
 		{
 			m_currentStatPointPool = m_initialStatPointPool;
 
@@ -42,29 +64,19 @@ namespace VartraAbyss.Stats
 
 			m_dexterity = m_currentStatPointPool;
 			m_currentStatPointPool -= m_dexterity;
+			EventManager.OnRefreshStatsEvent?.Invoke(Global.OnGetPlayerEvent?.Invoke());
 			Logger();
 		}
 
 		public void CalculateStats(Actor self)
 		{
-			self.Stat.Health = (int)( (float)m_vitality * (float)m_vitalityMultiplier );
-			self.Stat.Blood = (int)( (float)m_mind * (float)m_mindMultiplier );
-		}
+			self.Stat.MaximumHealth = (int)( m_baseVitality * m_vitalityMultiplier );
+			self.Stat.MaximumBlood = (int)( m_baseMind * m_mindMultiplier );
+			self.Stat.MaximumMoveSpeed = (int)( m_baseDexterity * m_dexterityMultiplier );
 
-		public void DistributePhysicalStatsOnLevelUp(int PointsPool)
-		{
-			//PointsPool = myPointsPool;
-
-			//int tempStrength = PointsPool / myFirstPointDistributer;
-			//strength += tempStrength;
-			//PointsPool -= tempStrength;
-			//int tempAgility = PointsPool / mySecondPointDistributer;
-			//agility += tempAgility;
-			//PointsPool -= tempAgility;
-			//int tempIntelligence = PointsPool;
-			//intelligence += tempIntelligence;
-
-			//CalculateStats();
+			self.Stat.Health = self.Stat.MaximumHealth;
+			self.Stat.Blood = self.Stat.MaximumBlood;
+			self.Stat.MoveSpeed = self.Stat.MaximumMoveSpeed;
 		}
 
 		private void Logger()
