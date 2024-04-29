@@ -15,21 +15,21 @@ namespace VartraAbyss.Entity.Player
 	{
 		[TabGroup("Actor" , "Components" , SdfIconType.ExclamationTriangle , TextColor = "red")]
 		[Required]
-		[SerializeField] private PlayerInput m_playerControl;
+		[SerializeField] private PlayerInput playerControl;
 
 		[TabGroup("Actor" , "Items" , SdfIconType.Grid , TextColor = "cyan")]
 		[TableMatrix(HorizontalTitle = "Inventory" , SquareCells = true)]
 		public ItemBehaviour[,] inventory;
 
-		private ActionQueue m_actionQueue;
-		private bool m_isSkillsMenuOpen;
-		private GameObject m_skillToAbsorb;
-		private Timer m_abilityTimer;
+		private ActionQueue actionQueue;
+		private bool isSkillsMenuOpen;
+		private GameObject skillToAbsorb;
+		private Timer abilityTimer;
 
 		private void Start()
 		{
-			m_isSkillsMenuOpen = false;
-			m_skillToAbsorb = null;
+			isSkillsMenuOpen = false;
+			skillToAbsorb = null;
 			agent = GetComponent<NavMeshAgent>();
 		}
 
@@ -51,9 +51,9 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnEnable()
 		{
-			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
-			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
-			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
+			playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
+			playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
+			playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -61,7 +61,7 @@ namespace VartraAbyss.Entity.Player
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
 				EventManager.OnCanAbsorbAbility?.Invoke();
-				m_skillToAbsorb = other.gameObject;
+				skillToAbsorb = other.gameObject;
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace VartraAbyss.Entity.Player
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
 				EventManager.OnCannotAbsorbAbility?.Invoke();
-				m_skillToAbsorb = null;
+				skillToAbsorb = null;
 			}
 		}
 
@@ -109,16 +109,16 @@ namespace VartraAbyss.Entity.Player
 
 				case ActionTypes.CastAbility:
 				{
-					if ( m_abilityTimer == null )
+					if ( abilityTimer == null )
 					{
-						m_abilityTimer = gameObject.AddComponent<Timer>();
-						m_abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
+						abilityTimer = gameObject.AddComponent<Timer>();
+						abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
 					}
 
-					if ( m_abilityTimer.CurrentTime <= 0 )
+					if ( abilityTimer.CurrentTime <= 0 )
 					{
 						CastAbility();
-						m_abilityTimer.ResetTimer();
+						abilityTimer.ResetTimer();
 						currentAction = ActionTypes.Idle;
 					}
 				}
@@ -219,21 +219,21 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnSkills()
 		{
-			if ( !m_isSkillsMenuOpen )
+			if ( !isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenu?.Invoke();
-				m_isSkillsMenuOpen = true;
+				isSkillsMenuOpen = true;
 			}
-			else if ( m_isSkillsMenuOpen )
+			else if ( isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenuClose?.Invoke();
-				m_isSkillsMenuOpen = false;
+				isSkillsMenuOpen = false;
 			}
 		}
 
 		private void OnAbsorbAbility()
 		{
-			Destroy(m_skillToAbsorb);
+			Destroy(skillToAbsorb);
 			EventManager.OnCannotAbsorbAbility?.Invoke();
 		}
 	}

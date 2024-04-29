@@ -6,15 +6,15 @@ namespace VartraAbyss.Stats
 {
 	public class LevellingSystem : MonoBehaviour
 	{
-		[SerializeField] private int m_currentLevel;
-		[SerializeField] private int m_currentXp;
-		[SerializeField] private int m_currentXPThreshold;
-		[SerializeField] private float m_xpThresholdMultiplier;
+		[SerializeField] private int currentLevel;
+		[SerializeField] private int currentXp;
+		[SerializeField] private int currentXPThreshold;
+		[SerializeField] private float xpThresholdMultiplier;
 
-		public int CurrentLevel => m_currentLevel;
-		public int CurrentXP => m_currentXp;
-		public int CurrentXPThreshold => m_currentXPThreshold;
-		public float XPThresholdMultiplier => m_xpThresholdMultiplier;
+		public int CurrentLevel => currentLevel;
+		public int CurrentXP => currentXp;
+		public int CurrentXPThreshold => currentXPThreshold;
+		public float XPThresholdMultiplier => xpThresholdMultiplier;
 
 		private void OnEnable()
 		{
@@ -28,9 +28,9 @@ namespace VartraAbyss.Stats
 
 		public void AddXP(int xpGained)
 		{
-			m_currentXp += xpGained;
+			currentXp += xpGained;
 
-			if( m_currentXp >= m_currentXPThreshold )
+			if( currentXp >= currentXPThreshold )
 			{
 				LevelUp();
 			}
@@ -41,12 +41,12 @@ namespace VartraAbyss.Stats
 		{
 			int tempCurrentThreshold;
 
-			m_currentLevel++;
-			m_currentXp -= m_currentXPThreshold;
-			tempCurrentThreshold = (int)( (float)m_currentXPThreshold * (float)m_xpThresholdMultiplier );
-			m_currentXPThreshold = tempCurrentThreshold;
+			currentLevel++;
+			currentXp -= currentXPThreshold;
+			tempCurrentThreshold = (int)( (float)currentXPThreshold * (float)xpThresholdMultiplier );
+			currentXPThreshold = tempCurrentThreshold;
 
-			if( m_currentXp >= m_currentXPThreshold )
+			if( currentXp >= currentXPThreshold )
 			{
 				LevelUp();
 			}

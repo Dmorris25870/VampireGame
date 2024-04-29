@@ -8,7 +8,7 @@ namespace VartraAbyss.Actions
 	{
 		public Idle()
 		{
-			m_actionType = ActionTypes.Idle;
+			actionType = ActionTypes.Idle;
 		}
 
 		/// <summary>

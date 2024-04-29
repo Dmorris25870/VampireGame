@@ -8,47 +8,47 @@ namespace VartraAbyss.Stats
 {
 	public class StatSystem : MonoBehaviour
 	{
-		[SerializeField] private int m_vitality;
-		[SerializeField] private int m_mind;
-		[SerializeField] private int m_strength;
-		[SerializeField] private int m_dexterity;
+		[SerializeField] private int vitality;
+		[SerializeField] private int mind;
+		[SerializeField] private int strength;
+		[SerializeField] private int dexterity;
 
-		[SerializeField] private float m_vitalityMultiplier;
-		[SerializeField] private float m_mindMultiplier;
-		[SerializeField] private float m_strengthMultiplier;
-		[SerializeField] private float m_dexterityMultiplier;
+		[SerializeField] private float vitalityMultiplier;
+		[SerializeField] private float mindMultiplier;
+		[SerializeField] private float strengthMultiplier;
+		[SerializeField] private float dexterityMultiplier;
 
-		[SerializeField] private int m_initialStatPointPool;
-		[SerializeField] private int m_currentStatPointPool;
-		[SerializeField] private int m_statPointPoolOnLevelUp;
+		[SerializeField] private int initialStatPointPool;
+		[SerializeField] private int currentStatPointPool;
+		[SerializeField] private int statPointPoolOnLevelUp;
 
-		public int Vitality => m_vitality;
-		public int Mind => m_mind;
-		public int Strength => m_strength;
-		public int Dexterity => m_dexterity;
+		public int Vitality => vitality;
+		public int Mind => mind;
+		public int Strength => strength;
+		public int Dexterity => dexterity;
 
 		public void AssignStats()
 		{
-			m_currentStatPointPool = m_initialStatPointPool;
+			currentStatPointPool = initialStatPointPool;
 
-			m_vitality = Random.Range(5 , m_currentStatPointPool / 2);
-			m_currentStatPointPool -= m_vitality;
+			vitality = Random.Range(5 , currentStatPointPool / 2);
+			currentStatPointPool -= vitality;
 
-			m_mind = Random.Range(5 , m_currentStatPointPool / 2);
-			m_currentStatPointPool -= m_mind;
+			mind = Random.Range(5 , currentStatPointPool / 2);
+			currentStatPointPool -= mind;
 
-			m_strength = Random.Range(5 , m_currentStatPointPool / 2);
-			m_currentStatPointPool -= m_strength;
+			strength = Random.Range(5 , currentStatPointPool / 2);
+			currentStatPointPool -= strength;
 
-			m_dexterity = m_currentStatPointPool;
-			m_currentStatPointPool -= m_dexterity;
+			dexterity = currentStatPointPool;
+			currentStatPointPool -= dexterity;
 			Logger();
 		}
 
 		public void CalculateStats(Actor self)
 		{
-			self.Stat.Health = (int)( (float)m_vitality * (float)m_vitalityMultiplier );
-			self.Stat.Blood = (int)( (float)m_mind * (float)m_mindMultiplier );
+			self.Stat.Health = (int)( (float)vitality * (float)vitalityMultiplier );
+			self.Stat.Blood = (int)( (float)mind * (float)mindMultiplier );
 		}
 
 		public void DistributePhysicalStatsOnLevelUp(int PointsPool)
@@ -69,7 +69,7 @@ namespace VartraAbyss.Stats
 
 		private void Logger()
 		{
-			Debug.Log($"Player Vitality is: {m_vitality}. \n Player Mind is: {m_mind}. \n Player Strength is: {m_strength}. \n Player Dexterity is: {m_dexterity}.");
+			Debug.Log($"Player Vitality is: {vitality}. \n Player Mind is: {mind}. \n Player Strength is: {strength}. \n Player Dexterity is: {dexterity}.");
 		}
 	}
 }

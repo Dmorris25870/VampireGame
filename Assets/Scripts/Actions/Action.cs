@@ -23,9 +23,9 @@ namespace VartraAbyss.Actions
 			Cancel
 		}
 
-		protected ActionTypes m_actionType;
+		protected ActionTypes actionType;
 
-		public ActionTypes ActionType => m_actionType;
+		public ActionTypes ActionType => actionType;
 
 		/// <summary>
 		/// Returns the Damage Type of an Ability.
