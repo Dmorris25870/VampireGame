@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741818072223435937}
-  - component: {fileID: 7906130979902146748}
+  - component: {fileID: -7181622059086522049}
   m_Layer: 0
   m_Name: Bite
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7906130979902146748
+--- !u!114 &-7181622059086522049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8567020273697981204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c25c987fdf239b42b999fab6a270e1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c984cf7adbad04f4fb265b0151438891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damageType: {fileID: 0}
-  m_damageAmount: 1
-  m_bloodCostAmount: 0
-  m_coolDownTimeInSeconds: 2
-  m_abilityDistance: 1
+  damageType: {fileID: 0}
+  damageAmount: 10
+  bloodCostAmount: 5
+  coolDownTimeInSeconds: 1
+  abilityDistance: 3

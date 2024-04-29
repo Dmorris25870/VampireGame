@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VartraAbyss.Stats;
+using VartraAbyss.Entity.Player;
 using VartraAbyss.Utility;
 using static VartraAbyss.Actions.Action;
 
@@ -16,16 +16,18 @@ namespace VartraAbyss.Entity.Enemy
 		[SerializeField] private float baseGold;
 		[SerializeField] public int enemyHealth;
 		[SerializeField] private Timer attackTimer;
-		private Stat playerStats;
+		private PlayerBehaviour playerBehaviour;
 		public GameObject player;
 		public bool isAggroed;
 		private ActionQueue actionQueue;
+		private float aggroRange;
 
 		private void OnEnable()
 		{
 			enemyHealth = enemyBase.enemyHealth;
+			aggroRange = enemyBase.aggroRange;
 			player = GameObject.FindGameObjectWithTag("Player");
-			playerStats = player.GetComponent<Stat>();
+			playerBehaviour = player.GetComponent<PlayerBehaviour>();
 		}
 		private void DropItems()
 		{
@@ -55,8 +57,8 @@ namespace VartraAbyss.Entity.Enemy
 		public void TakeDamage(int damage)
 		{
 			enemyHealth -= damage;
-			playerStats.Blood += damage;
-			playerStats.Blood = Mathf.Clamp(playerStats.Blood,0,playerStats.MaximumBlood);
+			playerBehaviour.Stat.Blood += damage;
+			playerBehaviour.Stat.Blood = Mathf.Clamp(playerBehaviour.Stat.Blood ,0,playerBehaviour.Stat.MaximumBlood);
 			if (enemyHealth <= 0)
 			{
 				Die();
@@ -69,6 +71,32 @@ namespace VartraAbyss.Entity.Enemy
 
 		private void FixedUpdate()
 		{
+			if(IsWithinAggroRange(gameObject,player))
+			{
+				isAggroed = true;
+			}
+			else
+			{
+				isAggroed = false;
+			}
+
+			if (isAggroed)
+			{
+				clickPoint = player.transform.position;
+				if( IsWithinAbilityRange(gameObject , player) )
+				{
+					isMoving = true;
+					isAttacking = true;
+					currentAction = ActionTypes.Move;
+				}
+				else
+				{
+					isMoving = false;
+					currentAction = ActionTypes.CastAbility;
+				}
+			}
+			
+
 			switch( CurrentAction )
 			{
 				case ActionTypes.Unset:
@@ -138,6 +166,15 @@ namespace VartraAbyss.Entity.Enemy
 		private void CastAbility()
 		{
 			ListOfActions[ActionTypes.CastAbility].PerformAction(this , Target);
+		}
+		private bool IsWithinAbilityRange(GameObject actor1 , GameObject actor2)
+		{
+			return Utilities.GetDistanceBetweenTwoActors(actor1 , actor2) > CurrentAbility.AbilityDistance;
+		}
+
+		private bool IsWithinAggroRange(GameObject actor1 , GameObject actor2)
+		{
+			return Utilities.GetDistanceBetweenTwoActors(actor1 , actor2) < aggroRange;
 		}
 	}
 }

@@ -10,4 +10,5 @@ public class EnemyBase : ScriptableObject
     //[SerializeField] private int level; unsure if this will be needed we will see
 	[SerializeField] public int enemyHealth;
 	[SerializeField] public LootBase lootTable;
+	[SerializeField] public float aggroRange;
 }

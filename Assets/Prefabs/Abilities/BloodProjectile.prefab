@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c25c987fdf239b42b999fab6a270e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damageType: {fileID: 0}
-  m_damageAmount: 2
-  m_coolDownTimeInSeconds: 4
-  m_abilityDistance: 3
+  damageType: {fileID: 0}
+  damageAmount: 10
+  bloodCostAmount: 15
+  coolDownTimeInSeconds: 3
+  abilityDistance: 20

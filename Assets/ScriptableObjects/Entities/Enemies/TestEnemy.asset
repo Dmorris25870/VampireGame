@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
   itemDrops: 1
-  level: 1
+  enemyHealth: 10
   lootTable: {fileID: 11400000, guid: f57ecdca02bafed47b7a9c9a6d77cdfe, type: 2}
+  aggroRange: 10
