@@ -28,6 +28,7 @@ namespace VartraAbyss.Entity.Player
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
 			agent = GetComponent<NavMeshAgent>();
+			CurrentAction = ActionTypes.Idle;
 			EventManager.OnLevelUpEvent?.Invoke(this);
 		}
 

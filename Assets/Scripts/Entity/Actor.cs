@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using VartraAbyss.Stats;
+using AYellowpaper.SerializedCollections;
 
 namespace VartraAbyss.Entity
 {
@@ -20,7 +21,7 @@ namespace VartraAbyss.Entity
 
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
 		[DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
-		[SerializeField] protected Dictionary<Action.ActionTypes, Action> listOfActions = new();
+		[SerializeField] protected SerializedDictionary<Action.ActionTypes, Action> listOfActions = new();
 
 		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[SerializeField] protected Ability currentAbility;
@@ -28,7 +29,7 @@ namespace VartraAbyss.Entity
 		[Space(20)]
 
 		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
-		[SerializeField] protected Dictionary<Ability.AbilityNames, Ability> listOfAbilities = new();
+		[SerializeField] protected SerializedDictionary<Ability.AbilityNames, Ability> listOfAbilities = new();
 
 		[TabGroup("Actor" , "Items" , SdfIconType.Grid , TextColor = "cyan")]
 		[SerializeField] protected ItemBase currentItem;
@@ -59,7 +60,7 @@ namespace VartraAbyss.Entity
 		public LayerMask IgnorePlayerLayer => ignorePlayerLayer;
 		public Vector3 ClickPoint { get => clickPoint; set => clickPoint = value; }
 		public Action.ActionTypes CurrentAction { get => currentAction; set => currentAction = value; }
-		public Dictionary<Action.ActionTypes, Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
+		public SerializedDictionary<Action.ActionTypes, Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
 		public Actor Target { get => target; set => target = value; }
 
 		protected virtual Actor StoreActor(){ return this; }
@@ -74,4 +75,3 @@ namespace VartraAbyss.Entity
 
 	}
 }
-
