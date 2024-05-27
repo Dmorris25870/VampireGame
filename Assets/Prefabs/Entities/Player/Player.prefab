@@ -223,8 +223,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a202baffe2ea4340b87766953e430a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControl: {fileID: 9069167775652624543}
-  agent: {fileID: 7960306549112465506}
+  m_health: 0
+  m_blood: 0
+  m_maximumBlood: 0
+  m_moveSpeed: 0
+  m_maximumMoveSpeed: 0
+  m_currentAction: 1
+  m_listOfActions:
+    _serializedList:
+    - Key: 5
+      Value: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
+        type: 3}
+    - Key: 2
+      Value: {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602,
+        type: 3}
+    - Key: 1
+      Value: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
+        type: 3}
+  m_currentAbility: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
+    type: 3}
+  m_listOfAbilities:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
+        type: 3}
+  m_currentItem: {fileID: 0}
+  m_agent: {fileID: 7960306549112465506}
   m_ignorePlayerLayer:
     serializedVersion: 2
     m_Bits: 55
+  m_playerControl: {fileID: 9069167775652624543}
