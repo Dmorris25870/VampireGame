@@ -92,6 +92,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 232d931c3012e67418ce75f9515178a4,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 232d931c3012e67418ce75f9515178a4,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af176f91686ba3b43ad8677243ac03f6, type: 2}
@@ -99,6 +104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mutated_Generic_Wall_With_Window_002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2005229715816757442, guid: 232d931c3012e67418ce75f9515178a4,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

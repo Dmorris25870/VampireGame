@@ -46,6 +46,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TallRockWall
       objectReference: {fileID: 0}
+    - target: {fileID: 4637184942521309311, guid: e4c1c14258a45bb4595a697aeb820c39,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6370870704359174349, guid: e4c1c14258a45bb4595a697aeb820c39,
         type: 3}
       propertyPath: m_LocalScale.x
