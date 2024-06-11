@@ -15,12 +15,14 @@ namespace VartraAbyss.Entity.Player
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
 		private Timer m_abilityTimer;
+		private bool playerCanMove;
 
 		private void Start()
 		{
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
 			m_agent = GetComponent<NavMeshAgent>();
+			playerCanMove = true;
 		}
 
 		private void OnEnable()
@@ -113,7 +115,15 @@ namespace VartraAbyss.Entity.Player
 
 		private void MovePlayer()
 		{
-			ListOfActions[ActionTypes.Move].PerformAction(this);
+			if (playerCanMove)
+			{
+                ListOfActions[ActionTypes.Move].PerformAction(this);
+            }
+			else
+			{
+				return;
+			}
+			
 		}
 
 		private void CastAbility()
@@ -198,11 +208,13 @@ namespace VartraAbyss.Entity.Player
 			{
 				EventManager.OnSkillsMenu?.Invoke();
 				m_isSkillsMenuOpen = true;
+				playerCanMove = false;
 			}
 			else if ( m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenuClose?.Invoke();
 				m_isSkillsMenuOpen = false;
+				playerCanMove = true;
 			}
 		}
 
