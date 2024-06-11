@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using VartraAbyss.Dialogue;
+
 
 public class Dialogue_trigger : MonoBehaviour
 {
@@ -24,10 +27,16 @@ public class Dialogue_trigger : MonoBehaviour
         if (playerInRange)
         {
             visualCue.SetActive(true);
-            if (InputManager.GetInstance().GetPotionPressed())
+            //if (InputManager.GetInstance().GetPotionPressed())
+            //{
+            //    Debug.Log(inkJSON.text);
+            //}
+
+            if (DialogueSystem.talkBool)
             {
                 Debug.Log(inkJSON.text);
             }
+
         }
         else
         {

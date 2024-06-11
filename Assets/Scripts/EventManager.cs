@@ -18,4 +18,5 @@ public static class EventManager
     public delegate void CanAbsorbAbilityEvent();
     public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
     public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
+
 }

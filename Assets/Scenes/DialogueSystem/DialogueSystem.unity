@@ -1239,7 +1239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 2001065180}
   dialoguetext: {fileID: 570195527}
-  actionRef: {fileID: 0}
+  letsTalk: {fileID: 2393799487986424555, guid: 851d3aeb039b2544aa488caa69474660,
+    type: 3}
 --- !u!4 &1560179345
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine.InputSystem;
 using VartraAbyss.Actions;
+using System;
 
 
 namespace VartraAbyss.Dialogue
@@ -24,7 +25,8 @@ namespace VartraAbyss.Dialogue
 
 		private static DialogueSystem instance;
 		private bool dialogueIsPlaying;
-		public InputActionReference actionRef;
+		[SerializeField] public InputActionReference letsTalk;
+		public static bool talkBool;
 		//public Action actionScript;
 
         private void Awake()
@@ -40,6 +42,20 @@ namespace VartraAbyss.Dialogue
 		{
 			return instance;
 		}
+        private void OnEnable()
+        {
+			letsTalk.action.performed += PerformTalk;
+        }
+
+        public void PerformTalk(InputAction.CallbackContext context)
+        {
+            talkBool = true;
+        }
+
+        private void OnDisable()
+        {
+            letsTalk.action.performed -= PerformTalk;
+        }
 
         private void Start()
         {
@@ -59,9 +75,9 @@ namespace VartraAbyss.Dialogue
 
 			}
 
-			//if (actionRef.action.performed)
-   //         {
-			//	actionRef.action.IsPressed	
+			//if (letsTalk.action.)
+			//{
+			//	actionRef.action.IsPressed
 			//}
 		}
 
