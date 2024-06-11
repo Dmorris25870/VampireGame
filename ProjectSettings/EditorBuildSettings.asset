@@ -5,12 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_VartraAbyss/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/_VartraAbyss/Scenes/Actions/AttackAction.unity
-    guid: 1657511a94be2aa40927bd004e3406b6
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: d56b821ae39ac7b41a5311fca0677068,
-      type: 2}
+    path: Assets/Scenes/Maps/JailBasic.unity
+    guid: d9676f130c2262a4a93eb10c2431a200
+  m_configObjects: {}

@@ -224,51 +224,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a202baffe2ea4340b87766953e430a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  stat:
-    m_health: 82
-    m_maximumHealth: 100
-    m_blood: 6
-    m_maximumBlood: 100
-    m_moveSpeed: 3.5
-    m_maximumMoveSpeed: 3.5
-  listOfActions:
+  m_health: 0
+  m_blood: 0
+  m_maximumBlood: 0
+  m_moveSpeed: 0
+  m_maximumMoveSpeed: 0
+  m_currentAction: 1
+  m_listOfActions:
     _serializedList:
-    - Key: 1
-      Value: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
+    - Key: 5
+      Value: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
         type: 3}
     - Key: 2
       Value: {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602,
         type: 3}
-    - Key: 5
-      Value: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
+    - Key: 1
+      Value: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
         type: 3}
-  listOfAbilities:
-    _serializedList: []
-  m_actionQueue: {fileID: 4418489236844747538, guid: 0d01e654bcf1f9e4d860bf2c1d68aa84,
+  m_currentAbility: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
     type: 3}
---- !u!114 &3348515572236744439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4613161199586880686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42028aa280450843a121ec62a3434a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerControl: {fileID: 9069167775652624543}
-  m_player: {fileID: 6483021480412095296}
+  m_listOfAbilities:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
+        type: 3}
+  m_currentItem: {fileID: 0}
+  m_agent: {fileID: 7960306549112465506}
   m_ignorePlayerLayer:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 55
+  m_playerControl: {fileID: 9069167775652624543}
