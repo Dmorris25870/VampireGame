@@ -39,18 +39,6 @@ namespace VartraAbyss.Entity.Player
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
 			SetCurrentAction(Action.ActionTypes.Idle);
 			EventManager.OnLevelUpEvent?.Invoke(this);
-
-			//TO DO: This was for testing purposes. It can be removed.
-			SetCurrentAbility(new Ability.Builder<Leap>()
-						.SetAbilityData(m_abilityData)
-						.SetName(m_abilityData.abilityName)
-						.SetDamage(m_abilityData.damage)
-						.SetCoolDownTime(m_abilityData.coolDownTime)
-						.SetTimer(m_abilityData.coolDownTime)
-						.SetRange(m_abilityData.range)
-						.SetBloodCost(m_abilityData.bloodCost)
-						.Build())
-			;
 		}
 
 		private void Start()
