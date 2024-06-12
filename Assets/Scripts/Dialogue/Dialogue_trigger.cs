@@ -13,18 +13,32 @@ public class Dialogue_trigger : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
+    private static Dialogue_trigger instance;
+
     private bool playerInRange;
+    public string npcName;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("Found more than one Dialogue trigger");
+        }
+        instance = this;
+
         playerInRange = false;
         visualCue.SetActive(false);
     }
 
+    //public static Dialogue_trigger GetInstance()
+    //{
+    //    return instance;
+    //}
+
     private void Update()
     {
         //CheckPlayerInRange();
-        if (playerInRange)
+        if (playerInRange && !DialogueSystem.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
             //if (InputManager.GetInstance().GetPotionPressed())
@@ -34,7 +48,8 @@ public class Dialogue_trigger : MonoBehaviour
 
             if (DialogueSystem.talkBool)
             {
-                Debug.Log(inkJSON.text);
+             
+                DialogueSystem.GetInstance().EnterDialogueMode(inkJSON);
             }
 
         }

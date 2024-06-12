@@ -231,6 +231,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &169499195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7251542020313428025, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3291040397213588870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 2001065180}
   dialoguetext: {fileID: 570195527}
-  letsTalk: {fileID: 2393799487986424555, guid: 851d3aeb039b2544aa488caa69474660,
+  npcNameText: {fileID: 169499195}
+  letsTalk: {fileID: -7983135208207432919, guid: 851d3aeb039b2544aa488caa69474660,
     type: 3}
 --- !u!4 &1560179345
 Transform:
@@ -1546,6 +1559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualCue: {fileID: 590997460}
   inkJSON: {fileID: 4900000, guid: a23c7b5fda480f84b9c6895881d3400d, type: 3}
+  npcName: Random Npc
 --- !u!1 &2001065180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8074160649885159935, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
@@ -1948,6 +1962,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138029275704948721, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1560179344}
+    - target: {fileID: 8138029275704948721, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueStory
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138029275704948721, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VartraAbyss.Dialogue.DialogueSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138029275704948721, guid: 8dde2d16a1e8fc84eba23b66ae56902f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
