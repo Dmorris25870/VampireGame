@@ -18,6 +18,9 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private TextMeshProUGUI dialoguetext;
 		[SerializeField] private TextMeshProUGUI npcNameText;
 
+		[Header("Choice UI")]
+		[SerializeField] private GameObject[] choices;
+		private TextMeshProUGUI[] choicesText;
 
 		//[SerializeField] private TextAsset m_inkTextFile;
 		//[SerializeField] private Story m_currentStory;
@@ -69,9 +72,47 @@ namespace VartraAbyss.Dialogue
 		{
 			dialogueIsPlaying = false;
 			dialogueBox.SetActive(false);
-            //npcNameText.text = dialogue_trigger.npcName;
+			//npcNameText.text = dialogue_trigger.npcName;
 
+			InitialiseChoices();
         }
+
+		private void InitialiseChoices()
+		{
+			choicesText = new TextMeshProUGUI[choices.Length];
+			int index = 0;
+
+			foreach (GameObject choice in choices)
+			{
+				choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+				index++;
+			}
+		}
+
+		private void DisplayChoices()
+		{
+			List<Choice> currentChoices = currentStory.currentChoices;
+
+			if (currentChoices.Count > choices.Length)
+			{
+				Debug.Log("Unsupported amount of choices " + currentChoices.Count);
+			}
+
+			int index = 0;
+			foreach (Choice choice in currentChoices)
+			{
+				choices[index].gameObject.SetActive(true);
+				choicesText[index].text = choice.text;
+				index++;
+
+			}
+
+			for (int i = index; i < choices.Length; i++)
+			{
+				choices[i].gameObject.SetActive(false);
+			}
+
+		}
 
 		private void Update()
 		{
@@ -81,6 +122,8 @@ namespace VartraAbyss.Dialogue
 			}
 
 		}
+
+		
 
 		public void EnterDialogueMode(TextAsset inkJSON)
 		{
@@ -106,6 +149,7 @@ namespace VartraAbyss.Dialogue
 			if (currentStory.canContinue)
 			{
 				dialoguetext.text = currentStory.Continue();
+				DisplayChoices();
 			}
 			else
 			{

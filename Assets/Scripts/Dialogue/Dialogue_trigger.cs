@@ -30,10 +30,10 @@ public class Dialogue_trigger : MonoBehaviour
         visualCue.SetActive(false);
     }
 
-    //public static Dialogue_trigger GetInstance()
-    //{
-    //    return instance;
-    //}
+    public static Dialogue_trigger GetInstance()
+    {
+        return instance;
+    }
 
     private void Update()
     {
