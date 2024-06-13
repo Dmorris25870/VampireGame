@@ -16,7 +16,7 @@ public class Dialogue_trigger : MonoBehaviour
     private static Dialogue_trigger instance;
 
     private bool playerInRange;
-    public string npcName;
+    public string npcName = "steve";
 
     private void Awake()
     {

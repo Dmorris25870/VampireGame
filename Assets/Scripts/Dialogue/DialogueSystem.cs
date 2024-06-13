@@ -25,7 +25,7 @@ namespace VartraAbyss.Dialogue
 		//[SerializeField] private TextAsset m_inkTextFile;
 		//[SerializeField] private Story m_currentStory;
 		[SerializeField] private Story currentStory;
-		private static Dialogue_trigger dialogue_trigger;
+		[SerializeField] private Dialogue_trigger dialogue_trigger;
 		//[SerializeField] private List<Dialogue> m_listOfDialogues = new List<Dialogue>();
 
 		private static DialogueSystem instance;
@@ -48,10 +48,6 @@ namespace VartraAbyss.Dialogue
 			return instance;
 		}
 
-		public static Dialogue_trigger GetDTInstance()
-		{
-			return dialogue_trigger;
-		}
 		private void OnEnable()
 		{
 			letsTalk.action.performed += PerformTalk;
@@ -71,8 +67,11 @@ namespace VartraAbyss.Dialogue
 		private void Start()
 		{
 			dialogueIsPlaying = false;
-			dialogueBox.SetActive(false);
-			//npcNameText.text = dialogue_trigger.npcName;
+			Debug.Log(dialogue_trigger.npcName);
+			Debug.Log(npcNameText.text);
+            npcNameText.text = dialogue_trigger.npcName;
+            dialogueBox.SetActive(false);
+			
 
 			InitialiseChoices();
         }
