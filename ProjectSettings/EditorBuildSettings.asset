@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Maps/JailBasic.unity
-    guid: d9676f130c2262a4a93eb10c2431a200
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: b3bf7a85cab3b0841941cca3fcd93922
+  - enabled: 1
+    path: Assets/Scenes/Develop.unity
+    guid: d3ef14d2a7d156f449b279e33ea72fb3
   m_configObjects: {}
