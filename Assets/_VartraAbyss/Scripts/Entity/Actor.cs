@@ -24,9 +24,9 @@ namespace VartraAbyss.Entity
 		public bool IsAttacking { get; private set; }
 		public Stat Stat { get; private set; }
 
-		public Vector3 Target { get; private set; }
-		public Ability CurrentAbility { get; private set; }
-		public ItemBase CurrentItem { get; private set; }
+		[field: SerializeField] public Vector3 Target { get; private set; }
+		[field: SerializeField] public Ability CurrentAbility { get; private set; }
+		[field: SerializeField] public ItemBase CurrentItem { get; private set; }
 		public NavMeshAgent Agent { get; private set; }
 		public Action.ActionTypes CurrentAction { get; private set; }
 		public SerializedDictionary<Action.ActionTypes , Action> ListOfActions { get => listOfActions; set => listOfActions = value; }

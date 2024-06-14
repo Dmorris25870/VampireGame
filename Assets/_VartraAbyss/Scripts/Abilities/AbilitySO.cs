@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace VartraAbyss
 {
@@ -8,7 +7,7 @@ namespace VartraAbyss
 	public class AbilitySO : SerializedScriptableObject
 	{
 		public string abilityName;
-		public Image icon;
+		public Sprite sprite;
 		public AudioClip soundEffect;
 		public ParticleSystem visualEffect;
 		public int damage;

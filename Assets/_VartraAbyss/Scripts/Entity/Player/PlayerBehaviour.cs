@@ -7,7 +7,6 @@ using VartraAbyss.Actions;
 using VartraAbyss.Managers;
 using VartraAbyss.PlayerInputs;
 using VartraAbyss.Stats;
-using VartraAbyss.Utility;
 
 namespace VartraAbyss.Entity.Player
 {
@@ -17,7 +16,6 @@ namespace VartraAbyss.Entity.Player
 	public class PlayerBehaviour : Actor
 	{
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
-		[SerializeField] private ActionQueue m_actionQueue;
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
 		[SerializeField] private AbilitySO m_abilityData;

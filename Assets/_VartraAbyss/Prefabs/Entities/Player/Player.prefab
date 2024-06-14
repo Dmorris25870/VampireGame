@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 9069167775652624543}
   - component: {fileID: 7960306549112465506}
   - component: {fileID: 6483021480412095296}
-  - component: {fileID: 3114638373770364355}
   - component: {fileID: 4782968582163505594}
+  - component: {fileID: 5949297161575417162}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -202,9 +202,25 @@ MonoBehaviour:
         type: 3}
   listOfAbilities:
     _serializedList: []
-  m_actionQueue: {fileID: 0}
   m_abilityData: {fileID: 0}
---- !u!212 &3114638373770364355
+--- !u!114 &4782968582163505594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613161199586880686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42028aa280450843a121ec62a3434a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerControl: {fileID: 9069167775652624543}
+  m_player: {fileID: 6483021480412095296}
+  m_ignorePlayerLayer:
+    serializedVersion: 2
+    m_Bits: 119
+--- !u!212 &5949297161575417162
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,21 +271,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
---- !u!114 &4782968582163505594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4613161199586880686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42028aa280450843a121ec62a3434a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerControl: {fileID: 9069167775652624543}
-  m_player: {fileID: 6483021480412095296}
-  m_ignorePlayerLayer:
-    serializedVersion: 2
-    m_Bits: 119
+  m_SpriteSortPoint: 0

@@ -28,6 +28,7 @@ namespace VartraAbyss.PlayerInputs
 		{
 			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Ability1").performed += OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInputCommand;
 			OnPlayerClick += OnPrimaryInput;
 		}
@@ -36,6 +37,7 @@ namespace VartraAbyss.PlayerInputs
 		{
 			m_playerControl.actions.FindAction("Primary").started -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Ability1").performed -= OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInputCommand;
 			OnPlayerClick -= OnPrimaryInput;
 		}
@@ -50,6 +52,15 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				OnPrimaryInput();
+			}
+		}
+
+		private void OnAbilityOnePressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnQAbility?.Invoke();
+				Debug.Log("Q Button has been pressed and Invoked.");
 			}
 		}
 

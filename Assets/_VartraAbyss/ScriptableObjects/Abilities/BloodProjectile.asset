@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   abilityName: BloodProjectile
-  icon: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4ec634f9814866f47a78775fe7c50010, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
   damage: 3

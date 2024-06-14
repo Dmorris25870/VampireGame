@@ -1,29 +1,34 @@
 using UnityEngine;
-using UnityEngine.UI;
 using VartraAbyss.Utility;
 
 namespace VartraAbyss.Abilities
 {
 	public class Ability : MonoBehaviour
 	{
-		public AbilitySO AbilityData { get; private set; }
-		public string Name { get; private set; }
-		public Image Icon { get; private set; }
-		public AudioClip SoundEffect { get; private set; }
-		public ParticleSystem VisualEffect { get; private set; }
-		public int Damage { get; private set; }
-		public int BloodCost { get; private set; }
-		public float CoolDownTime { get; private set; }
-		public float Range { get; private set; }
-		public Vector3 SpawnPosition { get; private set; }
-		public Timer Timer { get; private set; }
+		[field: SerializeField] public AbilitySO AbilityData { get; private set; }
+		[field: SerializeField] public string Name { get; private set; }
+		[field: SerializeField] public Sprite Icon { get; private set; }
+		[field: SerializeField] public AudioClip SoundEffect { get; private set; }
+		[field: SerializeField] public ParticleSystem VisualEffect { get; private set; }
+		[field: SerializeField] public int Damage { get; private set; }
+		[field: SerializeField] public int BloodCost { get; private set; }
+		[field: SerializeField] public float CoolDownTime { get; private set; }
+		[field: SerializeField] public float Range { get; private set; }
+		[field: SerializeField] public Vector3 SpawnPosition { get; private set; }
+		[field: SerializeField] public Vector3 TargetPosition { get; private set; }
+		[field: SerializeField] public Timer Timer { get; private set; }
+
+		public void SetTargetPosition(Vector3 targetPosition)
+		{
+			TargetPosition = targetPosition;
+		}
 
 		#region Ability Builder
 		public class Builder<T> where T : Ability, new()
 		{
 			AbilitySO m_data;
 			string m_name = "Default";
-			Image m_icon;
+			Sprite m_icon;
 			AudioClip m_audioClip;
 			ParticleSystem m_particles;
 			int m_damage = 1;
@@ -45,7 +50,7 @@ namespace VartraAbyss.Abilities
 				return this;
 			}
 
-			public Builder<T> SetIcon(Image icon)
+			public Builder<T> SetIcon(Sprite icon)
 			{
 				m_icon = icon;
 				return this;
@@ -116,7 +121,6 @@ namespace VartraAbyss.Abilities
 				return ability;
 			}
 		}
-
 		#endregion
 	}
 }

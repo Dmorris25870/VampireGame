@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731bc6fa6a7fbdd4b935350e3d5091a5, type: 3}
-  m_Name: Bite
+  m_Name: ManaPotion
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,12 +21,12 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  abilityName: Bite
-  sprite: {fileID: 21300000, guid: 8b796977ba8416d4da1a2acd0ae866c8, type: 3}
+  abilityName: ManaPotion
+  sprite: {fileID: 21300000, guid: 5124385efffc76048bb30fb2cc42e359, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
-  damage: 5
-  bloodCost: 5
-  coolDownTime: 5
-  range: 5
+  damage: 0
+  bloodCost: 0
+  coolDownTime: 0
+  range: 0
   spawnPosition: {x: 0, y: 0, z: 0}

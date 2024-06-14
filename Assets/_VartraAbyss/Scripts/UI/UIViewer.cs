@@ -22,13 +22,13 @@ namespace VartraAbyss.UI
 		[SerializeField] private Button m_dexterityIncreaseButton;
 		[SerializeField] private Button m_dexterityDecreaseButton;
 
-		private Dictionary<string , TextMeshProUGUI> statTexts;
-		private Dictionary<string , Button> increaseButtons;
-		private Dictionary<string , Button> decreaseButtons;
+		private Dictionary<string , TextMeshProUGUI> m_statTexts;
+		private Dictionary<string , Button> m_increaseButtons;
+		private Dictionary<string , Button> m_decreaseButtons;
 
 		private void Awake()
 		{
-			statTexts = new Dictionary<string , TextMeshProUGUI>()
+			m_statTexts = new Dictionary<string , TextMeshProUGUI>()
 		{
 			{ "Vitality", m_vitalityNumber },
 			{ "Mind", m_mindNumber },
@@ -36,7 +36,7 @@ namespace VartraAbyss.UI
 			{ "Dexterity", m_dexterityNumber }
 		};
 
-			increaseButtons = new Dictionary<string , Button>()
+			m_increaseButtons = new Dictionary<string , Button>()
 		{
 			{ "Vitality", m_vitalityIncreaseButton },
 			{ "Mind", m_mindIncreaseButton },
@@ -44,7 +44,7 @@ namespace VartraAbyss.UI
 			{ "Dexterity", m_dexterityIncreaseButton }
 		};
 
-			decreaseButtons = new Dictionary<string , Button>()
+			m_decreaseButtons = new Dictionary<string , Button>()
 		{
 			{ "Vitality", m_vitalityDecreaseButton },
 			{ "Mind", m_mindDecreaseButton },
@@ -55,10 +55,10 @@ namespace VartraAbyss.UI
 
 		public void UpdateUI(int vitality , int mind , int strength , int dexterity , int statPoints)
 		{
-			statTexts["Vitality"].text = vitality.ToString();
-			statTexts["Mind"].text = mind.ToString();
-			statTexts["Strength"].text = strength.ToString();
-			statTexts["Dexterity"].text = dexterity.ToString();
+			m_statTexts["Vitality"].text = vitality.ToString();
+			m_statTexts["Mind"].text = mind.ToString();
+			m_statTexts["Strength"].text = strength.ToString();
+			m_statTexts["Dexterity"].text = dexterity.ToString();
 			m_statPointsNumber.text = $"{statPoints} points remaining.";
 		}
 
@@ -66,16 +66,16 @@ namespace VartraAbyss.UI
 		{
 			if( isIncrease )
 			{
-				if( increaseButtons.ContainsKey(statName) )
+				if( m_increaseButtons.ContainsKey(statName) )
 				{
-					increaseButtons[statName].gameObject.SetActive(enabled);
+					m_increaseButtons[statName].gameObject.SetActive(enabled);
 				}
 			}
 			else
 			{
-				if( decreaseButtons.ContainsKey(statName) )
+				if( m_decreaseButtons.ContainsKey(statName) )
 				{
-					decreaseButtons[statName].gameObject.SetActive(enabled);
+					m_decreaseButtons[statName].gameObject.SetActive(enabled);
 				}
 			}
 		}
@@ -91,7 +91,7 @@ namespace VartraAbyss.UI
 
 		public void ToggleAllIncreaseButtons(bool enabled)
 		{
-			foreach( var button in increaseButtons.Values )
+			foreach( var button in m_increaseButtons.Values )
 			{
 				button.gameObject.SetActive(enabled);
 			}
@@ -99,7 +99,7 @@ namespace VartraAbyss.UI
 
 		public void ToggleAllDecreaseButtons(bool enabled)
 		{
-			foreach( var button in decreaseButtons.Values )
+			foreach( var button in m_decreaseButtons.Values )
 			{
 				button.gameObject.SetActive(enabled);
 			}
