@@ -60,8 +60,8 @@ namespace VartraAbyss
 
 		public void ClearSwap() => m_swapUISlot = null;
 
-		int GetItemIndex(UISlot slot) => slots.IndexOf(slot);
-		AbilitySO GetItem(int index) => items[index];
+		public int GetItemIndex(UISlot slot) => slots.IndexOf(slot);
+		public AbilitySO GetItem(int index) => items[index];
 		void SetItem(int index , AbilitySO item) => items[index] = item;
 	}
 }

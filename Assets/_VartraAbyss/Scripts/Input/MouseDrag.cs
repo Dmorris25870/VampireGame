@@ -19,16 +19,38 @@ namespace VartraAbyss
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			m_storage.SwapItem(m_uiSlot);
+			// If the cooldown for the ui slot is still active, return.
+			// 
+			UISlot targetSlot;
+			AbilityCooldownFader abilityFader;
+			if( eventData.pointerCurrentRaycast.gameObject is GameObject target )
+			{
+				targetSlot = target.GetComponentInParent<UISlot>();
+				abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
 
-			m_dragInstance = new GameObject("Drag Instance " + m_uiSlot.name);
-			Image image = m_dragInstance.GetOrAdd<Image>();
+				if( targetSlot != null )
+				{
+					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+					{
+						m_storage.ClearSwap();
+						Destroy(m_dragInstance);
+						return;
+					}
+					else
+					{
+						m_storage.SwapItem(m_uiSlot);
 
-			image.sprite = m_uiSlot.itemImage.sprite;
-			image.raycastTarget = false;
+						m_dragInstance = new GameObject("Drag Instance " + m_uiSlot.name);
+						Image image = m_dragInstance.GetOrAdd<Image>();
 
-			m_dragInstance.transform.SetParent(m_storage.transform);
-			m_dragInstance.transform.localScale = Vector3.one;
+						image.sprite = m_uiSlot.itemImage.sprite;
+						image.raycastTarget = false;
+
+						m_dragInstance.transform.SetParent(m_storage.transform);
+						m_dragInstance.transform.localScale = Vector3.one;
+					}
+				}
+			}
 		}
 
 		public void OnDrag(PointerEventData eventData)
@@ -45,10 +67,21 @@ namespace VartraAbyss
 			{
 				UISlot targetSlot = target.GetComponentInParent<UISlot>();
 
-				if( targetSlot != null )
+				if( target.GetComponentInParent<AbilityCooldownFader>() != null )
 				{
-					m_storage.SwapItem(targetSlot);
-					EventSystem.current.SetSelectedGameObject(target);
+					AbilityCooldownFader abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
+
+					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+					{
+						m_storage.ClearSwap();
+						Destroy(m_dragInstance);
+						return;
+					}
+					else if( targetSlot != null )
+					{
+						m_storage.SwapItem(targetSlot);
+						EventSystem.current.SetSelectedGameObject(target);
+					}
 				}
 			}
 
