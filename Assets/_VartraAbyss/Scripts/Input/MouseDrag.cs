@@ -19,14 +19,17 @@ namespace VartraAbyss
 
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-			// If the cooldown for the ui slot is still active, return.
-			// 
 			UISlot targetSlot;
 			AbilityCooldownFader abilityFader;
 			if( eventData.pointerCurrentRaycast.gameObject is GameObject target )
 			{
 				targetSlot = target.GetComponentInParent<UISlot>();
 				abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
+
+				if( targetSlot.isStatic )
+				{
+					return;
+				}
 
 				if( targetSlot != null )
 				{
@@ -71,7 +74,7 @@ namespace VartraAbyss
 				{
 					AbilityCooldownFader abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
 
-					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] || targetSlot.isStatic )
 					{
 						m_storage.ClearSwap();
 						Destroy(m_dragInstance);

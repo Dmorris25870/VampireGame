@@ -9,6 +9,7 @@ namespace VartraAbyss
 		public Image itemImage;
 		public Storage storage;
 		public MouseDrag mouseDrag;
+		public bool isStatic;
 
 		public void SetupStorage(Storage storage)
 		{
