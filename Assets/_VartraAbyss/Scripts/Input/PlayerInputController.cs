@@ -63,7 +63,15 @@ namespace VartraAbyss.PlayerInputs
 		{
 			if( context.performed )
 			{
-				OnPrimaryInput();
+				if( Utilities.IsPointerOverUIElement() )
+				{
+					return;
+				}
+				else
+				{
+					OnPrimaryInput();
+				}
+
 			}
 		}
 
