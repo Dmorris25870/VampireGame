@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability1",
+                    "name": "HealthPotion",
                     "type": "Button",
                     "id": "b320da31-6e49-45b5-8116-6473f341df04",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability2",
+                    "name": "ManaPotion",
                     "type": "Button",
                     "id": "762ea1c1-aabd-43c4-8fd0-71f75156e063",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability3",
+                    "name": "Ability1",
                     "type": "Button",
                     "id": "0bb03b55-c52f-41c9-bed3-5391c4ddfb15",
                     "expectedControlType": "Button",
@@ -51,9 +51,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability4",
+                    "name": "Ability2",
                     "type": "Button",
                     "id": "70d10c97-8e1d-4a73-aea9-6f45ac062e42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability3",
+                    "type": "Button",
+                    "id": "fd11a80e-7f82-4256-b940-cb9dac9e990c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability4",
+                    "type": "Button",
+                    "id": "10696725-d86f-4ec1-ba84-a91db798ae2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability5",
+                    "type": "Button",
+                    "id": "c62b2841-7fae-438b-89b7-613e9d5597aa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -158,6 +185,28 @@
                 {
                     "name": "",
                     "id": "c44ce0b6-ba33-4e05-8065-7fdd0e5b2065",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealthPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5e3f195-101f-4540-a5db-614aa43e8807",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ManaPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63ad95cf-68b7-4869-8b25-bb3fe0736d8f",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
@@ -168,34 +217,12 @@
                 },
                 {
                     "name": "",
-                    "id": "f5e3f195-101f-4540-a5db-614aa43e8807",
+                    "id": "bdd8c078-f84d-458a-a670-4ed9f95ac1e9",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Ability2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "63ad95cf-68b7-4869-8b25-bb3fe0736d8f",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ability3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bdd8c078-f84d-458a-a670-4ed9f95ac1e9",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ability4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -284,6 +311,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "AbsorbAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b037637-21a5-4375-86e8-34cc7737d9a8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e3750a7-03c4-4111-a946-444e9bb787bf",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38b289fc-d37d-43e3-b53f-f2471f09e6e1",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

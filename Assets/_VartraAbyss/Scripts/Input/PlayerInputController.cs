@@ -28,7 +28,13 @@ namespace VartraAbyss.PlayerInputs
 		{
 			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInputCommand;
-			m_playerControl.actions.FindAction("Ability1").performed += OnAbilityOnePressed;
+			m_playerControl.actions.FindAction("HealthPotion").performed += OnAbilityOnePressed;
+			m_playerControl.actions.FindAction("ManaPotion").performed += OnAbilityTwoPressed;
+			m_playerControl.actions.FindAction("Ability1").performed += OnAbilityThreePressed;
+			m_playerControl.actions.FindAction("Ability2").performed += OnAbilityFourPressed;
+			m_playerControl.actions.FindAction("Ability3").performed += OnAbilityFivePressed;
+			m_playerControl.actions.FindAction("Ability4").performed += OnAbilitySixPressed;
+			m_playerControl.actions.FindAction("Ability5").performed += OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInputCommand;
 			OnPlayerClick += OnPrimaryInput;
 		}
@@ -37,7 +43,13 @@ namespace VartraAbyss.PlayerInputs
 		{
 			m_playerControl.actions.FindAction("Primary").started -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInputCommand;
-			m_playerControl.actions.FindAction("Ability1").performed -= OnAbilityOnePressed;
+			m_playerControl.actions.FindAction("HealthPotion").performed -= OnAbilityOnePressed;
+			m_playerControl.actions.FindAction("ManaPotion").performed -= OnAbilityTwoPressed;
+			m_playerControl.actions.FindAction("Ability1").performed -= OnAbilityThreePressed;
+			m_playerControl.actions.FindAction("Ability2").performed -= OnAbilityFourPressed;
+			m_playerControl.actions.FindAction("Ability3").performed -= OnAbilityFivePressed;
+			m_playerControl.actions.FindAction("Ability4").performed -= OnAbilitySixPressed;
+			m_playerControl.actions.FindAction("Ability5").performed -= OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInputCommand;
 			OnPlayerClick -= OnPrimaryInput;
 		}
@@ -59,8 +71,62 @@ namespace VartraAbyss.PlayerInputs
 		{
 			if( context.performed )
 			{
-				EventManager.OnQAbility?.Invoke();
+				EventManager.OnActivatedSlot1Ability?.Invoke();
+				Debug.Log("1 Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilityTwoPressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot2Ability?.Invoke();
+				Debug.Log("2 Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilityThreePressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot3Ability?.Invoke();
 				Debug.Log("Q Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilityFourPressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot4Ability?.Invoke();
+				Debug.Log("W Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilityFivePressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot5Ability?.Invoke();
+				Debug.Log("E Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilitySixPressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot6Ability?.Invoke();
+				Debug.Log("R Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnAbilitySevenPressed(InputAction.CallbackContext context)
+		{
+			if( context.performed )
+			{
+				EventManager.OnActivatedSlot7Ability?.Invoke();
+				Debug.Log("T Button has been pressed and Invoked.");
 			}
 		}
 
