@@ -11,12 +11,6 @@ namespace VartraAbyss.Entity
 		[SerializeField] private float m_projectileSpeed;
 		[SerializeField] private Vector3 m_targetPosition;
 
-		public Projectile(int damage , Vector3 targetPosition)
-		{
-			m_damage = damage;
-			m_targetPosition = targetPosition;
-		}
-
 		private void FixedUpdate()
 		{
 			// Add force to the rigid body, multiplied by a set speed and fixed delta time.

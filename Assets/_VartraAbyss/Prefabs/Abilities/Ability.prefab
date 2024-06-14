@@ -44,4 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c25c987fdf239b42b999fab6a270e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_abilitySO: {fileID: 11400000, guid: 0f621b1ef772f564cb16c7a019fc42d5, type: 2}
+  <AbilityData>k__BackingField: {fileID: 0}
+  <Name>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
+  <SoundEffect>k__BackingField: {fileID: 0}
+  <VisualEffect>k__BackingField: {fileID: 0}
+  <Damage>k__BackingField: 0
+  <BloodCost>k__BackingField: 0
+  <CoolDownTime>k__BackingField: 0
+  <Range>k__BackingField: 0
+  <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <Timer>k__BackingField: {fileID: 0}
+  m_projectilePrefab: {fileID: 5575352061892793201, guid: cdabd90bd8d400e409bbe5cf2e4468c8,
+    type: 3}
