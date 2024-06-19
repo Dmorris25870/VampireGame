@@ -26,14 +26,13 @@ namespace VartraAbyss
 				targetSlot = target.GetComponentInParent<UISlot>();
 				abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
 
-				if( targetSlot.isStatic )
-				{
-					return;
-				}
-
 				if( targetSlot != null )
 				{
-					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+					if( abilityFader == null )
+					{
+						HandleSwap();
+					}
+					else if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
 					{
 						m_storage.ClearSwap();
 						Destroy(m_dragInstance);
@@ -41,19 +40,25 @@ namespace VartraAbyss
 					}
 					else
 					{
-						m_storage.SwapItem(m_uiSlot);
-
-						m_dragInstance = new GameObject("Drag Instance " + m_uiSlot.name);
-						Image image = m_dragInstance.GetOrAdd<Image>();
-
-						image.sprite = m_uiSlot.itemImage.sprite;
-						image.raycastTarget = false;
-
-						m_dragInstance.transform.SetParent(m_storage.transform);
-						m_dragInstance.transform.localScale = Vector3.one;
+						HandleSwap();
 					}
+
 				}
 			}
+		}
+
+		private void HandleSwap()
+		{
+			m_storage.SwapItem(m_uiSlot);
+
+			m_dragInstance = new GameObject("Drag Instance " + m_uiSlot.name);
+			Image image = m_dragInstance.GetOrAdd<Image>();
+
+			image.sprite = m_uiSlot.itemImage.sprite;
+			image.raycastTarget = false;
+
+			m_dragInstance.transform.SetParent(m_storage.transform);
+			m_dragInstance.transform.localScale = Vector3.one;
 		}
 
 		public void OnDrag(PointerEventData eventData)
