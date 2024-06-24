@@ -4,17 +4,14 @@ namespace VartraAbyss.Entity
 {
 	public class Projectile : MonoBehaviour
 	{
-		[SerializeField] private GameObject m_projectile;
 		[SerializeField] private Rigidbody m_rigidBody;
 		[SerializeField] private Collider m_collider;
-		[SerializeField] private int m_damage;
-		[SerializeField] private float m_projectileSpeed;
-		[SerializeField] private Vector3 m_targetPosition;
+		[field: SerializeField] public Vector3 Velocity { get; private set; }
+		[field: SerializeField] public int DamageAmount { get; private set; }
 
 		private void FixedUpdate()
 		{
-			// Add force to the rigid body, multiplied by a set speed and fixed delta time.
-			m_rigidBody.AddForce(Vector3.forward * m_projectileSpeed * Time.fixedDeltaTime);
+			m_rigidBody.AddRelativeForce(Velocity * Time.fixedDeltaTime);
 		}
 
 		private void OnCollisionEnter(Collision collision)
@@ -23,19 +20,29 @@ namespace VartraAbyss.Entity
 			if( collision.collider != m_collider )
 			{
 				// When this object hits another, check if it's an entity
-				if( collision.gameObject.TryGetComponent(out Actor target) )
+				if( collision.gameObject.GetComponent<Actor>() != null )
 				{
-					// If it is, deal damage
-					target.Stat.Health -= m_damage;
+					Actor target = collision.gameObject.GetComponent<Actor>();
+					target.Stat.ModifyHealth(-DamageAmount);
 				}
-				// Then destroy itself
-				Die();
 			}
+
+			Die();
+		}
+
+		public void SetVelocity(Vector3 direction)
+		{
+			Velocity = direction;
+		}
+
+		public void SetDamageAmount(int amount)
+		{
+			DamageAmount = amount;
 		}
 
 		private void Die()
 		{
-			DestroyImmediate(gameObject);
+			Destroy(gameObject);
 		}
 	}
 }

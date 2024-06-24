@@ -24,9 +24,9 @@ namespace VartraAbyss.Actions
 				{
 					if( self.CurrentAbility is IAbility_Strategy strategy )
 					{
-						self.CurrentAbility.SetTargetPosition(target);
-						strategy.UseAbility();
-						self.CurrentAbility.SetTargetPosition(Vector3.zero);
+						//self.CurrentAbility.SetTargetPosition(target);
+						strategy.UseAbility(self);
+						//self.CurrentAbility.SetTargetPosition(Vector3.zero);
 					}
 
 					m_abilityTimer.ResetTimer();

@@ -14,9 +14,9 @@ namespace VartraAbyss.Utility
 
 		public static bool IsPointerOverUIElement()
 		{
-			PointerEventData eventData = new PointerEventData(EventSystem.current);
+			PointerEventData eventData = new(EventSystem.current);
 			eventData.position = Input.mousePosition;
-			List<RaycastResult> results = new List<RaycastResult>();
+			List<RaycastResult> results = new();
 			EventSystem.current.RaycastAll(eventData , results);
 			return results.Count > 0;
 		}

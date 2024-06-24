@@ -26,7 +26,6 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnEnable()
 		{
-			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed += OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed += OnAbilityTwoPressed;
@@ -35,13 +34,11 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability3").performed += OnAbilityFivePressed;
 			m_playerControl.actions.FindAction("Ability4").performed += OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed += OnAbilitySevenPressed;
-			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInputCommand;
 			OnPlayerClick += OnPrimaryInput;
 		}
 
 		private void OnDisable()
 		{
-			m_playerControl.actions.FindAction("Primary").started -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed -= OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed -= OnAbilityTwoPressed;
@@ -50,7 +47,6 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability3").performed -= OnAbilityFivePressed;
 			m_playerControl.actions.FindAction("Ability4").performed -= OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed -= OnAbilitySevenPressed;
-			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInputCommand;
 			OnPlayerClick -= OnPrimaryInput;
 		}
 

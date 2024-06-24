@@ -35,17 +35,20 @@ namespace VartraAbyss.Entity.Player
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
+			SetStats(Stat);
+			Stat.InitializeStats();
 			SetCurrentAction(Action.ActionTypes.Idle);
 			EventManager.OnLevelUpEvent?.Invoke(this);
 		}
 
 		private void Start()
 		{
+			CurrentAbility.SetTargetPosition(Input.mousePosition);
 			SetupActions();
 
 			if( CurrentAbility is IAbility_Strategy strategy )
 			{
-				strategy.UseAbility();
+				strategy.UseAbility(this);
 			}
 		}
 

@@ -44,17 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c25c987fdf239b42b999fab6a270e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityData>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: 
+  <AbilityData>k__BackingField: {fileID: 11400000, guid: 4d557178ca45a03468d7f65ef31a4380,
+    type: 2}
+  <Name>k__BackingField: Blood Projectile
   <Icon>k__BackingField: {fileID: 0}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 0
-  <BloodCost>k__BackingField: 0
-  <CoolDownTime>k__BackingField: 0
-  <Range>k__BackingField: 0
+  <Damage>k__BackingField: 10
+  <BloodCost>k__BackingField: 10
+  <CoolDownTime>k__BackingField: 10
+  <Range>k__BackingField: 10
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
-  <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <TargetPosition>k__BackingField: {x: 511, y: 160, z: 0}
   <Timer>k__BackingField: {fileID: 0}
   m_projectilePrefab: {fileID: 5575352061892793201, guid: cdabd90bd8d400e409bbe5cf2e4468c8,
     type: 3}
+  m_projectileSpeed: 2

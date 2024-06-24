@@ -11,7 +11,7 @@ namespace VartraAbyss.Entity
 	public abstract class Actor : SerializedMonoBehaviour
 	{
 		[TabGroup("Actor" , "Stats" , SdfIconType.GraphUp , TextColor = "blue")]
-		[SerializeField] protected Stat stat;
+		[field: SerializeField] public Stat Stat { get; private set; }
 
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
 		[DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
@@ -22,7 +22,7 @@ namespace VartraAbyss.Entity
 
 		public bool IsMoving { get; private set; }
 		public bool IsAttacking { get; private set; }
-		public Stat Stat { get; private set; }
+
 
 		[field: SerializeField] public Vector3 Target { get; private set; }
 		[field: SerializeField] public Ability CurrentAbility { get; private set; }
@@ -39,6 +39,7 @@ namespace VartraAbyss.Entity
 		public virtual void SetCurrentItem(ItemBase item) { CurrentItem = item; }
 		public virtual void SetIsMoving(bool enabled) { IsMoving = enabled; }
 		public virtual void SetIsAttacking(bool enabled) { IsAttacking = enabled; }
+		public virtual void SetStats(Stat stats) { Stat = stats; }
 		public virtual void SetNavMeshAgent(NavMeshAgent agent) { Agent = agent; }
 		public virtual void AddToActionList(Action.ActionTypes type , Action actionToAdd) { listOfActions.TryAdd(type , actionToAdd); }
 		public virtual void RemoveFromActionList(Action.ActionTypes type , Action actionToAdd) { listOfActions.Remove(type); }

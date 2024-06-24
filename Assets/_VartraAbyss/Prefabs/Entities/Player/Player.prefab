@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9011828239082110487}
+  - {fileID: 9150377049979859870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1645894289421855533
@@ -182,13 +183,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  stat:
-    m_health: 40
-    m_maximumHealth: 100
-    m_blood: 6
-    m_maximumBlood: 100
-    m_moveSpeed: 3.5
-    m_maximumMoveSpeed: 3.5
+  <Stat>k__BackingField:
+    playerStats: {fileID: 11400000, guid: c02324fbbad7bb042ae50452e58ef845, type: 2}
+    <Health>k__BackingField: 100
+    <MaximumHealth>k__BackingField: 100
+    <Blood>k__BackingField: 100
+    <MaximumBlood>k__BackingField: 100
+    <MoveSpeed>k__BackingField: 3.5
+    <MaximumMoveSpeed>k__BackingField: 3.5
   listOfActions:
     _serializedList:
     - Key: 1
@@ -201,9 +203,13 @@ MonoBehaviour:
       Value: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
         type: 3}
   listOfAbilities:
-    _serializedList: []
+    _serializedList:
+    - Key: BloodProjectile
+      Value: {fileID: 8854786090799756087, guid: 7808e1a2bee74874e9d8fc9e161f6f98,
+        type: 3}
   <Target>k__BackingField: {x: 0, y: 0, z: 0}
-  <CurrentAbility>k__BackingField: {fileID: 0}
+  <CurrentAbility>k__BackingField: {fileID: 8854786090799756087, guid: 7808e1a2bee74874e9d8fc9e161f6f98,
+    type: 3}
   <CurrentItem>k__BackingField: {fileID: 0}
   m_abilityData: {fileID: 0}
 --- !u!114 &4782968582163505594
@@ -321,3 +327,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedRotation: {x: 0, y: -35, z: 0}
+--- !u!1 &7912597955045403965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9150377049979859870}
+  - component: {fileID: 8163619056172068345}
+  m_Layer: 0
+  m_Name: ProjectileSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9150377049979859870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912597955045403965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2820367666736670474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8163619056172068345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912597955045403965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5088d8d0b6651464d800080766a921f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

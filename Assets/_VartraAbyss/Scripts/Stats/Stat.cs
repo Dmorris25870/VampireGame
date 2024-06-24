@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace VartraAbyss.Stats
@@ -6,28 +5,68 @@ namespace VartraAbyss.Stats
 	[System.Serializable]
 	public class Stat
 	{
-		[ProgressBar(0 ,  100, ColorGetter = "GetHealthBarColor")]
-		[SerializeField] private int m_health;
-		[SerializeField] private int m_maximumHealth;
-		[ProgressBar(0 , 10 , 0.7f , 0 , 0.7f , Segmented = true)]
-		[SerializeField] private int m_blood;
-		[SerializeField] private int m_maximumBlood;
-		[Range(1 , 10)]
-		[SerializeField] private float m_moveSpeed;
-		[SerializeField] private float m_maximumMoveSpeed;
+		public StatScriptableObject playerStats;
 
-		public int Health { get => m_health; set => m_health = value; }
-		public int MaximumHealth { get => m_maximumHealth; set => m_maximumHealth = value; }
-		public int Blood { get => m_blood; set => m_blood = value; }
-		public int MaximumBlood { get => m_maximumBlood; set => m_maximumBlood = value; }
-		public float MoveSpeed { get => m_moveSpeed; set => m_moveSpeed = value; }
-		public float MaximumMoveSpeed { get => m_maximumMoveSpeed; set => m_maximumMoveSpeed = value; }
+		[field: SerializeField] public int Health { get; private set; }
+		[field: SerializeField] public int MaximumHealth { get; private set; }
+		[field: SerializeField] public int Blood { get; private set; }
+		[field: SerializeField] public int MaximumBlood { get; private set; }
+		[field: SerializeField] public float MoveSpeed { get; private set; }
+		[field: SerializeField] public float MaximumMoveSpeed { get; private set; }
 
-		private Color GetHealthBarColor(float value)
+		public void InitializeStats()
 		{
-			return Color.Lerp(Color.red , Color.green , Mathf.Pow(value / 100f , 2));
+			Health = playerStats.health;
+			MaximumHealth = playerStats.maximumHealth;
+			Blood = playerStats.blood;
+			MaximumBlood = playerStats.maximumBlood;
+			MoveSpeed = playerStats.moveSpeed;
+			MaximumMoveSpeed = playerStats.maximumMoveSpeed;
 		}
 
+		public void SetMaximumHealth(int amount)
+		{
+			MaximumHealth = amount;
+		}
 
+		public void SetHealth(int amount)
+		{
+			Health = amount;
+		}
+
+		public void SetMaximumBlood(int amount)
+		{
+			MaximumBlood = amount;
+		}
+
+		public void SetBlood(int amount)
+		{
+			Blood = amount;
+		}
+
+		public void SetMaximumMoveSpeed(int amount)
+		{
+			MaximumMoveSpeed = amount;
+		}
+
+		public void SetMoveSpeed(float amount)
+		{
+			MoveSpeed = amount;
+		}
+
+		public void ModifyHealth(int amount)
+		{
+			Health += amount;
+		}
+
+		public void ModifyBlood(int amount)
+		{
+			Blood += amount;
+		}
+
+		public void ModifyMoveSpeed(float amount)
+		{
+			MoveSpeed += amount;
+		}
 	}
 }

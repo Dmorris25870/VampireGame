@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using VartraAbyss.Entity;
 using VartraAbyss.Managers;
 
@@ -70,13 +67,13 @@ namespace VartraAbyss.Stats
 
 		public void CalculateStats(Actor self)
 		{
-			self.Stat.MaximumHealth = (int)( m_baseVitality * m_vitalityMultiplier );
-			self.Stat.MaximumBlood = (int)( m_baseMind * m_mindMultiplier );
-			self.Stat.MaximumMoveSpeed = (int)( m_baseDexterity * m_dexterityMultiplier );
+			self.Stat.SetMaximumHealth((int)( m_baseVitality * m_vitalityMultiplier ));
+			self.Stat.SetMaximumBlood((int)( m_baseMind * m_mindMultiplier ));
+			self.Stat.SetMaximumMoveSpeed((int)( m_baseDexterity * m_dexterityMultiplier ));
 
-			self.Stat.Health = self.Stat.MaximumHealth;
-			self.Stat.Blood = self.Stat.MaximumBlood;
-			self.Stat.MoveSpeed = self.Stat.MaximumMoveSpeed;
+			self.Stat.SetHealth(self.Stat.MaximumHealth);
+			self.Stat.SetBlood(self.Stat.MaximumBlood);
+			self.Stat.SetMoveSpeed(self.Stat.MaximumMoveSpeed);
 		}
 
 		private void Logger()

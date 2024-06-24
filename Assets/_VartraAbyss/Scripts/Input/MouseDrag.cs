@@ -28,21 +28,26 @@ namespace VartraAbyss
 
 				if( targetSlot != null )
 				{
-					if( abilityFader == null )
+					switch( abilityFader )
 					{
+						case null:
 						HandleSwap();
-					}
-					else if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
-					{
-						m_storage.ClearSwap();
-						Destroy(m_dragInstance);
-						return;
-					}
-					else
-					{
-						HandleSwap();
-					}
+						break;
 
+						default:
+						if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+						{
+							m_storage.ClearSwap();
+							Destroy(m_dragInstance);
+							return;
+						}
+						else
+						{
+							HandleSwap();
+						}
+
+						break;
+					}
 				}
 			}
 		}
