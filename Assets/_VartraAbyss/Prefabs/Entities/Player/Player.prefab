@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7960306549112465506}
   - component: {fileID: 6483021480412095296}
   - component: {fileID: 4782968582163505594}
+  - component: {fileID: 6268369803396058241}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -185,9 +186,9 @@ MonoBehaviour:
     SerializationNodes: []
   <Stat>k__BackingField:
     playerStats: {fileID: 11400000, guid: c02324fbbad7bb042ae50452e58ef845, type: 2}
-    <Health>k__BackingField: 100
+    <Health>k__BackingField: 50
     <MaximumHealth>k__BackingField: 100
-    <Blood>k__BackingField: 100
+    <Blood>k__BackingField: 50
     <MaximumBlood>k__BackingField: 100
     <MoveSpeed>k__BackingField: 3.5
     <MaximumMoveSpeed>k__BackingField: 3.5
@@ -238,6 +239,19 @@ MonoBehaviour:
   m_ignorePlayerLayer:
     serializedVersion: 2
     m_Bits: 119
+--- !u!114 &6268369803396058241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613161199586880686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e81d1130812019499121ced681728ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ToggleRotateToMouse>k__BackingField: 1
 --- !u!1 &7493499449020866796
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9150377049979859870}
   - component: {fileID: 8163619056172068345}
+  - component: {fileID: 2245242753658547264}
   m_Layer: 0
   m_Name: ProjectileSpawner
   m_TagString: Untagged
@@ -380,3 +395,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5088d8d0b6651464d800080766a921f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2245242753658547264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912597955045403965}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.7962308, y: 5.909861, z: 2.0807042}
+  m_Center: {x: -0.101762295, y: -0.36216378, z: -0.54035187}

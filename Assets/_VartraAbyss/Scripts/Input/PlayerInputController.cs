@@ -67,7 +67,6 @@ namespace VartraAbyss.PlayerInputs
 				{
 					OnPrimaryInput();
 				}
-
 			}
 		}
 

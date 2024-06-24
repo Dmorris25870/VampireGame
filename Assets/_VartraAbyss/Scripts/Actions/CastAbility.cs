@@ -14,16 +14,14 @@ namespace VartraAbyss.Actions
 			if( commandData[0] is Actor self && commandData[1] is Vector3 target )
 			{
 				Debug.Log("===Current State is Casting an Ability.===");
-				if( m_abilityTimer == null )
-				{
-					m_abilityTimer = gameObject.AddComponent<Timer>();
-					m_abilityTimer.SetTimer(self.CurrentAbility.CoolDownTime);
-				}
+				m_abilityTimer = gameObject.GetOrAdd<Timer>();
+				m_abilityTimer.SetTimer(self.CurrentAbility.CoolDownTime);
 
 				if( m_abilityTimer.CurrentTime <= 0 )
 				{
 					if( self.CurrentAbility is IAbility_Strategy strategy )
 					{
+						Debug.Log($"Casting: {self.CurrentAbility.AbilityData.abilityName}");
 						strategy.UseAbility(self);
 					}
 

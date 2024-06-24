@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731bc6fa6a7fbdd4b935350e3d5091a5, type: 3}
-  m_Name: Claws
+  m_Name: Claw
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,12 +21,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  abilityName: Claws
+  abilityName: Claw
   sprite: {fileID: 21300000, guid: 65b448b9f07b95047841ef1e09140fde, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
-  damage: 1
-  bloodCost: 0
-  coolDownTime: 1
+  damage: 5
+  bloodCost: 5
+  coolDownTime: 2
   range: 1
   spawnPosition: {x: 0, y: 0, z: 0}
+  potionUsesRemaining: 0

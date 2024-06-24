@@ -46,8 +46,6 @@ namespace VartraAbyss.Entity.Player
 		private void Start()
 		{
 			SetupActions();
-
-
 		}
 
 		protected override Actor StoreActor()
@@ -109,7 +107,10 @@ namespace VartraAbyss.Entity.Player
 		public override void SetCurrentAbility(Ability ability , string abilityName)
 		{
 			base.SetCurrentAbility(ability , abilityName);
-			UseCurrentAbility();
+			if( Stat.Blood > 0 )
+			{
+				UseCurrentAbility();
+			}
 		}
 
 		private void UseCurrentAbility()

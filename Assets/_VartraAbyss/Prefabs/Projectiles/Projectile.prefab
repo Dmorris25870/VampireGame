@@ -115,7 +115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575352061892793201}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf906533eec12004aa6c9592488532f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_projectile: {fileID: 5575352061892793201}
   m_rigidBody: {fileID: 6399190636250574446}
   m_collider: {fileID: 1108896311563234180}
+  <Velocity>k__BackingField: {x: 0, y: 0, z: 0}
   <DamageAmount>k__BackingField: 10
