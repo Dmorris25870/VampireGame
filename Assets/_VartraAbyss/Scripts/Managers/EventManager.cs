@@ -1,3 +1,4 @@
+using VartraAbyss.Abilities;
 using VartraAbyss.Entity;
 using VartraAbyss.Inventory;
 
@@ -22,8 +23,10 @@ public class EventManager : SingletonManager<EventManager>
 	public static AbilityEvent OnActivatedSlot5Ability;
 	public static AbilityEvent OnActivatedSlot6Ability;
 	public static AbilityEvent OnActivatedSlot7Ability;
-
 	#endregion
+
+	public delegate void GetAbilityInSlotEvent(Ability ability , string abilityName);
+	public static GetAbilityInSlotEvent OnReturnUsedAbility;
 
 	#region Inventory Events
 	public delegate void ItemDragEvent(ItemDragLITE itemToDrag);

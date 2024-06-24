@@ -16,9 +16,9 @@ MonoBehaviour:
   mind: 5
   strength: 5
   dexterity: 5
-  health: 100
+  health: 50
   maximumHealth: 100
-  blood: 100
+  blood: 50
   maximumBlood: 100
   moveSpeed: 3.5
   maximumMoveSpeed: 3.5

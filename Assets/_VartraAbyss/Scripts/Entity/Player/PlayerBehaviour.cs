@@ -23,11 +23,13 @@ namespace VartraAbyss.Entity.Player
 		private void OnEnable()
 		{
 			Global.OnGetPlayerEvent += StoreActor;
+			EventManager.OnReturnUsedAbility += SetCurrentAbility;
 		}
 
 		private void OnDisable()
 		{
 			Global.OnGetPlayerEvent -= StoreActor;
+			EventManager.OnReturnUsedAbility -= SetCurrentAbility;
 		}
 
 		private void Awake()
@@ -43,13 +45,9 @@ namespace VartraAbyss.Entity.Player
 
 		private void Start()
 		{
-			CurrentAbility.SetTargetPosition(Input.mousePosition);
 			SetupActions();
 
-			if( CurrentAbility is IAbility_Strategy strategy )
-			{
-				strategy.UseAbility(this);
-			}
+
 		}
 
 		protected override Actor StoreActor()
@@ -108,9 +106,18 @@ namespace VartraAbyss.Entity.Player
 			base.SetTarget(newTarget);
 		}
 
-		public override void SetCurrentAbility(Ability ability)
+		public override void SetCurrentAbility(Ability ability , string abilityName)
 		{
-			base.SetCurrentAbility(ability);
+			base.SetCurrentAbility(ability , abilityName);
+			UseCurrentAbility();
+		}
+
+		private void UseCurrentAbility()
+		{
+			if( CurrentAbility is IAbility_Strategy strategy )
+			{
+				strategy.UseAbility(this);
+			}
 		}
 	}
 }

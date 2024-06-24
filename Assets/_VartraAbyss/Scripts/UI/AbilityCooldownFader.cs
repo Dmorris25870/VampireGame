@@ -42,6 +42,8 @@ namespace VartraAbyss
 		{
 			if( !AbilitiesCoolingDown[slotIndex] )
 			{
+				// GET UI SLOT INDEX
+				EventManager.OnReturnUsedAbility?.Invoke(null , m_slots[slotIndex].storage.GetItem(slotIndex).abilityName);
 				StartCoroutine(AbilityCooldownCoroutine(slotIndex));
 			}
 		}
@@ -58,7 +60,6 @@ namespace VartraAbyss
 
 			while( abilityImage.fillAmount < 1 )
 			{
-				Debug.Log("UI slot is being updated.");
 				abilityImage.fillAmount += 1.0f / abilityCoolDown * Time.deltaTime;
 				yield return null;
 			}

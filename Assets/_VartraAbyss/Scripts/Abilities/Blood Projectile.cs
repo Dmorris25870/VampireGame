@@ -16,15 +16,8 @@ namespace VartraAbyss.Abilities
 
 			projectile.transform.LookAt(self.Target);
 			projectile.GetComponent<Projectile>().SetDamageAmount(Damage);
-			projectile.GetComponent<Projectile>().SetVelocity(GetDirectionFromMousePosition(self));
-		}
-
-		private Vector3 GetDirectionFromMousePosition(Actor self)
-		{
-			Vector3 mousePos = Camera.main.ScreenToWorldPoint(TargetPosition);
-			Vector3 direction = mousePos - self.GetComponentInChildren<Spawner>().transform.position;
-			direction.Normalize();
-			return direction *= m_projectileSpeed;
+			projectile.GetComponent<Projectile>()
+				.SetVelocity(-transform.forward * m_projectileSpeed);
 		}
 	}
 }

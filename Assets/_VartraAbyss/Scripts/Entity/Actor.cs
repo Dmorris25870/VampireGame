@@ -3,8 +3,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 using VartraAbyss.Abilities;
-using VartraAbyss.Actions;
 using VartraAbyss.Stats;
+using Action = VartraAbyss.Actions.Action;
 
 namespace VartraAbyss.Entity
 {
@@ -30,11 +30,23 @@ namespace VartraAbyss.Entity
 		public NavMeshAgent Agent { get; private set; }
 		public Action.ActionTypes CurrentAction { get; private set; }
 		public SerializedDictionary<Action.ActionTypes , Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
-		public SerializedDictionary<string , Ability> ListOfAbilities { get; private set; }
+		public SerializedDictionary<string , Ability> ListOfAbilities { get => listOfAbilities; private set => listOfAbilities = value; }
 
 		protected virtual Actor StoreActor() { return this; }
 		public virtual void SetTarget(Vector3 newTarget) { Target = newTarget; }
-		public virtual void SetCurrentAbility(Ability ability) { CurrentAbility = ability; }
+
+		public virtual void SetCurrentAbility(Ability ability = null , string abilityName = null)
+		{
+			if( ability != null )
+			{
+				CurrentAbility = ability;
+			}
+			else if( !string.IsNullOrEmpty(abilityName) && ListOfAbilities.ContainsKey(abilityName) )
+			{
+				CurrentAbility = ListOfAbilities[abilityName];
+			}
+		}
+
 		public virtual void SetCurrentAction(Action.ActionTypes action) { CurrentAction = action; }
 		public virtual void SetCurrentItem(ItemBase item) { CurrentItem = item; }
 		public virtual void SetIsMoving(bool enabled) { IsMoving = enabled; }

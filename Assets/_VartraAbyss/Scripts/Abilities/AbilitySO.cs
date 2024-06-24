@@ -15,5 +15,6 @@ namespace VartraAbyss
 		public float coolDownTime;
 		public float range;
 		public Vector3 spawnPosition;
+		public int potionUsesRemaining;
 	}
 }

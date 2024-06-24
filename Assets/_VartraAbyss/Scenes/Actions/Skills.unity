@@ -759,8 +759,17 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+      propertyPath: <Stat>k__BackingField.<Blood>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: <Stat>k__BackingField.<Health>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 9069167775652624543, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: m_Camera

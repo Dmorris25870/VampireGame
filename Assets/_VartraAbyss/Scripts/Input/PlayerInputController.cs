@@ -157,7 +157,7 @@ namespace VartraAbyss.PlayerInputs
 					else
 					{
 						player.SetIsMoving(false);
-						player.SetCurrentAction(ActionTypes.CastAbility);
+						// CAST ABILITY?
 						return player.Target;
 					}
 				}

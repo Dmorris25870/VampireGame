@@ -57,16 +57,31 @@ namespace VartraAbyss.Stats
 		public void ModifyHealth(int amount)
 		{
 			Health += amount;
+
+			if( Health > MaximumHealth )
+			{
+				Health = MaximumHealth;
+			}
 		}
 
 		public void ModifyBlood(int amount)
 		{
 			Blood += amount;
+
+			if( Blood > MaximumBlood )
+			{
+				Blood = MaximumBlood;
+			}
 		}
 
 		public void ModifyMoveSpeed(float amount)
 		{
 			MoveSpeed += amount;
+
+			if( MoveSpeed > MaximumMoveSpeed )
+			{
+				MoveSpeed = MaximumMoveSpeed;
+			}
 		}
 	}
 }

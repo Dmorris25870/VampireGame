@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2926029572108624210
+--- !u!1 &6371691443346244577
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1988862102802576397}
-  - component: {fileID: 8854786090799756087}
+  - component: {fileID: 8345742535444274679}
+  - component: {fileID: 8216879092748034516}
   m_Layer: 0
-  m_Name: Ability
+  m_Name: HealthPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1988862102802576397
+--- !u!4 &8345742535444274679
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2926029572108624210}
+  m_GameObject: {fileID: 6371691443346244577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,31 +32,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8854786090799756087
+--- !u!114 &8216879092748034516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2926029572108624210}
+  m_GameObject: {fileID: 6371691443346244577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c25c987fdf239b42b999fab6a270e1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4311ad278ae595e47b432eb3123d3ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityData>k__BackingField: {fileID: 11400000, guid: 4d557178ca45a03468d7f65ef31a4380,
+  <AbilityData>k__BackingField: {fileID: 11400000, guid: 2263e4adaa70fa84a9d0684f473ba96b,
     type: 2}
-  <Name>k__BackingField: Blood Projectile
+  <Name>k__BackingField: HealthPotion
   <Icon>k__BackingField: {fileID: 0}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 10
-  <BloodCost>k__BackingField: 10
-  <CoolDownTime>k__BackingField: 10
-  <Range>k__BackingField: 10
+  <Damage>k__BackingField: 0
+  <BloodCost>k__BackingField: 0
+  <CoolDownTime>k__BackingField: 0
+  <Range>k__BackingField: 0
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
-  <TargetPosition>k__BackingField: {x: 511, y: 160, z: 0}
+  <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <Timer>k__BackingField: {fileID: 0}
-  m_projectilePrefab: {fileID: 5575352061892793201, guid: cdabd90bd8d400e409bbe5cf2e4468c8,
-    type: 3}
-  m_projectileSpeed: 2
+  <PotionUsesRemaining>k__BackingField: 10
+  <HealingAmount>k__BackingField: 10

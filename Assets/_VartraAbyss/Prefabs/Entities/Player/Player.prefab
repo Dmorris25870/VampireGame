@@ -207,6 +207,15 @@ MonoBehaviour:
     - Key: BloodProjectile
       Value: {fileID: 8854786090799756087, guid: 7808e1a2bee74874e9d8fc9e161f6f98,
         type: 3}
+    - Key: BloodPotion
+      Value: {fileID: 681434761277481049, guid: 80cb82f8cf50eec4eba65f2bc3bc3168,
+        type: 3}
+    - Key: HealthPotion
+      Value: {fileID: 8216879092748034516, guid: fbaf09888b5681942a6a5e5f999a6866,
+        type: 3}
+    - Key: Bite
+      Value: {fileID: 3414257060896090343, guid: 4a1c1dbbb5f2c3a4f8f8ec11277468ff,
+        type: 3}
   <Target>k__BackingField: {x: 0, y: 0, z: 0}
   <CurrentAbility>k__BackingField: {fileID: 8854786090799756087, guid: 7808e1a2bee74874e9d8fc9e161f6f98,
     type: 3}
