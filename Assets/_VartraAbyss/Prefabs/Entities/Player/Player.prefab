@@ -208,6 +208,9 @@ MonoBehaviour:
     - Key: BloodProjectile
       Value: {fileID: 8854786090799756087, guid: 7808e1a2bee74874e9d8fc9e161f6f98,
         type: 3}
+    - Key: Claw
+      Value: {fileID: 2281136463953733792, guid: bfe4171fb7242a44fa07a492a8056486,
+        type: 3}
     - Key: BloodPotion
       Value: {fileID: 681434761277481049, guid: 80cb82f8cf50eec4eba65f2bc3bc3168,
         type: 3}
@@ -251,7 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81d1130812019499121ced681728ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ToggleRotateToMouse>k__BackingField: 1
 --- !u!1 &7493499449020866796
 GameObject:
   m_ObjectHideFlags: 0

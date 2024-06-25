@@ -10,10 +10,10 @@ namespace VartraAbyss.Stats
 		public int strength;
 		public int dexterity;
 
-		public int health;
-		public int maximumHealth;
-		public int blood;
-		public int maximumBlood;
+		public float health;
+		public float maximumHealth;
+		public float blood;
+		public float maximumBlood;
 		public float moveSpeed;
 		public float maximumMoveSpeed;
 

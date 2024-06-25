@@ -11,21 +11,14 @@ namespace VartraAbyss.Abilities
 		public void UseAbility(Actor self)
 		{
 			m_collider = self.GetComponentInChildren<Spawner>().GetComponent<Collider>();
-
-			if( this == enabled )
-			{
-				StartCoroutine(ActivateTriggerVolume());
-			}
-
+			m_collider.enabled = true;
+			StartCoroutine(ActivateTriggerVolume());
 			self.Stat.ModifyBlood(-AbilityData.bloodCost);
 		}
 
 		IEnumerator ActivateTriggerVolume()
 		{
-			m_collider.enabled = true;
-
 			yield return new WaitForSeconds(AbilityData.coolDownTime);
-
 			m_collider.enabled = false;
 		}
 

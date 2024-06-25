@@ -7,10 +7,10 @@ namespace VartraAbyss.Stats
 	{
 		public StatScriptableObject playerStats;
 
-		[field: SerializeField] public int Health { get; private set; }
-		[field: SerializeField] public int MaximumHealth { get; private set; }
-		[field: SerializeField] public int Blood { get; private set; }
-		[field: SerializeField] public int MaximumBlood { get; private set; }
+		[field: SerializeField] public float Health { get; private set; }
+		[field: SerializeField] public float MaximumHealth { get; private set; }
+		[field: SerializeField] public float Blood { get; private set; }
+		[field: SerializeField] public float MaximumBlood { get; private set; }
 		[field: SerializeField] public float MoveSpeed { get; private set; }
 		[field: SerializeField] public float MaximumMoveSpeed { get; private set; }
 
@@ -24,27 +24,31 @@ namespace VartraAbyss.Stats
 			MaximumMoveSpeed = playerStats.maximumMoveSpeed;
 		}
 
-		public void SetMaximumHealth(int amount)
+		public void SetMaximumHealth(float amount)
 		{
 			MaximumHealth = amount;
+			EventManager.OnHealthChanged?.Invoke();
 		}
 
-		public void SetHealth(int amount)
+		public void SetHealth(float amount)
 		{
 			Health = amount;
+			EventManager.OnHealthChanged?.Invoke();
 		}
 
-		public void SetMaximumBlood(int amount)
+		public void SetMaximumBlood(float amount)
 		{
 			MaximumBlood = amount;
+			EventManager.OnBloodChanged?.Invoke();
 		}
 
-		public void SetBlood(int amount)
+		public void SetBlood(float amount)
 		{
 			Blood = amount;
+			EventManager.OnBloodChanged?.Invoke();
 		}
 
-		public void SetMaximumMoveSpeed(int amount)
+		public void SetMaximumMoveSpeed(float amount)
 		{
 			MaximumMoveSpeed = amount;
 		}
@@ -54,7 +58,7 @@ namespace VartraAbyss.Stats
 			MoveSpeed = amount;
 		}
 
-		public void ModifyHealth(int amount)
+		public void ModifyHealth(float amount)
 		{
 			Health += amount;
 
@@ -62,9 +66,11 @@ namespace VartraAbyss.Stats
 			{
 				Health = MaximumHealth;
 			}
+
+			EventManager.OnHealthChanged?.Invoke();
 		}
 
-		public void ModifyBlood(int amount)
+		public void ModifyBlood(float amount)
 		{
 			Blood += amount;
 
@@ -72,6 +78,8 @@ namespace VartraAbyss.Stats
 			{
 				Blood = MaximumBlood;
 			}
+
+			EventManager.OnBloodChanged?.Invoke();
 		}
 
 		public void ModifyMoveSpeed(float amount)

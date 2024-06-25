@@ -39,6 +39,8 @@ namespace VartraAbyss.Entity.Player
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
 			SetStats(Stat);
 			Stat.InitializeStats();
+			EventManager.OnHealthChanged?.Invoke();
+			EventManager.OnBloodChanged?.Invoke();
 			SetCurrentAction(Action.ActionTypes.Idle);
 			EventManager.OnLevelUpEvent?.Invoke(this);
 		}

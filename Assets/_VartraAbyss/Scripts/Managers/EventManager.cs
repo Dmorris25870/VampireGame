@@ -14,6 +14,12 @@ public class EventManager : SingletonManager<EventManager>
 	public static GameStateEvent OnGameQuit;
 	#endregion
 
+	#region Player UI Events
+	public delegate void PlayerUIEvent();
+	public static PlayerUIEvent OnHealthChanged;
+	public static PlayerUIEvent OnBloodChanged;
+	#endregion
+
 	#region Ability Events
 	public delegate void AbilityEvent();
 	public static AbilityEvent OnActivatedSlot1Ability;

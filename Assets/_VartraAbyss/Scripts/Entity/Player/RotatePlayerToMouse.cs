@@ -4,19 +4,9 @@ namespace VartraAbyss.Entity
 {
 	public class RotatePlayerToMouse : MonoBehaviour
 	{
-		[field: SerializeField] public bool ToggleRotateToMouse { get; private set; }
-
-		private void LateUpdate()
+		private void Update()
 		{
-			if( ToggleRotateToMouse )
-			{
-				RotateTowardsMousePosition();
-			}
-		}
-
-		public void ToggleOptionRotateToMouse(bool enabled)
-		{
-			ToggleRotateToMouse = !enabled;
+			RotateTowardsMousePosition();
 		}
 
 		public void RotateTowardsMousePosition()

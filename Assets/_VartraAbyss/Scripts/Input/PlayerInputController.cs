@@ -23,6 +23,7 @@ namespace VartraAbyss.PlayerInputs
 
 		public delegate Vector3 PlayerClickEvent();
 		public static PlayerClickEvent OnPlayerClick;
+		private bool m_toggleSkillMenu;
 
 		private void OnEnable()
 		{
@@ -34,6 +35,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability3").performed += OnAbilityFivePressed;
 			m_playerControl.actions.FindAction("Ability4").performed += OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed += OnAbilitySevenPressed;
+			m_playerControl.actions.FindAction("Skills").performed += OnSkillsMenuPressed;
 			OnPlayerClick += OnPrimaryInput;
 		}
 
@@ -47,6 +49,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability3").performed -= OnAbilityFivePressed;
 			m_playerControl.actions.FindAction("Ability4").performed -= OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed -= OnAbilitySevenPressed;
+			m_playerControl.actions.FindAction("Skills").performed -= OnSkillsMenuPressed;
 			OnPlayerClick -= OnPrimaryInput;
 		}
 
@@ -130,6 +133,25 @@ namespace VartraAbyss.PlayerInputs
 			{
 				EventManager.OnActivatedSlot7Ability?.Invoke();
 				Debug.Log("T Button has been pressed and Invoked.");
+			}
+		}
+
+		private void OnSkillsMenuPressed(InputAction.CallbackContext context)
+		{
+			m_toggleSkillMenu = !m_toggleSkillMenu;
+
+			if( context.performed )
+			{
+				if( m_toggleSkillMenu )
+				{
+					EventManager.OnSkillsMenu?.Invoke();
+					Debug.Log("S Button has been pressed and Invoked.");
+				}
+				else
+				{
+					EventManager.OnSkillsMenuClose?.Invoke();
+					Debug.Log("S Button has been pressed and Invoked.");
+				}
 			}
 		}
 

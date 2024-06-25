@@ -6,7 +6,6 @@ namespace VartraAbyss
 {
 	public class AbilityCooldownFader : MonoBehaviour
 	{
-		public float cooldownDuration;
 		[SerializeField] private UISlot[] m_slots;
 
 		public bool[] AbilitiesCoolingDown { get; private set; }
