@@ -57,6 +57,8 @@ namespace VartraAbyss.Dialogue
 		{
 			talkBool = true;
 
+
+
         }
 
         private void OnDisable()
@@ -141,6 +143,7 @@ namespace VartraAbyss.Dialogue
 			dialogueIsPlaying = false;
 			dialogueBox.SetActive(false);
 			dialoguetext.text = "";
+			talkBool = false;
 		}
 
 		public void ContinueStory()
@@ -149,6 +152,7 @@ namespace VartraAbyss.Dialogue
 			{
 				dialoguetext.text = currentStory.Continue();
 				DisplayChoices();
+				Debug.Log("can continue story");
 			}
 			else
 			{

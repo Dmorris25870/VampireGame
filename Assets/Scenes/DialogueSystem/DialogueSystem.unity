@@ -1528,6 +1528,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
+      propertyPath: letsTalk
+      value: 
+      objectReference: {fileID: 706757057501823018, guid: 851d3aeb039b2544aa488caa69474660,
+        type: 3}
+    - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 6746728249620417657}

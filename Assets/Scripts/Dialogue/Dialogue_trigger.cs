@@ -38,38 +38,52 @@ public class Dialogue_trigger : MonoBehaviour
     private void Update()
     {
         //CheckPlayerInRange();
-        if (playerInRange && !DialogueSystem.GetInstance().dialogueIsPlaying)
-        {
-            visualCue.SetActive(true);
-            //if (InputManager.GetInstance().GetPotionPressed())
-            //{
-            //    Debug.Log(inkJSON.text);
-            //}
+        //if (playerInRange && !DialogueSystem.GetInstance().dialogueIsPlaying)
+        //{
+        //    visualCue.SetActive(true);
+        //    if (InputManager.GetInstance().GetPotionPressed())
+        //    {
+        //        Debug.Log(inkJSON.text);
+        //    }
 
-            if (DialogueSystem.talkBool)
-            {
-             
-                DialogueSystem.GetInstance().EnterDialogueMode(inkJSON);
-            }
+        //    if (DialogueSystem.talkBool)
+        //    {
 
-        }
-        else
+        //        DialogueSystem.GetInstance().EnterDialogueMode(inkJSON);
+        //    }
+
+        //}
+        //else
+        //{
+        //    visualCue.SetActive(false);
+        //}
+
+        if (DialogueSystem.talkBool && !DialogueSystem.GetInstance().dialogueIsPlaying)
         {
-            visualCue.SetActive(false);
+
+            DialogueSystem.GetInstance().EnterDialogueMode(inkJSON);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !DialogueSystem.GetInstance().dialogueIsPlaying)
         {
             playerInRange = true;
+            visualCue.SetActive(true);
 
         }
+
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerInRange = false;
+        if (other.gameObject.tag == "Player")
+        {
+            visualCue.SetActive(false);
+        }
+
     }
 
     //private void CheckPlayerInRange()
