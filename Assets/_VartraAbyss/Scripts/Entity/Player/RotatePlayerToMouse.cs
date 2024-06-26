@@ -1,4 +1,5 @@
 using UnityEngine;
+using VartraAbyss.Utility;
 
 namespace VartraAbyss.Entity
 {
@@ -6,6 +7,11 @@ namespace VartraAbyss.Entity
 	{
 		private void Update()
 		{
+			if( Utilities.IsPointerOverUIElement() )
+			{
+				return;
+			}
+
 			RotateTowardsMousePosition();
 		}
 
