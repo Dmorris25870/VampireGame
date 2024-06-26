@@ -22,9 +22,12 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private GameObject[] choices;
 		private TextMeshProUGUI[] choicesText;
 
-		//[SerializeField] private TextAsset m_inkTextFile;
-		//[SerializeField] private Story m_currentStory;
-		[SerializeField] private Story currentStory;
+		[Header("Params")]
+		[SerializeField] private float typingSpeed = 0.04f;
+
+        //[SerializeField] private TextAsset m_inkTextFile;
+        //[SerializeField] private Story m_currentStory;
+        [SerializeField] private Story currentStory;
 		[SerializeField] private Dialogue_trigger dialogue_trigger;
 		//[SerializeField] private List<Dialogue> m_listOfDialogues = new List<Dialogue>();
 
@@ -32,7 +35,8 @@ namespace VartraAbyss.Dialogue
 		public bool dialogueIsPlaying {get; private set;}
 		[SerializeField] public InputActionReference letsTalk;
 		public static bool talkBool;
-		//public Action actionScript;
+		private Coroutine displayLineCoroutine;
+		private bool canContinueToNextLine = false;
 
 		private void Awake()
 		{
@@ -56,8 +60,6 @@ namespace VartraAbyss.Dialogue
 		public void PerformTalk(InputAction.CallbackContext context)
 		{
 			talkBool = true;
-
-
 
         }
 
@@ -138,6 +140,21 @@ namespace VartraAbyss.Dialogue
 
 		}
 
+		private IEnumerator DisplayLine(string line)
+		{
+			dialoguetext.text = "";
+
+			canContinueToNextLine = false;
+
+			foreach (char letter in line.ToCharArray())
+			{
+				dialoguetext.text += letter;
+				yield return new WaitForSeconds(typingSpeed);
+
+            }
+
+			canContinueToNextLine = true;
+		}
 		private void ExitDialogueMode()
 		{
 			dialogueIsPlaying = false;
@@ -148,9 +165,14 @@ namespace VartraAbyss.Dialogue
 
 		public void ContinueStory()
 		{
-			if (currentStory.canContinue)
+			if (//canContinueToNextLine && 
+				currentStory.canContinue)
 			{
-				dialoguetext.text = currentStory.Continue();
+				if(displayLineCoroutine !=null) 
+				{ 
+					StopCoroutine(displayLineCoroutine);
+				}
+				displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
 				DisplayChoices();
 				Debug.Log("can continue story");
 			}
