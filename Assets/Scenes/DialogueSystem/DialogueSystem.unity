@@ -1404,6 +1404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueNpc
       objectReference: {fileID: 0}
+    - target: {fileID: 5522665877595966455, guid: b240fb17b02a96d43bd7a0928ba54c91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5925790811456896011, guid: b240fb17b02a96d43bd7a0928ba54c91,
         type: 3}
       propertyPath: m_Enabled
