@@ -5,17 +5,24 @@ namespace VartraAbyss.Abilities
 {
 	public class BloodPotion : Ability, IAbility_Strategy
 	{
-		[field: SerializeField] public int PotionUsesRemaining { get; private set; }
+		[field: SerializeField] public int PotionUses { get; private set; }
+		[field: SerializeField] public int PotionCurrentRemaining { get; private set; }
 		[field: SerializeField] public int HealingAmount { get; private set; }
 
-		private void Awake()
+		private void Start()
 		{
-			SetPotionUses(AbilityData.potionUsesRemaining);
+			Refresh();
+			SetPotionUses(PotionCurrentRemaining);
+		}
+
+		private void Refresh()
+		{
+			PotionCurrentRemaining = PotionUses;
 		}
 
 		public void SetPotionUses(int amount)
 		{
-			PotionUsesRemaining = amount;
+			PotionUses = amount;
 		}
 
 		public void SetHealingAmount(int amount)
@@ -25,18 +32,18 @@ namespace VartraAbyss.Abilities
 
 		public void ModifyPotionUses(int amount)
 		{
-			PotionUsesRemaining += amount;
+			PotionCurrentRemaining += amount;
 		}
 
 		public void UseAbility(Actor self)
 		{
-			if( PotionUsesRemaining == 0 )
+			if( PotionCurrentRemaining == 0 )
 			{
 				return;
 			}
 			else
 			{
-				PotionUsesRemaining--;
+				PotionCurrentRemaining--;
 				self.Stat.ModifyBlood(HealingAmount);
 			}
 		}

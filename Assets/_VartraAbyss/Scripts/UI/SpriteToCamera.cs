@@ -6,7 +6,7 @@ namespace VartraAbyss.UI
 	{
 		public Vector3 lockedRotation = new Vector3(0 , -35 , 0);
 
-		void LateUpdate()
+		void Update()
 		{
 			// Lock the rotation to the specified values
 			transform.rotation = Quaternion.Euler(lockedRotation);

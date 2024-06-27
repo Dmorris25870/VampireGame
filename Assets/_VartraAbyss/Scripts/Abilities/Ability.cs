@@ -5,18 +5,18 @@ namespace VartraAbyss.Abilities
 {
 	public class Ability : MonoBehaviour
 	{
-		[field: SerializeField] public AbilitySO AbilityData { get; private set; }
-		[field: SerializeField] public string Name { get; private set; }
-		[field: SerializeField] public Sprite Icon { get; private set; }
-		[field: SerializeField] public AudioClip SoundEffect { get; private set; }
-		[field: SerializeField] public ParticleSystem VisualEffect { get; private set; }
-		[field: SerializeField] public int Damage { get; private set; }
-		[field: SerializeField] public int BloodCost { get; private set; }
-		[field: SerializeField] public float CoolDownTime { get; private set; }
-		[field: SerializeField] public float Range { get; private set; }
-		[field: SerializeField] public Vector3 SpawnPosition { get; private set; }
-		[field: SerializeField] public Vector3 TargetPosition { get; private set; }
-		[field: SerializeField] public Timer Timer { get; private set; }
+		[field: SerializeField] public AbilitySO AbilityData { get; protected set; }
+		[field: SerializeField] public string Name { get; protected set; }
+		[field: SerializeField] public Sprite Icon { get; protected set; }
+		[field: SerializeField] public AudioClip SoundEffect { get; protected set; }
+		[field: SerializeField] public ParticleSystem VisualEffect { get; protected set; }
+		[field: SerializeField] public int Damage { get; protected set; }
+		[field: SerializeField] public int BloodCost { get; protected set; }
+		[field: SerializeField] public float CoolDownTime { get; protected set; }
+		[field: SerializeField] public float Range { get; protected set; }
+		[field: SerializeField] public Vector3 SpawnPosition { get; protected set; }
+		[field: SerializeField] public Vector3 TargetPosition { get; protected set; }
+		[field: SerializeField] public Timer Timer { get; protected set; }
 
 		public void SetTargetPosition(Vector3 targetPosition)
 		{

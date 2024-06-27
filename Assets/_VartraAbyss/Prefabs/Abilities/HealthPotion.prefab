@@ -57,5 +57,6 @@ MonoBehaviour:
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <Timer>k__BackingField: {fileID: 0}
-  <PotionUsesRemaining>k__BackingField: 500
+  <PotionUses>k__BackingField: 10
+  <PotionCurrentRemaining>k__BackingField: 0
   <HealingAmount>k__BackingField: 10

@@ -59,4 +59,4 @@ MonoBehaviour:
   <Timer>k__BackingField: {fileID: 0}
   m_projectilePrefab: {fileID: 5575352061892793201, guid: cdabd90bd8d400e409bbe5cf2e4468c8,
     type: 3}
-  m_projectileSpeed: 1000
+  m_projectileSpeed: 5000

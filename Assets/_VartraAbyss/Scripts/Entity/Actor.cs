@@ -30,7 +30,7 @@ namespace VartraAbyss.Entity
 		public NavMeshAgent Agent { get; private set; }
 		public Action.ActionTypes CurrentAction { get; private set; }
 		public SerializedDictionary<Action.ActionTypes , Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
-		public SerializedDictionary<string , Ability> ListOfAbilities { get => listOfAbilities; private set => listOfAbilities = value; }
+		public SerializedDictionary<string , Ability> ListOfAbilities { get => listOfAbilities; set => listOfAbilities = value; }
 
 		protected virtual Actor StoreActor() { return this; }
 		public virtual void SetTarget(Vector3 newTarget) { Target = newTarget; }

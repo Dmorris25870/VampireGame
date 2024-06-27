@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using VartraAbyss.Abilities;
@@ -19,6 +20,7 @@ namespace VartraAbyss.Entity.Player
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
 		[SerializeField] private AbilitySO m_abilityData;
+		[SerializeField] private List<GameObject> m_abilitiesToSpawn = new();
 
 		private void OnEnable()
 		{
