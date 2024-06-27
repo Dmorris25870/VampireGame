@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_VatraAbyss/Scenes/Maps/JailBasic.unity
+    path: Assets/Scenes/Maps/JailBasic.unity
     guid: d9676f130c2262a4a93eb10c2431a200
   m_configObjects: {}
