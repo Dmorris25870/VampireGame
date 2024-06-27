@@ -20,7 +20,7 @@ namespace VartraAbyss.Abilities
 			projectile.transform.LookAt(self.Target);
 			projectile.GetComponent<Projectile>().SetDamageAmount(Damage);
 			projectile.GetComponent<Projectile>()
-				.SetVelocity(( -transform.forward * -self.Agent.velocity.magnitude ) * m_projectileSpeed);
+				.SetVelocity(transform.forward , self.Agent.velocity.magnitude , m_projectileSpeed);
 		}
 	}
 }

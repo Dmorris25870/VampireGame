@@ -30,9 +30,12 @@ namespace VartraAbyss.Entity
 			Die();
 		}
 
-		public void SetVelocity(Vector3 direction)
+		public void SetVelocity(Vector3 direction , float parent , float speed)
 		{
-			Velocity = direction;
+			if( parent < 1 && parent > -1 )
+				parent = -1;
+
+			Velocity = direction * parent * speed;
 		}
 
 		public void SetDamageAmount(int amount)
