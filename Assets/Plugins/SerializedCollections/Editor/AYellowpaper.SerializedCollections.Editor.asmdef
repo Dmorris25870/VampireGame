@@ -1,7 +1,8 @@
 {
     "name": "AYellowpaper.SerializedCollections.Editor",
+    "rootNamespace": "",
     "references": [
-        "GUID:d525ad6bd40672747bde77962f1c401e"
+        "GUID:ba740506b7c5308418ff32059f61e3dc"
     ],
     "includePlatforms": [
         "Editor"
