@@ -1,59 +1,35 @@
-using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using VartraAbyss.Utility;
-using VartraAbyss.Stats;
 using static VartraAbyss.Actions.Action;
 
 namespace VartraAbyss.Entity.Player
 {
 	public class PlayerBehaviour : Actor
 	{
-		[TabGroup("Actor" , "Components" , SdfIconType.ExclamationTriangle , TextColor = "red")]
-		[Required]
-		[SerializeField] private PlayerInput playerControl;
-
-		[TabGroup("Actor" , "Items" , SdfIconType.Grid , TextColor = "cyan")]
-		[TableMatrix(HorizontalTitle = "Inventory" , SquareCells = true)]
-		public ItemBehaviour[,] inventory;
-
-		private ActionQueue actionQueue;
-		private bool isSkillsMenuOpen;
-		private GameObject skillToAbsorb;
-		private Timer abilityTimer;
+		[SerializeField] private PlayerInput m_playerControl;
+		private ActionQueue m_actionQueue;
+		private bool m_isSkillsMenuOpen;
+		private GameObject m_skillToAbsorb;
+		private Timer m_abilityTimer;
+		private bool playerCanMove;
 
 		private void Start()
 		{
-			isSkillsMenuOpen = false;
-			skillToAbsorb = null;
-			agent = GetComponent<NavMeshAgent>();
-		}
-
-		[OnInspectorInit]
-		private void CreateData()
-		{
-			inventory = new ItemBehaviour[8 , 4]
-			{
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-				{ null, null, null, null },
-			};
+			m_isSkillsMenuOpen = false;
+			m_skillToAbsorb = null;
+			m_agent = GetComponent<NavMeshAgent>();
+			playerCanMove = true;
 		}
 
 		private void OnEnable()
 		{
-			playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
-			playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
-			playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").started += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInput;
+			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInput;
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -61,7 +37,7 @@ namespace VartraAbyss.Entity.Player
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
 				EventManager.OnCanAbsorbAbility?.Invoke();
-				skillToAbsorb = other.gameObject;
+				m_skillToAbsorb = other.gameObject;
 			}
 		}
 
@@ -70,7 +46,7 @@ namespace VartraAbyss.Entity.Player
 			if ( other.CompareTag("AbilityToAbsorb") )
 			{
 				EventManager.OnCannotAbsorbAbility?.Invoke();
-				skillToAbsorb = null;
+				m_skillToAbsorb = null;
 			}
 		}
 
@@ -109,24 +85,24 @@ namespace VartraAbyss.Entity.Player
 
 				case ActionTypes.CastAbility:
 				{
-					if ( abilityTimer == null )
+					if ( m_abilityTimer == null )
 					{
-						abilityTimer = gameObject.AddComponent<Timer>();
-						abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
+						m_abilityTimer = gameObject.AddComponent<Timer>();
+						m_abilityTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
 					}
 
-					if ( abilityTimer.CurrentTime <= 0 )
+					if ( m_abilityTimer.CurrentTime <= 0 )
 					{
 						CastAbility();
-						abilityTimer.ResetTimer();
-						currentAction = ActionTypes.Idle;
+						m_abilityTimer.ResetTimer();
+						m_currentAction = ActionTypes.Idle;
 					}
 				}
 				break;
 
 				case ActionTypes.Cancel:
 				{
-					currentAction = ActionTypes.Idle;
+					m_currentAction = ActionTypes.Idle;
 				}
 				break;
 
@@ -139,7 +115,15 @@ namespace VartraAbyss.Entity.Player
 
 		private void MovePlayer()
 		{
-			ListOfActions[ActionTypes.Move].PerformAction(this);
+			if (playerCanMove)
+			{
+                ListOfActions[ActionTypes.Move].PerformAction(this);
+            }
+			else
+			{
+				return;
+			}
+			
 		}
 
 		private void CastAbility()
@@ -178,30 +162,31 @@ namespace VartraAbyss.Entity.Player
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-				if( Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer) )
+				RaycastHit hit;
+				if ( Physics.Raycast(ray, out hit, IgnorePlayerLayer) )
 				{
-					clickPoint = hit.point;
+					m_clickPoint = hit.point;
 
-					if( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
+					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
-						target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
 
-						if( IsWithinAbilityRange(gameObject , hit.collider.gameObject) )
+						if (IsWithinAbilityRange(gameObject, hit.collider.gameObject))
 						{
-							isMoving = true;
-							isAttacking = true;
-							currentAction = ActionTypes.Move;
+							m_isMoving = true;
+							m_isAttacking = true;
+							m_currentAction = ActionTypes.Move;
 						}
 						else
 						{
-							isMoving = false;
-							currentAction = ActionTypes.CastAbility;
-						}
+							m_isMoving = false;
+							m_currentAction = ActionTypes.CastAbility;
+						}	
 					}
 					else
 					{
-						isMoving = true;
-						currentAction = ActionTypes.Move;
+						m_isMoving = true;
+						m_currentAction = ActionTypes.Move;
 					}
 				}
 			}
@@ -219,21 +204,23 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnSkills()
 		{
-			if ( !isSkillsMenuOpen )
+			if ( !m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenu?.Invoke();
-				isSkillsMenuOpen = true;
+				m_isSkillsMenuOpen = true;
+				playerCanMove = false;
 			}
-			else if ( isSkillsMenuOpen )
+			else if ( m_isSkillsMenuOpen )
 			{
 				EventManager.OnSkillsMenuClose?.Invoke();
-				isSkillsMenuOpen = false;
+				m_isSkillsMenuOpen = false;
+				playerCanMove = true;
 			}
 		}
 
 		private void OnAbsorbAbility()
 		{
-			Destroy(skillToAbsorb);
+			Destroy(m_skillToAbsorb);
 			EventManager.OnCannotAbsorbAbility?.Invoke();
 		}
 	}

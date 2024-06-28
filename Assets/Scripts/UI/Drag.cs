@@ -18,6 +18,7 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("Dragging");
         transform.position = eventData.position;
         draggingObjectImage = draggingObject.GetComponent<Image>();
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3007102835885584476}
   - component: {fileID: 9069167775652624543}
   - component: {fileID: 7960306549112465506}
-  - component: {fileID: 6483021480412095296}
+  - component: {fileID: 2274489827652287071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -211,7 +211,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6483021480412095296
+--- !u!114 &2274489827652287071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,269 +223,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a202baffe2ea4340b87766953e430a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602, type: 3}
-    - {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a, type: 3}
-    - {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3, type: 3}
-    - {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1, type: 3}
-    - {fileID: 7906130979902146748, guid: 84bd2339fce68804f955d1dce866a2b1, type: 3}
-    - {fileID: 5118584081110486178, guid: 5825a6699d0bf6d4287363c6b4a64d0d, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: m_listOfActions
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[VartraAbyss.Actions.Action+ActionTypes,
-        Assembly-CSharp],[VartraAbyss.Actions.Action, Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[VartraAbyss.Actions.Action+ActionTypes,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 5
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_listOfAbilities
-      Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[VartraAbyss.Abilities.Ability+AbilityNames,
-        Assembly-CSharp],[VartraAbyss.Abilities.Ability, Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[VartraAbyss.Abilities.Ability+AbilityNames,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Inventory
-      Entry: 7
-      Data: 4|ItemBehaviour[,], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 32
-    - Name: ranks
-      Entry: 1
-      Data: 8|4
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  m_stat:
-    m_health: 0
-    m_maximumHealth: 0
-    m_blood: 0
-    m_maximumBlood: 0
-    m_moveSpeed: 0
-    m_maximumMoveSpeed: 0
+  m_health: 0
+  m_blood: 0
+  m_maximumBlood: 0
+  m_moveSpeed: 0
+  m_maximumMoveSpeed: 0
   m_currentAction: 1
+  m_listOfActions:
+    _serializedList:
+    - Key: 5
+      Value: {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3,
+        type: 3}
+    - Key: 2
+      Value: {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602,
+        type: 3}
+    - Key: 1
+      Value: {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a,
+        type: 3}
   m_currentAbility: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
     type: 3}
-  m_currentItem: {fileID: 11400000, guid: db8121e12d361894fb55e020d1868a42, type: 2}
+  m_listOfAbilities:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 8854786090799756087, guid: 3b2bc60a96c94664484b38b5650b44e1,
+        type: 3}
+  m_currentItem: {fileID: 0}
   m_agent: {fileID: 7960306549112465506}
   m_ignorePlayerLayer:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 55
   m_playerControl: {fileID: 9069167775652624543}

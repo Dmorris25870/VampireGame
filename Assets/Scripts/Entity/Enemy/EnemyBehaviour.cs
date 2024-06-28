@@ -82,16 +82,16 @@ namespace VartraAbyss.Entity.Enemy
 
 			if (isAggroed)
 			{
-				clickPoint = player.transform.position;
+				m_clickPoint = player.transform.position;
 				if( IsWithinAbilityRange(gameObject , player) )
 				{
-					isMoving = true;
-					isAttacking = true;
-					currentAction = ActionTypes.Move;
+					m_isMoving = true;
+					m_isAttacking = true;
+					m_currentAction = ActionTypes.Move;
 				}
 				else
 				{
-					isMoving = false;
+					m_isMoving = false;
 					//currentAction = ActionTypes.CastAbility;
 				}
 			}
@@ -140,14 +140,14 @@ namespace VartraAbyss.Entity.Enemy
 					{
 						CastAbility();
 						attackTimer.ResetTimer();
-						currentAction = ActionTypes.Idle;
+						m_currentAction = ActionTypes.Idle;
 					}
 				}
 				break;
 
 				case ActionTypes.Cancel:
 				{
-					currentAction = ActionTypes.Idle;
+					m_currentAction = ActionTypes.Idle;
 				}
 				break;
 
