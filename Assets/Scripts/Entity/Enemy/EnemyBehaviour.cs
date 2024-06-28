@@ -92,7 +92,7 @@ namespace VartraAbyss.Entity.Enemy
 				else
 				{
 					isMoving = false;
-					currentAction = ActionTypes.CastAbility;
+					//currentAction = ActionTypes.CastAbility;
 				}
 			}
 			
