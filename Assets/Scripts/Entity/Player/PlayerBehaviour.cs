@@ -21,7 +21,7 @@ namespace VartraAbyss.Entity.Player
 		{
 			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
-			m_agent = GetComponent<NavMeshAgent>();
+			agent = GetComponent<NavMeshAgent>();
 			playerCanMove = true;
 		}
 
@@ -95,14 +95,14 @@ namespace VartraAbyss.Entity.Player
 					{
 						CastAbility();
 						m_abilityTimer.ResetTimer();
-						m_currentAction = ActionTypes.Idle;
+						currentAction = ActionTypes.Idle;
 					}
 				}
 				break;
 
 				case ActionTypes.Cancel:
 				{
-					m_currentAction = ActionTypes.Idle;
+					currentAction = ActionTypes.Idle;
 				}
 				break;
 
@@ -165,28 +165,28 @@ namespace VartraAbyss.Entity.Player
 				RaycastHit hit;
 				if ( Physics.Raycast(ray, out hit, IgnorePlayerLayer) )
 				{
-					m_clickPoint = hit.point;
+					clickPoint = hit.point;
 
 					if ( hit.collider.GetComponent<Enemy.EnemyBehaviour>() != null )
 					{
-						m_target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
+						target = hit.collider.GetComponent<Enemy.EnemyBehaviour>();
 
 						if (IsWithinAbilityRange(gameObject, hit.collider.gameObject))
 						{
-							m_isMoving = true;
-							m_isAttacking = true;
-							m_currentAction = ActionTypes.Move;
+							isMoving = true;
+							isAttacking = true;
+							currentAction = ActionTypes.Move;
 						}
 						else
 						{
-							m_isMoving = false;
-							m_currentAction = ActionTypes.CastAbility;
+							isMoving = false;
+							currentAction = ActionTypes.CastAbility;
 						}	
 					}
 					else
 					{
-						m_isMoving = true;
-						m_currentAction = ActionTypes.Move;
+						isMoving = true;
+						currentAction = ActionTypes.Move;
 					}
 				}
 			}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1383910062492115015}
   - component: {fileID: -7034924341190483356}
   - component: {fileID: -1860480707422855507}
+  - component: {fileID: 5299999915304386511}
   m_Layer: 0
   m_Name: EnemyBaseObject
   m_TagString: Untagged
@@ -92,7 +93,11 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1972206551097059593, guid: fd7649e571196bf45957ef56ebeff602, type: 3}
+    - {fileID: 7648933364377597966, guid: 800086c333ddb8c428320e2813e412e3, type: 3}
+    - {fileID: 6831267390618668187, guid: a992e5220db655f4aad728f559ca9b5a, type: 3}
+    - {fileID: -7181622059086522049, guid: 84bd2339fce68804f955d1dce866a2b1, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -117,7 +122,43 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -143,7 +184,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -158,9 +211,10 @@ MonoBehaviour:
     moveSpeed: 0
     maximumMoveSpeed: 0
   currentAction: 0
-  currentAbility: {fileID: 0}
+  currentAbility: {fileID: -7181622059086522049, guid: 84bd2339fce68804f955d1dce866a2b1,
+    type: 3}
   currentItem: {fileID: 0}
-  agent: {fileID: 0}
+  agent: {fileID: 5299999915304386511}
   ignorePlayerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -171,7 +225,7 @@ MonoBehaviour:
   goldObject: {fileID: 8901110106627355321, guid: 1d23e18a9473c7f47a66860cf0d2fb64,
     type: 3}
   baseGold: 10
-  enemyHealth: 0
+  enemyHealth: 10
   attackTimer: {fileID: 0}
   player: {fileID: 0}
   isAggroed: 0
@@ -206,3 +260,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5861295515915031259}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!195 &5299999915304386511
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861295515915031259}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

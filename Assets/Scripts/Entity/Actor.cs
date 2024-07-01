@@ -14,7 +14,7 @@ namespace VartraAbyss.Entity
 		[SerializeField] protected Stat stat;
 		
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
-		[SerializeField] protected Action.ActionTypes m_currentAction;
+		[SerializeField] protected Action.ActionTypes currentAction;
 
 		[Space(20)]
 
@@ -37,30 +37,30 @@ namespace VartraAbyss.Entity
 
 		[TabGroup("Actor" , "Components" , SdfIconType.ExclamationTriangle , TextColor = "red")]
 		[Required]
-		[SerializeField] protected NavMeshAgent m_agent;
+		[SerializeField] protected NavMeshAgent agent;
 
 		[Space(20)]
 
 		[TabGroup("Actor" , "Components" , SdfIconType.ExclamationTriangle , TextColor = "red")]
 		[SerializeField] protected LayerMask ignorePlayerLayer;
 
-		protected bool m_isMoving;
-		protected bool m_isAttacking;
-		protected Vector3 m_clickPoint;
-		protected Actor m_target;
+		protected bool isMoving;
+		protected bool isAttacking;
+		protected Vector3 clickPoint;
+		protected Actor target;
 
-		public bool IsMoving { get => m_isMoving; set { m_isMoving = value; } }
-		public bool IsAttacking { get => m_isAttacking; set { m_isAttacking = value; } }
+		public bool IsMoving { get => isMoving; set { isMoving = value; } }
+		public bool IsAttacking { get => isAttacking; set { isAttacking = value; } }
 		public Stat Stat => stat;
 
 		public Ability CurrentAbility => currentAbility;
 		public ItemBase CurrentItem => currentItem;
-		public NavMeshAgent Agent { get => m_agent; set { m_agent = value; } }
+		public NavMeshAgent Agent { get => agent; set { agent = value; } }
 		public LayerMask IgnorePlayerLayer => ignorePlayerLayer;
-		public Vector3 ClickPoint { get => m_clickPoint; set { m_clickPoint = value; } }
-		public Action.ActionTypes CurrentAction { get => m_currentAction; set { m_currentAction = value; } }
+		public Vector3 ClickPoint { get => clickPoint; set { clickPoint = value; } }
+		public Action.ActionTypes CurrentAction { get => currentAction; set { currentAction = value; } }
 		public Dictionary<Action.ActionTypes, Action> ListOfActions { get => listOfActions; set { listOfActions = value; } }
-		public Actor Target { get => m_target; set { m_target = value; } }
+		public Actor Target { get => target; set { target = value; } }
 
 		public virtual void SpawnActor(){ }
 		public virtual void SpawnActor(Actor actorToSpawn){ }
