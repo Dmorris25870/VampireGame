@@ -7,12 +7,15 @@ namespace VartraAbyss.Abilities
 	public class Bite : Ability, IAbility_Strategy
 	{
 		[SerializeField] private Collider m_collider;
+		[SerializeField] private MeshRenderer m_mesh;
 		private bool m_hasHitTarget = false;
 
 		public void UseAbility(Actor self)
 		{
 			m_collider = self.GetComponentInChildren<Spawner>().GetComponent<Collider>();
+			m_mesh = self.GetComponentInChildren<Spawner>().GetComponent<MeshRenderer>();
 			m_collider.enabled = true;
+			m_mesh.enabled = true;
 			m_hasHitTarget = false;
 			StartCoroutine(ActivateTriggerVolume());
 
@@ -24,8 +27,10 @@ namespace VartraAbyss.Abilities
 
 		IEnumerator ActivateTriggerVolume()
 		{
-			yield return new WaitForSeconds(AbilityData.coolDownTime);
+			yield return new WaitForSeconds(0.1f);
 			m_collider.enabled = false;
+			m_mesh.enabled = false;
+			yield return new WaitForSeconds(AbilityData.coolDownTime);
 		}
 
 		void OnTriggerEnter(Collider other)
