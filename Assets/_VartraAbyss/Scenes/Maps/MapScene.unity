@@ -1654,12 +1654,6 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
-    - target: {fileID: 7795487566707565878, guid: c98ad8ee9d92284479459afc92cfa43c,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 678760be095ef1447817bdf70e76a0ef,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
