@@ -22,7 +22,7 @@ namespace VartraAbyss.Entity
 			if( Physics.Raycast(mousePosition , out RaycastHit hit) )
 			{
 				Vector3 mouseWorldPosition = hit.point;
-				Vector3 direction = mouseWorldPosition - transform.GetComponentInChildren<Spawner>().transform.position;
+				Vector3 direction = mouseWorldPosition - transform.GetComponentInChildren<Spawner>().transform.position.normalized;
 				direction.y = 0;
 
 				Quaternion targetRotation = Quaternion.LookRotation(direction);
