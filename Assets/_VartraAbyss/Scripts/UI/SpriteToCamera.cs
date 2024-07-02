@@ -5,11 +5,12 @@ namespace VartraAbyss.UI
 	public class SpriteToCamera : MonoBehaviour
 	{
 		public Vector3 lockedRotation = new Vector3(0 , -35 , 0);
+		[SerializeField] private GameObject m_sprite;
 
-		void Update()
+		void LateUpdate()
 		{
 			// Lock the rotation to the specified values
-			transform.rotation = Quaternion.Euler(lockedRotation);
+			m_sprite.transform.rotation = Quaternion.Euler(lockedRotation);
 		}
 	}
 }
