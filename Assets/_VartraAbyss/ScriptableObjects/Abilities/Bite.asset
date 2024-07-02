@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   abilityName: Bite
-  sprite: {fileID: 21300000, guid: 588f7ee756966c347a621d1e84d1cbc8, type: 3}
+  sprite: {fileID: 21300000, guid: 4875ec6df1aa0e6459ac21c19d615016, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
   damage: 5

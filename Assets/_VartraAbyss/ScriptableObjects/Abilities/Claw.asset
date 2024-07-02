@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   abilityName: Claw
-  sprite: {fileID: 21300000, guid: 95f3aa28aec1aad4bb397d4764ab60a3, type: 3}
+  sprite: {fileID: 21300000, guid: dca74f33890150343a49c7396b860966, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
   damage: 5
