@@ -60,6 +60,7 @@ namespace VartraAbyss
 			Image image = m_dragInstance.GetOrAdd<Image>();
 
 			image.sprite = m_uiSlot.itemImage.sprite;
+			image.preserveAspect = true;
 			image.raycastTarget = false;
 
 			m_dragInstance.transform.SetParent(m_storage.transform);
