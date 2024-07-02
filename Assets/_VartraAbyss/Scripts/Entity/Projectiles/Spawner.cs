@@ -4,6 +4,9 @@ namespace VartraAbyss
 {
 	public class Spawner : MonoBehaviour, ISpawner
 	{
+		public Transform pivot;
+		public float radius;
+
 		public Vector3 GetTransform()
 		{
 			return transform.localPosition;
@@ -26,11 +29,17 @@ namespace VartraAbyss
 			if( Physics.Raycast(mousePosition , out RaycastHit hit) )
 			{
 				Vector3 mouseWorldPosition = hit.point;
-				Vector3 direction = mouseWorldPosition - transform.position;
+				Vector3 direction = mouseWorldPosition - pivot.position;
 				direction.y = 0;
 
-				Quaternion targetRotation = Quaternion.LookRotation(direction);
-				transform.rotation = targetRotation;
+				if( direction.magnitude > radius )
+				{
+					direction = direction.normalized * radius;
+				}
+				transform.position = pivot.position + direction;
+
+				Vector3 lookDirection = ( transform.position - pivot.position ).normalized;
+				transform.rotation = Quaternion.LookRotation(Vector3.forward , lookDirection);
 			}
 		}
 	}
