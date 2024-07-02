@@ -416,11 +416,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
-    - target: {fileID: 8163619056172068345, guid: b0b09979a3d1690408679951dd007030,
-        type: 3}
-      propertyPath: radius
-      value: 1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8972855633384232449, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: dialogueSystem
@@ -431,11 +426,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 931053853}
-    - target: {fileID: 9150377049979859870, guid: b0b09979a3d1690408679951dd007030,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

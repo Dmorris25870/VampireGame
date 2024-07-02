@@ -398,13 +398,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7493499449020866796}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.30070576, z: -0, w: 0.953717}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2664495, y: 0.25, z: 0.28355053}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4394880277299893301}
-  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!212 &4892512588108890178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ Transform:
   m_GameObject: {fileID: 7912597955045403965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 6, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 6851420193211171808}
-  radius: 3
+  radius: 1.1
 --- !u!65 &2245242753658547264
 BoxCollider:
   m_ObjectHideFlags: 0

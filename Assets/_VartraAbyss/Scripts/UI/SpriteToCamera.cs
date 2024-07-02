@@ -4,7 +4,7 @@ namespace VartraAbyss.UI
 {
 	public class SpriteToCamera : MonoBehaviour
 	{
-		public Vector3 lockedRotation = new Vector3(0 , -35 , 0);
+		public Vector3 lockedRotation = new Vector3(0 , -45 , 0);
 		[SerializeField] private GameObject m_sprite;
 
 		void LateUpdate()
