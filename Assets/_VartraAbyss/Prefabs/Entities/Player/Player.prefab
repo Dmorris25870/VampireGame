@@ -256,9 +256,9 @@ MonoBehaviour:
     SerializationNodes: []
   <Stat>k__BackingField:
     playerStats: {fileID: 11400000, guid: c02324fbbad7bb042ae50452e58ef845, type: 2}
-    <Health>k__BackingField: 50
+    <Health>k__BackingField: 100
     <MaximumHealth>k__BackingField: 100
-    <Blood>k__BackingField: 50
+    <Blood>k__BackingField: 100
     <MaximumBlood>k__BackingField: 100
     <MoveSpeed>k__BackingField: 3.5
     <MaximumMoveSpeed>k__BackingField: 3.5
