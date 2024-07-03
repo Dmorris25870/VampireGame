@@ -6,11 +6,15 @@ public class UIManager : MonoBehaviour
 {
     public GameObject skillsMenuObject;
     public GameObject absorbAbiltyText;
+	public GameObject pauseMenuObject;
+	public GameObject deathScreenObject;
 
 	private void Start()
 	{
         skillsMenuObject.SetActive(false);
         absorbAbiltyText.SetActive(false);
+		pauseMenuObject.SetActive(false);
+		deathScreenObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -19,6 +23,9 @@ public class UIManager : MonoBehaviour
         EventManager.OnSkillsMenuClose += CloseSkillsMenu;
         EventManager.OnCanAbsorbAbility += CanAbsorbAbilty;
         EventManager.OnCannotAbsorbAbility += CannotAbsorbAbilty;
+		EventManager.OnGamePaused += OpenPauseMenu;
+		EventManager.OnGameUnpaused += ClosePauseMenu;
+		EventManager.OnPlayerDeathEvent += DeathScreen;
     }
 
     private void OnDisable()
@@ -27,7 +34,10 @@ public class UIManager : MonoBehaviour
         EventManager.OnSkillsMenuClose -= CloseSkillsMenu;
         EventManager.OnCanAbsorbAbility -= CanAbsorbAbilty;
         EventManager.OnCannotAbsorbAbility -= CannotAbsorbAbilty;
-    }
+		EventManager.OnGamePaused -= OpenPauseMenu;
+		EventManager.OnGameUnpaused -= ClosePauseMenu;
+		EventManager.OnPlayerDeathEvent -= DeathScreen;
+	}
 
     private void OpenSkillsMenu()
     {
@@ -41,7 +51,25 @@ public class UIManager : MonoBehaviour
         //Time.timeScale = 1f;
     }
 
-    private void CanAbsorbAbilty()
+	private void OpenPauseMenu()
+	{
+		pauseMenuObject.SetActive(true);
+		Time.timeScale = 0;
+	}
+
+	private void ClosePauseMenu()
+	{
+		pauseMenuObject.SetActive(false);
+		Time.timeScale = 1;
+	}
+
+	private void DeathScreen()
+	{
+		deathScreenObject.SetActive(true);
+		Time.timeScale = 0;
+	}
+
+	private void CanAbsorbAbilty()
     {
         absorbAbiltyText.SetActive(true);
     }

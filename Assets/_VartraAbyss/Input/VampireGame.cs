@@ -179,6 +179,15 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c8f33b2-83ed-40a4-92b6-ea37698c284c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -368,6 +377,17 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
                     ""action"": ""Ability5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""753c6caf-e90e-4425-8918-1e196a575888"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -478,6 +498,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
         m_Player_Skills = m_Player.FindAction("Skills", throwIfNotFound: true);
         m_Player_ExpandMap = m_Player.FindAction("Expand Map", throwIfNotFound: true);
         m_Player_AbsorbAbility = m_Player.FindAction("AbsorbAbility", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Primary = m_Dialogue.FindAction("Primary", throwIfNotFound: true);
@@ -561,6 +582,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Skills;
     private readonly InputAction m_Player_ExpandMap;
     private readonly InputAction m_Player_AbsorbAbility;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @VampireGame m_Wrapper;
@@ -582,6 +604,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
         public InputAction @Skills => m_Wrapper.m_Player_Skills;
         public InputAction @ExpandMap => m_Wrapper.m_Player_ExpandMap;
         public InputAction @AbsorbAbility => m_Wrapper.m_Player_AbsorbAbility;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -642,6 +665,9 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
             @AbsorbAbility.started += instance.OnAbsorbAbility;
             @AbsorbAbility.performed += instance.OnAbsorbAbility;
             @AbsorbAbility.canceled += instance.OnAbsorbAbility;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -697,6 +723,9 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
             @AbsorbAbility.started -= instance.OnAbsorbAbility;
             @AbsorbAbility.performed -= instance.OnAbsorbAbility;
             @AbsorbAbility.canceled -= instance.OnAbsorbAbility;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -804,6 +833,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
         void OnSkills(InputAction.CallbackContext context);
         void OnExpandMap(InputAction.CallbackContext context);
         void OnAbsorbAbility(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
