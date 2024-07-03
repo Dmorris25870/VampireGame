@@ -1,55 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject skillsMenuObject;
-    public GameObject absorbAbiltyText;
+	public GameObject skillsMenuObject;
+	public GameObject absorbAbiltyText;
 	public GameObject pauseMenuObject;
 	public GameObject deathScreenObject;
 
 	private void Start()
 	{
-        skillsMenuObject.SetActive(false);
-        absorbAbiltyText.SetActive(false);
+		skillsMenuObject.SetActive(false);
+		absorbAbiltyText.SetActive(false);
 		pauseMenuObject.SetActive(false);
 		deathScreenObject.SetActive(false);
-    }
+	}
 
-    private void OnEnable()
-    {
-        EventManager.OnSkillsMenu += OpenSkillsMenu;
-        EventManager.OnSkillsMenuClose += CloseSkillsMenu;
-        EventManager.OnCanAbsorbAbility += CanAbsorbAbilty;
-        EventManager.OnCannotAbsorbAbility += CannotAbsorbAbilty;
+	private void OnEnable()
+	{
+		EventManager.OnSkillsMenu += OpenSkillsMenu;
+		EventManager.OnSkillsMenuClose += CloseSkillsMenu;
+		EventManager.OnCanAbsorbAbility += CanAbsorbAbilty;
+		EventManager.OnCannotAbsorbAbility += CannotAbsorbAbilty;
 		EventManager.OnGamePaused += OpenPauseMenu;
 		EventManager.OnGameUnpaused += ClosePauseMenu;
 		EventManager.OnPlayerDeathEvent += DeathScreen;
-    }
+	}
 
-    private void OnDisable()
-    {
-        EventManager.OnSkillsMenu -= OpenSkillsMenu;
-        EventManager.OnSkillsMenuClose -= CloseSkillsMenu;
-        EventManager.OnCanAbsorbAbility -= CanAbsorbAbilty;
-        EventManager.OnCannotAbsorbAbility -= CannotAbsorbAbilty;
+	private void OnDisable()
+	{
+		EventManager.OnSkillsMenu -= OpenSkillsMenu;
+		EventManager.OnSkillsMenuClose -= CloseSkillsMenu;
+		EventManager.OnCanAbsorbAbility -= CanAbsorbAbilty;
+		EventManager.OnCannotAbsorbAbility -= CannotAbsorbAbilty;
 		EventManager.OnGamePaused -= OpenPauseMenu;
 		EventManager.OnGameUnpaused -= ClosePauseMenu;
 		EventManager.OnPlayerDeathEvent -= DeathScreen;
 	}
 
-    private void OpenSkillsMenu()
-    {
-        skillsMenuObject.SetActive(true);
-        //Time.timeScale = 0f;
-    }
+	private void OpenSkillsMenu()
+	{
+		skillsMenuObject.SetActive(true);
+		//Time.timeScale = 0f;
+	}
 
-    private void CloseSkillsMenu()
-    {
-        skillsMenuObject.SetActive(false);
-        //Time.timeScale = 1f;
-    }
+	private void CloseSkillsMenu()
+	{
+		skillsMenuObject.SetActive(false);
+		//Time.timeScale = 1f;
+	}
 
 	private void OpenPauseMenu()
 	{
@@ -70,12 +68,12 @@ public class UIManager : MonoBehaviour
 	}
 
 	private void CanAbsorbAbilty()
-    {
-        absorbAbiltyText.SetActive(true);
-    }
+	{
+		absorbAbiltyText.SetActive(true);
+	}
 
-    private void CannotAbsorbAbilty()
-    {
-        absorbAbiltyText.SetActive(false);
-    }
+	private void CannotAbsorbAbilty()
+	{
+		absorbAbiltyText.SetActive(false);
+	}
 }
