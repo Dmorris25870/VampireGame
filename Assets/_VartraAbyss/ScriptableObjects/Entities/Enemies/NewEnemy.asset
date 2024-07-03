@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875503a6fdbf80847861da9cdd5470cc, type: 3}
-  m_Name: TestEnemy
+  m_Name: NewEnemy
   m_EditorClassIdentifier: 
-  itemDrops: 1
+  itemDrops: 2
   enemyHealth: 10
   lootTable: {fileID: 11400000, guid: f57ecdca02bafed47b7a9c9a6d77cdfe, type: 2}
-  aggroRange: 10
+  aggroRange: 5

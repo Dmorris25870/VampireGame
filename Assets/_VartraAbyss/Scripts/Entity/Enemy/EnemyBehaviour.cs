@@ -13,8 +13,8 @@ namespace VartraAbyss.Entity.Enemy
 	public class EnemyBehaviour : Actor
 	{
 		[SerializeField] private List<ItemBase> itemsList = new();
-		[SerializeField] private EnemyBase enemyBase;
 		[SerializeField] private GameObject itemObject;
+		[SerializeField] private EnemyStat enemyBase;
 		[SerializeField] private GameObject goldObject;
 		[SerializeField] private float baseGold;
 		[SerializeField] public int enemyHealth;
@@ -50,19 +50,19 @@ namespace VartraAbyss.Entity.Enemy
 
 			for( int i = 0; i < enemyBase.itemDrops; i++ )
 			{
-				GameObject instantiatedItem = Instantiate(itemObject);
+				GameObject instantiatedItem = Instantiate(itemObject , gameObject.transform.position , Quaternion.identity);
 				instantiatedItem.GetComponent<ItemBehaviour>().itemBase = itemsList[Random.Range(0 , itemsList.Count)];
 				instantiatedItem.GetComponent<ItemBehaviour>().SpawnItem();
 			}
 
-			GameObject instantiatedGold = Instantiate(goldObject);
+			GameObject instantiatedGold = Instantiate(goldObject , gameObject.transform.position , Quaternion.identity);
 			instantiatedGold.GetComponent<GoldBase>().goldValue = baseGold * Random.Range(0.8f , 1.2f);
 			instantiatedGold.GetComponent<GoldBase>().goldText.text = baseGold + " Gold";
 		}
 
-		public void TakeDamage(int damage)
+		public void Update()
 		{
-			if( enemyHealth <= 0 )
+			if( Stat.Health <= 0 )
 			{
 				Die();
 			}
@@ -70,6 +70,7 @@ namespace VartraAbyss.Entity.Enemy
 		public override void Die()
 		{
 			DropItems();
+			Destroy(this.gameObject);
 		}
 
 		private void FixedUpdate()
@@ -95,78 +96,8 @@ namespace VartraAbyss.Entity.Enemy
 				// 1st param is self, then a Vector, 
 				action.Execute(this , Target);
 			}
-
-
-			//switch( CurrentAction )
-			//{
-			//	case ActionTypes.Unset:
-			//	{
-			//		throw new System.Exception($"The Current Action on {gameObject.name} has not been set correctly. Please check the List of Actions and ensure there are no errors.");
-			//	}
-
-			//	case ActionTypes.Idle:
-			//	{
-			//		return;
-			//	}
-
-			//	case ActionTypes.Move:
-			//	{
-			//		if( IsMoving )
-			//		{
-			//			MoveEnemy();
-			//		}
-			//	}
-			//	break;
-
-			//	case ActionTypes.UseItem:
-			//	{
-			//		throw new System.Exception($"The {ActionTypes.UseItem} on {gameObject.name} has not been implemented yet.");
-			//	}
-
-			//	case ActionTypes.Interact:
-			//	{
-			//		throw new System.Exception($"The {ActionTypes.Interact} on {gameObject.name} has not been implemented yet.");
-			//	}
-
-			//	case ActionTypes.CastAbility:
-			//	{
-			//		if( attackTimer == null )
-			//		{
-			//			attackTimer = gameObject.AddComponent<Timer>();
-			//			attackTimer.SetTimer(ListOfActions[ActionTypes.CastAbility].GetCoolDownTimeInSeconds(CurrentAbility));
-			//		}
-
-			//		if( attackTimer.CurrentTime <= 0 )
-			//		{
-			//			CastAbility();
-			//			attackTimer.ResetTimer();
-			//			currentAction = ActionTypes.Idle;
-			//		}
-			//	}
-			//	break;
-
-			//	case ActionTypes.Cancel:
-			//	{
-			//		currentAction = ActionTypes.Idle;
-			//	}
-			//	break;
-
-			//	default:
-			//	{
-			//		return;
-			//	}
-			//}
 		}
 
-		//private void MoveEnemy()
-		//{
-		//	ListOfActions[ActionTypes.Move].PerformAction(this);
-		//}
-
-		//private void CastAbility()
-		//{
-		//	ListOfActions[ActionTypes.CastAbility].PerformAction(this , Target);
-		//}
 		private bool IsWithinAbilityRange(GameObject actor1 , GameObject actor2)
 		{
 			return Utilities.GetDistanceBetweenTwoActors(actor1 , actor2) > CurrentAbility.Range;

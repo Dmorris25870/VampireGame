@@ -28,6 +28,6 @@ MonoBehaviour:
   damage: 5
   bloodCost: 5
   coolDownTime: 5
-  range: 5
+  range: 1
   spawnPosition: {x: 0, y: 0, z: 0}
   potionUsesRemaining: 0

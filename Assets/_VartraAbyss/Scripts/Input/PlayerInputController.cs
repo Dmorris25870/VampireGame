@@ -78,7 +78,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot1Ability?.Invoke();
-				Debug.Log("1 Button has been pressed and Invoked.");
 			}
 		}
 
@@ -87,7 +86,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot2Ability?.Invoke();
-				Debug.Log("2 Button has been pressed and Invoked.");
 			}
 		}
 
@@ -96,7 +94,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot3Ability?.Invoke();
-				Debug.Log("Q Button has been pressed and Invoked.");
 			}
 		}
 
@@ -105,7 +102,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot4Ability?.Invoke();
-				Debug.Log("W Button has been pressed and Invoked.");
 			}
 		}
 
@@ -114,7 +110,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot5Ability?.Invoke();
-				Debug.Log("E Button has been pressed and Invoked.");
 			}
 		}
 
@@ -123,7 +118,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot6Ability?.Invoke();
-				Debug.Log("R Button has been pressed and Invoked.");
 			}
 		}
 
@@ -132,7 +126,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot7Ability?.Invoke();
-				Debug.Log("T Button has been pressed and Invoked.");
 			}
 		}
 
@@ -145,12 +138,10 @@ namespace VartraAbyss.PlayerInputs
 				if( m_toggleSkillMenu )
 				{
 					EventManager.OnSkillsMenu?.Invoke();
-					Debug.Log("S Button has been pressed and Invoked.");
 				}
 				else
 				{
 					EventManager.OnSkillsMenuClose?.Invoke();
-					Debug.Log("S Button has been pressed and Invoked.");
 				}
 			}
 		}
@@ -178,7 +169,6 @@ namespace VartraAbyss.PlayerInputs
 					else
 					{
 						player.SetIsMoving(false);
-						// CAST ABILITY?
 						return player.Target;
 					}
 				}

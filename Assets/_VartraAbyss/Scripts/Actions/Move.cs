@@ -8,6 +8,7 @@ namespace VartraAbyss.Actions
 		{
 			if( commandData[0] is Actor self )
 			{
+				self.Agent.transform.LookAt(self.Target);
 				self.Agent.SetDestination(self.Target);
 
 				if( !self.Agent.pathPending )
