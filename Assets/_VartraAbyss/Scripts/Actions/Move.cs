@@ -1,4 +1,3 @@
-using UnityEngine;
 using VartraAbyss.Entity;
 
 namespace VartraAbyss.Actions
@@ -9,7 +8,6 @@ namespace VartraAbyss.Actions
 		{
 			if( commandData[0] is Actor self )
 			{
-				Debug.Log("===Current State is Moving.===");
 				self.Agent.SetDestination(self.Target);
 
 				if( !self.Agent.pathPending )

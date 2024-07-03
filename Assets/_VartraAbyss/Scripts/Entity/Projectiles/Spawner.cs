@@ -19,7 +19,7 @@ namespace VartraAbyss
 
 		private void Update()
 		{
-			RotateTowardsMousePosition();
+			//RotateTowardsMousePosition();
 		}
 
 		public void RotateTowardsMousePosition()

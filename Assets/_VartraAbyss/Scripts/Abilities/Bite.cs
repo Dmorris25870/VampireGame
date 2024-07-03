@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using VartraAbyss.Entity;
+using VartraAbyss.Entity.Enemy;
 
 namespace VartraAbyss.Abilities
 {
@@ -9,6 +10,7 @@ namespace VartraAbyss.Abilities
 		[SerializeField] private Collider m_collider;
 		[SerializeField] private MeshRenderer m_mesh;
 		private bool m_hasHitTarget = false;
+		bool m_isRunning;
 
 		public void UseAbility(Actor self)
 		{
@@ -17,7 +19,11 @@ namespace VartraAbyss.Abilities
 			m_collider.enabled = true;
 			m_mesh.enabled = true;
 			m_hasHitTarget = false;
-			StartCoroutine(ActivateTriggerVolume());
+
+			if( !m_isRunning )
+			{
+				StartCoroutine(ActivateTriggerVolume());
+			}
 
 			if( m_hasHitTarget )
 			{
@@ -27,21 +33,26 @@ namespace VartraAbyss.Abilities
 
 		IEnumerator ActivateTriggerVolume()
 		{
+			m_isRunning = true;
+			m_collider.enabled = true;
 			yield return new WaitForSeconds(0.1f);
 			m_collider.enabled = false;
+			m_isRunning = false;
 			m_mesh.enabled = false;
-			yield return new WaitForSeconds(AbilityData.coolDownTime);
 		}
 
-		void OnTriggerEnter(Collider other)
+		void OnTriggerStay(Collider other)
 		{
-			if( other != m_collider )
+			if( m_isRunning )
 			{
-				if( other.gameObject.GetComponent<Actor>() != null )
+				if( other != m_collider )
 				{
-					Actor target = other.gameObject.GetComponent<Actor>();
-					target.Stat.ModifyHealth(-AbilityData.damage);
-					m_hasHitTarget = true;
+					if( other.gameObject.GetComponent<Actor>() != null && !gameObject.GetComponentInParent<EnemyBehaviour>() )
+					{
+						Actor target = other.gameObject.GetComponent<Actor>();
+						target.Stat.ModifyHealth(-AbilityData.damage);
+						m_hasHitTarget = true;
+					}
 				}
 			}
 		}
