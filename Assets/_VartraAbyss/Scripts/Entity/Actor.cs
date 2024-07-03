@@ -60,7 +60,7 @@ namespace VartraAbyss.Entity
 		public virtual void RemoveFromAbilityList(Ability abilityToRemove) { listOfAbilities.Remove(abilityToRemove.Name); }
 		public virtual void ClearAbilityList() { listOfAbilities.Clear(); }
 		public virtual void SpawnActor(params object[] spawnData) { }
-		public virtual void Die(params object[] deathData) { }
+		public virtual void Die() { }
 		public virtual void DespawnActor(params object[] despawnData) { }
 	}
 }

@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   abilityName: BloodPotion
-  sprite: {fileID: 21300000, guid: 5124385efffc76048bb30fb2cc42e359, type: 3}
+  sprite: {fileID: 21300000, guid: bb6d25cae2753f74fb20b594c0152fdc, type: 3}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
   damage: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   coolDownTime: 1
   range: 0
   spawnPosition: {x: 0, y: 0, z: 0}
+  potionUsesRemaining: 0

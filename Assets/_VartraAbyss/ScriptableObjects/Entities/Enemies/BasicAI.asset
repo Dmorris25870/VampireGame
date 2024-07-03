@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875503a6fdbf80847861da9cdd5470cc, type: 3}
-  m_Name: TestEnemy
-  m_EditorClassIdentifier: 
-  itemDrops: 1
-  level: 1
+  m_Script: {fileID: 0}
+  m_Name: BasicAI
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  itemDrops: 2
+  enemyHealth: 10
   lootTable: {fileID: 11400000, guid: f57ecdca02bafed47b7a9c9a6d77cdfe, type: 2}
+  aggroRange: 5

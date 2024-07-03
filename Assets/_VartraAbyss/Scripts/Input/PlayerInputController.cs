@@ -24,6 +24,7 @@ namespace VartraAbyss.PlayerInputs
 		public delegate Vector3 PlayerClickEvent();
 		public static PlayerClickEvent OnPlayerClick;
 		private bool m_toggleSkillMenu;
+		private bool m_togglePauseMenu;
 
 		private void OnEnable()
 		{
@@ -36,6 +37,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability4").performed += OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed += OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Skills").performed += OnSkillsMenuPressed;
+			m_playerControl.actions.FindAction("Pause").performed += OnPauseMenuPressed;
 			OnPlayerClick += OnPrimaryInput;
 		}
 
@@ -50,6 +52,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability4").performed -= OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed -= OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Skills").performed -= OnSkillsMenuPressed;
+			m_playerControl.actions.FindAction("Pause").performed -= OnPauseMenuPressed;
 			OnPlayerClick -= OnPrimaryInput;
 		}
 
@@ -78,7 +81,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot1Ability?.Invoke();
-				Debug.Log("1 Button has been pressed and Invoked.");
 			}
 		}
 
@@ -87,7 +89,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot2Ability?.Invoke();
-				Debug.Log("2 Button has been pressed and Invoked.");
 			}
 		}
 
@@ -96,7 +97,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot3Ability?.Invoke();
-				Debug.Log("Q Button has been pressed and Invoked.");
 			}
 		}
 
@@ -105,7 +105,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot4Ability?.Invoke();
-				Debug.Log("W Button has been pressed and Invoked.");
 			}
 		}
 
@@ -114,7 +113,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot5Ability?.Invoke();
-				Debug.Log("E Button has been pressed and Invoked.");
 			}
 		}
 
@@ -123,7 +121,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot6Ability?.Invoke();
-				Debug.Log("R Button has been pressed and Invoked.");
 			}
 		}
 
@@ -132,7 +129,6 @@ namespace VartraAbyss.PlayerInputs
 			if( context.performed )
 			{
 				EventManager.OnActivatedSlot7Ability?.Invoke();
-				Debug.Log("T Button has been pressed and Invoked.");
 			}
 		}
 
@@ -145,15 +141,33 @@ namespace VartraAbyss.PlayerInputs
 				if( m_toggleSkillMenu )
 				{
 					EventManager.OnSkillsMenu?.Invoke();
-					Debug.Log("S Button has been pressed and Invoked.");
 				}
 				else
 				{
 					EventManager.OnSkillsMenuClose?.Invoke();
-					Debug.Log("S Button has been pressed and Invoked.");
 				}
 			}
 		}
+
+		private void OnPauseMenuPressed(InputAction.CallbackContext context ) 
+		{ 
+			m_togglePauseMenu = !m_togglePauseMenu;
+
+			if ( context.performed )
+			{
+				if( m_togglePauseMenu )
+				{
+					EventManager.OnGamePaused?.Invoke();
+					Debug.Log("Tab Button has been pressed and Invoked.");
+				}
+				else
+				{
+					EventManager.OnGameUnpaused?.Invoke();
+					Debug.Log("Tab Button has been pressed and Invoked.");
+				}
+			}
+		}
+		
 
 		private Vector3 OnPrimaryInput()
 		{
@@ -178,7 +192,6 @@ namespace VartraAbyss.PlayerInputs
 					else
 					{
 						player.SetIsMoving(false);
-						// CAST ABILITY?
 						return player.Target;
 					}
 				}

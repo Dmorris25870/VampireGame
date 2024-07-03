@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4878319037848218785}
   - component: {fileID: 2865735166661571190}
+  - component: {fileID: 7534663294732274791}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,5 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb9ed358c69194698bfa9a207099d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillsMenuObject: {fileID: 0}
-  AbsorbAbiltyText: {fileID: 0}
+  skillsMenuObject: {fileID: 0}
+  absorbAbiltyText: {fileID: 0}
+  pauseMenuObject: {fileID: 0}
+  deathScreenObject: {fileID: 0}
+--- !u!114 &7534663294732274791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346680714044141131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e97d81d6c1b4e4b8036766af62f7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using VartraAbyss.Entity;
 using VartraAbyss.Utility;
 
 namespace VartraAbyss.Abilities
@@ -16,11 +17,17 @@ namespace VartraAbyss.Abilities
 		[field: SerializeField] public float Range { get; protected set; }
 		[field: SerializeField] public Vector3 SpawnPosition { get; protected set; }
 		[field: SerializeField] public Vector3 TargetPosition { get; protected set; }
+		[field: SerializeField] public Actor TargetActor { get; protected set; }
 		[field: SerializeField] public Timer Timer { get; protected set; }
 
 		public void SetTargetPosition(Vector3 targetPosition)
 		{
 			TargetPosition = targetPosition;
+		}
+
+		public void SetTargetActor(Actor attacker , Actor target)
+		{
+			TargetActor = target;
 		}
 
 		#region Ability Builder
