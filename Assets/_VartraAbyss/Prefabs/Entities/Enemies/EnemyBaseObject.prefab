@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a1730d39e673a4da224761bd8abb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_self: {fileID: 0}
+  <Target>k__BackingField: {fileID: 0}
 --- !u!1 &6903104096213413141
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,12 +564,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_mesh
       value: 
-      objectReference: {fileID: 3210410874678578041}
+      objectReference: {fileID: 0}
     - target: {fileID: 3414257060896090343, guid: 4a1c1dbbb5f2c3a4f8f8ec11277468ff,
         type: 3}
       propertyPath: m_collider
       value: 
       objectReference: {fileID: 7845646728542513374}
+    - target: {fileID: 3414257060896090343, guid: 4a1c1dbbb5f2c3a4f8f8ec11277468ff,
+        type: 3}
+      propertyPath: m_meleeSystem
+      value: 
+      objectReference: {fileID: 1885374436444553491}
     - target: {fileID: 3698446564872604279, guid: 4a1c1dbbb5f2c3a4f8f8ec11277468ff,
         type: 3}
       propertyPath: m_LocalPosition.x
