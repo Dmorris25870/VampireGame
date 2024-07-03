@@ -1,22 +1,22 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
+using VartraAbyss.Utility;
 
 public class MoveToScene : MonoBehaviour
 {
-	[SerializeField] private SceneLoader m_sceneLoader;
+	[SerializeField] private GameObject m_sceneLoader;
 
 	private void Start()
 	{
-		m_sceneLoader.GetOrAddComponent<SceneLoader>();
+		m_sceneLoader.GetOrAdd<SceneLoader>();
 	}
 
 	public void LoadMenu()
 	{
-		m_sceneLoader.LoadScene("MainMenu");
+		m_sceneLoader.GetComponent<SceneLoader>().LoadScene("MainMenu");
 	}
 
 	public void ExitGame()
 	{
-		m_sceneLoader.QuitGame();
+		m_sceneLoader.GetComponent<SceneLoader>().QuitGame();
 	}
 }
