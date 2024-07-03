@@ -66,11 +66,6 @@ namespace VartraAbyss.Stats
 			{
 				Health = MaximumHealth;
 			}
-			if(Health <= 0 )
-			{
-				Debug.Log(Health + " Player is Dead");
-				EventManager.OnPlayerDeathEvent?.Invoke();
-			}
 
 			EventManager.OnHealthChanged?.Invoke();
 		}
