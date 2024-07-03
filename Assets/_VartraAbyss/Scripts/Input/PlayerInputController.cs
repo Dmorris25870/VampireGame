@@ -24,6 +24,7 @@ namespace VartraAbyss.PlayerInputs
 		public delegate Vector3 PlayerClickEvent();
 		public static PlayerClickEvent OnPlayerClick;
 		private bool m_toggleSkillMenu;
+		private bool m_togglePauseMenu;
 
 		private void OnEnable()
 		{
@@ -36,6 +37,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability4").performed += OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed += OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Skills").performed += OnSkillsMenuPressed;
+			m_playerControl.actions.FindAction("Pause").performed += OnPauseMenuPressed;
 			OnPlayerClick += OnPrimaryInput;
 		}
 
@@ -50,6 +52,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Ability4").performed -= OnAbilitySixPressed;
 			m_playerControl.actions.FindAction("Ability5").performed -= OnAbilitySevenPressed;
 			m_playerControl.actions.FindAction("Skills").performed -= OnSkillsMenuPressed;
+			m_playerControl.actions.FindAction("Pause").performed -= OnPauseMenuPressed;
 			OnPlayerClick -= OnPrimaryInput;
 		}
 
@@ -145,6 +148,26 @@ namespace VartraAbyss.PlayerInputs
 				}
 			}
 		}
+
+		private void OnPauseMenuPressed(InputAction.CallbackContext context ) 
+		{ 
+			m_togglePauseMenu = !m_togglePauseMenu;
+
+			if ( context.performed )
+			{
+				if( m_togglePauseMenu )
+				{
+					EventManager.OnGamePaused?.Invoke();
+					Debug.Log("Tab Button has been pressed and Invoked.");
+				}
+				else
+				{
+					EventManager.OnGameUnpaused?.Invoke();
+					Debug.Log("Tab Button has been pressed and Invoked.");
+				}
+			}
+		}
+		
 
 		private Vector3 OnPrimaryInput()
 		{
