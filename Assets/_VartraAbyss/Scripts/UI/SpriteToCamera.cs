@@ -9,6 +9,7 @@ namespace VartraAbyss.UI
 
 		void LateUpdate()
 		{
+			
 			// Lock the rotation to the specified values
 			m_sprite.transform.rotation = Quaternion.Euler(lockedRotation);
 		}
