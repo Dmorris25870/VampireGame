@@ -25,10 +25,12 @@ namespace VartraAbyss.PlayerInputs
 		public static PlayerClickEvent OnPlayerClick;
 		private bool m_toggleSkillMenu;
 		private bool m_togglePauseMenu;
+		public bool isMoving;
 
 		private void OnEnable()
 		{
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed += OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed += OnAbilityTwoPressed;
 			m_playerControl.actions.FindAction("Ability1").performed += OnAbilityThreePressed;
@@ -44,6 +46,7 @@ namespace VartraAbyss.PlayerInputs
 		private void OnDisable()
 		{
 			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed -= OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed -= OnAbilityTwoPressed;
 			m_playerControl.actions.FindAction("Ability1").performed -= OnAbilityThreePressed;
@@ -71,8 +74,12 @@ namespace VartraAbyss.PlayerInputs
 				}
 				else
 				{
-					OnPrimaryInput();
+					isMoving = true;
 				}
+			}
+			else if (context.canceled )
+			{
+				isMoving = false;
 			}
 		}
 
@@ -167,8 +174,14 @@ namespace VartraAbyss.PlayerInputs
 				}
 			}
 		}
-		
 
+		private void FixedUpdate()
+		{
+			if (isMoving)
+			{
+				OnPrimaryInput();
+			}
+		}
 		private Vector3 OnPrimaryInput()
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
