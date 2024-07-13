@@ -62,6 +62,7 @@ namespace VartraAbyss
 
 		public int GetItemIndex(UISlot slot) => slots.IndexOf(slot);
 		public AbilitySO GetItem(int index) => items[index];
+		public List<AbilitySO> GetItemList() => items;
 		void SetItem(int index , AbilitySO item) => items[index] = item;
 	}
 }

@@ -50,6 +50,7 @@ namespace VartraAbyss
 		private IEnumerator AbilityCooldownCoroutine(int slotIndex)
 		{
 			AbilitiesCoolingDown[slotIndex] = true;
+			m_slots[slotIndex].isStatic = true;
 			float abilityCoolDown = m_slots[slotIndex].storage.GetItem(slotIndex).coolDownTime;
 			Image abilityImage = m_slots[slotIndex].itemImage.GetComponentInChildren<Image>();
 			abilityImage.fillAmount = 0;
@@ -64,6 +65,7 @@ namespace VartraAbyss
 			}
 
 			AbilitiesCoolingDown[slotIndex] = false;
+			m_slots[slotIndex].isStatic = false;
 			color.a = 1;
 			abilityImage.color = color;
 		}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace VartraAbyss.Actions
 {
-	public abstract class Action : MonoBehaviour, IAction_Command
+	public abstract class Action : MonoBehaviour
 	{
 		public enum ActionTypes
 		{
