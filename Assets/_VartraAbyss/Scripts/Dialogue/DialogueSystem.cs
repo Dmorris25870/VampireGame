@@ -1,5 +1,6 @@
 using Ink.Runtime;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,8 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private GameObject dialogueBox;
 		[SerializeField] private TextMeshProUGUI dialoguetext;
 		[SerializeField] private TextMeshProUGUI npcNameText;
+		[SerializeField] private Animator portraitAnimator;
+		private Animator layoutAnimator;
 
 		[Header("Choice UI")]
 		[SerializeField] private GameObject[] choices;
@@ -36,6 +39,11 @@ namespace VartraAbyss.Dialogue
 		private Coroutine displayLineCoroutine;
 		private bool canContinueToNextLine = false;
 		public GameObject dHolder;
+		//private bool onSkipPrint;
+
+		private const string SPEAKER_TAG = "speaker";
+		private const string PORTRAIT_TAG = "portrait";
+		private const string LAYOUT_TAG = "layout";
 
 		private void OnEnable()
 		{
@@ -45,7 +53,7 @@ namespace VartraAbyss.Dialogue
 		private void OnDisable()
 		{
 			letsTalk.action.performed -= PerformTalk;
-			Debug.Log("Enable talk");
+			//Debug.Log("Enable talk");
 		}
 
 		private void Start()
@@ -53,17 +61,19 @@ namespace VartraAbyss.Dialogue
 			dialogueIsPlaying = false;
 			dialogueBox.SetActive(false);
 			//InitialiseChoices();
+			layoutAnimator = dialogueBox.GetComponent<Animator>();
 		}
 
 		public void PerformTalk(InputAction.CallbackContext context)
 		{
+	
 			if( dialogue_Trigger.playerInRange )
 			{
 				EnterDialogueMode(dialogue_Trigger.inkJSON);
 			}
 			else
 			{
-				Debug.Log("No talky");
+				//Debug.Log("No talky");
 			}
 
 		}
@@ -123,7 +133,7 @@ namespace VartraAbyss.Dialogue
 		{
 			dialogueHolder = dHolder.GetComponent<DialogueHolder>();
 			Debug.Log(dHolder);
-			npcNameText.text = dialogueHolder.npcName;
+			//npcNameText.text = dialogueHolder.npcName;
 			Debug.Log(npcNameText.text);
 			//npcNameText.text = dialogueHolder.npcName;
 			inkJSON = dHolder.GetComponent<DialogueHolder>().inkJSONtoPlay;
@@ -145,10 +155,18 @@ namespace VartraAbyss.Dialogue
 
 			foreach( char letter in line.ToCharArray() )
 			{
-				Debug.Log(letter);
+
+				//Checking if player wants to finish text printing
+				//if(onSkipPrint)
+				//{
+				//	dialoguetext.text = line;
+				//	break;
+				//}
+
+				//Debug.Log(letter);
 				dialoguetext.text += letter;
-				Debug.Log(dialoguetext.text);
-				Debug.Log("print and wait");
+				//Debug.Log(dialoguetext.text);
+				//Debug.Log("print and wait");
 				yield return new WaitForSeconds(typingSpeed);
 			}
 
@@ -156,7 +174,7 @@ namespace VartraAbyss.Dialogue
 		}
 		public void ExitDialogueMode()
 		{
-			Debug.Log("End Conversation");
+			//Debug.Log("End Conversation");
 			dialogueIsPlaying = false;
 			dialoguetext.text = "";
 			talkBool = false;
@@ -165,10 +183,11 @@ namespace VartraAbyss.Dialogue
 
 		public void ContinueStory()
 		{
+			//onSkipPrint = true;
 			if(//canContinueToNextLine && 
 				currentStory.canContinue )
 			{
-
+				//onSkipPrint = false;
 
 				if( displayLineCoroutine != null )
 				{
@@ -177,11 +196,51 @@ namespace VartraAbyss.Dialogue
 
 				displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
 				//DisplayChoices();
-				Debug.Log("can continue story");
+				//Debug.Log("can continue story");
+
+				//Handle ink tags
+				HandleTags(currentStory.currentTags);
 			}
 			else
 			{
 				ExitDialogueMode();
+			}
+
+			//onSkipPrint = false;
+		}
+
+		private void HandleTags(List<string> currentTags)
+		{
+			foreach( string tag in currentTags )
+			{
+				//Split ink tags by :
+				string[] splitTag = tag.Split(':');
+				if( splitTag.Length != 2 )
+				{
+					Debug.LogError("ink tag could not be read: " + tag);
+				}
+
+				string tagKey = splitTag[0].Trim();
+				string tagValue = splitTag[1].Trim();
+
+				switch( tagKey )
+				{
+					case SPEAKER_TAG:
+					//Debug.Log("speaker = " + tagValue);
+					npcNameText.text = tagValue;
+						break;
+					case PORTRAIT_TAG:
+					//Debug.Log("portrait = " + tagValue);
+					break;
+					case LAYOUT_TAG:
+					//Debug.Log("layout = " + tagValue);
+					layoutAnimator.Play(tagValue);
+					break;
+					default:
+					Debug.LogWarning("Tag read but can't be handlled: " + tag);
+					break;
+				}
+
 			}
 		}
 

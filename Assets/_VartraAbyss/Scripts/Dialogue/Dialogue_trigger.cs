@@ -67,7 +67,7 @@ public class Dialogue_trigger : MonoBehaviour
 	{		
 		if( other.gameObject.tag == "NPC") //&& !dialogueSystem.dialogueIsPlaying )
 		{
-			Debug.Log("TriggerEnter NPC");
+			//Debug.Log("TriggerEnter NPC");
 			playerInRange = true;
 			//visualCue.SetActive(true);
 			inkJSON = other.GetComponent<DialogueHolder>().inkJSONtoPlay;
@@ -78,7 +78,7 @@ public class Dialogue_trigger : MonoBehaviour
 
 	private void OnTriggerExit(Collider other) //Turns off NPC talk popup off
 	{
-		Debug.Log("TriggerExit");
+		//Debug.Log("TriggerExit");
 		if( other.gameObject.tag == "NPC" )
 		{
 			playerInRange = false;
