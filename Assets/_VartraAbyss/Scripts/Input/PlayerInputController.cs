@@ -14,6 +14,8 @@ namespace VartraAbyss.PlayerInputs
 		[SerializeField] private PlayerInput m_playerControl;
 		[SerializeField] private PlayerBehaviour m_player;
 		[SerializeField] private LayerMask m_ignorePlayerLayer;
+		[SerializeField] public PlayerAnimations playerAnimations;
+		[SerializeField] private Animator m_animator;
 
 		private Vector3 m_clickPoint;
 		public LayerMask IgnorePlayerLayer => m_ignorePlayerLayer;
@@ -79,7 +81,7 @@ namespace VartraAbyss.PlayerInputs
 			}
 			else if (context.canceled )
 			{
-				isMoving = false;
+				isMoving = false;				
 			}
 		}
 
@@ -189,7 +191,11 @@ namespace VartraAbyss.PlayerInputs
 
 			if( Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer) )
 			{
-				player.SetTarget(hit.point);
+				player.SetTarget(hit.point);				
+				playerAnimations.x = hit.point.x - player.transform.position.x;
+				playerAnimations.z = hit.point.z - player.transform.position.z;
+				Debug.Log("x magnitude: " + playerAnimations.x );
+				Debug.Log("z magnitude: " +  playerAnimations.z );
 
 				if( hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>() != null )
 				{
@@ -198,19 +204,23 @@ namespace VartraAbyss.PlayerInputs
 					if( IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject) )
 					{
 						player.SetIsMoving(true);
+						playerAnimations.PlayWalkAnim();
+						m_animator.SetBool("isMoving", true);
 						player.SetIsAttacking(true);
 						player.SetCurrentAction(ActionTypes.Move);
 						return player.Target;
 					}
 					else
 					{
-						player.SetIsMoving(false);
+						player.SetIsMoving(false);						
 						return player.Target;
 					}
 				}
 				else
 				{
 					player.SetIsMoving(true);
+					playerAnimations.PlayWalkAnim();
+					m_animator.SetBool("isMoving" , true);
 					player.SetCurrentAction(ActionTypes.Move);
 					return player.Target;
 				}
