@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 namespace VartraAbyss.Dialogue
@@ -15,8 +16,11 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private GameObject dialogueBox;
 		[SerializeField] private TextMeshProUGUI dialoguetext;
 		[SerializeField] private TextMeshProUGUI npcNameText;
-		[SerializeField] private Animator portraitAnimator;
+		[SerializeField] private Animator portraitAnimatorLeft;
+		[SerializeField] private Animator portraitAnimatorRight;
 		private Animator layoutAnimator;
+		[SerializeField] private GameObject portraitLeftParent;
+		[SerializeField] private GameObject portraitRightParent;
 
 		[Header("Choice UI")]
 		[SerializeField] private GameObject[] choices;
@@ -62,6 +66,10 @@ namespace VartraAbyss.Dialogue
 			dialogueBox.SetActive(false);
 			//InitialiseChoices();
 			layoutAnimator = dialogueBox.GetComponent<Animator>();
+			portraitAnimatorLeft = portraitAnimatorLeft.GetComponent<Animator>();
+			portraitAnimatorRight = portraitAnimatorRight.GetComponent<Animator>();
+			portraitLeftParent = portraitLeftParent.GetComponent<GameObject>();
+			portraitRightParent = portraitRightParent.GetComponent<GameObject>();
 		}
 
 		public void PerformTalk(InputAction.CallbackContext context)
@@ -132,9 +140,9 @@ namespace VartraAbyss.Dialogue
 		public void EnterDialogueMode(TextAsset inkJSON)
 		{
 			dialogueHolder = dHolder.GetComponent<DialogueHolder>();
-			Debug.Log(dHolder);
+			//Debug.Log(dHolder);
 			//npcNameText.text = dialogueHolder.npcName;
-			Debug.Log(npcNameText.text);
+			//Debug.Log(npcNameText.text);
 			//npcNameText.text = dialogueHolder.npcName;
 			inkJSON = dHolder.GetComponent<DialogueHolder>().inkJSONtoPlay;
 			currentStory = new Story(inkJSON.text);
@@ -231,6 +239,22 @@ namespace VartraAbyss.Dialogue
 						break;
 					case PORTRAIT_TAG:
 					//Debug.Log("portrait = " + tagValue);
+					
+					//if( portraitAnimatorLeft)
+					//{
+						portraitAnimatorLeft.Play(tagValue);
+						//Debug.Log("portrait left is on");
+						//break;
+					//}
+
+					//if( portraitAnimatorRight)
+					//{
+						portraitAnimatorRight.Play(tagValue);
+						//Debug.Log("portrait right on");
+						//break;
+						//return;
+					//}
+
 					break;
 					case LAYOUT_TAG:
 					//Debug.Log("layout = " + tagValue);
