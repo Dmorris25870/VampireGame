@@ -156,6 +156,7 @@ namespace VartraAbyss.Dialogue
 		}
 		public void ExitDialogueMode()
 		{
+			Debug.Log("End Conversation");
 			dialogueIsPlaying = false;
 			dialoguetext.text = "";
 			talkBool = false;

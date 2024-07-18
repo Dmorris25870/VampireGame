@@ -82,8 +82,14 @@ namespace VartraAbyss.Entity.Player
 			if( ListOfActions.TryGetValue(CurrentAction , out Action action) )
 			{
 				// 1st param is self, then a Vector, 
-				action.Execute(this , Target);
+				action.Execute(this , Target);				
 			}
+
+			if( Stat.Health <= 0 )
+			{
+				EventManager.OnPlayerDeathEvent?.Invoke();
+			}
+
 		}
 
 		private void SetupActions()

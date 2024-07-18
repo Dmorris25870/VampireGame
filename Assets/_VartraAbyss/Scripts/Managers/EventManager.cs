@@ -61,6 +61,9 @@ public class EventManager : SingletonManager<EventManager>
 	public static LevellingEvent OnRefreshStatsEvent;
 	#endregion
 
+	public delegate void PlayerEvent();
+	public static PlayerEvent OnPlayerDeathEvent;
+
 	public delegate void SkillsMenuEvent();
 	public static SkillsMenuEvent OnSkillsMenu;
 	public static SkillsMenuEvent OnSkillsMenuClose;

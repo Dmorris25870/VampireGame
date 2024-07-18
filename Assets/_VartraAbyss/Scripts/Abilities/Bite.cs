@@ -6,44 +6,27 @@ namespace VartraAbyss.Abilities
 {
 	public class Bite : Ability, IAbility_Strategy
 	{
-		[SerializeField] private Collider m_collider;
 		[SerializeField] private MeshRenderer m_mesh;
-		private bool m_hasHitTarget = false;
+		[SerializeField] private MeleeSystem m_meleeSystem;
+		[SerializeField] private Animator m_animator;
 
 		public void UseAbility(Actor self)
 		{
-			m_collider = self.GetComponentInChildren<Spawner>().GetComponent<Collider>();
-			m_mesh = self.GetComponentInChildren<Spawner>().GetComponent<MeshRenderer>();
-			m_collider.enabled = true;
-			m_mesh.enabled = true;
-			m_hasHitTarget = false;
-			StartCoroutine(ActivateTriggerVolume());
-
-			if( m_hasHitTarget )
+			m_animator.Play("BiteAnim");
+			if( m_meleeSystem.Target != null && m_meleeSystem.Target != self )
 			{
 				self.Stat.ModifyBlood(AbilityData.damage);
+				m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);				
+				StartCoroutine(ToggleMeshRenderer());
 			}
+			
 		}
 
-		IEnumerator ActivateTriggerVolume()
+		private IEnumerator ToggleMeshRenderer()
 		{
-			yield return new WaitForSeconds(0.1f);
-			m_collider.enabled = false;
+			m_mesh.enabled = true;
+			yield return new WaitForSeconds(0.2f);
 			m_mesh.enabled = false;
-			yield return new WaitForSeconds(AbilityData.coolDownTime);
-		}
-
-		void OnTriggerEnter(Collider other)
-		{
-			if( other != m_collider )
-			{
-				if( other.gameObject.GetComponent<Actor>() != null )
-				{
-					Actor target = other.gameObject.GetComponent<Actor>();
-					target.Stat.ModifyHealth(-AbilityData.damage);
-					m_hasHitTarget = true;
-				}
-			}
 		}
 	}
 }
