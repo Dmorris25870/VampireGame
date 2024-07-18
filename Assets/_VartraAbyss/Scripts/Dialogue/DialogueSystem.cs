@@ -17,10 +17,10 @@ namespace VartraAbyss.Dialogue
 		[SerializeField] private TextMeshProUGUI dialoguetext;
 		[SerializeField] private TextMeshProUGUI npcNameText;
 		[SerializeField] private Animator portraitAnimatorLeft;
-		[SerializeField] private Animator portraitAnimatorRight;
-		private Animator layoutAnimator;
-		[SerializeField] private GameObject portraitLeftParent;
-		[SerializeField] private GameObject portraitRightParent;
+		//[SerializeField] private Animator portraitAnimatorRight;
+		//private Animator layoutAnimator;
+		//[SerializeField] private GameObject portraitLeftParent;
+		//[SerializeField] private GameObject portraitRightParent;
 
 		[Header("Choice UI")]
 		[SerializeField] private GameObject[] choices;
@@ -65,11 +65,11 @@ namespace VartraAbyss.Dialogue
 			dialogueIsPlaying = false;
 			dialogueBox.SetActive(false);
 			//InitialiseChoices();
-			layoutAnimator = dialogueBox.GetComponent<Animator>();
+			//layoutAnimator = dialogueBox.GetComponent<Animator>();
 			portraitAnimatorLeft = portraitAnimatorLeft.GetComponent<Animator>();
-			portraitAnimatorRight = portraitAnimatorRight.GetComponent<Animator>();
-			portraitLeftParent = portraitLeftParent.GetComponent<GameObject>();
-			portraitRightParent = portraitRightParent.GetComponent<GameObject>();
+			//portraitAnimatorRight = portraitAnimatorRight.GetComponent<Animator>();
+			//portraitLeftParent = portraitLeftParent.GetComponent<GameObject>();
+			//portraitRightParent = portraitRightParent.GetComponent<GameObject>();
 		}
 
 		public void PerformTalk(InputAction.CallbackContext context)
@@ -249,17 +249,17 @@ namespace VartraAbyss.Dialogue
 
 					//if( portraitAnimatorRight)
 					//{
-						portraitAnimatorRight.Play(tagValue);
+						//portraitAnimatorRight.Play(tagValue);
 						//Debug.Log("portrait right on");
 						//break;
 						//return;
 					//}
 
 					break;
-					case LAYOUT_TAG:
-					//Debug.Log("layout = " + tagValue);
-					layoutAnimator.Play(tagValue);
-					break;
+					//case LAYOUT_TAG:
+					////Debug.Log("layout = " + tagValue);
+					////layoutAnimator.Play(tagValue);
+					//break;
 					default:
 					Debug.LogWarning("Tag read but can't be handlled: " + tag);
 					break;
