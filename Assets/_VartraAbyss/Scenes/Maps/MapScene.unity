@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c0d1b10d89994b04e8cc44bf94a1eec7,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1018,7 +1019,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.33962262, g: 0.09451762, b: 0.1151891, a: 1}
+  m_Color: {r: 0.5377358, g: 0.22067462, b: 0.24583825, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1825,6 +1826,11 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 7795487566707565878, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8787524991412090789, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
