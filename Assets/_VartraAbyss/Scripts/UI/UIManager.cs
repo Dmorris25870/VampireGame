@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 	public GameObject absorbAbiltyText;
 	public GameObject pauseMenuObject;
 	public GameObject deathScreenObject;
+	public GameObject controlsMenuObject;
 
 	private void Start()
 	{
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
 		absorbAbiltyText.SetActive(false);
 		pauseMenuObject.SetActive(false);
 		deathScreenObject.SetActive(false);
+		controlsMenuObject.SetActive(false);
 	}
 
 	private void OnEnable()
@@ -37,6 +39,16 @@ public class UIManager : MonoBehaviour
 		EventManager.OnPlayerDeathEvent -= DeathScreen;
 	}
 
+	public void TurnOnObject(GameObject gameObject)
+	{
+		gameObject.SetActive(true);
+	}
+
+	public void TurnOffObject(GameObject gameObject)
+	{
+		gameObject.SetActive(false); 
+	}
+
 	private void OpenSkillsMenu()
 	{
 		skillsMenuObject.SetActive(true);
@@ -51,11 +63,12 @@ public class UIManager : MonoBehaviour
 
 	private void OpenPauseMenu()
 	{
+		Debug.Log("OpenPauseMenu");
 		pauseMenuObject.SetActive(true);
 		Time.timeScale = 0;
 	}
 
-	private void ClosePauseMenu()
+	public void ClosePauseMenu()
 	{
 		pauseMenuObject.SetActive(false);
 		Time.timeScale = 1;

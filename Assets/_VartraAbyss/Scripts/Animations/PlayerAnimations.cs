@@ -21,7 +21,7 @@ namespace VartraAbyss
 		}
 		private void Update()
 		{
-			Debug.Log("velocity: " + player.velocity);
+			//Debug.Log("velocity: " + player.velocity);
 			if(player.velocity == m_playerNotMoving )
 			{
 				StopWalkAnim();
@@ -30,7 +30,7 @@ namespace VartraAbyss
 
 		private void StopWalkAnim()
 		{
-			Debug.Log("Idle");
+			//Debug.Log("Idle");
 			anim.Play("PlayerIdle");
 		}
 		public void PlayWalkAnim()
