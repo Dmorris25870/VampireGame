@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5144565089890072245}
   - component: {fileID: 3516434213451060079}
+  - component: {fileID: 6982066944258420127}
   m_Layer: 0
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 0}
   dialoguetext: {fileID: 0}
   npcNameText: {fileID: 0}
+  portraitAnimatorLeft: {fileID: 0}
   choices:
   - {fileID: 0}
   - {fileID: 0}
@@ -55,3 +57,15 @@ MonoBehaviour:
   dialogue_Trigger: {fileID: 0}
   letsTalk: {fileID: 706757057501823018, guid: 851d3aeb039b2544aa488caa69474660, type: 3}
   dHolder: {fileID: 0}
+--- !u!114 &6982066944258420127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225666556958379243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4215505fd45ebc4c8cea2df4c755fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

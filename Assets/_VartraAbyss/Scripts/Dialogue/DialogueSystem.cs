@@ -44,6 +44,7 @@ namespace VartraAbyss.Dialogue
 		private bool canContinueToNextLine = false;
 		public GameObject dHolder;
 		//private bool onSkipPrint;
+		[SerializeField] private BindInkFunctions m_bindInkFunction;
 
 		private const string SPEAKER_TAG = "speaker";
 		private const string PORTRAIT_TAG = "portrait";
@@ -58,6 +59,11 @@ namespace VartraAbyss.Dialogue
 		{
 			letsTalk.action.performed -= PerformTalk;
 			//Debug.Log("Enable talk");
+		}
+
+		private void Awake()
+		{
+			m_bindInkFunction.GetComponent<BindInkFunctions>();
 		}
 
 		private void Start()
@@ -147,10 +153,11 @@ namespace VartraAbyss.Dialogue
 			inkJSON = dHolder.GetComponent<DialogueHolder>().inkJSONtoPlay;
 			currentStory = new Story(inkJSON.text);
 			dialogueIsPlaying = true;
+			
 			//npcNameText.text = npcNameText.transform.GetComponent<TextMeshProUGUI>().text;
 			//npcNameText.text = dialogue_trigger.npcName;
 			dialogueBox.SetActive(true);
-
+			m_bindInkFunction.BindExternalFunction(currentStory);
 			ContinueStory();
 
 		}
@@ -178,7 +185,7 @@ namespace VartraAbyss.Dialogue
 				yield return new WaitForSeconds(typingSpeed);
 			}
 
-			canContinueToNextLine = false;
+			canContinueToNextLine = true;
 		}
 		public void ExitDialogueMode()
 		{
@@ -187,6 +194,7 @@ namespace VartraAbyss.Dialogue
 			dialoguetext.text = "";
 			talkBool = false;
 			dialogueBox.SetActive(false);
+			m_bindInkFunction.Unbind(currentStory);
 		}
 
 		public void ContinueStory()
