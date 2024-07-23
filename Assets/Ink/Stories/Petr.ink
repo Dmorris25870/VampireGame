@@ -1,3 +1,4 @@
+EXTERNAL CharacterEvent(num)
 This person looks hurt. Hey are you okay? #speaker:Beatrix portrait:Beatrix
 I'm alive..  *Weakly* could you grab some blood from that thrall for me? #speaker:Pëtr portrait:Petr
 Some blood..?#speaker:Beatrix portrait:Beatrix
@@ -8,4 +9,5 @@ Fighting the what?#speaker:Beatrix portrait:Beatrix
 I see. So you're new around here. I'm with the Mutated, we could use more fighters. Your friend looks like a strong fighter. #speaker:Pëtr portrait:Petr
 Head to the town and find the Barkeep. show them this token and they can help you. 
 Um okay, let's get going then Bea.#speaker:Hart portrait:Hart
+~CharacterEvent(4)
     -> END

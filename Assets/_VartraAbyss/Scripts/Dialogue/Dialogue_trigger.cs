@@ -67,7 +67,7 @@ public class Dialogue_trigger : MonoBehaviour
 	{		
 		if( other.gameObject.tag == "NPC") //&& !dialogueSystem.dialogueIsPlaying )
 		{
-			//Debug.Log("TriggerEnter NPC");
+			Debug.Log("TriggerEnter NPC");
 			playerInRange = true;
 			//visualCue.SetActive(true);
 			inkJSON = other.GetComponent<DialogueHolder>().inkJSONtoPlay;
@@ -82,6 +82,7 @@ public class Dialogue_trigger : MonoBehaviour
 		if( other.gameObject.tag == "NPC" )
 		{
 			playerInRange = false;
+			Debug.Log("Player exit");
 		}
 			
 		//if (other.gameObject.tag == "Player")

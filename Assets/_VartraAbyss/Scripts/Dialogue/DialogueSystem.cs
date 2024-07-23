@@ -140,6 +140,10 @@ namespace VartraAbyss.Dialogue
 			{
 				return;
 			}
+		}
+		private void FixedUpdate()
+		{
+			//Debug.Log("Current story is: " + currentStory);
 
 		}
 
@@ -210,12 +214,21 @@ namespace VartraAbyss.Dialogue
 					StopCoroutine(displayLineCoroutine);
 				}
 
-				displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
-				//DisplayChoices();
-				//Debug.Log("can continue story");
+				string nextLine = currentStory.Continue();
+				//Checks for external ink function is on the last line of ink story
+				if( nextLine.Equals("") && !currentStory.canContinue)
+				{
+					ExitDialogueMode();
+				}
+				else//Continue as normal
+				{
+					//Handle ink tags
+					HandleTags(currentStory.currentTags);
+					displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+					//DisplayChoices();
+					//Debug.Log("can continue story");
+				}
 
-				//Handle ink tags
-				HandleTags(currentStory.currentTags);
 			}
 			else
 			{

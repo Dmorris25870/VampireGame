@@ -1,3 +1,4 @@
+EXTERNAL CharacterEvent(num)
 Victoria, we have some new potential recruits.#speaker:Barkeep #portrait:Barkeep
 Great we do need to raise our numbers. Introduce yourselves and why you want to join the Mutated Revolution.#speaker:Victoria #portrait:Victoria 
 I'm Beatrix and this is Hart.#speaker:Beatrix #portrait:Beatrix 
@@ -21,4 +22,5 @@ Okay you can stay here, I'll go alone.#speaker:Hart #portrait:Hart
 Beatrix I could use your assistance while Hart takes care of this little job.#speaker:Victoria #portrait:Victoria 
 Fine, just keep Bea safe.#speaker:Hart #portrait:Hart 
 Don't worry about me, I'll be helping Victoria and looking into finding Felix.#speaker:Beatrix #portrait:Beatrix 
+~CharacterEvent(6)
     -> END
