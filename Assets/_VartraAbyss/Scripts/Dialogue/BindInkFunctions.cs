@@ -8,9 +8,11 @@ namespace VartraAbyss
 {
     public class BindInkFunctions: MonoBehaviour
     {
+		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
+		[SerializeField] private GameObject m_breakableWall;
 
-		[Header("Npc Characters")]
+		[Header("Story Npc Characters")]
 		[SerializeField] private GameObject BeatrixIntroPrefab;
 		[SerializeField] private GameObject FirstFightPrefab;
 		[SerializeField] private GameObject FirstPowerPrefab;
@@ -22,6 +24,13 @@ namespace VartraAbyss
 		[SerializeField] private GameObject BarkeepMessagePrefab;
 		[SerializeField] private GameObject BeaGetsPowersPrefab;
 		[SerializeField] private GameObject FelixFinalBattlePrefab;
+
+		[Header("Extra NPC Characters")]
+		[SerializeField] private GameObject TempBeatrixPrefab;
+		[SerializeField] private GameObject BasicBarkeepPrefab;
+		[SerializeField] private GameObject WaitingBeaPrefab;
+		[SerializeField] private GameObject VictoriaNoTalkyPrefab;
+		[SerializeField] private GameObject WaitingVicPrefab;
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
 
@@ -40,6 +49,7 @@ namespace VartraAbyss
 				{
 					m_screenTint.SetActive(true);
 					//Debug.Log("ExplosionScreenOn");
+					//m_breakableWall.SetActive(false);
 				}
 				else if( number > 1 )//if num is 2 turn off curtain
 				{
@@ -70,27 +80,53 @@ namespace VartraAbyss
 				}
 				else if( number == 4 ) //Turn off Petr and Avoid in Petr story
 				{
-					PetrPrefab.SetActive(false);
+					//PetrPrefab.SetActive(false);
 					AvoidPrefab.SetActive(false);
 					ResetPlayerInRange();
 				}
 				else if( number == 5) //BarkeepPassword
 				{
 					BarkeepPasswordPrefab.SetActive(false);
+					PetrPrefab.SetActive(false);
 					ResetPlayerInRange();
+
 				}
-				else if( number == 6 )//Meet Victoria
+				else if( number == 6 )//Meet Victoria and spawn temp Beatrix
 				{
 					VictoriaIntroPrefab.SetActive(false);
+					BasicBarkeepPrefab.SetActive(true);
+					TempBeatrixPrefab.SetActive(true);
 					ResetPlayerInRange();
-					//Turn on Basic barkeep prefab
+
 				}
-				else if( number == 7)
+				else if( number == 7) //Intercom felix and Patient Zero fight
 				{
-					IntercomFelixPrefab.SetActive(false);
+					IntercomFelixPrefab.SetActive(false);//Disable Intercom Felix
 					ResetPlayerInRange();
-					//Turn off Basic barkeep
-					//Turn on Barkeep message npc
+					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
+					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
+					TempBeatrixPrefab.SetActive(false);
+				}
+				else if( number == 8 ) //Back to barkeep with letter
+				{
+					BarkeepMessagePrefab.SetActive(false);//turn of message barkeep and enable basic barkeep
+					BasicBarkeepPrefab.SetActive(true);
+					BeaGetsPowersPrefab.SetActive(true); //Spawn BeaGetsPowers and Victoria no dialogue
+					VictoriaNoTalkyPrefab.SetActive(true);
+
+				}
+				else if( number == 9 ) //Found Bea and about to find Felix
+				{
+					BeaGetsPowersPrefab.SetActive(false);//Turn off BeaGetsPowers
+					VictoriaNoTalkyPrefab.SetActive(false);//Turn off no talky vic
+					WaitingBeaPrefab.SetActive(true); //Turn on WaitingBeatrix waiting Victoria
+					WaitingVicPrefab.SetActive(true);
+				}
+				else if( number == 10 ) //Fight felix
+				{
+					//Turn off Final felix battle
+					FelixFinalBattlePrefab.SetActive(false);
+					//Spawn Felix boss
 				}
 
 			});
