@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 4782968582163505594}
   - component: {fileID: 6268369803396058241}
   - component: {fileID: 8972855633384232449}
+  - component: {fileID: 3253437268260713797}
+  - component: {fileID: 4148718761683509135}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -479,6 +481,57 @@ MonoBehaviour:
   inkJSON: {fileID: 0}
   dialogueSystem: {fileID: 0}
   playerInRange: 0
+--- !u!65 &3253437268260713797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613161199586880686}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4148718761683509135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613161199586880686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e68d1d7b2cea04c9ec45188797c8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scatteringAlbedo: {r: 1, g: 1, b: 1, a: 1}
+  fogDistance: 5
+  mask: {fileID: 2800000, guid: 47e2da30af4d7e643a83e0b074188f3e, type: 3}
+  volumeShaderSetting:
+    shader: {fileID: 0}
+    kernelName: 
+  positiveFade: {x: 0.5, y: 0.5, z: 0.5}
+  negativeFade: {x: 0.5, y: 0.5, z: 0.5}
+  invertFade: 0
+  distanceFadeStart: 50
+  distanceFadeEnd: 200
+  falloffMode: 0
+  windSpeed: 1
+  windDirection: {x: 1, y: 0}
+  counterFlowSpeed: 1
+  tiling: 0.5
+  detailNoiseTiling: 0.85
+  flatten: 2
 --- !u!1 &7205804342954345403
 GameObject:
   m_ObjectHideFlags: 0
