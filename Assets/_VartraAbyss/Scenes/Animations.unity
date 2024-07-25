@@ -1583,6 +1583,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 124223690107397452, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 465384863109330960, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 886291849347179637, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: player
@@ -1599,6 +1604,11 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 1009038914440099633, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1528827372214786170, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: player
@@ -1946,6 +1956,12 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 7795487566707565878, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 4dfb4e98fe845a742bcb2d07123a27b8,
+        type: 2}
     - target: {fileID: 8787524991412090789, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: player
