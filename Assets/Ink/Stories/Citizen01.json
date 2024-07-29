@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[["^Hmm... How can I pay the Abattoir tax this month?","#","^speaker:Pëtr ","/#","#","^portrait:Petr","/#","\n","^Maybe I can go hunting tomorrow after work...","\n","^Hey! How did you get here! Ever heard of knocking?","\n","^I'm going to get a lock for that door.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

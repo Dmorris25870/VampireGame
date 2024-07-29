@@ -31,6 +31,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject WaitingBeaPrefab;
 		[SerializeField] private GameObject VictoriaNoTalkyPrefab;
 		[SerializeField] private GameObject WaitingVicPrefab;
+		[SerializeField] private GameObject Guard01Prefab;
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
 
@@ -80,7 +81,6 @@ namespace VartraAbyss
 				}
 				else if( number == 4 ) //Turn off Petr and Avoid in Petr story
 				{
-					//PetrPrefab.SetActive(false);
 					AvoidPrefab.SetActive(false);
 					ResetPlayerInRange();
 				}
@@ -106,6 +106,8 @@ namespace VartraAbyss
 					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
+					Guard01Prefab.SetActive(false);
+
 				}
 				else if( number == 8 ) //Back to barkeep with letter
 				{
