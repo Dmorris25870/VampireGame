@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.3301887, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 0.18867922, g: 0.00978996, b: 0.00978996, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.005
   m_LinearFogStart: 0
@@ -867,17 +867,8 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
+      objectReference: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
-      propertyPath: <Stat>k__BackingField.<Blood>k__BackingField
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
-        type: 3}
-      propertyPath: <Stat>k__BackingField.<Health>k__BackingField
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8972855633384232449, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: dialogueSystem
@@ -1373,7 +1364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1849773428
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -24,8 +24,8 @@ MonoBehaviour:
   resolveMat: {fileID: 2100000, guid: 2acfffc3c62e9b24b813c8247c7ab5b7, type: 2}
   enabled: 1
   colorMode: 0
-  color: {r: 0.5188679, g: 0, b: 0, a: 1}
-  tint: {r: 0.5471698, g: 0, b: 0, a: 1}
+  color: {r: 0.1981132, g: 0.0065414775, b: 0.0065414775, a: 1}
+  tint: {r: 0.6886792, g: 0.04223035, b: 0.04223035, a: 1}
   maxFogDistance: 5000
   mipFogMaxMip: 0.5
   mipFogNear: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   volumetricLighting: 1
   enableDirectionalLight: 1
   enablePointAndSpotLight: 1
-  albedo: {r: 1, g: 1, b: 1, a: 1}
+  albedo: {r: 1, g: 0.6784875, b: 0.5235849, a: 1}
   directionalScatteringIntensity: 1
   localScatteringIntensity: 50
   anisotropy: 0
