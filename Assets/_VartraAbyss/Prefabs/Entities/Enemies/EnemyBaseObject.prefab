@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 5299999915304386511}
   m_Layer: 0
   m_Name: EnemyBaseObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,6 +541,8 @@ MonoBehaviour:
   attackTimer: {fileID: 0}
   player: {fileID: 0}
   isAggroed: 0
+  damageEffect: {fileID: 4559016393393698514, guid: a22bc9b6096ae5f4d9306abfbcb5275e,
+    type: 3}
 --- !u!136 &-7034924341190483356
 CapsuleCollider:
   m_ObjectHideFlags: 0

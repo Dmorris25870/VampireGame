@@ -1,4 +1,5 @@
 using UnityEngine;
+using VartraAbyss.Entity.Enemy;
 
 namespace VartraAbyss.Entity
 {
@@ -23,7 +24,15 @@ namespace VartraAbyss.Entity
 				if( collision.gameObject.GetComponent<Actor>() != null )
 				{
 					Actor target = collision.gameObject.GetComponent<Actor>();
-					target.Stat.ModifyHealth(-DamageAmount);
+					if ( target.tag == "Player")
+                    {
+						target.Stat.ModifyHealth(-DamageAmount);
+					}
+					
+					if (target.tag == "Enemy")
+                    {
+						collision.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-DamageAmount);
+                    }
 				}
 			}
 

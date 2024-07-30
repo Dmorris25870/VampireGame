@@ -12,6 +12,7 @@ TagManager:
   - ItemPanel
   - InventoryGrid
   - NPC
+  - Enemy
   layers:
   - Default
   - TransparentFX
