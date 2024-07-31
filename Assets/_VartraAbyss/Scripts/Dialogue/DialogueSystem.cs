@@ -45,7 +45,6 @@ namespace VartraAbyss.Dialogue
 		private void OnDisable()
 		{
 			letsTalk.action.performed -= PerformTalk;
-			Debug.Log("Enable talk");
 		}
 
 		private void Start()
@@ -57,7 +56,7 @@ namespace VartraAbyss.Dialogue
 
 		public void PerformTalk(InputAction.CallbackContext context)
 		{
-			if( dialogue_Trigger.playerInRange )
+			if(dialogue_Trigger.playerInRange)
 			{
 				EnterDialogueMode(dialogue_Trigger.inkJSON);
 			}
@@ -112,7 +111,7 @@ namespace VartraAbyss.Dialogue
 
 		private void Update()
 		{
-			if( !dialogueIsPlaying )
+			if(!dialogueIsPlaying)
 			{
 				return;
 			}
@@ -143,7 +142,7 @@ namespace VartraAbyss.Dialogue
 
 			canContinueToNextLine = false;
 
-			foreach( char letter in line.ToCharArray() )
+			foreach(char letter in line.ToCharArray())
 			{
 				Debug.Log(letter);
 				dialoguetext.text += letter;
@@ -166,11 +165,11 @@ namespace VartraAbyss.Dialogue
 		public void ContinueStory()
 		{
 			if(//canContinueToNextLine && 
-				currentStory.canContinue )
+				currentStory.canContinue)
 			{
 
 
-				if( displayLineCoroutine != null )
+				if(displayLineCoroutine != null)
 				{
 					StopCoroutine(displayLineCoroutine);
 				}

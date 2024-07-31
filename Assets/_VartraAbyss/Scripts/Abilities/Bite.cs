@@ -8,20 +8,28 @@ namespace VartraAbyss.Abilities
 	{
 		[SerializeField] private MeshRenderer m_mesh;
 		[SerializeField] private MeleeSystem m_meleeSystem;
+		[SerializeField] private Animator m_animator;
 
 		private void OnEnable()
 		{
 			m_meleeSystem.GetComponentInChildren<MeleeSystem>();
 		}
 
+		private void OnDisable()
+		{
+			m_meleeSystem = null;
+		}
+
 		public void UseAbility(Actor self)
 		{
-			if( m_meleeSystem.Target != null && m_meleeSystem.Target != self )
+			m_animator.Play("BiteAnim");
+			if(m_meleeSystem.Target != null && m_meleeSystem.Target != self)
 			{
 				self.Stat.ModifyBlood(AbilityData.damage);
 				m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);
 				StartCoroutine(ToggleMeshRenderer());
 			}
+
 		}
 
 		private IEnumerator ToggleMeshRenderer()

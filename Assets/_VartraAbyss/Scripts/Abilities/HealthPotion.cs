@@ -9,19 +9,14 @@ namespace VartraAbyss.Abilities
 		[field: SerializeField] public float HealingAmount { get; private set; }
 		[field: SerializeField] public float PercentageToHeal { get; private set; }
 
-		private void Start()
-		{
-			SetHealingAmount(Global.OnGetPlayerEvent?.Invoke() , PercentageToHeal);
-		}
-
 		public void SetHealingAmount(Actor self , float percentage)
 		{
-
 			HealingAmount = self.Stat.MaximumHealth * percentage;
 		}
 
 		public void UseAbility(Actor self)
 		{
+			SetHealingAmount(Global.OnGetPlayerEvent?.Invoke() , PercentageToHeal);
 			self.Stat.ModifyHealth(HealingAmount);
 		}
 	}

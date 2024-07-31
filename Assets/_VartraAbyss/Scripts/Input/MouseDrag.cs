@@ -21,21 +21,21 @@ namespace VartraAbyss
 		{
 			UISlot targetSlot;
 			AbilityCooldownFader abilityFader;
-			if( eventData.pointerCurrentRaycast.gameObject is GameObject target )
+			if(eventData.pointerCurrentRaycast.gameObject is GameObject target)
 			{
 				targetSlot = target.GetComponentInParent<UISlot>();
 				abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
 
-				if( targetSlot != null )
+				if(targetSlot != null)
 				{
-					switch( abilityFader )
+					switch(abilityFader)
 					{
 						case null:
 						HandleSwap();
 						break;
 
 						default:
-						if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] )
+						if(abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)])
 						{
 							m_storage.ClearSwap();
 							Destroy(m_dragInstance);
@@ -69,7 +69,7 @@ namespace VartraAbyss
 
 		public void OnDrag(PointerEventData eventData)
 		{
-			if( m_dragInstance != null )
+			if(m_dragInstance != null)
 			{
 				m_dragInstance.transform.position = Input.mousePosition;
 			}
@@ -77,31 +77,33 @@ namespace VartraAbyss
 
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			if( eventData.pointerCurrentRaycast.gameObject is GameObject target )
+			if(eventData.pointerCurrentRaycast.gameObject is GameObject target)
 			{
 				UISlot targetSlot = target.GetComponentInParent<UISlot>();
 
-				if( target.GetComponentInParent<AbilityCooldownFader>() != null )
+				if(target.GetComponentInParent<AbilityCooldownFader>() != null)
 				{
 					AbilityCooldownFader abilityFader = target.GetComponentInParent<AbilityCooldownFader>();
 
-					if( abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] || targetSlot.isStatic )
+					if(abilityFader.AbilitiesCoolingDown[targetSlot.storage.GetItemIndex(targetSlot)] || targetSlot.isStatic)
 					{
 						m_storage.ClearSwap();
 						Destroy(m_dragInstance);
 						return;
 					}
-					else if( targetSlot != null )
+
+					if(targetSlot != null && !targetSlot.GetStorage().GetItemList().Contains(m_uiSlot.GetStorage().GetItem(m_uiSlot.GetStorage().GetItemIndex(m_uiSlot))))
 					{
 						m_storage.SwapItem(targetSlot);
-						EventSystem.current.SetSelectedGameObject(target);
+						Destroy(m_dragInstance);
+						return;
 					}
 				}
 			}
 
 			m_storage.ClearSwap();
 
-			if( m_dragInstance != null )
+			if(m_dragInstance != null)
 			{
 				Destroy(m_dragInstance);
 			}

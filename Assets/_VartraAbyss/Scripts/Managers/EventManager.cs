@@ -71,4 +71,6 @@ public class EventManager : SingletonManager<EventManager>
 	public delegate void CanAbsorbAbilityEvent();
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
+
+
 }
