@@ -9,6 +9,11 @@ namespace VartraAbyss.Abilities
 		[SerializeField] private MeshRenderer m_mesh;
 		[SerializeField] private MeleeSystem m_meleeSystem;
 
+		private void OnEnable()
+		{
+			m_meleeSystem.GetComponentInChildren<MeleeSystem>();
+		}
+
 		public void UseAbility(Actor self)
 		{
 			if( m_meleeSystem.Target != null && m_meleeSystem.Target != self )

@@ -12,6 +12,7 @@ namespace VartraAbyss
 
 		private void OnEnable()
 		{
+			AbilitiesCoolingDown = new bool[m_slots.Length];
 			EventManager.OnActivatedSlot1Ability += () => StartAbilityCooldown(0);
 			EventManager.OnActivatedSlot2Ability += () => StartAbilityCooldown(1);
 			EventManager.OnActivatedSlot3Ability += () => StartAbilityCooldown(2);
@@ -30,11 +31,7 @@ namespace VartraAbyss
 			EventManager.OnActivatedSlot5Ability -= () => StartAbilityCooldown(4);
 			EventManager.OnActivatedSlot6Ability -= () => StartAbilityCooldown(5);
 			EventManager.OnActivatedSlot7Ability -= () => StartAbilityCooldown(6);
-		}
-
-		private void Start()
-		{
-			AbilitiesCoolingDown = new bool[m_slots.Length];
+			StopCoroutine("AbilityCooldownCoroutine");
 		}
 
 		private void StartAbilityCooldown(int slotIndex)
@@ -43,7 +40,11 @@ namespace VartraAbyss
 			{
 				// GET UI SLOT INDEX
 				EventManager.OnReturnUsedAbility?.Invoke(null , m_slots[slotIndex].storage.GetItem(slotIndex).abilityName);
-				StartCoroutine(AbilityCooldownCoroutine(slotIndex));
+
+				if( this != null )
+				{
+					StartCoroutine(AbilityCooldownCoroutine(slotIndex));
+				}
 			}
 		}
 

@@ -20,16 +20,25 @@ namespace VartraAbyss.Entity
 		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[SerializeField] protected SerializedDictionary<string , Ability> listOfAbilities = new();
 
-		public bool IsMoving { get; private set; }
-		public bool IsAttacking { get; private set; }
+		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
+		[field: SerializeField] public bool IsMoving { get; private set; }
+		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
+		[field: SerializeField] public bool IsAttacking { get; private set; }
 
-
+		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[field: SerializeField] public Vector3 Target { get; private set; }
+		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[field: SerializeField] public Ability CurrentAbility { get; private set; }
 		[field: SerializeField] public ItemBase CurrentItem { get; private set; }
-		public NavMeshAgent Agent { get; private set; }
-		public Action.ActionTypes CurrentAction { get; private set; }
+
+		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
+		[field: SerializeField] public NavMeshAgent Agent { get; private set; }
+		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
+		[field: SerializeField] public Action.ActionTypes CurrentAction { get; private set; }
+
+		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
 		public SerializedDictionary<Action.ActionTypes , Action> ListOfActions { get => listOfActions; set => listOfActions = value; }
+		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		public SerializedDictionary<string , Ability> ListOfAbilities { get => listOfAbilities; set => listOfAbilities = value; }
 
 		protected virtual Actor StoreActor() { return this; }
