@@ -11,7 +11,7 @@ namespace VartraAbyss
 		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
 		[SerializeField] private GameObject m_breakableWall;
-		[SerializeField] private GameObject m_wall;
+		//[SerializeField] private GameObject m_wall;
 
 		[Header("Story Npc Characters")]
 		[SerializeField] private GameObject BeatrixIntroPrefab;
@@ -111,7 +111,9 @@ namespace VartraAbyss
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
 					Guard01Prefab.SetActive(false);
-					m_wall.SetActive(false);
+					FelixFinalBattlePrefab.SetActive(true);
+
+					//m_wall.SetActive(false);
 
 				}
 				else if( number == 8 ) //Back to barkeep with letter
