@@ -541,7 +541,7 @@ MonoBehaviour:
   attackTimer: {fileID: 0}
   player: {fileID: 0}
   isAggroed: 0
-  damageEffect: {fileID: 4559016393393698514, guid: a22bc9b6096ae5f4d9306abfbcb5275e,
+  damageEffect: {fileID: 8607572762712143462, guid: a22bc9b6096ae5f4d9306abfbcb5275e,
     type: 3}
 --- !u!136 &-7034924341190483356
 CapsuleCollider:
