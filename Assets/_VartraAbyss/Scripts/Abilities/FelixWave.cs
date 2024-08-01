@@ -3,7 +3,7 @@ using VartraAbyss.Entity;
 
 namespace VartraAbyss.Abilities
 {
-	public class BloodProjectile : Ability, IAbility_Strategy
+	public class FelixWave : Ability, IAbility_Strategy
 	{
 		[SerializeField] private GameObject m_projectilePrefab;
 		[SerializeField] private float m_projectileSpeed;
@@ -14,8 +14,6 @@ namespace VartraAbyss.Abilities
 					self.GetComponentInChildren<Spawner>().transform.position ,
 					self.GetComponentInChildren<Spawner>().transform.rotation);
 
-
-			self.Stat.ModifyBlood(-AbilityData.bloodCost);
 
 			projectile.transform.LookAt(self.Target);
 			projectile.GetComponent<Projectile>().SetDamageAmount(Damage);

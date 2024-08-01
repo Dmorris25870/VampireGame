@@ -7,6 +7,7 @@ namespace VartraAbyss.Entity
 	{
 		[SerializeField] private Rigidbody m_rigidBody;
 		[SerializeField] private Collider m_collider;
+		private GameObject spawner;
 		[field: SerializeField] public Vector3 Velocity { get; private set; }
 		[field: SerializeField] public int DamageAmount { get; private set; }
 
@@ -18,33 +19,34 @@ namespace VartraAbyss.Entity
 		private void OnCollisionEnter(Collision collision)
 		{
 			// Check we haven't collided with ourselves
-			if( collision.collider != m_collider )
+			if( collision.collider != m_collider && collision.collider != spawner.gameObject)
 			{
 				// When this object hits another, check if it's an entity
 				if( collision.gameObject.GetComponent<Actor>() != null )
 				{
 					Actor target = collision.gameObject.GetComponent<Actor>();
-					if ( target.tag == "Player")
-                    {
+					if (target.tag == "Player")
+					{
 						target.Stat.ModifyHealth(-DamageAmount);
 					}
-					
+
 					if (target.tag == "Enemy")
-                    {
+					{
 						collision.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-DamageAmount);
-                    }
+					}
 				}
 			}
 
 			Die();
 		}
 
-		public void SetVelocity(Vector3 direction , float parent , float speed)
+		public void SetVelocity(Vector3 direction , GameObject parent , float speed)
 		{
-			if( parent < 1 && parent > -1 )
-				parent = -1;
-
-			Velocity = direction * parent * speed;
+			//if( parent < 1 && parent > -1 )
+			//	parent = -1;
+			spawner = parent;
+			//Velocity = direction * parent * speed;
+			Velocity = direction * -speed;
 		}
 
 		public void SetDamageAmount(int amount)
