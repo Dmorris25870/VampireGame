@@ -15,17 +15,17 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.18867922, g: 0.00978996, b: 0.00978996, a: 1}
+  m_FogColor: {r: 0.2830189, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  m_AmbientEquatorColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+  m_AmbientGroundColor: {r: 0.2735849, g: 0, b: 0.03126678, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.34837845, g: 0, b: 0.4528302, a: 1}
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.20018403, g: 0, b: 0.2830189, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 0703961f0c74c8048a789a02b0246dad,
+  m_LightingDataAsset: {fileID: 112000000, guid: 56fb502e5da7fdf4ab8a6d9b67e32de2,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 437103a512dd3ce47ac1f932d739f786,
     type: 2}
@@ -869,6 +869,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: <Stat>k__BackingField.<Blood>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: <Stat>k__BackingField.<Health>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8972855633384232449, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: dialogueSystem
@@ -1086,16 +1096,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 751614798704369060, guid: b3148c1422289ef4fb18c3743533cb30,
-        type: 3}
-      propertyPath: m_Dithering
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751614798704369060, guid: b3148c1422289ef4fb18c3743533cb30,
-        type: 3}
-      propertyPath: m_Antialiasing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4086577313463230602, guid: b3148c1422289ef4fb18c3743533cb30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1145,16 +1145,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311726095710368326, guid: b3148c1422289ef4fb18c3743533cb30,
-        type: 3}
-      propertyPath: near clip plane
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311726095710368326, guid: b3148c1422289ef4fb18c3743533cb30,
-        type: 3}
-      propertyPath: orthographic size
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8151104185421239516, guid: b3148c1422289ef4fb18c3743533cb30,
         type: 3}
@@ -1364,7 +1354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1849773428
 MeshRenderer:
   m_ObjectHideFlags: 0
