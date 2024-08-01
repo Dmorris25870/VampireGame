@@ -11,6 +11,7 @@ namespace VartraAbyss
 		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
 		[SerializeField] private GameObject m_breakableWall;
+		[SerializeField] private GameObject m_wall;
 
 		[Header("Story Npc Characters")]
 		[SerializeField] private GameObject BeatrixIntroPrefab;
@@ -94,25 +95,29 @@ namespace VartraAbyss
 				}
 				else if( number == 6 )//Meet Victoria and spawn temp Beatrix
 				{
-					VictoriaIntroPrefab.SetActive(false);
+
 					BasicBarkeepPrefab.SetActive(true);
 					TempBeatrixPrefab.SetActive(true);
-					ResetPlayerInRange();
+					VictoriaIntroPrefab.SetActive(false);
+					ResetPlayerInRange();					
+
 
 				}
 				else if( number == 7) //Intercom felix and Patient Zero fight
 				{
-					IntercomFelixPrefab.SetActive(false);//Disable Intercom Felix
-					ResetPlayerInRange();
+                    ResetPlayerInRange();
+                    IntercomFelixPrefab.SetActive(false);//Disable Intercom Felix
 					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
 					Guard01Prefab.SetActive(false);
+					m_wall.SetActive(false);
 
 				}
 				else if( number == 8 ) //Back to barkeep with letter
 				{
-					BarkeepMessagePrefab.SetActive(false);//turn of message barkeep and enable basic barkeep
+                    ResetPlayerInRange();
+                    BarkeepMessagePrefab.SetActive(false);//turn of message barkeep and enable basic barkeep
 					BasicBarkeepPrefab.SetActive(true);
 					BeaGetsPowersPrefab.SetActive(true); //Spawn BeaGetsPowers and Victoria no dialogue
 					VictoriaNoTalkyPrefab.SetActive(true);
@@ -120,15 +125,17 @@ namespace VartraAbyss
 				}
 				else if( number == 9 ) //Found Bea and about to find Felix
 				{
-					BeaGetsPowersPrefab.SetActive(false);//Turn off BeaGetsPowers
+                    ResetPlayerInRange();
+                    BeaGetsPowersPrefab.SetActive(false);//Turn off BeaGetsPowers
 					VictoriaNoTalkyPrefab.SetActive(false);//Turn off no talky vic
 					WaitingBeaPrefab.SetActive(true); //Turn on WaitingBeatrix waiting Victoria
 					WaitingVicPrefab.SetActive(true);
 				}
 				else if( number == 10 ) //Fight felix
 				{
-					//Turn off Final felix battle
-					FelixFinalBattlePrefab.SetActive(false);
+                    ResetPlayerInRange();
+                    //Turn off Final felix battle
+                    FelixFinalBattlePrefab.SetActive(false);
 					//Spawn Felix boss
 				}
 
