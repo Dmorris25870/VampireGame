@@ -32,6 +32,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject VictoriaNoTalkyPrefab;
 		[SerializeField] private GameObject WaitingVicPrefab;
 		[SerializeField] private GameObject Guard01Prefab;
+		[SerializeField] private GameObject Citizen01Prefab;
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
 
@@ -50,7 +51,7 @@ namespace VartraAbyss
 				{
 					m_screenTint.SetActive(true);
 					//Debug.Log("ExplosionScreenOn");
-					//m_breakableWall.SetActive(false);
+					m_breakableWall.SetActive(false);
 				}
 				else if( number > 1 )//if num is 2 turn off curtain
 				{
