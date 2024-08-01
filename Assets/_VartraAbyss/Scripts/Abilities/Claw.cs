@@ -26,7 +26,7 @@ namespace VartraAbyss.Abilities
 					m_meleeSystem.Target.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-AbilityData.damage);
 				}
 				//m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);				
-				StartCoroutine(ToggleMeshRenderer());
+				//StartCoroutine(ToggleMeshRenderer());
 			}
 			
 		}

@@ -81,7 +81,7 @@ namespace VartraAbyss.Entity.Enemy
 
         public override void Die()
 		{
-			DropItems();
+			//DropItems();
 			Destroy(this.gameObject);
 		}
 
