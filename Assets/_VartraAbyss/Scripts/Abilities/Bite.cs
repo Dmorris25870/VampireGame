@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using VartraAbyss.Entity;
+using VartraAbyss.Entity.Enemy;
 
 namespace VartraAbyss.Abilities
 {
@@ -8,15 +9,27 @@ namespace VartraAbyss.Abilities
 	{
 		[SerializeField] private MeshRenderer m_mesh;
 		[SerializeField] private MeleeSystem m_meleeSystem;
+		[SerializeField] private Animator m_animator;
 
 		public void UseAbility(Actor self)
 		{
+			m_animator.Play("BiteAnim");
 			if( m_meleeSystem.Target != null && m_meleeSystem.Target != self )
 			{
 				self.Stat.ModifyBlood(AbilityData.damage);
-				m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);
-				StartCoroutine(ToggleMeshRenderer());
+				if (m_meleeSystem.Target.tag == "Player")
+				{
+					m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);
+				}
+
+				if (m_meleeSystem.Target.tag == "Enemy")
+				{
+					m_meleeSystem.Target.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-AbilityData.damage);
+				}
+				//m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);				
+				//StartCoroutine(ToggleMeshRenderer());
 			}
+			
 		}
 
 		private IEnumerator ToggleMeshRenderer()

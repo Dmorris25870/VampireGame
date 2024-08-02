@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+ProjectSettings/InkSettings.asset
+Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset
+Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/InspectorConfig.asset.meta

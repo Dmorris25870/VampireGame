@@ -7,7 +7,7 @@ namespace VartraAbyss.Stats
 	{
 		public StatScriptableObject playerStats;
 
-		[field: SerializeField] public float Health { get; private set; }
+		[field: SerializeField] public float Health { get; set; }
 		[field: SerializeField] public float MaximumHealth { get; private set; }
 		[field: SerializeField] public float Blood { get; private set; }
 		[field: SerializeField] public float MaximumBlood { get; private set; }

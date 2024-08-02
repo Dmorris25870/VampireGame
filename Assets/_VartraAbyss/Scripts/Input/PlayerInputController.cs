@@ -14,6 +14,8 @@ namespace VartraAbyss.PlayerInputs
 		[SerializeField] private PlayerInput m_playerControl;
 		[SerializeField] private PlayerBehaviour m_player;
 		[SerializeField] private LayerMask m_ignorePlayerLayer;
+		[SerializeField] public PlayerAnimations playerAnimations;
+		[SerializeField] private Animator m_animator;
 
 		private Vector3 m_clickPoint;
 		public LayerMask IgnorePlayerLayer => m_ignorePlayerLayer;
@@ -25,10 +27,12 @@ namespace VartraAbyss.PlayerInputs
 		public static PlayerClickEvent OnPlayerClick;
 		private bool m_toggleSkillMenu;
 		private bool m_togglePauseMenu;
+		public bool isMoving;
 
 		private void OnEnable()
 		{
 			m_playerControl.actions.FindAction("Primary").performed += OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Primary").canceled += OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed += OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed += OnAbilityTwoPressed;
 			m_playerControl.actions.FindAction("Ability1").performed += OnAbilityThreePressed;
@@ -44,6 +48,7 @@ namespace VartraAbyss.PlayerInputs
 		private void OnDisable()
 		{
 			m_playerControl.actions.FindAction("Primary").performed -= OnPrimaryInputCommand;
+			m_playerControl.actions.FindAction("Primary").canceled -= OnPrimaryInputCommand;
 			m_playerControl.actions.FindAction("HealthPotion").performed -= OnAbilityOnePressed;
 			m_playerControl.actions.FindAction("ManaPotion").performed -= OnAbilityTwoPressed;
 			m_playerControl.actions.FindAction("Ability1").performed -= OnAbilityThreePressed;
@@ -71,8 +76,12 @@ namespace VartraAbyss.PlayerInputs
 				}
 				else
 				{
-					OnPrimaryInput();
+					isMoving = true;
 				}
+			}
+			else if (context.canceled )
+			{
+				isMoving = false;				
 			}
 		}
 
@@ -167,8 +176,14 @@ namespace VartraAbyss.PlayerInputs
 				}
 			}
 		}
-		
 
+		private void FixedUpdate()
+		{
+			if (isMoving)
+			{
+				OnPrimaryInput();
+			}
+		}
 		private Vector3 OnPrimaryInput()
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -176,7 +191,11 @@ namespace VartraAbyss.PlayerInputs
 
 			if( Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer) )
 			{
-				player.SetTarget(hit.point);
+				player.SetTarget(hit.point);				
+				playerAnimations.x = hit.point.x - player.transform.position.x;
+				playerAnimations.z = hit.point.z - player.transform.position.z;
+				Debug.Log("x magnitude: " + playerAnimations.x );
+				Debug.Log("z magnitude: " +  playerAnimations.z );
 
 				if( hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>() != null )
 				{
@@ -185,19 +204,23 @@ namespace VartraAbyss.PlayerInputs
 					if( IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject) )
 					{
 						player.SetIsMoving(true);
+						playerAnimations.PlayWalkAnim();
+						m_animator.SetBool("isMoving", true);
 						player.SetIsAttacking(true);
 						player.SetCurrentAction(ActionTypes.Move);
 						return player.Target;
 					}
 					else
 					{
-						player.SetIsMoving(false);
+						player.SetIsMoving(false);						
 						return player.Target;
 					}
 				}
 				else
 				{
 					player.SetIsMoving(true);
+					playerAnimations.PlayWalkAnim();
+					m_animator.SetBool("isMoving" , true);
 					player.SetCurrentAction(ActionTypes.Move);
 					return player.Target;
 				}

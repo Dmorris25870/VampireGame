@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7734326825947840519}
+  - component: {fileID: 2401579222846237365}
   m_Layer: 0
   m_Name: PlantPerson
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 288809030257821306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2401579222846237365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394266040894875739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 3, z: 0.5}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &3255936792664884870
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 3760659836102841591}
   serializedVersion: 2
   m_LocalRotation: {x: -0.8730033, y: -0, z: -0, w: 0.4877143}
-  m_LocalPosition: {x: 0, y: 1.0422959, z: -0.9404535}
+  m_LocalPosition: {x: 0.5, y: 1.92, z: -0.16}
   m_LocalScale: {x: 45, y: 45, z: 45}
   m_ConstrainProportionsScale: 0
   m_Children:
