@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5144565089890072245}
   - component: {fileID: 3516434213451060079}
+  - component: {fileID: 6982066944258420127}
   m_Layer: 0
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -47,11 +48,38 @@ MonoBehaviour:
   dialogueBox: {fileID: 0}
   dialoguetext: {fileID: 0}
   npcNameText: {fileID: 0}
+  portraitAnimatorLeft: {fileID: 0}
   choices:
   - {fileID: 0}
   - {fileID: 0}
-  typingSpeed: 0.04
+  typingSpeed: 0.001
   dialogueHolder: {fileID: 0}
   dialogue_Trigger: {fileID: 0}
   letsTalk: {fileID: 706757057501823018, guid: 851d3aeb039b2544aa488caa69474660, type: 3}
   dHolder: {fileID: 0}
+  m_bindInkFunction: {fileID: 6982066944258420127}
+--- !u!114 &6982066944258420127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225666556958379243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4215505fd45ebc4c8cea2df4c755fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_screenTint: {fileID: 0}
+  BeatrixIntroPrefab: {fileID: 0}
+  FirstFightPrefab: {fileID: 0}
+  FirstPowerPrefab: {fileID: 0}
+  AvoidPrefab: {fileID: 0}
+  PetrPrefab: {fileID: 0}
+  BarkeepPasswordPrefab: {fileID: 0}
+  VictoriaIntroPrefab: {fileID: 0}
+  IntercomFelixPrefab: {fileID: 0}
+  BarkeepMessagePrefab: {fileID: 0}
+  BeaGetsPowersPrefab: {fileID: 0}
+  FelixFinalBattlePrefab: {fileID: 0}
+  m_playerTrigger: {fileID: 0}
