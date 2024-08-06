@@ -76,4 +76,14 @@ public class UIManager : MonoBehaviour
 	{
 		absorbAbiltyText.SetActive(false);
 	}
+
+	public void TurnOnGameobject(GameObject gameObject)
+	{
+		gameObject.SetActive(true);
+	}
+
+    public void TurnOffGameobject(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
+    }
 }
