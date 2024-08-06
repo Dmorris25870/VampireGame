@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_screenTint: {fileID: 0}
+  m_breakableWall: {fileID: 0}
   BeatrixIntroPrefab: {fileID: 0}
   FirstFightPrefab: {fileID: 0}
   FirstPowerPrefab: {fileID: 0}
@@ -82,4 +83,11 @@ MonoBehaviour:
   BarkeepMessagePrefab: {fileID: 0}
   BeaGetsPowersPrefab: {fileID: 0}
   FelixFinalBattlePrefab: {fileID: 0}
+  TempBeatrixPrefab: {fileID: 0}
+  BasicBarkeepPrefab: {fileID: 0}
+  WaitingBeaPrefab: {fileID: 0}
+  VictoriaNoTalkyPrefab: {fileID: 0}
+  WaitingVicPrefab: {fileID: 0}
+  Guard01Prefab: {fileID: 0}
+  Citizen01Prefab: {fileID: 0}
   m_playerTrigger: {fileID: 0}
