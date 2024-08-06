@@ -78,10 +78,11 @@ public class Dialogue_trigger : MonoBehaviour
 
 	private void OnTriggerExit(Collider other) //Turns off NPC talk popup off
 	{
-		Debug.Log("TriggerExit");
+		//Debug.Log("TriggerExit");
 		if( other.gameObject.tag == "NPC" )
 		{
 			playerInRange = false;
+			Debug.Log("Player exit");
 		}
 			
 		//if (other.gameObject.tag == "Player")
