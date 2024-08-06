@@ -1476,6 +1476,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2076461413737610381, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 2237131422392908323, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2495387932967703397, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: dialogueSystem
@@ -1508,6 +1513,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3477187574140972851, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 3488807179028100205, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3591252151544435974, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: player
