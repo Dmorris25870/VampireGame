@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Ink.Runtime;
-using TMPro;
+using UnityEngine;
+using UnityEngine.AI;
 
 namespace VartraAbyss
 {
-    public class BindInkFunctions: MonoBehaviour
-    {
+	public class BindInkFunctions : MonoBehaviour
+	{
 		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
 		[SerializeField] private GameObject m_breakableWall;
@@ -41,6 +39,7 @@ namespace VartraAbyss
 		private void Awake()
 		{
 			m_screenTint.SetActive(false);
+			m_breakableWall.GetComponent<NavMeshObstacle>().carving = true;
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
 		}
 		public void BindExternalFunction(Story story)
@@ -48,13 +47,14 @@ namespace VartraAbyss
 			story.BindExternalFunction("ExplosionScreen" , (int number) =>
 			{
 
-				if( number <= 1 ) //if num is 1 turn on curtain
+				if(number <= 1) //if num is 1 turn on curtain
 				{
 					m_screenTint.SetActive(true);
 					//Debug.Log("ExplosionScreenOn");
+					m_breakableWall.GetComponent<NavMeshObstacle>().carving = false;
 					m_breakableWall.SetActive(false);
 				}
-				else if( number > 1 )//if num is 2 turn off curtain
+				else if(number > 1)//if num is 2 turn off curtain
 				{
 					m_screenTint.SetActive(false);
 					//Debug.Log("ExplosionScreenOff");
@@ -65,48 +65,48 @@ namespace VartraAbyss
 
 			story.BindExternalFunction("CharacterEvent" , (int number) =>
 			{
-				if( number == 1 ) //Intro Bea 
+				if(number == 1) //Intro Bea 
 				{
 					BeatrixIntroPrefab.SetActive(false);
 					ResetPlayerInRange();
 
 				}
-				else if( number == 2 ) //First fight
+				else if(number == 2) //First fight
 				{
 					FirstFightPrefab.SetActive(false);
 					ResetPlayerInRange();
 				}
-				else if( number == 3 ) //First power
+				else if(number == 3) //First power
 				{
 					FirstPowerPrefab.SetActive(false);
 					ResetPlayerInRange();
 				}
-				else if( number == 4 ) //Turn off Petr and Avoid in Petr story
+				else if(number == 4) //Turn off Petr and Avoid in Petr story
 				{
 					AvoidPrefab.SetActive(false);
 					ResetPlayerInRange();
 				}
-				else if( number == 5) //BarkeepPassword
+				else if(number == 5) //BarkeepPassword
 				{
 					BarkeepPasswordPrefab.SetActive(false);
 					PetrPrefab.SetActive(false);
 					ResetPlayerInRange();
 
 				}
-				else if( number == 6 )//Meet Victoria and spawn temp Beatrix
+				else if(number == 6)//Meet Victoria and spawn temp Beatrix
 				{
 
 					BasicBarkeepPrefab.SetActive(true);
 					TempBeatrixPrefab.SetActive(true);
 					VictoriaIntroPrefab.SetActive(false);
-					ResetPlayerInRange();					
+					ResetPlayerInRange();
 
 
 				}
-				else if( number == 7) //Intercom felix and Patient Zero fight
+				else if(number == 7) //Intercom felix and Patient Zero fight
 				{
-                    ResetPlayerInRange();
-                    IntercomFelixPrefab.SetActive(false);//Disable Intercom Felix
+					ResetPlayerInRange();
+					IntercomFelixPrefab.SetActive(false);//Disable Intercom Felix
 					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
@@ -116,28 +116,28 @@ namespace VartraAbyss
 					//m_wall.SetActive(false);
 
 				}
-				else if( number == 8 ) //Back to barkeep with letter
+				else if(number == 8) //Back to barkeep with letter
 				{
-                    ResetPlayerInRange();
-                    BarkeepMessagePrefab.SetActive(false);//turn of message barkeep and enable basic barkeep
+					ResetPlayerInRange();
+					BarkeepMessagePrefab.SetActive(false);//turn of message barkeep and enable basic barkeep
 					BasicBarkeepPrefab.SetActive(true);
 					BeaGetsPowersPrefab.SetActive(true); //Spawn BeaGetsPowers and Victoria no dialogue
 					VictoriaNoTalkyPrefab.SetActive(true);
 
 				}
-				else if( number == 9 ) //Found Bea and about to find Felix
+				else if(number == 9) //Found Bea and about to find Felix
 				{
-                    ResetPlayerInRange();
-                    BeaGetsPowersPrefab.SetActive(false);//Turn off BeaGetsPowers
+					ResetPlayerInRange();
+					BeaGetsPowersPrefab.SetActive(false);//Turn off BeaGetsPowers
 					VictoriaNoTalkyPrefab.SetActive(false);//Turn off no talky vic
 					WaitingBeaPrefab.SetActive(true); //Turn on WaitingBeatrix waiting Victoria
 					WaitingVicPrefab.SetActive(true);
 				}
-				else if( number == 10 ) //Fight felix
+				else if(number == 10) //Fight felix
 				{
-                    ResetPlayerInRange();
-                    //Turn off Final felix battle
-                    FelixFinalBattlePrefab.SetActive(false);
+					ResetPlayerInRange();
+					//Turn off Final felix battle
+					FelixFinalBattlePrefab.SetActive(false);
 					//Spawn Felix boss
 				}
 
