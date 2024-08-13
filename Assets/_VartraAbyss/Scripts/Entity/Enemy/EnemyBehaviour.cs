@@ -23,6 +23,7 @@ namespace VartraAbyss.Entity.Enemy
 		public GameObject player;
 		public bool isAggroed;
 		private float aggroRange;
+		public ParticleSystem damageEffect;
 
 		private void Start()
 		{
@@ -60,16 +61,27 @@ namespace VartraAbyss.Entity.Enemy
 			instantiatedGold.GetComponent<GoldBase>().goldText.text = baseGold + " Gold";
 		}
 
-		public void Update()
+		public void TakeDamage(int amount)
 		{
+			Stat.Health += amount;
+			if ( amount < 0 )
+            {
+				PlayDamageEffect();
+            }
 			if( Stat.Health <= 0 )
 			{
 				Die();
 			}
 		}
-		public override void Die()
+
+		public void PlayDamageEffect()
+        {
+			Instantiate(damageEffect, transform.position, transform.rotation);
+        }
+
+        public override void Die()
 		{
-			DropItems();
+			//DropItems();
 			Destroy(this.gameObject);
 		}
 

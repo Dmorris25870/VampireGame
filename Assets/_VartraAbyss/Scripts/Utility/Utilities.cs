@@ -12,6 +12,12 @@ namespace VartraAbyss.Utility
 			return distance;
 		}
 
+		public static float GetDistanceBetweenTwoVectors(Vector3 positionA , Vector3 positionB)
+		{
+			float distance = Vector3.Distance(positionA , positionA);
+			return distance;
+		}
+
 		public static bool IsPointerOverUIElement()
 		{
 			PointerEventData eventData = new(EventSystem.current);
