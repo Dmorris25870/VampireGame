@@ -68,9 +68,9 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnPrimaryInputCommand(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
-				if( Utilities.IsPointerOverUIElement() )
+				if(Utilities.IsPointerOverUIElement())
 				{
 					return;
 				}
@@ -79,15 +79,15 @@ namespace VartraAbyss.PlayerInputs
 					isMoving = true;
 				}
 			}
-			else if (context.canceled )
+			else if(context.canceled)
 			{
-				isMoving = false;				
+				isMoving = false;
 			}
 		}
 
 		private void OnAbilityOnePressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot1Ability?.Invoke();
 			}
@@ -95,7 +95,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilityTwoPressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot2Ability?.Invoke();
 			}
@@ -103,7 +103,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilityThreePressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot3Ability?.Invoke();
 			}
@@ -111,7 +111,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilityFourPressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot4Ability?.Invoke();
 			}
@@ -119,7 +119,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilityFivePressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot5Ability?.Invoke();
 			}
@@ -127,7 +127,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilitySixPressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot6Ability?.Invoke();
 			}
@@ -135,7 +135,7 @@ namespace VartraAbyss.PlayerInputs
 
 		private void OnAbilitySevenPressed(InputAction.CallbackContext context)
 		{
-			if( context.performed )
+			if(context.performed)
 			{
 				EventManager.OnActivatedSlot7Ability?.Invoke();
 			}
@@ -145,9 +145,9 @@ namespace VartraAbyss.PlayerInputs
 		{
 			m_toggleSkillMenu = !m_toggleSkillMenu;
 
-			if( context.performed )
+			if(context.performed)
 			{
-				if( m_toggleSkillMenu )
+				if(m_toggleSkillMenu)
 				{
 					EventManager.OnSkillsMenu?.Invoke();
 				}
@@ -158,28 +158,26 @@ namespace VartraAbyss.PlayerInputs
 			}
 		}
 
-		private void OnPauseMenuPressed(InputAction.CallbackContext context ) 
-		{ 
+		private void OnPauseMenuPressed(InputAction.CallbackContext context)
+		{
 			m_togglePauseMenu = !m_togglePauseMenu;
 
-			if ( context.performed )
+			if(context.performed)
 			{
-				if( m_togglePauseMenu )
+				if(m_togglePauseMenu)
 				{
 					EventManager.OnGamePaused?.Invoke();
-					Debug.Log("Tab Button has been pressed and Invoked.");
 				}
 				else
 				{
 					EventManager.OnGameUnpaused?.Invoke();
-					Debug.Log("Tab Button has been pressed and Invoked.");
 				}
 			}
 		}
 
 		private void FixedUpdate()
 		{
-			if (isMoving)
+			if(isMoving)
 			{
 				OnPrimaryInput();
 			}
@@ -189,30 +187,28 @@ namespace VartraAbyss.PlayerInputs
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			Actor player = Global.OnGetPlayerEvent?.Invoke();
 
-			if( Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer) )
+			if(Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer))
 			{
-				player.SetTarget(hit.point);				
+				player.SetTarget(hit.point);
 				playerAnimations.x = hit.point.x - player.transform.position.x;
 				playerAnimations.z = hit.point.z - player.transform.position.z;
-				Debug.Log("x magnitude: " + playerAnimations.x );
-				Debug.Log("z magnitude: " +  playerAnimations.z );
 
-				if( hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>() != null )
+				if(hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>() != null)
 				{
 					player.SetTarget(hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>().transform.position);
 
-					if( IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject) )
+					if(IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject))
 					{
 						player.SetIsMoving(true);
 						playerAnimations.PlayWalkAnim();
-						m_animator.SetBool("isMoving", true);
+						m_animator.SetBool("isMoving" , true);
 						player.SetIsAttacking(true);
 						player.SetCurrentAction(ActionTypes.Move);
 						return player.Target;
 					}
 					else
 					{
-						player.SetIsMoving(false);						
+						player.SetIsMoving(false);
 						return player.Target;
 					}
 				}

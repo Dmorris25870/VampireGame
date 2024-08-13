@@ -1,6 +1,6 @@
 namespace VartraAbyss.Actions
 {
-	public class UseItem : Action
+	public class UseItem : Action, IAction_Command
 	{
 		public override void Execute(params object[] commandData)
 		{

@@ -47,7 +47,8 @@ MonoBehaviour:
   <AbilityData>k__BackingField: {fileID: 11400000, guid: 2263e4adaa70fa84a9d0684f473ba96b,
     type: 2}
   <Name>k__BackingField: HealthPotion
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 3d9d9451a3f8c2b4c8007353a57cdcdc,
+    type: 3}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 0
@@ -56,7 +57,7 @@ MonoBehaviour:
   <Range>k__BackingField: 0
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <TargetActor>k__BackingField: {fileID: 0}
   <Timer>k__BackingField: {fileID: 0}
-  <PotionUses>k__BackingField: 10
-  <PotionCurrentRemaining>k__BackingField: 0
-  <HealingAmount>k__BackingField: 10
+  <HealingAmount>k__BackingField: 30.000002
+  <PercentageToHeal>k__BackingField: 0.3

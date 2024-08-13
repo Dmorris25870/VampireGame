@@ -1,4 +1,3 @@
-using AYellowpaper.SerializedCollections;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,37 +18,22 @@ namespace VartraAbyss.Entity.Player
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
 		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
+		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[SerializeField] private AbilitySO m_abilityData;
+		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[SerializeField] private List<GameObject> m_abilitiesToSpawn = new();
 
 		private void OnEnable()
 		{
 			Global.OnGetPlayerEvent += StoreActor;
 			EventManager.OnReturnUsedAbility += SetCurrentAbility;
+			SetupDependencies();
 		}
 
 		private void OnDisable()
 		{
 			Global.OnGetPlayerEvent -= StoreActor;
 			EventManager.OnReturnUsedAbility -= SetCurrentAbility;
-		}
-
-		private void Awake()
-		{
-			m_isSkillsMenuOpen = false;
-			m_skillToAbsorb = null;
-			SetNavMeshAgent(GetComponent<NavMeshAgent>());
-			SetStats(Stat);
-			Stat.InitializeStats();
-			EventManager.OnHealthChanged?.Invoke();
-			EventManager.OnBloodChanged?.Invoke();
-			SetCurrentAction(Action.ActionTypes.Idle);
-			EventManager.OnLevelUpEvent?.Invoke(this);
-		}
-
-		private void Start()
-		{
-			SetupActions();
 		}
 
 		protected override Actor StoreActor()
@@ -92,21 +76,17 @@ namespace VartraAbyss.Entity.Player
 
 		}
 
-		private void SetupActions()
+		private void SetupDependencies()
 		{
-			GameObject actions = new("PlayerActions");
-			actions.transform.SetParent(this.transform);
-			ListOfActions = new SerializedDictionary<Action.ActionTypes , Action>
-			{
-				{ Action.ActionTypes.Idle , actions.AddComponent<Idle>() } ,
-				{ Action.ActionTypes.Move , actions.AddComponent<Move>() } ,
-				{ Action.ActionTypes.CastAbility , actions.AddComponent<CastAbility>() } ,
-				{ Action.ActionTypes.UseItem , actions.AddComponent<UseItem>() } ,
-				{ Action.ActionTypes.Interact , actions.AddComponent<Interact>() } ,
-				{ Action.ActionTypes.Cancel , actions.AddComponent<Cancel>() }
-			};
-
+			m_isSkillsMenuOpen = false;
+			m_skillToAbsorb = null;
+			SetNavMeshAgent(GetComponent<NavMeshAgent>());
+			SetStats(Stat);
+			Stat.InitializeStats();
+			EventManager.OnHealthChanged?.Invoke();
+			EventManager.OnBloodChanged?.Invoke();
 			SetCurrentAction(Action.ActionTypes.Idle);
+			EventManager.OnLevelUpEvent?.Invoke(this);
 		}
 
 		public override void SetTarget(Vector3 newTarget)

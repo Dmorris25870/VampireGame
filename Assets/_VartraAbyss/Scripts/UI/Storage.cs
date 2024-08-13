@@ -14,7 +14,7 @@ namespace VartraAbyss
 
 		private void Start()
 		{
-			for( int i = 0; i < slots.Count; i++ )
+			for(int i = 0; i < slots.Count; i++)
 			{
 				slots[i].UpdateUI(items[i]);
 				slots[i].SetupStorage(this);
@@ -24,11 +24,11 @@ namespace VartraAbyss
 
 		public void SwapItem(UISlot slot)
 		{
-			if( m_swapUISlot == null )
+			if(m_swapUISlot == null)
 			{
 				m_swapUISlot = slot;
 			}
-			else if( m_swapUISlot == slot )
+			else if(m_swapUISlot == slot)
 			{
 				m_swapUISlot = null;
 			}
@@ -42,13 +42,13 @@ namespace VartraAbyss
 				int index2 = storage2.GetItemIndex(slot);
 				AbilitySO item2 = storage2.GetItem(index2);
 
-				if( !storage1.staticStorage )
+				if(!storage1.staticStorage)
 				{
 					storage1.SetItem(index1 , item2);
 					m_swapUISlot.UpdateUI(item2);
 				}
 
-				if( !storage2.staticStorage )
+				if(!storage2.staticStorage)
 				{
 					storage2.SetItem(index2 , item1);
 					slot.UpdateUI(item1);
@@ -62,6 +62,12 @@ namespace VartraAbyss
 
 		public int GetItemIndex(UISlot slot) => slots.IndexOf(slot);
 		public AbilitySO GetItem(int index) => items[index];
+		public List<AbilitySO> GetItemList() => items;
+		public void ClearItem(int index)
+		{
+			slots.RemoveAt(index);
+			items.RemoveAt(index);
+		}
 		void SetItem(int index , AbilitySO item) => items[index] = item;
 	}
 }

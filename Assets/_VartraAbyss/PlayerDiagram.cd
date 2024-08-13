@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VartraAbyss.Entity.Actor">
+    <Position X="0.5" Y="2.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>BAQCaAAAAEhAACAgYgUAASAIAABAAQEAEAIAAACAEoI=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Entity\Actor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Stat" />
+      <Property Name="Agent" />
+      <Property Name="CurrentAbility" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VartraAbyss.Entity.Player.PlayerBehaviour">
+    <Position X="3.75" Y="11.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAguAAADAAAAAAAAAAAAAAAIAIQAAAAAAACFI=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Entity\Player\PlayerBehaviour.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_abilityData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VartraAbyss.Stats.Stat" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACQUAAAAAABBAAAAAAAgAUAAACIAAAAgAAgAAAEA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Stats\Stat.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="playerStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VartraAbyss.Stats.StatScriptableObject" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAABEEAAgAAAAAAAAAAAgAAAAAAAQACAAEABAAg=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Stats\StatScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VartraAbyss.AbilitySO">
+    <Position X="8.75" Y="11.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAIBAIAgAAAAAAAAEAAABAAACAgAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\AbilitySO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.AI.NavMeshAgent" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.Ability" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="VartraAbyss.Abilities.Ability.Builder&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_VartraAbyss\Scripts\Abilities\Ability.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEACQgAAACQACAAAAAAQBJAAAAAAQAAAAIAEEAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\Ability.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AbilityData" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
