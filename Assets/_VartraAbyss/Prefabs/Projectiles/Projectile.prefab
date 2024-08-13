@@ -218,5 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 6399190636250574446}
   m_collider: {fileID: 1108896311563234180}
+  m_lifeTime: 10
   <Velocity>k__BackingField: {x: 0, y: 0, z: 0}
   <DamageAmount>k__BackingField: 10
