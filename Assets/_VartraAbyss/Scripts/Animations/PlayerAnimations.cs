@@ -33,10 +33,12 @@ namespace VartraAbyss
 		{
 			if(x < 0 & z < 0)
 			{
+				sr.flipX = false;
 				anim.Play("PlayerWalkLeft");
 			}
 			else if(x > 0 & z > 0)
 			{
+				sr.flipX = true;
 				anim.Play("PlayerWalkRight");
 			}
 			else if(x < 0 & z > 0)
