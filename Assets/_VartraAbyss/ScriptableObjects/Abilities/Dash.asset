@@ -28,5 +28,5 @@ MonoBehaviour:
   damage: 0
   bloodCost: 0
   coolDownTime: 10
-  range: 0.01
+  range: 5
   spawnPosition: {x: 0, y: 0, z: 0}

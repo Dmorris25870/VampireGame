@@ -28,7 +28,7 @@ namespace VartraAbyss.Abilities
 			{
 				float distance = Utilities.GetDistanceBetweenTwoVectors(self , hit.point);
 
-				if(range <= distance)
+				if(range >= distance)
 				{
 					return true;
 				}
