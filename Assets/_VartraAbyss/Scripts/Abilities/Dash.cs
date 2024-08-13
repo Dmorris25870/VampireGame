@@ -10,10 +10,10 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if(Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer))
+			if(IsWithinRange(self.Agent.transform.position , self.CurrentAbility.Range))
 			{
-				if(IsWithinRange(self.Agent.transform.position , hit.point , self.CurrentAbility.Range))
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				if(Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer))
 				{
 					self.Agent.Warp(hit.point);
 					self.SetTarget(hit.point);
@@ -21,18 +21,24 @@ namespace VartraAbyss.Abilities
 			}
 		}
 
-		private bool IsWithinRange(Vector3 self , Vector3 warpLocation , float range)
+		private bool IsWithinRange(Vector3 self , float range)
 		{
-			float distance = Utilities.GetDistanceBetweenTwoVectors(self , warpLocation);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if(Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer))
+			{
+				float distance = Utilities.GetDistanceBetweenTwoVectors(self , hit.point);
 
-			if(distance <= range)
-			{
-				return true;
+				if(range <= distance)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 			}
-			else
-			{
-				return false;
-			}
+
+			return false;
 		}
 	}
 }
