@@ -21,19 +21,16 @@ namespace VartraAbyss
 
 		private void OnDashUnlocked()
 		{
-			Debug.Log("Dash unlocked event received.");
 			UnlockAbility(3);
 		}
 
 		private void OnBloodProjectileUnlocked()
 		{
-			Debug.Log("Blood Projectile unlocked event received.");
 			UnlockAbility(4);
 		}
 
 		private void OnBiteUnlocked()
 		{
-			Debug.Log("Bite unlocked event received.");
 			UnlockAbility(5);
 		}
 
@@ -52,7 +49,6 @@ namespace VartraAbyss
 			}
 
 			slots[index].gameObject.SetActive(true);
-			Debug.Log($"Ability at index {index} has been unlocked and set active.");
 		}
 	}
 }

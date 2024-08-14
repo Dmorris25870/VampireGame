@@ -79,6 +79,7 @@ namespace VartraAbyss
 				else if(number == 3) //First power
 				{
 					FirstPowerPrefab.SetActive(false);
+					EventManager.OnBloodProjectileAbilityUnlocked?.Invoke();
 					ResetPlayerInRange();
 				}
 				else if(number == 4) //Turn off Petr and Avoid in Petr story
