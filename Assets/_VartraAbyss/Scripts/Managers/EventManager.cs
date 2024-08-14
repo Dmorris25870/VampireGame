@@ -34,6 +34,10 @@ public class EventManager : SingletonManager<EventManager>
 	public static AbilityEvent OnActivatedSlot5Ability;
 	public static AbilityEvent OnActivatedSlot6Ability;
 	public static AbilityEvent OnActivatedSlot7Ability;
+
+	public static AbilityEvent OnDashAbilityUnlocked;
+	public static AbilityEvent OnBloodProjectileAbilityUnlocked;
+	public static AbilityEvent OnBiteAbilityUnlocked;
 	#endregion
 
 	public delegate void GetAbilityInSlotEvent(Ability ability , string abilityName);

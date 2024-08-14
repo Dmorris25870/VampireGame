@@ -19,6 +19,8 @@ namespace VartraAbyss.Entity.Enemy
 		[SerializeField] private float baseGold;
 		[SerializeField] public int enemyHealth;
 		[SerializeField] private Timer attackTimer;
+		[SerializeField] private bool isAbilityEnemy;
+
 		private PlayerBehaviour playerBehaviour;
 		public GameObject player;
 		public bool isAggroed;
@@ -82,6 +84,10 @@ namespace VartraAbyss.Entity.Enemy
 
 		public override void Die()
 		{
+			if(isAbilityEnemy)
+			{
+				EventManager.OnDashAbilityUnlocked?.Invoke();
+			}
 			//DropItems();
 			Destroy(this.gameObject);
 		}

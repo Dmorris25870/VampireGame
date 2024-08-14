@@ -16,7 +16,6 @@ namespace VartraAbyss.Entity.Player
 	public class PlayerBehaviour : Actor
 	{
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
-		private bool m_isSkillsMenuOpen;
 		private GameObject m_skillToAbsorb;
 		[TabGroup("Actor" , "Abilities" , SdfIconType.Magic , TextColor = "purple")]
 		[SerializeField] private AbilitySO m_abilityData;
@@ -45,7 +44,7 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if( other.CompareTag("AbilityToAbsorb") )
+			if(other.CompareTag("AbilityToAbsorb"))
 			{
 				EventManager.OnCanAbsorbAbility?.Invoke();
 				m_skillToAbsorb = other.gameObject;
@@ -54,7 +53,7 @@ namespace VartraAbyss.Entity.Player
 
 		private void OnTriggerExit(Collider other)
 		{
-			if( other.CompareTag("AbilityToAbsorb") )
+			if(other.CompareTag("AbilityToAbsorb"))
 			{
 				EventManager.OnCannotAbsorbAbility?.Invoke();
 				m_skillToAbsorb = null;
@@ -63,13 +62,13 @@ namespace VartraAbyss.Entity.Player
 
 		private void FixedUpdate()
 		{
-			if( ListOfActions.TryGetValue(CurrentAction , out Action action) )
+			if(ListOfActions.TryGetValue(CurrentAction , out Action action))
 			{
 				// 1st param is self, then a Vector, 
-				action.Execute(this , Target);				
+				action.Execute(this , Target);
 			}
 
-			if( Stat.Health <= 0 )
+			if(Stat.Health <= 0)
 			{
 				EventManager.OnPlayerDeathEvent?.Invoke();
 			}
@@ -78,8 +77,8 @@ namespace VartraAbyss.Entity.Player
 
 		private void SetupDependencies()
 		{
-			m_isSkillsMenuOpen = false;
 			m_skillToAbsorb = null;
+			base.SetCurrentAbility(null , "NullAbility");
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
 			SetStats(Stat);
 			Stat.InitializeStats();
@@ -97,7 +96,7 @@ namespace VartraAbyss.Entity.Player
 		public override void SetCurrentAbility(Ability ability , string abilityName)
 		{
 			base.SetCurrentAbility(ability , abilityName);
-			if( Stat.Blood > 0 )
+			if(Stat.Blood > 0)
 			{
 				UseCurrentAbility();
 			}
@@ -105,10 +104,12 @@ namespace VartraAbyss.Entity.Player
 
 		private void UseCurrentAbility()
 		{
-			if( CurrentAbility is IAbility_Strategy strategy )
+			if(CurrentAbility is IAbility_Strategy strategy)
 			{
 				strategy.UseAbility(this);
 			}
+
+			base.SetCurrentAbility(null , "NullAbility");
 		}
 	}
 }

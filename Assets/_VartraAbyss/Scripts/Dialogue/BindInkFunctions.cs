@@ -84,6 +84,7 @@ namespace VartraAbyss
 				else if(number == 4) //Turn off Petr and Avoid in Petr story
 				{
 					AvoidPrefab.SetActive(false);
+					EventManager.OnBiteAbilityUnlocked?.Invoke();
 					ResetPlayerInRange();
 				}
 				else if(number == 5) //BarkeepPassword

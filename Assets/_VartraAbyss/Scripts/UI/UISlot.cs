@@ -23,7 +23,7 @@ namespace VartraAbyss
 
 		public void UpdateUI(AbilitySO item)
 		{
-			if( item == null )
+			if(item == null)
 			{
 				itemImage = null;
 				return;
