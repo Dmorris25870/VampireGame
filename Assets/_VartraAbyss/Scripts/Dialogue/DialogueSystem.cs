@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 
 namespace VartraAbyss.Dialogue
@@ -73,6 +72,7 @@ namespace VartraAbyss.Dialogue
 			//InitialiseChoices();
 			//layoutAnimator = dialogueBox.GetComponent<Animator>();
 			portraitAnimatorLeft = portraitAnimatorLeft.GetComponent<Animator>();
+			EnterDialogueMode(dialogue_Trigger.inkJSON);
 			//portraitAnimatorRight = portraitAnimatorRight.GetComponent<Animator>();
 			//portraitLeftParent = portraitLeftParent.GetComponent<GameObject>();
 			//portraitRightParent = portraitRightParent.GetComponent<GameObject>();
@@ -80,8 +80,8 @@ namespace VartraAbyss.Dialogue
 
 		public void PerformTalk(InputAction.CallbackContext context)
 		{
-	
-			if( dialogue_Trigger.playerInRange )
+
+			if(dialogue_Trigger.playerInRange)
 			{
 				EnterDialogueMode(dialogue_Trigger.inkJSON);
 			}
@@ -136,7 +136,7 @@ namespace VartraAbyss.Dialogue
 
 		private void Update()
 		{
-			if( !dialogueIsPlaying )
+			if(!dialogueIsPlaying)
 			{
 				return;
 			}
@@ -157,7 +157,7 @@ namespace VartraAbyss.Dialogue
 			inkJSON = dHolder.GetComponent<DialogueHolder>().inkJSONtoPlay;
 			currentStory = new Story(inkJSON.text);
 			dialogueIsPlaying = true;
-			
+
 			//npcNameText.text = npcNameText.transform.GetComponent<TextMeshProUGUI>().text;
 			//npcNameText.text = dialogue_trigger.npcName;
 			dialogueBox.SetActive(true);
@@ -172,7 +172,7 @@ namespace VartraAbyss.Dialogue
 
 			canContinueToNextLine = false;
 
-			foreach( char letter in line.ToCharArray() )
+			foreach(char letter in line.ToCharArray())
 			{
 
 				//Checking if player wants to finish text printing
@@ -205,18 +205,18 @@ namespace VartraAbyss.Dialogue
 		{
 			//onSkipPrint = true;
 			if(//canContinueToNextLine && 
-				currentStory.canContinue )
+				currentStory.canContinue)
 			{
 				//onSkipPrint = false;
 
-				if( displayLineCoroutine != null )
+				if(displayLineCoroutine != null)
 				{
 					StopCoroutine(displayLineCoroutine);
 				}
 
 				string nextLine = currentStory.Continue();
 				//Checks for external ink function is on the last line of ink story
-				if( nextLine.Equals("") && !currentStory.canContinue)
+				if(nextLine.Equals("") && !currentStory.canContinue)
 				{
 					ExitDialogueMode();
 				}
@@ -240,11 +240,11 @@ namespace VartraAbyss.Dialogue
 
 		private void HandleTags(List<string> currentTags)
 		{
-			foreach( string tag in currentTags )
+			foreach(string tag in currentTags)
 			{
 				//Split ink tags by :
 				string[] splitTag = tag.Split(':');
-				if( splitTag.Length != 2 )
+				if(splitTag.Length != 2)
 				{
 					Debug.LogError("ink tag could not be read: " + tag);
 				}
@@ -252,28 +252,28 @@ namespace VartraAbyss.Dialogue
 				string tagKey = splitTag[0].Trim();
 				string tagValue = splitTag[1].Trim();
 
-				switch( tagKey )
+				switch(tagKey)
 				{
 					case SPEAKER_TAG:
 					//Debug.Log("speaker = " + tagValue);
 					npcNameText.text = tagValue;
-						break;
+					break;
 					case PORTRAIT_TAG:
 					//Debug.Log("portrait = " + tagValue);
-					
+
 					//if( portraitAnimatorLeft)
 					//{
-						portraitAnimatorLeft.Play(tagValue);
-						//Debug.Log("portrait left is on");
-						//break;
+					portraitAnimatorLeft.Play(tagValue);
+					//Debug.Log("portrait left is on");
+					//break;
 					//}
 
 					//if( portraitAnimatorRight)
 					//{
-						//portraitAnimatorRight.Play(tagValue);
-						//Debug.Log("portrait right on");
-						//break;
-						//return;
+					//portraitAnimatorRight.Play(tagValue);
+					//Debug.Log("portrait right on");
+					//break;
+					//return;
 					//}
 
 					break;

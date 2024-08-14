@@ -1510,6 +1510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
+      propertyPath: dHolder
+      value: 
+      objectReference: {fileID: 2233546268355962804}
+    - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 1458023066}
@@ -1523,6 +1528,11 @@ PrefabInstance:
       propertyPath: dialoguetext
       value: 
       objectReference: {fileID: 1759328211}
+    - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
+      propertyPath: dialogueHolder
+      value: 
+      objectReference: {fileID: 2233546268355962814}
     - target: {fileID: 3516434213451060079, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: dialogue_Trigger
@@ -2676,6 +2686,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2233546268355962787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2233546268355962814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5788538472469668464, guid: c98ad8ee9d92284479459afc92cfa43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2233546268355962787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233546268355962804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6778d3ee0fd8444994b8647fd8840d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
