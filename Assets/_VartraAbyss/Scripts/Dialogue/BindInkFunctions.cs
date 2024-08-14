@@ -25,6 +25,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject BarkeepMessagePrefab;
 		[SerializeField] private GameObject BeaGetsPowersPrefab;
 		[SerializeField] private GameObject FelixFinalBattlePrefab;
+		[SerializeField] private GameObject AfterZeroPrefab;
 
 		[Header("Extra NPC Characters")]
 		[SerializeField] private GameObject TempBeatrixPrefab;
@@ -59,6 +60,15 @@ namespace VartraAbyss
 					m_screenTint.SetActive(false);
 					//Debug.Log("ExplosionScreenOff");
 
+				}
+
+			});
+
+			story.BindExternalFunction("ChangeWorld", (int number) =>
+			{
+				if (number == 1)
+				{
+					//Add barrel to lab
 				}
 
 			});
@@ -139,6 +149,10 @@ namespace VartraAbyss
                     //Turn off Final felix battle
                     FelixFinalBattlePrefab.SetActive(false);
 					//Spawn Felix boss
+				}
+				else if (number == 11) //turn off after patient zero self talk
+				{
+					AfterZeroPrefab.SetActive(false);
 				}
 
 			});
