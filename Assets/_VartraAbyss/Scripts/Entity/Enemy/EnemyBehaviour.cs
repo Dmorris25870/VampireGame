@@ -19,10 +19,13 @@ namespace VartraAbyss.Entity.Enemy
 		[SerializeField] private float baseGold;
 		[SerializeField] public int enemyHealth;
 		[SerializeField] private Timer attackTimer;
+		[SerializeField] private bool isAbilityEnemy;
+
 		private PlayerBehaviour playerBehaviour;
 		public GameObject player;
 		public bool isAggroed;
 		private float aggroRange;
+		public ParticleSystem damageEffect;
 
 		private void Start()
 		{
@@ -37,18 +40,18 @@ namespace VartraAbyss.Entity.Enemy
 
 		private void DropItems()
 		{
-			for( int i = 0; i < enemyBase.lootTable.items.Length; i++ )
+			for(int i = 0; i < enemyBase.lootTable.items.Length; i++)
 			{
-				for( int j = 0; j < enemyBase.lootTable.items[i].itemWeight; j++ )
+				for(int j = 0; j < enemyBase.lootTable.items[i].itemWeight; j++)
 				{
-					if( enemyBase.lootTable.items[i] != null )
+					if(enemyBase.lootTable.items[i] != null)
 					{
 						itemsList.Add(enemyBase.lootTable.items[i]);
 					}
 				}
 			}
 
-			for( int i = 0; i < enemyBase.itemDrops; i++ )
+			for(int i = 0; i < enemyBase.itemDrops; i++)
 			{
 				GameObject instantiatedItem = Instantiate(itemObject , gameObject.transform.position , Quaternion.identity);
 				instantiatedItem.GetComponent<ItemBehaviour>().itemBase = itemsList[Random.Range(0 , itemsList.Count)];
@@ -60,25 +63,41 @@ namespace VartraAbyss.Entity.Enemy
 			instantiatedGold.GetComponent<GoldBase>().goldText.text = baseGold + " Gold";
 		}
 
-		public void Update()
+		public void TakeDamage(int amount)
 		{
-			if( Stat.Health <= 0 )
+			Stat.Health += amount;
+			if(amount < 0)
+			{
+				PlayDamageEffect();
+				EventManager.OnEnemyHealthChanged?.Invoke();
+			}
+			if(Stat.Health <= 0)
 			{
 				Die();
 			}
 		}
+
+		public void PlayDamageEffect()
+		{
+			Instantiate(damageEffect , transform.position , transform.rotation);
+		}
+
 		public override void Die()
 		{
-			DropItems();
+			if(isAbilityEnemy)
+			{
+				EventManager.OnDashAbilityUnlocked?.Invoke();
+			}
+			//DropItems();
 			Destroy(this.gameObject);
 		}
 
 		private void FixedUpdate()
 		{
-			if( IsWithinAggroRange(gameObject , player) )
+			if(IsWithinAggroRange(gameObject , player))
 			{
 				SetTarget(player.transform.position);
-				if( IsWithinAbilityRange(gameObject , player) )
+				if(IsWithinAbilityRange(gameObject , player))
 				{
 					SetIsMoving(true);
 					SetIsAttacking(true);
@@ -91,7 +110,7 @@ namespace VartraAbyss.Entity.Enemy
 				}
 			}
 
-			if( ListOfActions.TryGetValue(CurrentAction , out Action action) )
+			if(ListOfActions.TryGetValue(CurrentAction , out Action action))
 			{
 				// 1st param is self, then a Vector, 
 				action.Execute(this , Target);
@@ -125,7 +144,7 @@ namespace VartraAbyss.Entity.Enemy
 		public override void SetCurrentAbility(Ability ability , string abilityName)
 		{
 			base.SetCurrentAbility(ability , abilityName);
-			if( Stat.Blood > 0 )
+			if(Stat.Blood > 0)
 			{
 				UseCurrentAbility();
 			}
@@ -133,7 +152,7 @@ namespace VartraAbyss.Entity.Enemy
 
 		private void UseCurrentAbility()
 		{
-			if( CurrentAbility is IAbility_Strategy strategy )
+			if(CurrentAbility is IAbility_Strategy strategy)
 			{
 				strategy.UseAbility(this);
 			}

@@ -47,7 +47,8 @@ MonoBehaviour:
   <AbilityData>k__BackingField: {fileID: 11400000, guid: 8ae19bec6430d7846bf84feee6ee0f88,
     type: 2}
   <Name>k__BackingField: Claw
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: dca74f33890150343a49c7396b860966,
+    type: 3}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 3
@@ -56,5 +57,8 @@ MonoBehaviour:
   <Range>k__BackingField: 1
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <TargetActor>k__BackingField: {fileID: 0}
   <Timer>k__BackingField: {fileID: 0}
-  m_collider: {fileID: 0}
+  m_mesh: {fileID: 0}
+  m_meleeSystem: {fileID: 0}
+  m_animator: {fileID: 0}

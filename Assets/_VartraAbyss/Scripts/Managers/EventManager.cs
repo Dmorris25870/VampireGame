@@ -20,6 +20,11 @@ public class EventManager : SingletonManager<EventManager>
 	public static PlayerUIEvent OnBloodChanged;
 	#endregion
 
+	#region Enemy UI Events
+	public delegate void EnemyUIEvent();
+	public static EnemyUIEvent OnEnemyHealthChanged;
+	#endregion
+
 	#region Ability Events
 	public delegate void AbilityEvent();
 	public static AbilityEvent OnActivatedSlot1Ability;
@@ -29,6 +34,10 @@ public class EventManager : SingletonManager<EventManager>
 	public static AbilityEvent OnActivatedSlot5Ability;
 	public static AbilityEvent OnActivatedSlot6Ability;
 	public static AbilityEvent OnActivatedSlot7Ability;
+
+	public static AbilityEvent OnDashAbilityUnlocked;
+	public static AbilityEvent OnBloodProjectileAbilityUnlocked;
+	public static AbilityEvent OnBiteAbilityUnlocked;
 	#endregion
 
 	public delegate void GetAbilityInSlotEvent(Ability ability , string abilityName);
@@ -71,4 +80,6 @@ public class EventManager : SingletonManager<EventManager>
 	public delegate void CanAbsorbAbilityEvent();
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
+
+
 }

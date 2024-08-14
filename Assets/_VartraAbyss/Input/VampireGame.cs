@@ -381,7 +381,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""753c6caf-e90e-4425-8918-1e196a575888"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
