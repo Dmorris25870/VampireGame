@@ -200,7 +200,7 @@ namespace VartraAbyss.PlayerInputs
 					if(IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject))
 					{
 						player.SetIsMoving(true);
-						playerAnimations.PlayWalkAnim();
+						//playerAnimations.PlayWalkAnim();
 						m_animator.SetBool("isMoving" , true);
 						player.SetIsAttacking(true);
 						player.SetCurrentAction(ActionTypes.Move);
@@ -215,7 +215,7 @@ namespace VartraAbyss.PlayerInputs
 				else
 				{
 					player.SetIsMoving(true);
-					playerAnimations.PlayWalkAnim();
+					//playerAnimations.PlayWalkAnim();
 					m_animator.SetBool("isMoving" , true);
 					player.SetCurrentAction(ActionTypes.Move);
 					return player.Target;

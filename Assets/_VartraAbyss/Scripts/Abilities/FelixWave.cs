@@ -10,14 +10,40 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
-			GameObject projectile = Instantiate(m_projectilePrefab ,
-					self.GetComponentInChildren<Spawner>().transform.position ,
-					self.GetComponentInChildren<Spawner>().transform.rotation);
+			SpawnProjectile(self);
+			self.Stat.ModifyBlood(-AbilityData.bloodCost);
+		}
 
+		private void SpawnProjectile(Actor self)
+		{
+			Vector3 targetPosition = self.Target;
+			targetPosition.y = 0f;
 
-			projectile.transform.LookAt(self.Target);
-			projectile.GetComponent<Projectile>().SetDamageAmount(Damage);
-			projectile.GetComponent<Projectile>().SetVelocity(transform.forward , self.gameObject , m_projectileSpeed);
+			Vector3 playerPosition = self.Agent.transform.position;
+			Vector3 directionToTarget = (targetPosition - playerPosition).normalized;
+
+			// Spawn position around the player
+			Vector3 spawnPosition = playerPosition + directionToTarget * self.CurrentAbility.Range;
+
+			// Instantiate the projectile
+			GameObject projectile = Instantiate(m_projectilePrefab , spawnPosition , Quaternion.identity);
+
+			// Calculate the projectile's initial velocity
+			Rigidbody rigidBody = projectile.GetComponent<Rigidbody>();
+
+			Vector3 playerVelocity = self.Agent.velocity;
+			Vector3 projectileDirection = (targetPosition - spawnPosition).normalized;
+
+			// Dot product to determine velocity inheritance
+			float dotProduct = Vector3.Dot(playerVelocity.normalized , projectileDirection);
+			if(dotProduct > 0) // Moving in the same direction
+			{
+				rigidBody.velocity = playerVelocity + projectileDirection * m_projectileSpeed;
+			}
+			else // Moving in opposite directions
+			{
+				rigidBody.velocity = projectileDirection * m_projectileSpeed;
+			}
 		}
 	}
 }
