@@ -36,12 +36,17 @@ namespace VartraAbyss
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
 
+		[Header("Prefabs")]
+		[SerializeField] private GameObject EnemySet01;
+        [SerializeField] private GameObject EnemySet02;
 
-		private void Awake()
+
+        private void Awake()
 		{
 			m_screenTint.SetActive(false);
 			m_breakableWall.GetComponent<NavMeshObstacle>().carving = true;
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
+			EnemySet02.SetActive(false);
 		}
 		public void BindExternalFunction(Story story)
 		{
@@ -69,6 +74,8 @@ namespace VartraAbyss
 				if (number == 1)
 				{
 					//Add barrel to lab
+					EnemySet02.SetActive(true);
+					EnemySet01.SetActive(false);
 				}
 
 			});
@@ -124,6 +131,7 @@ namespace VartraAbyss
 					TempBeatrixPrefab.SetActive(false);
 					Guard01Prefab.SetActive(false);
 					FelixFinalBattlePrefab.SetActive(true);
+					AfterZeroPrefab.SetActive(true); //turn on self talk prefab
 
 					//m_wall.SetActive(false);
 

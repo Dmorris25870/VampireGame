@@ -1,5 +1,5 @@
 EXTERNAL CharacterEvent(num)
-Ah some new faces. Welcome to (name of bar) in (name of town). I'm Barbruh. Can I get you guys a drink or snack? On the house, since its your first time here.#speaker:Barkeep #portrait:Barkeep
+Ah some new faces. Welcome to The Thirsty Cup. I'm Barbruh. Can I get you guys a drink or snack? On the house, since its your first time here.#speaker:Barkeep #portrait:Barkeep
 Wow actually yeah thanks! Would really appreciate some food.#speaker:Hart #portrait:Hart
 (To Hart) Wait we don't even know what they eat here. This cavern place is totally different from the surface. You can't trust someone just because they're nice.#speaker:Beatrix #portrait:Beatrix
 Thanks, maybe next time. Do you hear about the explosion? We just escaped, the guard people said they were being attacked. We're really confused and could use some help.
