@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a1290e04855b7c489892ec1a135095b
+guid: 18e7411d61cc183489ac489b450e5582
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -21,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -94,59 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -162,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_0
+      name: CharacterWalkSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -176,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 081af15f976f3d14f99124d31e41aa35
-      internalID: 311699091
+      spriteID: 5a14b39bb0da1b84cb0a953e7842f74c
+      internalID: 1271478337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_1
+      name: CharacterWalkSprite_1
       rect:
         serializedVersion: 2
         x: 246
@@ -197,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d049c1fc3388e40489fa8d18bc6fad12
-      internalID: 42324617
+      spriteID: 5f2a51dbd99994342a8f2e8c3cd1b8a0
+      internalID: 1102457477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_2
+      name: CharacterWalkSprite_2
       rect:
         serializedVersion: 2
         x: 492
@@ -218,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90193d1f4177c0b4f88c80aeecfda31f
-      internalID: 1693863732
+      spriteID: 2d9d97a964e988c4686258d73c38680b
+      internalID: -1193251855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_3
+      name: CharacterWalkSprite_3
       rect:
         serializedVersion: 2
         x: 738
@@ -239,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab75f24929fd6d4697a9aa6105e34c2
-      internalID: 824051846
+      spriteID: 37a7b34842829094381429adea6bb38f
+      internalID: -646152854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_4
+      name: CharacterWalkSprite_4
       rect:
         serializedVersion: 2
         x: 984
@@ -260,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c72ac34f3f3c504cbf75f9aa040192d
-      internalID: 910185993
+      spriteID: 62b367a9bceb5de4e9ac5636f98460fb
+      internalID: -1380607508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_5
+      name: CharacterWalkSprite_5
       rect:
         serializedVersion: 2
         x: 1230
@@ -281,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 904236f2283df9948b45755b2b586535
-      internalID: 839444645
+      spriteID: 03ddaa5e5ce9e5c4ca993bed8a445a19
+      internalID: 1360908369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_6
+      name: CharacterWalkSprite_6
       rect:
         serializedVersion: 2
         x: 1476
@@ -302,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d9dbed97300cd7458a2eafc1bae66ff
-      internalID: -648862565
+      spriteID: f06427acbb3f1d346ad00c5725c3ce68
+      internalID: -818369676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_7
+      name: CharacterWalkSprite_7
       rect:
         serializedVersion: 2
         x: 1722
@@ -323,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70772f3b54f74cf429707184fcd08f75
-      internalID: -534677429
+      spriteID: 68d61d02b60c79440bd6f95b73b3a456
+      internalID: -227396438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_8
+      name: CharacterWalkSprite_8
       rect:
         serializedVersion: 2
         x: 0
@@ -344,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c00389a09fb855f46a1c70989e457212
-      internalID: 1564823090
+      spriteID: 4aea48732108d654a9b24937cd471241
+      internalID: 990644952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_9
+      name: CharacterWalkSprite_9
       rect:
         serializedVersion: 2
         x: 246
@@ -365,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5493c02c627978458c9b7412fd7423e
-      internalID: 1499561865
+      spriteID: 775abff3192602e499cd22659203e0ff
+      internalID: -56948250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_10
+      name: CharacterWalkSprite_10
       rect:
         serializedVersion: 2
         x: 492
@@ -386,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7dc9c62ac625d543ac25e7a97bc9a47
-      internalID: -1793751952
+      spriteID: a9e137d457c9ea84e9c4e21275c6317a
+      internalID: 1518667510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_11
+      name: CharacterWalkSprite_11
       rect:
         serializedVersion: 2
         x: 738
@@ -407,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32ccba325ad85a0408df964550d12d3f
-      internalID: -1685945673
+      spriteID: 25b3732104882c3439b879fdecf38aaa
+      internalID: -867879565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_12
+      name: CharacterWalkSprite_12
       rect:
         serializedVersion: 2
         x: 984
@@ -428,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d320fb41766ea44a7518f6098dd029
-      internalID: 1663611145
+      spriteID: f3fbd66fb450da44db452dbf1a49fe38
+      internalID: -1080706368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_13
+      name: CharacterWalkSprite_13
       rect:
         serializedVersion: 2
         x: 1230
@@ -449,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2382b52700893a4687c584e4bfb52ba
-      internalID: -975592446
+      spriteID: 088f6dd984e35974f9a2ac032dc9d736
+      internalID: 2033564441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_14
+      name: CharacterWalkSprite_14
       rect:
         serializedVersion: 2
         x: 1476
@@ -470,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 073e601eac2b6cf48ae5dd001f34b792
-      internalID: 708639779
+      spriteID: 9a1b7b7be4d4961469db6123bfb3a199
+      internalID: -1975893618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_15
+      name: CharacterWalkSprite_15
       rect:
         serializedVersion: 2
         x: 1722
@@ -491,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fbc3eef04b84cf43ac591457852c89b
-      internalID: -946559109
+      spriteID: c6648c904daa09e4bbdc27090e1eaefd
+      internalID: 1093075191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_16
+      name: CharacterWalkSprite_16
       rect:
         serializedVersion: 2
         x: 0
@@ -512,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78ef704b8cbd6d4faa0c8e53e47ee4d
-      internalID: -1629646047
+      spriteID: 5393ad44a8b31204da922ac18d66d996
+      internalID: 1127474674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_17
+      name: CharacterWalkSprite_17
       rect:
         serializedVersion: 2
         x: 246
@@ -533,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc35a4741bde3614f93d3d47a9f773f2
-      internalID: 1939249803
+      spriteID: d885ce8f854a02d47908b819bb65486d
+      internalID: 1089654425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_18
+      name: CharacterWalkSprite_18
       rect:
         serializedVersion: 2
         x: 492
@@ -554,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457cf296ca3323742ae384efc81ea179
-      internalID: -945870098
+      spriteID: cc779f9040a546a43880376490468d46
+      internalID: -2005393866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_19
+      name: CharacterWalkSprite_19
       rect:
         serializedVersion: 2
         x: 738
@@ -575,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 270769ead31a2a94284a462d814cab3a
-      internalID: 1445648493
+      spriteID: fa4e8a457db6275458570e33f1d16fb9
+      internalID: -1925142862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_20
+      name: CharacterWalkSprite_20
       rect:
         serializedVersion: 2
         x: 984
@@ -596,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5228c2937398901449c9893912cb5b80
-      internalID: 1719497827
+      spriteID: 2e586e3649b72c649a319f263c82815f
+      internalID: 878604016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_21
+      name: CharacterWalkSprite_21
       rect:
         serializedVersion: 2
         x: 1230
@@ -617,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d619d3582f98e1347b76964a3ccb2626
-      internalID: -663516885
+      spriteID: 4eaa6f9dc4ade2a40bca95fbbaca222e
+      internalID: 1801113091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_22
+      name: CharacterWalkSprite_22
       rect:
         serializedVersion: 2
         x: 1476
@@ -638,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb60d0c2ad82df545a2c56727cce7365
-      internalID: 1893405175
+      spriteID: 07ba24e2ee3245d4480b32e31c9a7e15
+      internalID: -2103696485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_23
+      name: CharacterWalkSprite_23
       rect:
         serializedVersion: 2
         x: 1722
@@ -659,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398dca27b6632c2459bb040b040a4c79
-      internalID: 1359587557
+      spriteID: a4e1eb12275d92e448892d3f83f239b6
+      internalID: 710782940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_24
+      name: CharacterWalkSprite_24
       rect:
         serializedVersion: 2
         x: 0
@@ -680,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc02e1b336475ed46b8ccdfb576ef9ec
-      internalID: -1734231983
+      spriteID: 8b203c7ea7403324a9ce3c6af3257908
+      internalID: 1688239775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_25
+      name: CharacterWalkSprite_25
       rect:
         serializedVersion: 2
         x: 246
@@ -701,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7013415c7bab0c44b8bf34643c3c254f
-      internalID: 709377480
+      spriteID: 1e19c6126cb50c841b95bef34cd11147
+      internalID: 656200258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_26
+      name: CharacterWalkSprite_26
       rect:
         serializedVersion: 2
         x: 492
@@ -722,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68be9ace9caf6424ab7da16b1f361e1a
-      internalID: -1589360484
+      spriteID: 72f05c6547875a04995c43070d4369c2
+      internalID: 1796712898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_27
+      name: CharacterWalkSprite_27
       rect:
         serializedVersion: 2
         x: 738
@@ -743,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eea71a7d6b55a145ac2ff948f81a5ca
-      internalID: 1289689543
+      spriteID: f49e09d397cd78e4392e141856cb040c
+      internalID: -374941880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_28
+      name: CharacterWalkSprite_28
       rect:
         serializedVersion: 2
         x: 984
@@ -764,14 +712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb4073389dd1ab949ba8f47d03d36ca8
-      internalID: 568564088
+      spriteID: eda3aee0beb25e44b85575fd05be241a
+      internalID: -1820359798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_29
+      name: CharacterWalkSprite_29
       rect:
         serializedVersion: 2
         x: 1230
@@ -785,14 +733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3af3746116d44f43b7e87ed1a00b124
-      internalID: -240490306
+      spriteID: 22af3f031a16eef43a8dddfa387b2a9e
+      internalID: -1070212145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_30
+      name: CharacterWalkSprite_30
       rect:
         serializedVersion: 2
         x: 1476
@@ -806,14 +754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5345f652a6ada2445ae8faa508b3f963
-      internalID: 697983218
+      spriteID: 56ebb337c3b723b449fa532ab31b08f3
+      internalID: 63490994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_31
+      name: CharacterWalkSprite_31
       rect:
         serializedVersion: 2
         x: 1722
@@ -827,14 +775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0f5e0847ddced41a2a7c846efa80b0
-      internalID: 931671797
+      spriteID: 29af64639b6d5d6499268f2beffa0f62
+      internalID: -1022239960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_32
+      name: CharacterWalkSprite_32
       rect:
         serializedVersion: 2
         x: 0
@@ -848,14 +796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01d4281221957904a85c237806b2524a
-      internalID: -2135145872
+      spriteID: 334c004d1cca78c4580d983fb031c1d5
+      internalID: -734552044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_33
+      name: CharacterWalkSprite_33
       rect:
         serializedVersion: 2
         x: 246
@@ -869,14 +817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f0956aa6470bb24896e8ed2322fc0b4
-      internalID: 1584497049
+      spriteID: 2ce1ed44601602347bfb66507180e680
+      internalID: 640487240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_34
+      name: CharacterWalkSprite_34
       rect:
         serializedVersion: 2
         x: 492
@@ -890,14 +838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 161679041217c544bae0b3e90ae7695c
-      internalID: -1342256341
+      spriteID: 08896ab17f669cf4eb19e4d1ff9df652
+      internalID: 1605330638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_35
+      name: CharacterWalkSprite_35
       rect:
         serializedVersion: 2
         x: 738
@@ -911,14 +859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b6ec9c033788ee4ba97bc9f7617e7f6
-      internalID: -1191688857
+      spriteID: 8efeadf492413e84bb7d0b419a2fad76
+      internalID: -1259846409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_36
+      name: CharacterWalkSprite_36
       rect:
         serializedVersion: 2
         x: 984
@@ -932,14 +880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10f06d98f3d8d814baa53f094b0bcddd
-      internalID: -1468579815
+      spriteID: ace9c22b46efcaa4fac80051fff32993
+      internalID: -1080275918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_37
+      name: CharacterWalkSprite_37
       rect:
         serializedVersion: 2
         x: 1230
@@ -953,14 +901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd5593c1f58f0134bbfd380e84602c32
-      internalID: -72890633
+      spriteID: 0d7de88e64182414594b25081f9b200c
+      internalID: -589417794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_38
+      name: CharacterWalkSprite_38
       rect:
         serializedVersion: 2
         x: 1476
@@ -974,14 +922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cb6acd8088ee68449a079a3c711b044
-      internalID: 444809266
+      spriteID: 10cbb42385b9def4086f3fe83f08139f
+      internalID: 1254542062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_39
+      name: CharacterWalkSprite_39
       rect:
         serializedVersion: 2
         x: 1722
@@ -995,14 +943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9edfdeacd77a1ff468020cd21708b87c
-      internalID: -275198137
+      spriteID: 583cff7762be32042b0af36bbea899f4
+      internalID: -362511330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_40
+      name: CharacterWalkSprite_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1016,14 +964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d44c119258ff277499b172842ec3522b
-      internalID: 636764739
+      spriteID: fcdd51a2be46e2847bc859103b013385
+      internalID: 1678352704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_41
+      name: CharacterWalkSprite_41
       rect:
         serializedVersion: 2
         x: 246
@@ -1037,14 +985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc75d064f435e4418f996d45ad6f0e9
-      internalID: -1548057440
+      spriteID: eb5d135e4590af3408650898bb6718f6
+      internalID: -766525703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_42
+      name: CharacterWalkSprite_42
       rect:
         serializedVersion: 2
         x: 492
@@ -1058,14 +1006,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edcf38dc76d56864fa6c38300b519afb
-      internalID: -187737558
+      spriteID: 867eb9bac5c6de549b8e4aaf33e823fe
+      internalID: -1749881302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_43
+      name: CharacterWalkSprite_43
       rect:
         serializedVersion: 2
         x: 738
@@ -1079,14 +1027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93f83030b532e9d4292b2c932d168a97
-      internalID: -1466730250
+      spriteID: f6a6138284d2f104d800781b7b623cff
+      internalID: 274052429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesheetVampirecharacter-0 (1)_44
+      name: CharacterWalkSprite_44
       rect:
         serializedVersion: 2
         x: 984
@@ -1100,8 +1048,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60481fbe5ce06f944bfd664ff9f7a092
-      internalID: -2109757472
+      spriteID: 099c65abf8b24de428a7ba899dae0600
+      internalID: -656076476
       vertices: []
       indices: 
       edges: []
@@ -1109,7 +1057,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 362f4d0fe9610f24c9485bfd84944375
     internalID: 0
     vertices: []
     indices: 
@@ -1117,51 +1065,51 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpritesheetVampirecharacter-0 (1)_0: 311699091
-      SpritesheetVampirecharacter-0 (1)_1: 42324617
-      SpritesheetVampirecharacter-0 (1)_10: -1793751952
-      SpritesheetVampirecharacter-0 (1)_11: -1685945673
-      SpritesheetVampirecharacter-0 (1)_12: 1663611145
-      SpritesheetVampirecharacter-0 (1)_13: -975592446
-      SpritesheetVampirecharacter-0 (1)_14: 708639779
-      SpritesheetVampirecharacter-0 (1)_15: -946559109
-      SpritesheetVampirecharacter-0 (1)_16: -1629646047
-      SpritesheetVampirecharacter-0 (1)_17: 1939249803
-      SpritesheetVampirecharacter-0 (1)_18: -945870098
-      SpritesheetVampirecharacter-0 (1)_19: 1445648493
-      SpritesheetVampirecharacter-0 (1)_2: 1693863732
-      SpritesheetVampirecharacter-0 (1)_20: 1719497827
-      SpritesheetVampirecharacter-0 (1)_21: -663516885
-      SpritesheetVampirecharacter-0 (1)_22: 1893405175
-      SpritesheetVampirecharacter-0 (1)_23: 1359587557
-      SpritesheetVampirecharacter-0 (1)_24: -1734231983
-      SpritesheetVampirecharacter-0 (1)_25: 709377480
-      SpritesheetVampirecharacter-0 (1)_26: -1589360484
-      SpritesheetVampirecharacter-0 (1)_27: 1289689543
-      SpritesheetVampirecharacter-0 (1)_28: 568564088
-      SpritesheetVampirecharacter-0 (1)_29: -240490306
-      SpritesheetVampirecharacter-0 (1)_3: 824051846
-      SpritesheetVampirecharacter-0 (1)_30: 697983218
-      SpritesheetVampirecharacter-0 (1)_31: 931671797
-      SpritesheetVampirecharacter-0 (1)_32: -2135145872
-      SpritesheetVampirecharacter-0 (1)_33: 1584497049
-      SpritesheetVampirecharacter-0 (1)_34: -1342256341
-      SpritesheetVampirecharacter-0 (1)_35: -1191688857
-      SpritesheetVampirecharacter-0 (1)_36: -1468579815
-      SpritesheetVampirecharacter-0 (1)_37: -72890633
-      SpritesheetVampirecharacter-0 (1)_38: 444809266
-      SpritesheetVampirecharacter-0 (1)_39: -275198137
-      SpritesheetVampirecharacter-0 (1)_4: 910185993
-      SpritesheetVampirecharacter-0 (1)_40: 636764739
-      SpritesheetVampirecharacter-0 (1)_41: -1548057440
-      SpritesheetVampirecharacter-0 (1)_42: -187737558
-      SpritesheetVampirecharacter-0 (1)_43: -1466730250
-      SpritesheetVampirecharacter-0 (1)_44: -2109757472
-      SpritesheetVampirecharacter-0 (1)_5: 839444645
-      SpritesheetVampirecharacter-0 (1)_6: -648862565
-      SpritesheetVampirecharacter-0 (1)_7: -534677429
-      SpritesheetVampirecharacter-0 (1)_8: 1564823090
-      SpritesheetVampirecharacter-0 (1)_9: 1499561865
+      CharacterWalkSprite_0: 1271478337
+      CharacterWalkSprite_1: 1102457477
+      CharacterWalkSprite_10: 1518667510
+      CharacterWalkSprite_11: -867879565
+      CharacterWalkSprite_12: -1080706368
+      CharacterWalkSprite_13: 2033564441
+      CharacterWalkSprite_14: -1975893618
+      CharacterWalkSprite_15: 1093075191
+      CharacterWalkSprite_16: 1127474674
+      CharacterWalkSprite_17: 1089654425
+      CharacterWalkSprite_18: -2005393866
+      CharacterWalkSprite_19: -1925142862
+      CharacterWalkSprite_2: -1193251855
+      CharacterWalkSprite_20: 878604016
+      CharacterWalkSprite_21: 1801113091
+      CharacterWalkSprite_22: -2103696485
+      CharacterWalkSprite_23: 710782940
+      CharacterWalkSprite_24: 1688239775
+      CharacterWalkSprite_25: 656200258
+      CharacterWalkSprite_26: 1796712898
+      CharacterWalkSprite_27: -374941880
+      CharacterWalkSprite_28: -1820359798
+      CharacterWalkSprite_29: -1070212145
+      CharacterWalkSprite_3: -646152854
+      CharacterWalkSprite_30: 63490994
+      CharacterWalkSprite_31: -1022239960
+      CharacterWalkSprite_32: -734552044
+      CharacterWalkSprite_33: 640487240
+      CharacterWalkSprite_34: 1605330638
+      CharacterWalkSprite_35: -1259846409
+      CharacterWalkSprite_36: -1080275918
+      CharacterWalkSprite_37: -589417794
+      CharacterWalkSprite_38: 1254542062
+      CharacterWalkSprite_39: -362511330
+      CharacterWalkSprite_4: -1380607508
+      CharacterWalkSprite_40: 1678352704
+      CharacterWalkSprite_41: -766525703
+      CharacterWalkSprite_42: -1749881302
+      CharacterWalkSprite_43: 274052429
+      CharacterWalkSprite_44: -656076476
+      CharacterWalkSprite_5: 1360908369
+      CharacterWalkSprite_6: -818369676
+      CharacterWalkSprite_7: -227396438
+      CharacterWalkSprite_8: 990644952
+      CharacterWalkSprite_9: -56948250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
