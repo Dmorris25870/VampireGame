@@ -46,11 +46,11 @@ namespace VartraAbyss.Entity
 
 		public virtual void SetCurrentAbility(Ability ability = null , string abilityName = null)
 		{
-			if( ability != null )
+			if(ability != null)
 			{
 				CurrentAbility = ability;
 			}
-			else if( !string.IsNullOrEmpty(abilityName) && ListOfAbilities.ContainsKey(abilityName) )
+			else if(!string.IsNullOrEmpty(abilityName) && ListOfAbilities.ContainsKey(abilityName))
 			{
 				CurrentAbility = ListOfAbilities[abilityName];
 			}
