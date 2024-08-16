@@ -11,7 +11,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject m_breakableWall; //Wall gating player in cell
 		[SerializeField] private GameObject zeroBossDoor; //wall gating player in zero boss room
 		[SerializeField] private GameObject finalBossDoor; //wall gating player fromfelix boss room
-		//[SerializeField] private GameObject m_wall;
+		[SerializeField] private GameObject letterFromBea; //UI element with image directing player to the final boss
 
 		[Header("Story Npc Characters")]
 		[SerializeField] private GameObject BeatrixIntroPrefab;
@@ -145,6 +145,7 @@ namespace VartraAbyss
 					BasicBarkeepPrefab.SetActive(true);
 					BeaGetsPowersPrefab.SetActive(true); //Spawn BeaGetsPowers and Victoria no dialogue
 					VictoriaNoTalkyPrefab.SetActive(true);
+					letterFromBea.SetActive(true);
 
 				}
 				else if(number == 9) //Found Bea and about to find Felix
@@ -165,6 +166,7 @@ namespace VartraAbyss
 				else if (number == 11) //turn off after patient zero self talk
 				{
 					AfterZeroPrefab.SetActive(false);
+					zeroBossDoor.SetActive(false);
 				}
 
 			});
