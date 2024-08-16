@@ -131,6 +131,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1416939904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &289660842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3995971812201843380, guid: c98ad8ee9d92284479459afc92cfa43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2233546268355962787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331324323
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,11 +339,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037a598be4681694991b352c892ca565, type: 3}
+--- !u!1 &615124329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8921330537102723562, guid: c98ad8ee9d92284479459afc92cfa43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2233546268355962787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &730916487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3957590667896413814, guid: 8c5b568e17764314c812b55f0464739b,
     type: 3}
   m_PrefabInstance: {fileID: 1275662555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &778202555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8996817858200531838, guid: c98ad8ee9d92284479459afc92cfa43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2233546268355962787}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &802242713 stripped
 GameObject:
@@ -1084,6 +1102,16 @@ PrefabInstance:
       objectReference: {fileID: 1275662558}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
+      propertyPath: zeroBossDoor
+      value: 
+      objectReference: {fileID: 289660842}
+    - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
+      propertyPath: finalBossDoor
+      value: 
+      objectReference: {fileID: 778202555}
+    - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
       propertyPath: AfterZeroPrefab
       value: 
       objectReference: {fileID: 2233546268355962790}
@@ -1091,7 +1119,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_breakableWall
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 615124329}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: m_playerTrigger
