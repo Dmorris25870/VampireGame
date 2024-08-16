@@ -5,7 +5,7 @@ using VartraAbyss.Utility;
 
 namespace VartraAbyss.Actions
 {
-	public class CastAbility : Action
+	public class CastAbility : Action, IAction_Command
 	{
 		private Timer m_abilityTimer;
 

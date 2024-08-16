@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+	[SerializeField] private GameObject m_creditsScreen;
+
 	public void LoadScene(string sceneName)
 	{
 		SceneManager.LoadScene(sceneName);
@@ -15,5 +17,15 @@ public class SceneLoader : MonoBehaviour
 	public void QuitGame()
 	{
 		Application.Quit();
+	}
+
+	public void ShowCreditsMenu()
+	{
+		m_creditsScreen.SetActive(true);
+	}
+
+	public void HideCreditsMenu()
+	{
+		m_creditsScreen.SetActive(false);
 	}
 }

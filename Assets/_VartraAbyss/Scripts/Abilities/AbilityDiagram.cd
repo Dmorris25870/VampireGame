@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VartraAbyss.Abilities.Ability">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="VartraAbyss.Abilities.Ability.Builder&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\_VartraAbyss\Scripts\Abilities\Ability.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEACQgAAACQACAAAAAAQBJAAAAAAQAAAAIAEEAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\Ability.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AbilityData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VartraAbyss.AbilitySO" Collapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAIBAIAgAAAAAAAAAAAABAAACAgAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\AbilitySO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VartraAbyss.Abilities.Bite">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <AssociationLine Name="m_meleeSystem" Type="VartraAbyss.Abilities.MeleeSystem">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.112" Y="0.058" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAEAAIAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\Bite.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_meleeSystem" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.BloodProjectile">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAIAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\Blood Projectile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.19" />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.BloodPotion">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\BloodPotion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.Claw">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <AssociationLine Name="m_meleeSystem" Type="VartraAbyss.Abilities.MeleeSystem">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.369" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAEAAIAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\Claw.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_meleeSystem" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.HealthPotion">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAIABAABAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\HealthPotion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VartraAbyss.Abilities.MeleeSystem" Collapsed="true">
+    <Position X="4" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAAAAACAAAAgAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\MeleeSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="VartraAbyss.Abilities.IAbility_Strategy" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_VartraAbyss\Scripts\Abilities\IAbility_Strategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

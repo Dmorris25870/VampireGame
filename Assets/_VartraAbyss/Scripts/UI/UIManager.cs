@@ -77,7 +77,6 @@ public class UIManager : MonoBehaviour
 	private void DeathScreen()
 	{
 		deathScreenObject.SetActive(true);
-		Time.timeScale = 0;
 	}
 
 	private void CanAbsorbAbilty()
@@ -88,5 +87,15 @@ public class UIManager : MonoBehaviour
 	private void CannotAbsorbAbilty()
 	{
 		absorbAbiltyText.SetActive(false);
+	}
+
+	public void TurnOnGameobject(GameObject gameObject)
+	{
+		gameObject.SetActive(true);
+	}
+
+	public void TurnOffGameobject(GameObject gameObject)
+	{
+		gameObject.SetActive(false);
 	}
 }

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1cba114ffc3438a4fb49d3a93a82327a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - <AbilityData>k__BackingField: {fileID: 11400000, guid: 7c838f60fb1e8b14a9a260c0379a38f9,
+      type: 2}
+  - <Icon>k__BackingField: {instanceID: 0}
+  - <SoundEffect>k__BackingField: {instanceID: 0}
+  - <VisualEffect>k__BackingField: {instanceID: 0}
+  - <TargetActor>k__BackingField: {instanceID: 0}
+  - <Timer>k__BackingField: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

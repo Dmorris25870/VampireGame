@@ -26,8 +26,7 @@ MonoBehaviour:
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
   damage: 3
-  bloodCost: 3
-  coolDownTime: 3
+  bloodCost: 20
+  coolDownTime: 10
   range: 3
   spawnPosition: {x: 0, y: 0, z: 0}
-  potionUsesRemaining: 0
