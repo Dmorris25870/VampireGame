@@ -147,6 +147,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1416939904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &310835426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9038958270543896815, guid: 8c5b568e17764314c812b55f0464739b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275662555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331324323
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +394,12 @@ RectTransform:
 --- !u!1 &846296120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7984588635972665389, guid: c98ad8ee9d92284479459afc92cfa43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2233546268355962787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046752892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190140561408919058, guid: c98ad8ee9d92284479459afc92cfa43c,
     type: 3}
   m_PrefabInstance: {fileID: 2233546268355962787}
   m_PrefabAsset: {fileID: 0}
@@ -1036,6 +1048,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1275662555}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275662558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5306728962383477569, guid: 8c5b568e17764314c812b55f0464739b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275662555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342199899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4076020618818230202, guid: c98ad8ee9d92284479459afc92cfa43c,
@@ -1562,6 +1580,11 @@ PrefabInstance:
       objectReference: {fileID: 1342199899}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
+      propertyPath: GuardSet01
+      value: 
+      objectReference: {fileID: 1046752892}
+    - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
       propertyPath: PetrPrefab
       value: 
       objectReference: {fileID: 478407766}
@@ -1574,12 +1597,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_screenTint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1275662558}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: Guard01Prefab
       value: 
       objectReference: {fileID: 2233546268355962789}
+    - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
+        type: 3}
+      propertyPath: letterFromBea
+      value: 
+      objectReference: {fileID: 310835426}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: AfterZeroPrefab
@@ -2030,6 +2058,16 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 1195235181419623172, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 1195235181419623172, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 1493573781029945247, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -2168,6 +2206,21 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 2129307750396120148, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueHolder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129307750396120148, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 2129307750396120148, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 2321224170670830280, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -2273,6 +2326,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3858473894227876334, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 3940024616721693535, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 3940024616721693535, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 3945327811942833834, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -2455,6 +2518,16 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 6087799553389008720, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 6087799553389008720, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 6088354421091857726, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -2516,6 +2589,16 @@ PrefabInstance:
       propertyPath: dialogueSystem
       value: 
       objectReference: {fileID: 1681689029}
+    - target: {fileID: 6642290216393181440, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 6642290216393181440, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 6689569564931216513, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -2617,6 +2700,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8492901018429193119, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 8624831870914025518, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueSystem
+      value: 
+      objectReference: {fileID: 1681689029}
+    - target: {fileID: 8624831870914025518, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 1705972229}
     - target: {fileID: 8662669649301737978, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab

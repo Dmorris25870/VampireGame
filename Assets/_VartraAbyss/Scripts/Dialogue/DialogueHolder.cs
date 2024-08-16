@@ -26,6 +26,11 @@ public class DialogueHolder : MonoBehaviour
 
 		//playerInRange = false;
 		visualCue.SetActive(false);
+
+		if (visualCue = null)
+		{
+			return;
+		}
 	}
 
 	//public static Dialogue_trigger GetInstance()

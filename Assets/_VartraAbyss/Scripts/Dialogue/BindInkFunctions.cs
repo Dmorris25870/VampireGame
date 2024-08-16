@@ -41,6 +41,7 @@ namespace VartraAbyss
 		[Header("Prefabs")]
 		[SerializeField] private GameObject EnemySet01;
         [SerializeField] private GameObject EnemySet02;
+        [SerializeField] private GameObject GuardSet01;
 
 
         private void Awake()
@@ -131,10 +132,10 @@ namespace VartraAbyss
 					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
-					Guard01Prefab.SetActive(false);
-					FelixFinalBattlePrefab.SetActive(true);
+					//Guard01Prefab.SetActive(false);
+					FelixFinalBattlePrefab.SetActive(true); //Turn on final boss talk
 					AfterZeroPrefab.SetActive(true); //turn on self talk prefab
-
+					GuardSet01.SetActive(false);
 					//m_wall.SetActive(false);
 
 				}
