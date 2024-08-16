@@ -1,9 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
 	[SerializeField] private GameObject m_creditsScreen;
+	[SerializeField] private GameObject m_loadingScreen;
+	[SerializeField] private Image m_loadingBar;
+	[SerializeField] private GameObject m_playButton;
+	[SerializeField] private float m_loadingTime;
 
 	public void LoadScene(string sceneName)
 	{
@@ -27,5 +33,41 @@ public class SceneLoader : MonoBehaviour
 	public void HideCreditsMenu()
 	{
 		m_creditsScreen.SetActive(false);
+	}
+
+	public void ShowLoadingScreen()
+	{
+		m_loadingScreen.SetActive(true);
+		HidePlayButton();
+		m_loadingBar.fillAmount = 0;
+		StartCoroutine(LoadingBarCoroutine());
+	}
+
+	public void HideLoadingScreen()
+	{
+		m_loadingScreen.SetActive(false);
+	}
+
+	public void ShowPlayButton()
+	{
+		m_playButton.SetActive(true);
+	}
+
+	public void HidePlayButton()
+	{
+		m_playButton.SetActive(false);
+	}
+
+	private IEnumerator LoadingBarCoroutine()
+	{
+		m_loadingBar.fillAmount = 0;
+
+		while(m_loadingBar.fillAmount < 1)
+		{
+			m_loadingBar.fillAmount += 1.0f / m_loadingTime * Time.deltaTime;
+			yield return null;
+		}
+
+		ShowPlayButton();
 	}
 }
