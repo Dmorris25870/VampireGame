@@ -8,7 +8,9 @@ namespace VartraAbyss
 	{
 		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
-		[SerializeField] private GameObject m_breakableWall;
+		[SerializeField] private GameObject m_breakableWall; //Wall gating player in cell
+		[SerializeField] private GameObject zeroBossDoor; //wall gating player in zero boss room
+		[SerializeField] private GameObject finalBossDoor; //wall gating player fromfelix boss room
 		//[SerializeField] private GameObject m_wall;
 
 		[Header("Story Npc Characters")]
