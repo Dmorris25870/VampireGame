@@ -13,6 +13,7 @@ TagManager:
   - InventoryGrid
   - NPC
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

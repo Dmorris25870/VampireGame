@@ -1,6 +1,7 @@
 using UnityEngine;
 using VartraAbyss.Entity;
 using VartraAbyss.Entity.Enemy;
+using VartraAbyss.Entity.Boss;
 
 namespace VartraAbyss.Abilities
 {
@@ -33,6 +34,10 @@ namespace VartraAbyss.Abilities
 				if(m_meleeSystem.Target.tag == "Enemy")
 				{
 					m_meleeSystem.Target.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-AbilityData.damage);
+				}
+				if (m_meleeSystem.Target.tag == "Boss")
+				{
+					m_meleeSystem.Target.gameObject.GetComponent<BossBehaviour>().TakeDamage(-AbilityData.damage);
 				}
 			}
 

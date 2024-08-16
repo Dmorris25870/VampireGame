@@ -81,5 +81,9 @@ public class EventManager : SingletonManager<EventManager>
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
 
+	public delegate void ZeroFightEvent();
+	public static ZeroFightEvent OnZeroFight;
 
+	public delegate void FelixFightEvent();
+	public static FelixFightEvent OnFelixFight;
 }

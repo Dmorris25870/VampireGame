@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731bc6fa6a7fbdd4b935350e3d5091a5, type: 3}
-  m_Name: FelixSword
+  m_Name: ZeroStrike
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,11 +21,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  abilityName: Sword Slash
+  abilityName: Tortured Strike
   sprite: {fileID: 0}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
-  damage: 15
+  damage: 10
   bloodCost: 0
   coolDownTime: 2
   range: 2
