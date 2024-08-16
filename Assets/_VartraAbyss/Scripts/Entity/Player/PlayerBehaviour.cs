@@ -72,7 +72,11 @@ namespace VartraAbyss.Entity.Player
 		public override void SetCurrentAbility(Ability ability , string abilityName)
 		{
 			base.SetCurrentAbility(ability , abilityName);
-			if(Stat.Blood > 0)
+			if(CurrentAbility is BloodPotion || CurrentAbility is Claw || CurrentAbility is HealthPotion)
+			{
+				UseCurrentAbility();
+			}
+			if((CurrentAbility is not BloodPotion || CurrentAbility is not Claw || CurrentAbility is not HealthPotion) && Stat.Blood > 0)
 			{
 				UseCurrentAbility();
 			}

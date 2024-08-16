@@ -54,7 +54,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 10
   <BloodCost>k__BackingField: 20
   <CoolDownTime>k__BackingField: 0.5
-  <Range>k__BackingField: 2
+  <Range>k__BackingField: 1
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 166, y: 25, z: 0}
   <TargetActor>k__BackingField: {fileID: 0}
