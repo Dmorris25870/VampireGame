@@ -1,4 +1,4 @@
-Shader "Unlit/TreeShader"
+Shader "Unlit/FungusShader"
 {
     Properties
     {
