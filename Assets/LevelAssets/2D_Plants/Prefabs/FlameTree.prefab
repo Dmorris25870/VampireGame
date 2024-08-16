@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7a7bb5c195ad32b479ec61e90bb07257, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedRotation: {x: 0, y: -45, z: 0}
   m_sprite: {fileID: 7603280065885162344}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &8572568478447655997
 GameObject:
   m_ObjectHideFlags: 0
