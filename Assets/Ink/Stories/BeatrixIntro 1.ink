@@ -7,7 +7,7 @@ I don't know. I only woke up 10 mins ago. We're in some kind of dungeon. #speake
 Wait did you hear that?
 (Footsteps and voices from outside) #speaker:... #portrait:Hart
 ~ExplosionScreen(1)
-Explosion! 
+BOOM! 
 ~ExplosionScreen(2)
 Huh? They're breaking in! We're under attack!#speaker:Guard #portrait:Guard
  This is our chance! RUN #speaker:Beatrix #portrait:Beatrix 

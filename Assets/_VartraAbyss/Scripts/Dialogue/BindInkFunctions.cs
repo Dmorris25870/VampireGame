@@ -8,7 +8,9 @@ namespace VartraAbyss
 	{
 		[Header("Objects")]
 		[SerializeField] private GameObject m_screenTint;
-		[SerializeField] private GameObject m_breakableWall;
+		[SerializeField] private GameObject m_breakableWall; //Wall gating player in cell
+		[SerializeField] private GameObject zeroBossDoor; //wall gating player in zero boss room
+		[SerializeField] private GameObject finalBossDoor; //wall gating player fromfelix boss room
 		//[SerializeField] private GameObject m_wall;
 
 		[Header("Story Npc Characters")]
@@ -23,6 +25,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject BarkeepMessagePrefab;
 		[SerializeField] private GameObject BeaGetsPowersPrefab;
 		[SerializeField] private GameObject FelixFinalBattlePrefab;
+		[SerializeField] private GameObject AfterZeroPrefab;
 
 		[Header("Extra NPC Characters")]
 		[SerializeField] private GameObject TempBeatrixPrefab;
@@ -35,12 +38,17 @@ namespace VartraAbyss
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
 
+		[Header("Prefabs")]
+		[SerializeField] private GameObject EnemySet01;
+        [SerializeField] private GameObject EnemySet02;
 
-		private void Awake()
+
+        private void Awake()
 		{
 			m_screenTint.SetActive(false);
 			m_breakableWall.GetComponent<NavMeshObstacle>().carving = true;
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
+			EnemySet02.SetActive(false);
 		}
 		public void BindExternalFunction(Story story)
 		{
@@ -59,6 +67,17 @@ namespace VartraAbyss
 					m_screenTint.SetActive(false);
 					//Debug.Log("ExplosionScreenOff");
 
+				}
+
+			});
+
+			story.BindExternalFunction("ChangeWorld", (int number) =>
+			{
+				if (number == 1)
+				{
+					//Add barrel to lab
+					EnemySet02.SetActive(true);
+					EnemySet01.SetActive(false);
 				}
 
 			});
@@ -114,6 +133,7 @@ namespace VartraAbyss
 					TempBeatrixPrefab.SetActive(false);
 					Guard01Prefab.SetActive(false);
 					FelixFinalBattlePrefab.SetActive(true);
+					AfterZeroPrefab.SetActive(true); //turn on self talk prefab
 
 					//m_wall.SetActive(false);
 
@@ -141,6 +161,10 @@ namespace VartraAbyss
 					//Turn off Final felix battle
 					FelixFinalBattlePrefab.SetActive(false);
 					//Spawn Felix boss
+				}
+				else if (number == 11) //turn off after patient zero self talk
+				{
+					AfterZeroPrefab.SetActive(false);
 				}
 
 			});
