@@ -9,7 +9,6 @@ namespace VartraAbyss.Entity
 		[SerializeField] private Rigidbody m_rigidBody;
 		[SerializeField] private Collider m_collider;
 		[SerializeField] private float m_lifeTime;
-		private GameObject spawner;
 		[field: SerializeField] public Vector3 Velocity { get; private set; }
 		[field: SerializeField] public int DamageAmount { get; private set; }
 
@@ -18,15 +17,10 @@ namespace VartraAbyss.Entity
 			StartCoroutine(DestroyAfterTime(m_lifeTime));
 		}
 
-		private void FixedUpdate()
-		{
-			m_rigidBody.AddRelativeForce(Velocity * Time.fixedDeltaTime);
-		}
-
 		private void OnCollisionEnter(Collision collision)
 		{
 			// Check we haven't collided with ourselves
-			if(collision.collider != m_collider && collision.collider != spawner.gameObject)
+			if(collision.collider != m_collider)
 			{
 				// When this object hits another, check if it's an entity
 				if(collision.gameObject.GetComponent<Actor>() != null)
@@ -49,9 +43,6 @@ namespace VartraAbyss.Entity
 
 		public void SetVelocity(Vector3 direction , GameObject parent , float speed)
 		{
-			//if( parent < 1 && parent > -1 )
-			//	parent = -1;
-			spawner = parent;
 			//Velocity = direction * parent * speed;
 			Velocity = direction * -speed;
 		}

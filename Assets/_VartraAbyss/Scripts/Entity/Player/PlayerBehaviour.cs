@@ -5,14 +5,10 @@ using UnityEngine.AI;
 using VartraAbyss.Abilities;
 using VartraAbyss.Actions;
 using VartraAbyss.Managers;
-using VartraAbyss.PlayerInputs;
 using VartraAbyss.Stats;
 
 namespace VartraAbyss.Entity.Player
 {
-	[RequireComponent(typeof(PlayerInputController))]
-	[RequireComponent(typeof(Stat))]
-	[RequireComponent(typeof(NavMeshAgent))]
 	public class PlayerBehaviour : Actor
 	{
 		[TabGroup("Actor" , "Actions" , SdfIconType.Activity , TextColor = "white")]
@@ -38,26 +34,6 @@ namespace VartraAbyss.Entity.Player
 		protected override Actor StoreActor()
 		{
 			return this;
-		}
-
-		//TO DO: Probably should put the responsibility of the ability pick up on the ability itself.
-
-		private void OnTriggerEnter(Collider other)
-		{
-			if(other.CompareTag("AbilityToAbsorb"))
-			{
-				EventManager.OnCanAbsorbAbility?.Invoke();
-				m_skillToAbsorb = other.gameObject;
-			}
-		}
-
-		private void OnTriggerExit(Collider other)
-		{
-			if(other.CompareTag("AbilityToAbsorb"))
-			{
-				EventManager.OnCannotAbsorbAbility?.Invoke();
-				m_skillToAbsorb = null;
-			}
 		}
 
 		private void FixedUpdate()

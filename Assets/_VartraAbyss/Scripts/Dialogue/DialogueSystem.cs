@@ -149,6 +149,7 @@ namespace VartraAbyss.Dialogue
 
 		public void EnterDialogueMode(TextAsset inkJSON)
 		{
+			Time.timeScale = 0f;
 			dialogueHolder = dHolder.GetComponent<DialogueHolder>();
 			//Debug.Log(dHolder);
 			//npcNameText.text = dialogueHolder.npcName;
@@ -186,7 +187,7 @@ namespace VartraAbyss.Dialogue
 				dialoguetext.text += letter;
 				//Debug.Log(dialoguetext.text);
 				//Debug.Log("print and wait");
-				yield return new WaitForSeconds(typingSpeed);
+				yield return new WaitForSecondsRealtime(typingSpeed);
 			}
 
 			canContinueToNextLine = true;
@@ -199,6 +200,7 @@ namespace VartraAbyss.Dialogue
 			talkBool = false;
 			dialogueBox.SetActive(false);
 			m_bindInkFunction.Unbind(currentStory);
+			Time.timeScale = 1f;
 		}
 
 		public void ContinueStory()

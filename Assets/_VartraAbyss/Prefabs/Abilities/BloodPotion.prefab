@@ -59,4 +59,4 @@ MonoBehaviour:
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetActor>k__BackingField: {fileID: 0}
   <Timer>k__BackingField: {fileID: 0}
-  <HealingAmount>k__BackingField: 20
+  <HealingAmount>k__BackingField: 10
