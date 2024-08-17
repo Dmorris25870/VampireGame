@@ -47,21 +47,21 @@ namespace VartraAbyss
 			switch(roundedVelocity)
 			{
 				case Vector3 direction when direction.x > 0 && direction.y > 0:
-				return "Northeast";
-				case Vector3 direction when direction.x < 0 && direction.y > 0:
-				return "Northwest";
-				case Vector3 direction when direction.x > 0 && direction.y < 0:
-				return "Southeast";
-				case Vector3 direction when direction.x < 0 && direction.y < 0:
-				return "Southwest";
-				case Vector3 direction when direction.x > 0 && Mathf.Approximately(direction.y , 0):
 				return "East";
-				case Vector3 direction when direction.x < 0 && Mathf.Approximately(direction.y , 0):
-				return "West";
-				case Vector3 direction when Mathf.Approximately(direction.x , 0) && direction.y > 0:
+				case Vector3 direction when direction.x < 0 && direction.y > 0:
 				return "North";
-				case Vector3 direction when Mathf.Approximately(direction.x , 0) && direction.y < 0:
+				case Vector3 direction when direction.x > 0 && direction.y < 0:
 				return "South";
+				case Vector3 direction when direction.x < 0 && direction.y < 0:
+				return "West";
+				case Vector3 direction when direction.x > 0 && Mathf.Approximately(direction.y , 0):
+				return "Southeast";
+				case Vector3 direction when direction.x < 0 && Mathf.Approximately(direction.y , 0):
+				return "Northwest";
+				case Vector3 direction when Mathf.Approximately(direction.x , 0) && direction.y > 0:
+				return "Northeast";
+				case Vector3 direction when Mathf.Approximately(direction.x , 0) && direction.y < 0:
+				return "Southwest";
 				default:
 				return "Idle";
 			}

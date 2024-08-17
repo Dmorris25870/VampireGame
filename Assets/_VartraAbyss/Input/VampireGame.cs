@@ -315,7 +315,7 @@ public partial class @VampireGame: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e9f8d5dc-b40c-4eef-9939-abb86e379353"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
