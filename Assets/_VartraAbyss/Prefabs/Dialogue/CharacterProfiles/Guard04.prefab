@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 718462395766927759}
   - component: {fileID: 6186370814075195103}
   - component: {fileID: 3919867434897113263}
-  - component: {fileID: 3893461116981096489}
   m_Layer: 0
   m_Name: Guard04
   m_TagString: NPC
@@ -107,22 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3893461116981096489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423098630429341987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6778d3ee0fd8444994b8647fd8840d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualCue: {fileID: 0}
-  inkJSONtoPlay: {fileID: 4900000, guid: bc4af1883d618f0479405c8d28d45705, type: 3}
-  dialogueSystem: {fileID: 0}
-  npcName: Beatrix
 --- !u!1 &8384426761286204219
 GameObject:
   m_ObjectHideFlags: 0

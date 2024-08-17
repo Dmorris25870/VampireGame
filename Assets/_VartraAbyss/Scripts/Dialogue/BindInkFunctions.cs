@@ -28,6 +28,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject AfterZeroPrefab;
 
 		[Header("Extra NPC Characters")]
+		[SerializeField] private GameObject VicBeforeBarkeepPrefab;
 		[SerializeField] private GameObject TempBeatrixPrefab;
 		[SerializeField] private GameObject BasicBarkeepPrefab;
 		[SerializeField] private GameObject WaitingBeaPrefab;
@@ -111,14 +112,16 @@ namespace VartraAbyss
 				else if(number == 5) //BarkeepPassword
 				{
 					BarkeepPasswordPrefab.SetActive(false);
-					PetrPrefab.SetActive(false);
+                    BasicBarkeepPrefab.SetActive(true);
+                    PetrPrefab.SetActive(false);
 					ResetPlayerInRange();
+					VictoriaIntroPrefab.SetActive(true);
+					VicBeforeBarkeepPrefab.SetActive(false);
 
 				}
 				else if(number == 6)//Meet Victoria and spawn temp Beatrix
 				{
 
-					BasicBarkeepPrefab.SetActive(true);
 					TempBeatrixPrefab.SetActive(true);
 					VictoriaIntroPrefab.SetActive(false);
 					ResetPlayerInRange();

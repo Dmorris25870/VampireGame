@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 680199612790346571}
   - component: {fileID: 6148142695762635803}
   - component: {fileID: 3958341805010444907}
-  - component: {fileID: 3927325853463597805}
   - component: {fileID: 5610742372780934632}
   m_Layer: 0
   m_Name: ShyGuard 1
@@ -226,22 +225,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.8339036, y: 3, z: 4.000173}
   m_Center: {x: 0.32690156, y: 0, z: 0.15488529}
---- !u!114 &3927325853463597805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461255800162229223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6778d3ee0fd8444994b8647fd8840d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualCue: {fileID: 3440021273027328361}
-  inkJSONtoPlay: {fileID: 4900000, guid: bc4af1883d618f0479405c8d28d45705, type: 3}
-  dialogueSystem: {fileID: 0}
-  npcName: Beatrix
 --- !u!114 &5610742372780934632
 MonoBehaviour:
   m_ObjectHideFlags: 0
