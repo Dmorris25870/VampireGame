@@ -34,7 +34,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject WaitingBeaPrefab;
 		[SerializeField] private GameObject VictoriaNoTalkyPrefab;
 		[SerializeField] private GameObject WaitingVicPrefab;
-		[SerializeField] private GameObject Guard01Prefab;
+		//[SerializeField] private GameObject Guard01Prefab;
 		[SerializeField] private GameObject Citizen01Prefab;
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
