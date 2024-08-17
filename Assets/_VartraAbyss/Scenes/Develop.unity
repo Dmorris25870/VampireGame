@@ -830,6 +830,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6483021480412095296, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
+    - target: {fileID: 7960306549112465506, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960306549112465506, guid: b0b09979a3d1690408679951dd007030,
+        type: 3}
+      propertyPath: avoidancePriority
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8972855633384232449, guid: b0b09979a3d1690408679951dd007030,
         type: 3}
       propertyPath: dialogueSystem
