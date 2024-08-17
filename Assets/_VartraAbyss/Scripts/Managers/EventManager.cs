@@ -81,5 +81,6 @@ public class EventManager : SingletonManager<EventManager>
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
 
-
+	public delegate void DebugModeEvent();
+	public static DebugModeEvent OnDebugModeCommand;
 }
