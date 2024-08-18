@@ -9,6 +9,7 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
+			self.GetComponent<AudioSource>().PlayOneShot(SoundEffect);
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 			// Use a raycast to find where the player clicked

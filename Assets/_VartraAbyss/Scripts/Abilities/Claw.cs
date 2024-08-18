@@ -23,7 +23,8 @@ namespace VartraAbyss.Abilities
 		public void UseAbility(Actor self)
 		{
 			m_animator.Play("ClawAnim");
-			if(m_meleeSystem.Target != null && m_meleeSystem.Target != self)
+			self.GetComponent<AudioSource>().PlayOneShot(SoundEffect);
+			if (m_meleeSystem.Target != null && m_meleeSystem.Target != self)
 			{
 				if(m_meleeSystem.Target.tag == "Player")
 				{

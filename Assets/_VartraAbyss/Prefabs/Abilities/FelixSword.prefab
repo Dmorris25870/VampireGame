@@ -48,7 +48,8 @@ MonoBehaviour:
     type: 2}
   <Name>k__BackingField: Sword Slash
   <Icon>k__BackingField: {fileID: 0}
-  <SoundEffect>k__BackingField: {fileID: 0}
+  <SoundEffect>k__BackingField: {fileID: 8300000, guid: adc7d920f8868834092ad7ad8a70c83b,
+    type: 3}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 10
   <BloodCost>k__BackingField: 0

@@ -49,7 +49,8 @@ MonoBehaviour:
   <Name>k__BackingField: BloodPotion
   <Icon>k__BackingField: {fileID: 21300000, guid: bb6d25cae2753f74fb20b594c0152fdc,
     type: 3}
-  <SoundEffect>k__BackingField: {fileID: 0}
+  <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1da7546be5aa23b4896cd4fc3d1d0566,
+    type: 3}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 0
   <BloodCost>k__BackingField: 0

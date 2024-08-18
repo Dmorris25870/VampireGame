@@ -16,6 +16,7 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
+			self.GetComponent<AudioSource>().PlayOneShot(SoundEffect);
 			SetHealingAmount(Global.OnGetPlayerEvent?.Invoke() , PercentageToHeal);
 			self.Stat.ModifyHealth(HealingAmount);
 		}

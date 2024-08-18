@@ -48,7 +48,8 @@ MonoBehaviour:
     type: 2}
   <Name>k__BackingField: Wave Blast
   <Icon>k__BackingField: {fileID: 0}
-  <SoundEffect>k__BackingField: {fileID: 0}
+  <SoundEffect>k__BackingField: {fileID: 8300000, guid: 6cde31c847385d64695a6fec305245e7,
+    type: 3}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 25
   <BloodCost>k__BackingField: 0

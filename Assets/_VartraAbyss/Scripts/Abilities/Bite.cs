@@ -23,6 +23,7 @@ namespace VartraAbyss.Abilities
 		public void UseAbility(Actor self)
 		{
 			m_animator.Play("BiteAnim");
+			self.GetComponent<AudioSource>().PlayOneShot(SoundEffect);
 			if(m_meleeSystem.Target != null && m_meleeSystem.Target != self)
 			{
 				self.Stat.ModifyBlood(AbilityData.damage);

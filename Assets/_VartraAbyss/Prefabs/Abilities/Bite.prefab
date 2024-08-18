@@ -48,7 +48,8 @@ MonoBehaviour:
     type: 2}
   <Name>k__BackingField: Bite
   <Icon>k__BackingField: {fileID: 0}
-  <SoundEffect>k__BackingField: {fileID: 0}
+  <SoundEffect>k__BackingField: {fileID: 8300000, guid: 960263cf7591f3a4a885b02fd04aaa71,
+    type: 3}
   <VisualEffect>k__BackingField: {fileID: 0}
   <Damage>k__BackingField: 5
   <BloodCost>k__BackingField: 5
@@ -58,6 +59,5 @@ MonoBehaviour:
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetActor>k__BackingField: {fileID: 0}
   <Timer>k__BackingField: {fileID: 0}
-  m_mesh: {fileID: 0}
   m_meleeSystem: {fileID: 0}
   m_animator: {fileID: 0}

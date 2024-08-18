@@ -11,6 +11,7 @@ namespace VartraAbyss.Abilities
 		public void UseAbility(Actor self)
 		{
 			SpawnProjectile(self);
+			self.GetComponent<AudioSource>().PlayOneShot(SoundEffect);
 			self.Stat.ModifyBlood(-AbilityData.bloodCost);
 		}
 
