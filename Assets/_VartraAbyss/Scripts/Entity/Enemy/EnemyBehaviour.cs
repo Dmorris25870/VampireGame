@@ -90,10 +90,14 @@ namespace VartraAbyss.Entity.Enemy
 			}
             //DropItems();
             if (this.gameObject.name == "PatientZero")
-            {
-				Debug.Log("talk to self");
+            {				
 				EventManager.OnSpawnAfterZeroSelfChat?.Invoke();
+                Debug.Log("talk to self");
             }
+			if(this.gameObject.name == "Felix")
+			{
+				EventManager.OnEndGame?.Invoke();
+			}
             Destroy(this.gameObject);
 			
 		}

@@ -1,4 +1,7 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,6 +10,7 @@ public class UIManager : MonoBehaviour
 	public GameObject pauseMenuObject;
 	public GameObject deathScreenObject;
 	public GameObject controlsMenuObject;
+	public GameObject endGameScreen;
 
 	private void Start()
 	{
@@ -15,6 +19,7 @@ public class UIManager : MonoBehaviour
 		pauseMenuObject.SetActive(false);
 		deathScreenObject.SetActive(false);
 		controlsMenuObject.SetActive(false);
+		endGameScreen.SetActive(false);
 	}
 
 	private void OnEnable()
@@ -26,6 +31,7 @@ public class UIManager : MonoBehaviour
 		EventManager.OnGamePaused += OpenPauseMenu;
 		EventManager.OnGameUnpaused += ClosePauseMenu;
 		EventManager.OnPlayerDeathEvent += DeathScreen;
+		EventManager.OnEndGame += EndGame;
 	}
 
 	private void OnDisable()
@@ -37,7 +43,8 @@ public class UIManager : MonoBehaviour
 		EventManager.OnGamePaused -= OpenPauseMenu;
 		EventManager.OnGameUnpaused -= ClosePauseMenu;
 		EventManager.OnPlayerDeathEvent -= DeathScreen;
-	}
+        EventManager.OnEndGame -= EndGame;
+    }
 
 	public void TurnOnObject(GameObject gameObject)
 	{
@@ -97,5 +104,19 @@ public class UIManager : MonoBehaviour
 	public void TurnOffGameobject(GameObject gameObject)
 	{
 		gameObject.SetActive(false);
+	}
+
+	public void EndGame()
+	{
+		StartCoroutine(EndTheGame());	
+	}
+
+	public IEnumerator EndTheGame()
+	{
+		endGameScreen.SetActive(true);
+
+		yield return new WaitForSeconds(5);
+
+		SceneManager.LoadScene("MainMenu");
 	}
 }

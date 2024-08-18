@@ -11,7 +11,7 @@ public class EventManager : SingletonManager<EventManager>
 	public static GameStateEvent OnGameUnpaused;
 	public static GameStateEvent OnGameDataSaved;
 	public static GameStateEvent OnGameDataLoaded;
-	public static GameStateEvent OnGameQuit;
+	public static GameStateEvent OnGameQuit;	
 	#endregion
 
 	#region Player UI Events
@@ -83,6 +83,9 @@ public class EventManager : SingletonManager<EventManager>
 
 	public delegate void DebugModeEvent();
 	public static DebugModeEvent OnDebugModeCommand;
+
+	public delegate void EndGame();
+	public static EndGame OnEndGame;
 
 	#region Dialogue Events
 	public delegate void DialogueEvent();

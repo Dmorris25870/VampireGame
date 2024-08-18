@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 3253437268260713797}
   - component: {fileID: 4148718761683509135}
   - component: {fileID: 6468682927975574619}
+  - component: {fileID: 8128565538143905720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -466,6 +467,9 @@ MonoBehaviour:
   m_ignorePlayerLayer:
     serializedVersion: 2
     m_Bits: 119
+  m_interactionLayers:
+    serializedVersion: 2
+    m_Bits: 128
   playerAnimations: {fileID: 14583369750214408}
   m_animator: {fileID: 930069688773697507}
   isMoving: 0
@@ -548,6 +552,23 @@ MonoBehaviour:
   detailNoiseTiling: 0.85
   flatten: 2
 --- !u!114 &6468682927975574619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613161199586880686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddffc267a4fe5043a825293bf729e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayMaterials:
+  - {fileID: 2100000, guid: 7a7bb5c195ad32b479ec61e90bb07257, type: 2}
+  - {fileID: 2100000, guid: 1e94f3e9d0e0d5b4aaf03c21da89205f, type: 2}
+  - {fileID: 2100000, guid: 13ddd574546dad34e9995f746852be4a, type: 2}
+  player: {fileID: 2820367666736670474}
+--- !u!114 &8128565538143905720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1548,7 +1569,12 @@ PrefabInstance:
     - target: {fileID: 5531406769424250355, guid: 8c0d8bde86fc8d2488cf00c0aeea8c3b,
         type: 3}
       propertyPath: <Range>k__BackingField
-      value: 20
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531406769424250355, guid: 8c0d8bde86fc8d2488cf00c0aeea8c3b,
+        type: 3}
+      propertyPath: <IgnorePlayerLayer>k__BackingField.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
