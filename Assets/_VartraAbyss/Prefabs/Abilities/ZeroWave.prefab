@@ -44,18 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec9348f0d4ca604c93f075ef4170e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityData>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: 
+  <AbilityData>k__BackingField: {fileID: 11400000, guid: 4a97c64bb54738143bf33f71efa80042,
+    type: 2}
+  <Name>k__BackingField: ZeroWave
   <Icon>k__BackingField: {fileID: 0}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 0
+  <Damage>k__BackingField: 30
   <BloodCost>k__BackingField: 0
-  <CoolDownTime>k__BackingField: 0
-  <Range>k__BackingField: 0
+  <CoolDownTime>k__BackingField: 5
+  <Range>k__BackingField: 2
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetActor>k__BackingField: {fileID: 0}
   <Timer>k__BackingField: {fileID: 0}
-  m_projectilePrefab: {fileID: 0}
+  m_projectilePrefab: {fileID: 5575352061892793201, guid: 5a2874ca53bb08e4c8444494bf8225b7,
+    type: 3}
   m_projectileSpeed: 0

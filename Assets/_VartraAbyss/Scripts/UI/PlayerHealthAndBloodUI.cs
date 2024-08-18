@@ -9,11 +9,13 @@ namespace VartraAbyss.UI
 		[SerializeField] private PlayerBehaviour m_player;
 		[SerializeField] private GameObject m_healthUI;
 		[SerializeField] private GameObject m_bloodUI;
+		[SerializeField] private GameObject bossHealthBar;
 
 		private void OnEnable()
 		{
 			EventManager.OnHealthChanged += UpdateHealthUI;
 			EventManager.OnBloodChanged += UpdateBloodUI;
+			bossHealthBar.SetActive(false);
 		}
 
 		private void OnDisable()

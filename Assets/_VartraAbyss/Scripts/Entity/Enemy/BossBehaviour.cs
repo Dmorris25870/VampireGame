@@ -38,7 +38,7 @@ namespace VartraAbyss.Entity.Boss
 			player = GameObject.FindGameObjectWithTag("Player");
 			playerBehaviour = player.GetComponent<PlayerBehaviour>();
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
-			isFightStarted = false;
+			//isFightStarted = false;
 			if (!isFelix)
             {
 				EventManager.OnZeroFight += StartFight;
@@ -96,10 +96,7 @@ namespace VartraAbyss.Entity.Boss
 
 		public override void Die()
 		{
-			if(isAbilityEnemy)
-			{
-				EventManager.OnDashAbilityUnlocked?.Invoke();
-			}
+			EventManager.OnBossFightClose?.Invoke();
 			//DropItems();
 			Destroy(this.gameObject);
 		}
@@ -156,6 +153,7 @@ namespace VartraAbyss.Entity.Boss
 
 		private void StartFight()
         {
+			EventManager.OnBossFight?.Invoke();
 			isFightStarted = true;
         }
 

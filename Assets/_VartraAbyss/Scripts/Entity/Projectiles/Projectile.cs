@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using VartraAbyss.Entity.Enemy;
+using VartraAbyss.Entity.Boss;
 
 namespace VartraAbyss.Entity
 {
@@ -34,6 +35,10 @@ namespace VartraAbyss.Entity
 					if(target.tag == "Enemy")
 					{
 						collision.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-DamageAmount);
+					}
+					if (target.tag == "Boss")
+					{
+						collision.gameObject.GetComponent<BossBehaviour>().TakeDamage(-DamageAmount);
 					}
 				}
 			}

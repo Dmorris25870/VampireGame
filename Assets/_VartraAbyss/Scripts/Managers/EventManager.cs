@@ -23,6 +23,7 @@ public class EventManager : SingletonManager<EventManager>
 	#region Enemy UI Events
 	public delegate void EnemyUIEvent();
 	public static EnemyUIEvent OnEnemyHealthChanged;
+	public static EnemyUIEvent OnBossHealthChanged;
 	#endregion
 
 	#region Ability Events
@@ -80,6 +81,10 @@ public class EventManager : SingletonManager<EventManager>
 	public delegate void CanAbsorbAbilityEvent();
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
+
+	public delegate void BossFightEvent();
+	public static BossFightEvent OnBossFight;
+	public static BossFightEvent OnBossFightClose;
 
 	public delegate void ZeroFightEvent();
 	public static ZeroFightEvent OnZeroFight;

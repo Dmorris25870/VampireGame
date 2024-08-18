@@ -44,15 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9a53a89b1884942a54a1b25a904e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityData>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: 
+  <AbilityData>k__BackingField: {fileID: 11400000, guid: 2ea4c0578d237f5438dd02666a13633d,
+    type: 2}
+  <Name>k__BackingField: ZeroStrike
   <Icon>k__BackingField: {fileID: 0}
   <SoundEffect>k__BackingField: {fileID: 0}
   <VisualEffect>k__BackingField: {fileID: 0}
-  <Damage>k__BackingField: 0
+  <Damage>k__BackingField: 10
   <BloodCost>k__BackingField: 0
-  <CoolDownTime>k__BackingField: 0
-  <Range>k__BackingField: 0
+  <CoolDownTime>k__BackingField: 2
+  <Range>k__BackingField: 2
   <SpawnPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <TargetActor>k__BackingField: {fileID: 0}
