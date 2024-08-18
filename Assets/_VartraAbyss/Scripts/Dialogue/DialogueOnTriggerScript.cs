@@ -4,7 +4,7 @@ using UnityEngine;
 using VartraAbyss.Dialogue;
 using Ink.Runtime;
 using UnityEngine.InputSystem;
-using Ink.UnityIntegration;
+
 
 namespace VartraAbyss
 {
