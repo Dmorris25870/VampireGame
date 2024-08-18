@@ -122,7 +122,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _PlayerPos: {r: 2.5540428, g: -0.07499987, b: 5.6327934, a: 0}
+    - _PlayerPos: {r: -51.301083, g: -0.07499987, b: -5.547909, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WindDirection: {r: 0.2, g: 0, b: 0.1, a: 0}
   m_BuildTextureStacks: []

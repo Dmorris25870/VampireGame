@@ -12,13 +12,7 @@ namespace VartraAbyss.Abilities
 		private void OnEnable()
 		{
 			m_meleeSystem.GetComponentInChildren<MeleeSystem>();
-		}
-
-		private void OnDisable()
-		{
-			m_meleeSystem = null;
-			m_animator = null;
-		}
+		}		
 
 		public void UseAbility(Actor self)
 		{

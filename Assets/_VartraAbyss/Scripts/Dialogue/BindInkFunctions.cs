@@ -50,7 +50,7 @@ namespace VartraAbyss
 			m_screenTint.SetActive(false);
 			m_breakableWall.GetComponent<NavMeshObstacle>().carving = true;
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
-			//EnemySet02.SetActive(false);
+			EnemySet02.SetActive(false);
 		}
 
         private void OnEnable()
