@@ -38,6 +38,8 @@ namespace VartraAbyss.Entity.Boss
 			player = GameObject.FindGameObjectWithTag("Player");
 			playerBehaviour = player.GetComponent<PlayerBehaviour>();
 			SetNavMeshAgent(GetComponent<NavMeshAgent>());
+			Stat.MaximumHealth = enemyHealth;
+			Stat.Health = enemyHealth;
 			//isFightStarted = false;
 			if (!isFelix)
             {
@@ -77,11 +79,12 @@ namespace VartraAbyss.Entity.Boss
 
 		public void TakeDamage(int amount)
 		{
+			Debug.Log("took damage" + amount);
 			Stat.Health += amount;
 			if(amount < 0)
 			{
 				PlayDamageEffect();
-				EventManager.OnEnemyHealthChanged?.Invoke();
+				EventManager.OnBossHealthChanged?.Invoke();
 			}
 			if(Stat.Health <= 0)
 			{
@@ -108,8 +111,8 @@ namespace VartraAbyss.Entity.Boss
 			{
 				if (isFelix)
 				{
-					Rng = Random.Range(0, 3);
-					if (Rng == 0)
+					Rng = Random.Range(0, 4);
+					if (Rng <= 1)
 					{
 						SetCurrentAbility(null, "FelixWave");
 					}
@@ -120,8 +123,8 @@ namespace VartraAbyss.Entity.Boss
 				}
 				if (!isFelix)
 				{
-					Rng = Random.Range(0, 3);
-					if (Rng == 0)
+					Rng = Random.Range(0, 4);
+					if (Rng <= 1)
 					{
 						SetCurrentAbility(null, "ZeroWave");
 					}

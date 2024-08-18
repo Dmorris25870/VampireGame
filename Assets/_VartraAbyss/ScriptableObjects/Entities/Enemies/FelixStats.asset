@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FelixStats
   m_EditorClassIdentifier: 
   itemDrops: 0
-  enemyHealth: 100
+  enemyHealth: 10
   lootTable: {fileID: 11400000, guid: f57ecdca02bafed47b7a9c9a6d77cdfe, type: 2}
   aggroRange: 8

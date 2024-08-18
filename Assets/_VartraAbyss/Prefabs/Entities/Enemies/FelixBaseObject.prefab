@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedRotation: {x: 0, y: -45, z: 0}
   m_sprite: {fileID: 2292891283503904889}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 8556486140939572561}
 --- !u!1 &2678045534533842188
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,6 @@ GameObject:
   - component: {fileID: 7484570223469536083}
   - component: {fileID: 7811275816922857913}
   - component: {fileID: 2721272304904183278}
-  - component: {fileID: 1986444995584433008}
   m_Layer: 0
   m_Name: AnimationMelee_01
   m_TagString: Untagged
@@ -355,21 +354,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1986444995584433008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736630179613798748}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e80c6057e838dd643bf4a5f02ac55dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockedRotation: {x: 85, y: -45, z: 0}
-  m_sprite: {fileID: 2736630179613798748}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &5535327720688106599
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +578,7 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: 5299999915304386511}
   <CurrentAction>k__BackingField: 1
   enemyBase: {fileID: 11400000, guid: 654fd1a75218ec04e84fa8d4f780fc2c, type: 2}
-  enemyHealth: 0
+  enemyHealth: 100
   attackTimer: {fileID: 0}
   isAbilityEnemy: 0
   player: {fileID: 0}
@@ -807,6 +791,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2783565350478251043}
     m_Modifications:
+    - target: {fileID: -7535445388270686002, guid: 43b4fc96a8aa79949a7c3542c2aecd76,
+        type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 2721272304904183278}
     - target: {fileID: -7535445388270686002, guid: 43b4fc96a8aa79949a7c3542c2aecd76,
         type: 3}
       propertyPath: m_meleeSystem

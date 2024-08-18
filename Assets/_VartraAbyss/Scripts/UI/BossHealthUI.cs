@@ -8,6 +8,7 @@ namespace VartraAbyss
 	{
 		[SerializeField] private BossBehaviour bossBehaviour;
 		[SerializeField] private GameObject healthUI;
+		[SerializeField] private GameObject healthUIHolder;
 
 		private void OnEnable()
 		{
@@ -25,12 +26,12 @@ namespace VartraAbyss
 
 		private void EnableBossHealth()
         {
-			healthUI.SetActive(true);
+			healthUIHolder.SetActive(true);
         }
 
 		private void DisableBossHealth()
         {
-			healthUI?.SetActive(false);
+			healthUIHolder?.SetActive(false);
         }
 
 		private void UpdateHealthUI()

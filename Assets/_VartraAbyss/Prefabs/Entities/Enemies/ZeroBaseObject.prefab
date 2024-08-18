@@ -889,6 +889,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7358094478843565505, guid: 7c5a92389d6746c469da657eee14c3c3,
         type: 3}
+      propertyPath: m_animator
+      value: 
+      objectReference: {fileID: 2721272304904183278}
+    - target: {fileID: -7358094478843565505, guid: 7c5a92389d6746c469da657eee14c3c3,
+        type: 3}
       propertyPath: m_meleeSystem
       value: 
       objectReference: {fileID: 1885374436444553491}
