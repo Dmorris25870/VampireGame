@@ -13,12 +13,14 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
-			m_animator.Play("StrikeAnim");
+			//m_animator.Play("StrikeAnim");
+			Debug.Log("Play ZeroStrikeAnim");
 			if( m_meleeSystem.Target != null && m_meleeSystem.Target != self )
 			{
 				if (m_meleeSystem.Target.tag == "Player")
 				{
 					m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);
+					Debug.Log("dmg to player");
 				}
 
 				if (m_meleeSystem.Target.tag == "Enemy")
@@ -26,7 +28,7 @@ namespace VartraAbyss.Abilities
 					m_meleeSystem.Target.gameObject.GetComponent<EnemyBehaviour>().TakeDamage(-AbilityData.damage);
 				}
 				//m_meleeSystem.Target.Stat.ModifyHealth(-AbilityData.damage);				
-				StartCoroutine(ToggleMeshRenderer());
+				//StartCoroutine(ToggleMeshRenderer());
 			}
 			
 		}
