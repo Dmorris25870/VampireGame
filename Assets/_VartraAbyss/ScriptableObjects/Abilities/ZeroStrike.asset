@@ -25,7 +25,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   soundEffect: {fileID: 0}
   visualEffect: {fileID: 0}
-  damage: 10
+  damage: 1
   bloodCost: 0
   coolDownTime: 2
   range: 2
