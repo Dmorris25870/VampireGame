@@ -11,7 +11,7 @@ namespace VartraAbyss
 		[SerializeField] private GameObject m_breakableWall; //Wall gating player in cell
 		[SerializeField] private GameObject zeroBossDoor; //wall gating player in zero boss room
 		[SerializeField] private GameObject finalBossDoor; //wall gating player fromfelix boss room
-		//[SerializeField] private GameObject m_wall;
+		[SerializeField] private GameObject letterFromBea; //UI element with image directing player to the final boss
 
 		[Header("Story Npc Characters")]
 		[SerializeField] private GameObject BeatrixIntroPrefab;
@@ -28,12 +28,13 @@ namespace VartraAbyss
 		[SerializeField] private GameObject AfterZeroPrefab;
 
 		[Header("Extra NPC Characters")]
+		[SerializeField] private GameObject VicBeforeBarkeepPrefab;
 		[SerializeField] private GameObject TempBeatrixPrefab;
 		[SerializeField] private GameObject BasicBarkeepPrefab;
 		[SerializeField] private GameObject WaitingBeaPrefab;
 		[SerializeField] private GameObject VictoriaNoTalkyPrefab;
 		[SerializeField] private GameObject WaitingVicPrefab;
-		[SerializeField] private GameObject Guard01Prefab;
+		//[SerializeField] private GameObject Guard01Prefab;
 		[SerializeField] private GameObject Citizen01Prefab;
 
 		[SerializeField] private Dialogue_trigger m_playerTrigger;
@@ -41,6 +42,7 @@ namespace VartraAbyss
 		[Header("Prefabs")]
 		[SerializeField] private GameObject EnemySet01;
         [SerializeField] private GameObject EnemySet02;
+        [SerializeField] private GameObject GuardSet01;
 
 
         private void Awake()
@@ -50,7 +52,18 @@ namespace VartraAbyss
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
 			EnemySet02.SetActive(false);
 		}
-		public void BindExternalFunction(Story story)
+
+        private void OnEnable()
+        {
+			EventManager.OnSpawnAfterZeroSelfChat += SpawnAfterZeroSelfTalk;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnSpawnAfterZeroSelfChat -= SpawnAfterZeroSelfTalk;
+
+        }
+        public void BindExternalFunction(Story story)
 		{
 			story.BindExternalFunction("ExplosionScreen" , (int number) =>
 			{
@@ -110,14 +123,16 @@ namespace VartraAbyss
 				else if(number == 5) //BarkeepPassword
 				{
 					BarkeepPasswordPrefab.SetActive(false);
-					PetrPrefab.SetActive(false);
+                    BasicBarkeepPrefab.SetActive(true);
+                    PetrPrefab.SetActive(false);
 					ResetPlayerInRange();
+					VictoriaIntroPrefab.SetActive(true);
+					VicBeforeBarkeepPrefab.SetActive(false);
 
 				}
 				else if(number == 6)//Meet Victoria and spawn temp Beatrix
 				{
 
-					BasicBarkeepPrefab.SetActive(true);
 					TempBeatrixPrefab.SetActive(true);
 					VictoriaIntroPrefab.SetActive(false);
 					ResetPlayerInRange();
@@ -131,11 +146,13 @@ namespace VartraAbyss
 					BarkeepMessagePrefab.SetActive(true);//Enable Messenger Barkeep
 					BasicBarkeepPrefab.SetActive(false); //Disable Basic barkeep and temp bea
 					TempBeatrixPrefab.SetActive(false);
-					Guard01Prefab.SetActive(false);
-					FelixFinalBattlePrefab.SetActive(true);
-					AfterZeroPrefab.SetActive(true); //turn on self talk prefab
-
+					//Guard01Prefab.SetActive(false);
+					FelixFinalBattlePrefab.SetActive(true); //Turn on final boss talk
+					//AfterZeroPrefab.SetActive(true); //turn on self talk prefab
+					GuardSet01.SetActive(false);
 					//m_wall.SetActive(false);
+
+					//SPAWN ZERO BOSS HERE
 
 				}
 				else if(number == 8) //Back to barkeep with letter
@@ -145,6 +162,7 @@ namespace VartraAbyss
 					BasicBarkeepPrefab.SetActive(true);
 					BeaGetsPowersPrefab.SetActive(true); //Spawn BeaGetsPowers and Victoria no dialogue
 					VictoriaNoTalkyPrefab.SetActive(true);
+					letterFromBea.SetActive(true);
 
 				}
 				else if(number == 9) //Found Bea and about to find Felix
@@ -160,11 +178,13 @@ namespace VartraAbyss
 					ResetPlayerInRange();
 					//Turn off Final felix battle
 					FelixFinalBattlePrefab.SetActive(false);
-					//Spawn Felix boss
+					
+					//SPAWN FELIX BOSS HERE
 				}
 				else if (number == 11) //turn off after patient zero self talk
 				{
 					AfterZeroPrefab.SetActive(false);
+					zeroBossDoor.SetActive(false);
 				}
 
 			});
@@ -179,6 +199,11 @@ namespace VartraAbyss
 		public void ResetPlayerInRange()
 		{
 			m_playerTrigger.playerInRange = false;
+		}
+
+		public void SpawnAfterZeroSelfTalk()
+		{
+			AfterZeroPrefab.SetActive(true);
 		}
 	}
 }

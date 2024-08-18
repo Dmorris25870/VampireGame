@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using VartraAbyss.Entity;
 using VartraAbyss.Entity.Player;
@@ -14,9 +15,11 @@ namespace VartraAbyss.PlayerInputs
 		[SerializeField] private PlayerInput m_playerControl;
 		[SerializeField] private PlayerBehaviour m_player;
 		[SerializeField] private LayerMask m_ignorePlayerLayer;
+		[SerializeField] private LayerMask m_interactionLayers;
 		[SerializeField] public PlayerAnimations playerAnimations;
 		[SerializeField] private Animator m_animator;
 
+		private Camera m_mainCamera;
 		private Vector3 m_clickPoint;
 		public LayerMask IgnorePlayerLayer => m_ignorePlayerLayer;
 		public Vector3 ClickPoint { get => m_clickPoint; set => m_clickPoint = value; }
@@ -43,6 +46,7 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Skills").performed += OnSkillsMenuPressed;
 			m_playerControl.actions.FindAction("Pause").performed += OnPauseMenuPressed;
 			OnPlayerClick += OnPrimaryInput;
+			m_playerControl.actions.FindAction("DebugMode").performed += OnDebugCommmand;
 		}
 
 		private void OnDisable()
@@ -59,11 +63,22 @@ namespace VartraAbyss.PlayerInputs
 			m_playerControl.actions.FindAction("Skills").performed -= OnSkillsMenuPressed;
 			m_playerControl.actions.FindAction("Pause").performed -= OnPauseMenuPressed;
 			OnPlayerClick -= OnPrimaryInput;
+			m_playerControl.actions.FindAction("DebugMode").performed -= OnDebugCommmand;
+		}
+
+		void Start()
+		{
+			m_mainCamera = Camera.main;
 		}
 
 		private bool IsWithinAbilityRange(Actor actor1 , GameObject actor2)
 		{
 			return Utilities.GetDistanceBetweenTwoActors(actor1.gameObject , actor2) > actor1.CurrentAbility.Range;
+		}
+
+		private void OnDebugCommmand(InputAction.CallbackContext context)
+		{
+			EventManager.OnDebugModeCommand?.Invoke();
 		}
 
 		private void OnPrimaryInputCommand(InputAction.CallbackContext context)
@@ -184,45 +199,50 @@ namespace VartraAbyss.PlayerInputs
 		}
 		private Vector3 OnPrimaryInput()
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			Actor player = Global.OnGetPlayerEvent?.Invoke();
-
-			if(Physics.Raycast(ray , out RaycastHit hit , IgnorePlayerLayer))
+			Ray ray = m_mainCamera.ScreenPointToRay(Input.mousePosition);
+			if(Physics.Raycast(ray , out RaycastHit hit , Mathf.Infinity , m_interactionLayers))
 			{
-				player.SetTarget(hit.point);
-				playerAnimations.x = hit.point.x - player.transform.position.x;
-				playerAnimations.z = hit.point.z - player.transform.position.z;
-
-				if(hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>() != null)
+				NavMeshHit navMeshHit;
+				if(NavMesh.SamplePosition(hit.point , out navMeshHit , 1.0f , NavMesh.AllAreas))
 				{
-					player.SetTarget(hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>().transform.position);
+					Vector3 targetPosition = navMeshHit.position;
+					Actor player = Global.OnGetPlayerEvent?.Invoke();
+					if(player == null)
+						return Vector3.zero;
 
-					if(IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject))
+					// Check if hit object is an enemy
+					var enemyBehaviour = hit.collider.GetComponent<Entity.Enemy.EnemyBehaviour>();
+					if(enemyBehaviour != null)
 					{
+						Vector3 enemyPosition = enemyBehaviour.transform.position;
+						player.SetTarget(enemyPosition);
+
+						bool isInRange = IsWithinAbilityRange(gameObject.GetComponent<Actor>() , hit.collider.gameObject);
 						player.SetIsMoving(true);
-						//playerAnimations.PlayWalkAnim();
 						m_animator.SetBool("isMoving" , true);
-						player.SetIsAttacking(true);
+						player.SetIsAttacking(isInRange);
 						player.SetCurrentAction(ActionTypes.Move);
 						return player.Target;
 					}
 					else
 					{
-						player.SetIsMoving(false);
+						player.SetTarget(targetPosition);
+						player.SetIsMoving(true);
+						m_animator.SetBool("isMoving" , true);
+						player.SetCurrentAction(ActionTypes.Move);
 						return player.Target;
 					}
 				}
-				else
-				{
-					player.SetIsMoving(true);
-					//playerAnimations.PlayWalkAnim();
-					m_animator.SetBool("isMoving" , true);
-					player.SetCurrentAction(ActionTypes.Move);
-					return player.Target;
-				}
 			}
 
-			return player.Target;
+			// Default action when nothing is hit
+			Actor defaultPlayer = Global.OnGetPlayerEvent?.Invoke();
+
+			if(defaultPlayer != null)
+			{
+				defaultPlayer.SetIsMoving(false);
+			}
+			return Vector3.zero;
 		}
 	}
 }

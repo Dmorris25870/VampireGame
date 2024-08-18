@@ -72,7 +72,7 @@ namespace VartraAbyss.Dialogue
 			//InitialiseChoices();
 			//layoutAnimator = dialogueBox.GetComponent<Animator>();
 			portraitAnimatorLeft = portraitAnimatorLeft.GetComponent<Animator>();
-			EnterDialogueMode(dialogue_Trigger.inkJSON);
+			//EnterDialogueMode(dialogue_Trigger.inkJSON);
 			//portraitAnimatorRight = portraitAnimatorRight.GetComponent<Animator>();
 			//portraitLeftParent = portraitLeftParent.GetComponent<GameObject>();
 			//portraitRightParent = portraitRightParent.GetComponent<GameObject>();

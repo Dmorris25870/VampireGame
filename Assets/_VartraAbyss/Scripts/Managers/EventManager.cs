@@ -23,11 +23,11 @@ public class EventManager : SingletonManager<EventManager>
 	#region Enemy UI Events
 	public delegate void EnemyUIEvent();
 	public static EnemyUIEvent OnEnemyHealthChanged;
-	public static EnemyUIEvent OnBossHealthChanged;
-	#endregion
+    public static EnemyUIEvent OnBossHealthChanged;
+    #endregion
 
-	#region Ability Events
-	public delegate void AbilityEvent();
+    #region Ability Events
+    public delegate void AbilityEvent();
 	public static AbilityEvent OnActivatedSlot1Ability;
 	public static AbilityEvent OnActivatedSlot2Ability;
 	public static AbilityEvent OnActivatedSlot3Ability;
@@ -82,13 +82,22 @@ public class EventManager : SingletonManager<EventManager>
 	public static CanAbsorbAbilityEvent OnCanAbsorbAbility;
 	public static CanAbsorbAbilityEvent OnCannotAbsorbAbility;
 
-	public delegate void BossFightEvent();
-	public static BossFightEvent OnBossFight;
-	public static BossFightEvent OnBossFightClose;
+	public delegate void DebugModeEvent();
+	public static DebugModeEvent OnDebugModeCommand;
 
-	public delegate void ZeroFightEvent();
-	public static ZeroFightEvent OnZeroFight;
+    public delegate void BossFightEvent();
+    public static BossFightEvent OnBossFight;
+    public static BossFightEvent OnBossFightClose;
 
-	public delegate void FelixFightEvent();
-	public static FelixFightEvent OnFelixFight;
+    public delegate void ZeroFightEvent();
+    public static ZeroFightEvent OnZeroFight;
+
+    public delegate void FelixFightEvent();
+    public static FelixFightEvent OnFelixFight;
+
+
+    #region Dialogue Events
+    public delegate void DialogueEvent();
+	public static DialogueEvent OnSpawnAfterZeroSelfChat;
+    #endregion
 }

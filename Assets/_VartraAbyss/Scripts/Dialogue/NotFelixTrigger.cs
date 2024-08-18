@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VartraAbyss.Dialogue;
+using Ink.Runtime;
+using UnityEngine.InputSystem;
+
 
 namespace VartraAbyss
 {
@@ -9,13 +12,23 @@ namespace VartraAbyss
     {
         [SerializeField] DialogueSystem dialogueSystem;
         [SerializeField] DialogueHolder dialogueHolder;
+        [SerializeField] Dialogue_trigger dialogueTrigger;
+        
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "player")
+            if (other.tag == "Player" && !dialogueSystem.dialogueIsPlaying)
             {
-                dialogueSystem.EnterDialogueMode(dialogueHolder.inkJSONtoPlay);
+                dialogueSystem.dHolder = this.gameObject;
+                dialogueSystem.EnterDialogueMode(dialogueTrigger.inkJSON);
+                //dialogueSystem.PerformTalk();
             }
+        }
+
+        private void Awake()
+        {
+            dialogueSystem.GetComponent<DialogueSystem>();
+            dialogueTrigger.GetComponent<Dialogue_trigger>();
         }
     }
 }

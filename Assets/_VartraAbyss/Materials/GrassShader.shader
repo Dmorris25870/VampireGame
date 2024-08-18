@@ -3,16 +3,13 @@ Shader "Unlit/GrassShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _SwayAmount ("Sway Amount", Float) = 0.05
-        _SwaySpeed ("Sway Speed", Float) = 1.0
-        _WindDirection ("Wind Direction", Vector) = (1, 0, 0, 0)
-        _VariationScale ("Variation Scale", Float) = 0.5
+        _PartStrength ("Part Strength", Range(0, 1)) = 0.5
+        _PartRadius ("Part Radius", Range(0, 5)) = 1
+        _PlayerPos ("Player Position", Vector) = (0,0,0,0)
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
+        Tags {"Queue" = "Transparent" }
         Pass
         {
             CGPROGRAM
@@ -25,7 +22,6 @@ Shader "Unlit/GrassShader"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-                float3 worldPos : TEXCOORD1;
             };
 
             struct v2f
@@ -35,32 +31,26 @@ Shader "Unlit/GrassShader"
             };
 
             sampler2D _MainTex;
-            float4 _MainTex_ST;
-            float _SwayAmount;
-            float _SwaySpeed;
-            float4 _WindDirection;
-            float _VariationScale;
+            float _PartStrength;
+            float _PartRadius;
+            float4 _PlayerPos;
 
             v2f vert (appdata v)
             {
                 v2f o;
+                float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
-                // Introduce random variation based on world position
-                float randomOffset = frac(sin(dot(v.worldPos.xy, float2(12.9898, 78.233))) * 43758.5453) * _VariationScale;
+                float3 toPlayer = worldPos - _PlayerPos.xyz;
+                float distance = length(toPlayer);
 
-                // Calculate vertical gradient effect
-                float gradient = saturate(v.vertex.y);
+                float proximityEffect = saturate(1.0 - distance / _PartRadius);
 
-                // Calculate sway factor with random variation and gradient effect
-                float swayFactor = sin(_Time.y * (_SwaySpeed + randomOffset) + v.worldPos.x * 0.1) * (_SwayAmount + randomOffset) * gradient;
+                float3 partDirection = normalize(toPlayer) * _PartStrength * proximityEffect;
 
-                // Apply sway with wind direction
-                v.vertex.x += swayFactor * _WindDirection.x;
-                v.vertex.z += swayFactor * _WindDirection.z;
+                v.vertex.xyz += partDirection * (v.vertex.y / _PartRadius);
 
-                // Convert the modified vertex position to clip space
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = v.uv;
                 return o;
             }
 
