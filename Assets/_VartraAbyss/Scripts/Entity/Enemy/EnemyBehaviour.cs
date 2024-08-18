@@ -88,8 +88,14 @@ namespace VartraAbyss.Entity.Enemy
 			{
 				EventManager.OnDashAbilityUnlocked?.Invoke();
 			}
-			//DropItems();
-			Destroy(this.gameObject);
+            //DropItems();
+            if (this.gameObject.name == "PatientZero")
+            {
+				Debug.Log("talk to self");
+				EventManager.OnSpawnAfterZeroSelfChat?.Invoke();
+            }
+            Destroy(this.gameObject);
+			
 		}
 
 		private void FixedUpdate()

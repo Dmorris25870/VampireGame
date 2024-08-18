@@ -22,6 +22,7 @@ namespace VartraAbyss.Abilities
 
 		public void UseAbility(Actor self)
 		{
+			Debug.Log(m_animator.ToString());
 			m_animator.Play("BiteAnim");
 			if(m_meleeSystem.Target != null && m_meleeSystem.Target != self)
 			{

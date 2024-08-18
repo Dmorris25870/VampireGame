@@ -50,7 +50,7 @@ namespace VartraAbyss
 			m_screenTint.SetActive(false);
 			m_breakableWall.GetComponent<NavMeshObstacle>().carving = true;
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
-			EnemySet02.SetActive(false);
+			//EnemySet02.SetActive(false);
 		}
 
         private void OnEnable()
@@ -89,7 +89,7 @@ namespace VartraAbyss
 				if (number == 1)
 				{
 					//Add barrel to lab
-					EnemySet02.SetActive(true);
+					EnemySet02.SetActive(true);					
 					EnemySet01.SetActive(false);
 				}
 
@@ -150,11 +150,12 @@ namespace VartraAbyss
 					FelixFinalBattlePrefab.SetActive(true); //Turn on final boss talk
 					//AfterZeroPrefab.SetActive(true); //turn on self talk prefab
 					GuardSet01.SetActive(false);
-					//m_wall.SetActive(false);
+                    //m_wall.SetActive(false);
+                    finalBossDoor.SetActive(false);//turn off cell door
 
-					//SPAWN ZERO BOSS HERE
+                    //SPAWN ZERO BOSS HERE
 
-				}
+                }
 				else if(number == 8) //Back to barkeep with letter
 				{
 					ResetPlayerInRange();
