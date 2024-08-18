@@ -52,7 +52,18 @@ namespace VartraAbyss
 			m_playerTrigger.GetComponent<Dialogue_trigger>();
 			EnemySet02.SetActive(false);
 		}
-		public void BindExternalFunction(Story story)
+
+        private void OnEnable()
+        {
+			EventManager.OnSpawnAfterZeroSelfChat += SpawnAfterZeroSelfTalk;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnSpawnAfterZeroSelfChat -= SpawnAfterZeroSelfTalk;
+
+        }
+        public void BindExternalFunction(Story story)
 		{
 			story.BindExternalFunction("ExplosionScreen" , (int number) =>
 			{
@@ -137,9 +148,11 @@ namespace VartraAbyss
 					TempBeatrixPrefab.SetActive(false);
 					//Guard01Prefab.SetActive(false);
 					FelixFinalBattlePrefab.SetActive(true); //Turn on final boss talk
-					AfterZeroPrefab.SetActive(true); //turn on self talk prefab
+					//AfterZeroPrefab.SetActive(true); //turn on self talk prefab
 					GuardSet01.SetActive(false);
 					//m_wall.SetActive(false);
+
+					//SPAWN ZERO BOSS HERE
 
 				}
 				else if(number == 8) //Back to barkeep with letter
@@ -165,7 +178,8 @@ namespace VartraAbyss
 					ResetPlayerInRange();
 					//Turn off Final felix battle
 					FelixFinalBattlePrefab.SetActive(false);
-					//Spawn Felix boss
+					
+					//SPAWN FELIX BOSS HERE
 				}
 				else if (number == 11) //turn off after patient zero self talk
 				{
@@ -185,6 +199,11 @@ namespace VartraAbyss
 		public void ResetPlayerInRange()
 		{
 			m_playerTrigger.playerInRange = false;
+		}
+
+		public void SpawnAfterZeroSelfTalk()
+		{
+			AfterZeroPrefab.SetActive(true);
 		}
 	}
 }

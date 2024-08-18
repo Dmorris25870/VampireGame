@@ -135,12 +135,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1416939904}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &310835426 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9038958270543896815, guid: 8c5b568e17764314c812b55f0464739b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1275662555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331324323
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +953,11 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 127
       objectReference: {fileID: 0}
+    - target: {fileID: 9208788208615554350, guid: 8c5b568e17764314c812b55f0464739b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1481,7 +1480,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_wall
       value: 
-      objectReference: {fileID: 2068027466}
+      objectReference: {fileID: 0}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: EnemySet01
@@ -1521,7 +1520,7 @@ PrefabInstance:
         type: 3}
       propertyPath: letterFromBea
       value: 
-      objectReference: {fileID: 310835426}
+      objectReference: {fileID: 0}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: AfterZeroPrefab
@@ -1536,7 +1535,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_breakableWall
       value: 
-      objectReference: {fileID: 1730573721}
+      objectReference: {fileID: 0}
     - target: {fileID: 6982066944258420127, guid: ecc509d4eddece1469e475f6d2774d71,
         type: 3}
       propertyPath: m_playerTrigger
@@ -1664,12 +1663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d13d0acfa1806479eab2b2cc1000d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1730573721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3488807179028100205, guid: c98ad8ee9d92284479459afc92cfa43c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2233546268355962787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1759328208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6741488757848493896, guid: 8c5b568e17764314c812b55f0464739b,
@@ -1789,12 +1782,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2068027466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 465384863109330960, guid: c98ad8ee9d92284479459afc92cfa43c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2233546268355962787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2144088517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2132,6 +2119,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2321224170670830280, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
+    - target: {fileID: 2378844843546747670, guid: c98ad8ee9d92284479459afc92cfa43c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2768705569191115888, guid: c98ad8ee9d92284479459afc92cfa43c,
         type: 3}
       propertyPath: serializationData.Prefab

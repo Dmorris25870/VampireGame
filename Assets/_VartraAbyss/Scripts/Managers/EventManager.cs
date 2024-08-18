@@ -83,4 +83,9 @@ public class EventManager : SingletonManager<EventManager>
 
 	public delegate void DebugModeEvent();
 	public static DebugModeEvent OnDebugModeCommand;
+
+	#region Dialogue Events
+	public delegate void DialogueEvent();
+	public static DialogueEvent OnSpawnAfterZeroSelfChat;
+    #endregion
 }
