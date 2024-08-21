@@ -28,6 +28,11 @@ namespace VartraAbyss
             }
         }
 
+        private void OnTriggerExit(Collider other)
+        {
+            StopAllCoroutines();
+        }
+
         private void Awake()
         {
             dialogueSystem.GetComponent<DialogueSystem>();
