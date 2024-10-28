@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
 	[SerializeField] private GameObject m_creditsScreen;
+	public GameObject titleCard;
 	[SerializeField] private GameObject m_loadingScreen;
 	[SerializeField] private Image m_loadingBar;
 	[SerializeField] private GameObject m_playButton;
@@ -28,11 +29,13 @@ public class SceneLoader : MonoBehaviour
 	public void ShowCreditsMenu()
 	{
 		m_creditsScreen.SetActive(true);
+		titleCard.SetActive(false);
 	}
 
 	public void HideCreditsMenu()
 	{
 		m_creditsScreen.SetActive(false);
+		titleCard.SetActive(true);
 	}
 
 	public void ShowLoadingScreen()
