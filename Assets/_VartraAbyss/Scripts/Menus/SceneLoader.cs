@@ -42,6 +42,7 @@ public class SceneLoader : MonoBehaviour
 	{
 		m_loadingScreen.SetActive(true);
 		HidePlayButton();
+		titleCard.SetActive(false);
 		m_loadingBar.fillAmount = 0;
 		StartCoroutine(LoadingBarCoroutine());
 	}
